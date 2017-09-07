@@ -1,0 +1,49 @@
+﻿@using Resources
+@using Kendo.Mvc.UI
+@model string
+@section JavaScript
+{
+    <script type="text/javascript" src="@(Url.Content("~/Scripts/Areas/Administration/MandantLogo/MandantLogo.js"))"></script>
+}
+
+<h2>@TitleLocalization.MandantLogoPageTitle</h2>
+
+
+<fieldset class="popupFormFieldset" style="width: 400px">
+    <img id="currentMandantImage" src="@Url.Content("~/Content/gifs/AjaxBusy.gif")"
+         style="border: darkblue; border-style: solid; border-width: thin; width: 200px; height: auto"/>
+    <br/>
+    <b>@ViewBag.MandantName</b>
+    <hr style="margin-bottom: 20px"/>
+    @{
+        Html.Kendo().Upload()
+            .Name("uploadFiles")
+            .Async(async => async
+                .Save("Upload", "Mandantlogo")
+                .AutoUpload(false)
+            )
+            .Events(events =>
+            {
+                events.Success("index.onSuccess");
+                events.Error("index.onError");
+                events.Select("index.onSelect");
+                events.Upload("index.onUpload");
+            })
+            .Multiple(false)
+            .Render();
+    }
+
+    @(Html.Hidden("parameters", null, new Dictionary<string, object>
+      {
+          {"id", "parameters"},
+          {"data-uploadResultUrl", Url.Action("GetLastUploadResult")},
+          {"data-progressText", NotificationLocalization.UploadMandantenlogoProgressText},
+          {"data-errorMessage", NotificationLocalization.UploadFileLimitExceeded},
+          {"data-currentMandantImageUrl", Url.Action("CurrentMandantImage")},
+          {"data-fileExtensionErrorMessage", NotificationLocalization.UploadMandantLogoFileExtensionErrorText},
+      }))
+    <br/>
+    <div id="result">
+    </div>
+    <hr/>
+</fieldset>

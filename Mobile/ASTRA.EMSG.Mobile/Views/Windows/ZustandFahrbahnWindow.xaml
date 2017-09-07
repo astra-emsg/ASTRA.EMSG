@@ -1,0 +1,17 @@
+﻿<Window x:Class="ASTRA.EMSG.Mobile.Views.Windows.ZustandFahrbahnWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        Title="{Binding WindowTitle}"        
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:ViewModels="clr-namespace:ASTRA.EMSG.Mobile.ViewModels"
+        xmlns:Views="clr-namespace:ASTRA.EMSG.Mobile.Views" mc:Ignorable="d" 
+        d:DesignHeight="599" d:DesignWidth="521"
+        d:DataContext="{d:DesignInstance ViewModels:ZustandFahrbahnWindowViewModel, IsDesignTimeCreatable=False}"
+        Height="1000" Width="1000"
+        WindowState="Maximized"
+        Topmost="True"
+        Style="{StaticResource WindowBaseStyle}"
+        >
+    <Views:ZustandFahrbahnView />
+</Window>

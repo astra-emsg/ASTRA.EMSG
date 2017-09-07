@@ -1,0 +1,65 @@
+﻿.legend { margin: 0.5em; }
+.legend .layer
+{
+  float: left;
+  margin-right: 1em;
+  /* SHOW ALL Layers by default because we're showing all layers in each map */
+  /*display: none; */              /* hide all layers by default and only activate the ones needed */
+  /*visibility: hidden;*/
+}
+
+.legend .layer.show
+{
+  visibility: visible;
+}
+
+.legend .layer .layerName
+{
+  font-weight: bold;
+  display: block;
+}
+
+.legend .end  
+{
+    font-size:1.2em;
+    clear: both; 
+    visibility:hidden;
+    padding-right: 10px;
+    height: 0px;
+    overflow:hidden;
+}
+  
+.labelSpan .layer
+{
+  padding-left: 1em;
+}
+
+.legend .layer ul, .labelSpan .layer ul
+{
+  list-style: none;
+  padding: 0;
+  margin: 0;  
+  display: table;
+}
+
+.legend .layer ul li, .labelSpan .layer ul li
+{
+  display: table-row;
+}
+
+  .legend .layer ul li img , .labelSpan .layer ul li img
+, .legend .layer ul li span, .labelSpan .layer ul li span
+{
+  display: table-cell;
+  vertical-align: middle;
+  padding-right: 7px;
+}
+
+.legend .button
+{
+  padding-left: 10px;
+  cursor: pointer;
+  background-image: url(./images/treeview-minus.gif);
+  background-position: left center;
+  background-repeat: no-repeat;
+}

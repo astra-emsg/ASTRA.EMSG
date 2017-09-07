@@ -1,0 +1,11 @@
+﻿@using Resources
+@using Kendo.Mvc.UI
+<h2>@TitleLocalization.WiederbeschaffungswertUndWertverlustProJahrGrafischePageTitle</h2>
+@if (!((IEnumerable<DropDownListItem>)ViewBag.ErfassugnsPeriodList).Any())
+{
+    @NotificationLocalization.CanNotDoAuswertung
+}
+else
+{
+    @Html.Partial("Preview")
+}

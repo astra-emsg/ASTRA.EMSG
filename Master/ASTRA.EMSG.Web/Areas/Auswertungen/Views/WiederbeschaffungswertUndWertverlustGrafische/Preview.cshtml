@@ -1,0 +1,31 @@
+﻿@using ASTRA.EMSG.Business.Reports.WiederbeschaffungswertUndWertverlustGrafische
+@using ASTRA.EMSG.Common.Enums
+
+@using ASTRA.EMSG.Web.Infrastructure.HtmlHelperExtensions
+@if ((NetzErfassungsmodus)ViewBag.NetzErfassungsmodus != NetzErfassungsmodus.Summarisch)
+{
+    @(Html.ToGridFilterBuilder<WiederbeschaffungswertUndWertverlustGrafischeParameter>()
+                            .WithEnumFilter<EigentuemerTyp?, EigentuemerTyp>(f => f.Eigentuemer, filterFunction: "RenderPreview"))
+}
+
+<div id="ReportImagePreview"/>
+
+<script type="text/javascript">
+    function RenderPreview() {
+        $.ajax({
+            url: '@(Url.Action("GetReportImagePreview"))',
+            type: 'POST',
+            data: GetReportParameter(),
+            success: function (data) { $('#ReportImagePreview').empty().append(data); }
+        });
+    }
+
+    function GetReportParameter() {
+        return {
+            ErfassungsPeriodId: $("#ErfassungsPeriod").val(),
+            Eigentuemer: $("#Eigentuemer").val()
+        };
+    }
+
+    $(RenderPreview);
+</script>

@@ -1,0 +1,13 @@
+﻿@using ASTRA.EMSG.Web.Areas.Auswertungen.ReportGridCommands
+@model StrassenabschnitteListeGridCommand
+           
+@section JavaScript
+{
+    <script type="text/javascript" src="@(Url.Content("~/Scripts/Areas/Auswertungen/GisReport.js"))"></script>
+    <script type="text/javascript" src="@(Url.Content("~/Scripts/Areas/Auswertungen/StrassenabschnitteListe/StrassenabschnitteListe.js"))"></script>
+    <script type="text/javascript">
+        var isUdocked = true;
+    </script>
+}
+
+@Html.Partial("Form", Model)

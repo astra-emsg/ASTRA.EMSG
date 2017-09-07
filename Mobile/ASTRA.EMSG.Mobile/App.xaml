@@ -1,0 +1,58 @@
+﻿<Application x:Class="ASTRA.EMSG.Mobile.App"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml" xmlns:Mobile="clr-namespace:ASTRA.EMSG.Mobile"
+             xmlns:Converters="clr-namespace:ASTRA.EMSG.Mobile.Converters" StartupUri="MainWindow.xaml" Startup="App_OnStartup" Exit="App_OnExit">
+    <Application.Resources>
+        <Mobile:ResourceWrapper x:Key="Resx" />
+        <Mobile:MainViewModelLocator x:Key="MainViewModelLocator"/>
+        <Converters:ValidationErrorCollectionToStringConverter x:Key="ValidationErrorCollectionToStringConverter" />
+        <BooleanToVisibilityConverter x:Key="BooleanToVisibilityConverter"/>
+        <Converters:BooleanToVisibilityConverter x:Key="InvertBooleanToVisibilityConverter" IsInverted="True"/>
+        <Converters:DecimalDisplayConverter x:Key="DecimalDisplayConverter"/>
+        <Converters:StringToNullableDecimalConverter x:Key="StringToNullableDecimalConverter"/>
+        <Converters:StringToNullableIntConverter x:Key="StringToNullableIntConverter"/>
+        <Converters:StringToVisibilityConverter x:Key="StringToVisibilityConverter"/>
+        <!--<Converters:BooleanToZebraColorConverter x:Key="BooleanToZebraColorConverter" ZebraColor="#F1F5FB" DefaultColor="White"/>-->
+        <Converters:BooleanToZebraColorConverter x:Key="BooleanToZebraColorConverter" ZebraColor="#F7F7FF" DefaultColor="White"/>
+        <Style x:Key="ErrorTooltip" TargetType="{x:Type ToolTip}">
+            <Setter Property = "Background" Value="#ffff99"/>
+            <Setter Property = "Foreground" Value="Red"/>
+        </Style>
+        <Style x:Key="WindowBaseStyle" TargetType="{x:Type Window}">
+            <Setter Property="FontSize" Value="12"/>
+        </Style>
+        <Style x:Key="FieldLabel" TargetType="{x:Type TextBlock}">
+            <Setter Property="VerticalAlignment" Value="Center" />
+        </Style>
+        <Style x:Key="RequiredFieldLabel" TargetType="{x:Type TextBlock}">
+            <Setter Property="Foreground" Value="#4987c5" />
+            <Setter Property="VerticalAlignment" Value="Center" />
+        </Style>
+
+        <Style TargetType="{x:Type TextBox}">
+            <Setter Property="HorizontalAlignment" Value="Stretch" />
+            <Setter Property="VerticalAlignment" Value="Center" />
+            <Setter Property="Margin" Value="1" />
+        </Style>
+
+        <Style TargetType="{x:Type TextBlock}">
+            <Setter Property="HorizontalAlignment" Value="Stretch" />
+            <Setter Property="VerticalAlignment" Value="Center" />
+            <Setter Property="Margin" Value="1" />
+        </Style>
+        <Style TargetType="{x:Type Button}">
+            <Setter Property="HorizontalAlignment" Value="Right" />
+            <Setter Property="VerticalAlignment" Value="Center" />
+            <Setter Property="Margin" Value="5" />
+            <Setter Property="Height" Value="25" />
+        </Style>
+        <Style TargetType="{x:Type DatePicker}">
+            <Setter Property="HorizontalAlignment" Value="Stretch" />
+            <Setter Property="VerticalAlignment" Value="Center" />
+            <Setter Property="Margin" Value="1" />
+        </Style>
+        <Style TargetType="{x:Type RadioButton}">
+            <Setter Property="VerticalAlignment" Value="Center"/>
+        </Style>
+    </Application.Resources>
+</Application>

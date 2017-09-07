@@ -1,0 +1,20 @@
+﻿@using Resources
+@using System.Linq
+@model List<string>
+           
+@if (Model != null && Model.Any())
+{
+    <span>@NotificationLocalization.GlobaleResourceUploadErrorTitle</span>
+    <br />
+    <br />
+    foreach (var error in Model)
+    {
+        <span style="color: red">@error</span><br />
+    }
+    <br />    
+    <span>@NotificationLocalization.GlobaleResourceUploadErrorHelp</span>
+}
+else
+{
+    <span>@NotificationLocalization.GlobaleResourceUploadSuccessful</span>
+}

@@ -1,0 +1,41 @@
+﻿@using ASTRA.EMSG.Business.Reports.StrassenabschnitteListe
+@using ASTRA.EMSG.Common
+@using Resources
+@using Kendo.Mvc.UI
+@using ASTRA.EMSG.Web.Infrastructure.HtmlHelperExtensions
+@model string
+
+    @(Html.Kendo().Grid<StrassenabschnitteListePo>()
+           .Name("StrassenabschnitteListe")
+           .ApplyEmsgSettings(filterable: false)
+           .Columns(columns =>
+           {
+                columns.Bound(m => m.Abschnittsnummer).Title(GridHeaderFooterLocalization.Strassenabschnittsnummer);
+                columns.Bound(m => m.Strassenname).Title(GridHeaderFooterLocalization.Strassenname).SumLabel();
+                columns.Bound(m => m.BezeichnungVon).Title(GridHeaderFooterLocalization.BezeichnungVon);
+                columns.Bound(m => m.BezeichnungBis).Title(GridHeaderFooterLocalization.BezeichnungBis);
+                columns.Bound(m => m.Strasseneigentuemer).Hidden();
+                columns.Bound(m => m.StrasseneigentuemerBezeichnung).Title(GridHeaderFooterLocalization.Strasseneigentuemer);
+                columns.Bound(m => m.Ortsbezeichnung).Title(GridHeaderFooterLocalization.Ortsbezeichnung);
+                columns.Bound(m => m.BelastungskategorieTyp).Hidden();
+                columns.Bound(m => m.BelastungskategorieBezeichnung).Title(GridHeaderFooterLocalization.BelastungskategorieTyp);
+                columns.Bound(m => m.Laenge).Title(GridHeaderFooterLocalization.Laenge).Format(FormatStrings.NoDecimalFormat).Sum();
+                columns.Bound(m => m.FlaecheFahrbahn).Title(GridHeaderFooterLocalization.FlaecheFahrbahn).Format(FormatStrings.NoDecimalFormat).Sum();
+                columns.Bound(m => m.FlaecheTrottoirLinks).Title(GridHeaderFooterLocalization.FlaecheTrottoirLinks).Format(FormatStrings.NoDecimalFormat).Sum();
+                columns.Bound(m => m.FlaecheTrottoirRechts).Title(GridHeaderFooterLocalization.FlaecheTrottoirRechts).Format(FormatStrings.NoDecimalFormat).Sum();
+                columns.Bound(m => m.TrottoirBezeichnung).Title(GridHeaderFooterLocalization.Trottoir);
+           })
+           .DataSource(dataBinding => dataBinding
+                .Ajax()
+                .Read(c => c.Action("GetAll", Model).Data("gisReport.form.getReportParameter"))
+                .Model(dataKey => dataKey.Id(m => m.Id))
+                .PageSize(ASTRA.EMSG.Web.Infrastructure.ConstantSettings.GridPageSize)
+                .Aggregates(aggregate =>
+                {
+                    aggregate.Add(p => p.Laenge).Sum();
+                    aggregate.Add(p => p.FlaecheFahrbahn).Sum();
+                    aggregate.Add(p => p.FlaecheTrottoirLinks).Sum();
+                    aggregate.Add(p => p.FlaecheTrottoirRechts).Sum();
+                }))
+           .Events(c => c.DataBound("gisReport.form.onDataBound")))
+

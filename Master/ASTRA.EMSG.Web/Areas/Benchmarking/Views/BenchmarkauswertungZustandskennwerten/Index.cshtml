@@ -1,0 +1,11 @@
+﻿@using Resources
+@model ASTRA.EMSG.Business.Reports.BenchmarkauswertungZustandskennwerten.BenchmarkauswertungZustandskennwertenParameter
+
+@section JavaScript 
+{ 
+    <script type="text/javascript" src="@(Url.Content("~/Scripts/Areas/Benchmarking/BenchmarkauswertungZustandskennwerten/BenchmarkauswertungZustandskennwerten.js"))"></script>
+}
+
+<h1>@TitleLocalization.BenchmarkauswertungZustandskennwertenReportTitle</h1>
+
+@Html.Partial("Filter", Model)

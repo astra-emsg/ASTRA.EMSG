@@ -1,0 +1,82 @@
+﻿@using ASTRA.EMSG.Business.Models
+@using ASTRA.EMSG.Web.Infrastructure.HtmlHelperExtensions
+@using ASTRA.EMSG.Web.Infrastructure.TelerikExtensions
+@using Resources
+@using Kendo.Mvc.UI
+@model ASTRA.EMSG.Business.Models.GIS.InspektionsRouteGISModel
+
+@using (Ajax.BeginForm((ViewBag.IsNew ?? false) ? "Insert" : "Update", "InspektionsroutenGIS",
+                        new AjaxOptions
+                        {
+                            HttpMethod = "POST",
+                            UpdateTargetId = "inspektionsrouteEditFormDiv",
+                            InsertionMode = InsertionMode.Replace,
+                        }))
+{
+    <fieldset class="formFieldset" style="width: 365px">
+        @FormViewHelpers.InspektionsrouteLockedNotification(Html, Model.IsLocked)
+        <input type="hidden" value="@ViewData.ModelState.IsValid" id="IsValid" name="IsValid"/>
+        @(Html.EditorTable(null, 200)
+           .WithTextBoxFor(s => s.Bezeichnung)
+           .WithTextAreaFor(s => s.Bemerkungen, false)
+           .WithTextAreaFor(s => s.Beschreibung, false)
+           .WithTextBoxFor(s => s.InInspektionBei, false)
+           .WithDateTimeEditorFor(s => s.InInspektionBis, false))
+        @Html.ValidationMessageFor(m => m.InspektionsRtStrAbschnitteModelList)
+        @Html.HiddenFor(m => m.Id)
+        <div class="formButtons">
+            
+            @if (Model.IsLocked)
+            {
+                @Html.UnobtrusiveCancelButton()
+                if (!ViewBag.IsNew)
+                {
+                    @Html.StatusverlaufButton("ShowStatusverlauf", Model.Id)
+                }
+            }
+            else
+            {
+                @Html.UnobtrusiveSubmitButton()
+                @Html.UnobtrusiveCancelButton()
+            
+                if (!ViewBag.IsNew)
+                {
+                    @Html.StatusverlaufButton("ShowStatusverlauf", Model.Id)
+                    @Html.UnobtrusiveDeleteButton("Delete", comfirmationMessage: NotificationLocalization.DeleteConfirmation)
+                }
+            }
+
+        </div>
+    </fieldset>
+     @Html.RequiredFieldLegend()
+}
+
+@*NOTE: This magic Token is the separation between the two PartialView (Trick to send back two PartialView in one request)*@
+
+**SPLIT**
+    @(Html.Kendo().Grid(Model.InspektionsRtStrAbschnitteModelList)
+           .Name("InspektionsRtStrAbschnitteGrid")
+           .ApplyEmsgSettings(editable: false, filterable: false, sortable: false, refreshable: false)
+           .DataSource(d => d
+               .Ajax()
+               .Model(keys => keys.Id(m => m.Id))
+               .ServerOperation(false)
+               .Sort(c => c.Add(i => i.Reihenfolge))
+               .PageSize(10))
+           .Columns(columns =>
+           {
+               columns.Bound(m => m.StrassenabschnittId).AsEmsgCommand()
+                   .Template(c => Html.UpButton(string.Format("details.moveStrassenabschnittUp('{0}')", c.StrassenabschnittId)).ToHtmlString())
+                   .ClientTemplate(Html.UpButton("details.moveStrassenabschnittUp('#= StrassenabschnittId #')").ToHtmlString()).Width(30);
+               columns.Bound(m => m.StrassenabschnittId).AsEmsgCommand()
+                   .Template(c => Html.DownButton(string.Format("details.moveStrassenabschnittDown('{0}')", c.StrassenabschnittId)).ToHtmlString())
+                   .ClientTemplate(Html.DownButton("details.moveStrassenabschnittDown('#= StrassenabschnittId #')").ToHtmlString()).Width(30);
+               columns.Bound(m => m.StrassenabschnittId).AsEmsgCommand()
+                   .Template(c => Html.DeleteButton(string.Format("details.removeStrassenabschnitt('{0}')", c.StrassenabschnittId), false).ToHtmlString())
+                   .ClientTemplate(Html.DeleteButton("details.removeStrassenabschnitt('#= StrassenabschnittId #')", false).ToHtmlString()).Width(30);
+               columns.Bound(m => m.Strassenname).Title(GridHeaderFooterLocalization.Strassenname);
+               columns.Bound(m => m.BezeichnungVon).Title(GridHeaderFooterLocalization.BezeichnungVon);
+               columns.Bound(m => m.BezeichnungBis).Title(GridHeaderFooterLocalization.BezeichnungBis);
+               columns.Bound(m => m.Reihenfolge).Title(GridHeaderFooterLocalization.Matrix).Visible(false);
+           })
+           )

@@ -1,0 +1,2922 @@
+<xsd:schema xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns="http://www.interlis.ch/INTERLIS2.3" xmlns:ili2c="http://www.interlis.ch/ili2c" targetNamespace="http://www.interlis.ch/INTERLIS2.3" elementFormDefault="qualified" attributeFormDefault="unqualified">
+  <xsd:annotation>
+    <xsd:appinfo source="http://www.interlis.ch/ili2c/ili2cversion">4.4.1-20110905</xsd:appinfo>
+    <xsd:appinfo source="http://www.interlis.ch/ili2c">
+      <ili2c:model>CoordSys</ili2c:model>
+      <ili2c:modelVersion>2005-06-16</ili2c:modelVersion>
+      <ili2c:modelAt>http://www.interlis.ch/models</ili2c:modelAt>
+      <ili2c:textMinimalCharset>ili23AnnexB</ili2c:textMinimalCharset>
+    </xsd:appinfo>
+    <xsd:appinfo source="http://www.interlis.ch/ili2c">
+      <ili2c:model>InternationalCodes_V1</ili2c:model>
+      <ili2c:modelVersion>2011-08-30</ili2c:modelVersion>
+      <ili2c:modelAt>http://www.geo.admin.ch</ili2c:modelAt>
+      <ili2c:textMinimalCharset>ili23AnnexB</ili2c:textMinimalCharset>
+    </xsd:appinfo>
+    <xsd:appinfo source="http://www.interlis.ch/ili2c">
+      <ili2c:model>Localisation_V1</ili2c:model>
+      <ili2c:modelVersion>2011-08-30</ili2c:modelVersion>
+      <ili2c:modelAt>http://www.geo.admin.ch</ili2c:modelAt>
+      <ili2c:textMinimalCharset>ili23AnnexB</ili2c:textMinimalCharset>
+    </xsd:appinfo>
+    <xsd:appinfo source="http://www.interlis.ch/ili2c">
+      <ili2c:model>LocalisationCH_V1</ili2c:model>
+      <ili2c:modelVersion>2011-08-30</ili2c:modelVersion>
+      <ili2c:modelAt>http://www.geo.admin.ch</ili2c:modelAt>
+      <ili2c:textMinimalCharset>ili23AnnexB</ili2c:textMinimalCharset>
+    </xsd:appinfo>
+    <xsd:appinfo source="http://www.interlis.ch/ili2c">
+      <ili2c:model>Dictionaries_V1</ili2c:model>
+      <ili2c:modelVersion>2011-08-30</ili2c:modelVersion>
+      <ili2c:modelAt>http://www.geo.admin.ch</ili2c:modelAt>
+      <ili2c:textMinimalCharset>ili23AnnexB</ili2c:textMinimalCharset>
+    </xsd:appinfo>
+    <xsd:appinfo source="http://www.interlis.ch/ili2c">
+      <ili2c:model>DictionariesCH_V1</ili2c:model>
+      <ili2c:modelVersion>2011-08-30</ili2c:modelVersion>
+      <ili2c:modelAt>http://www.geo.admin.ch</ili2c:modelAt>
+      <ili2c:textMinimalCharset>ili23AnnexB</ili2c:textMinimalCharset>
+    </xsd:appinfo>
+    <xsd:appinfo source="http://www.interlis.ch/ili2c">
+      <ili2c:model>CatalogueObjects_V1</ili2c:model>
+      <ili2c:modelVersion>2011-08-30</ili2c:modelVersion>
+      <ili2c:modelAt>http://www.geo.admin.ch</ili2c:modelAt>
+      <ili2c:textMinimalCharset>ili23AnnexB</ili2c:textMinimalCharset>
+    </xsd:appinfo>
+    <xsd:appinfo source="http://www.interlis.ch/ili2c">
+      <ili2c:model>CatalogueObjectTrees_V1</ili2c:model>
+      <ili2c:modelVersion>2011-08-30</ili2c:modelVersion>
+      <ili2c:modelAt>http://www.geo.admin.ch</ili2c:modelAt>
+      <ili2c:textMinimalCharset>ili23AnnexB</ili2c:textMinimalCharset>
+    </xsd:appinfo>
+    <xsd:appinfo source="http://www.interlis.ch/ili2c">
+      <ili2c:model>Units</ili2c:model>
+      <ili2c:modelVersion>2005-06-06</ili2c:modelVersion>
+      <ili2c:modelAt>http://www.interlis.ch/models</ili2c:modelAt>
+      <ili2c:textMinimalCharset>ili23AnnexB</ili2c:textMinimalCharset>
+    </xsd:appinfo>
+    <xsd:appinfo source="http://www.interlis.ch/ili2c">
+      <ili2c:model>GeometryCHLV03_V1</ili2c:model>
+      <ili2c:modelVersion>2011-08-30</ili2c:modelVersion>
+      <ili2c:modelAt>http://www.geo.admin.ch</ili2c:modelAt>
+      <ili2c:textMinimalCharset>ili23AnnexB</ili2c:textMinimalCharset>
+    </xsd:appinfo>
+    <xsd:appinfo source="http://www.interlis.ch/ili2c">
+      <ili2c:model>GeometryCHLV95_V1</ili2c:model>
+      <ili2c:modelVersion>2011-08-30</ili2c:modelVersion>
+      <ili2c:modelAt>http://www.geo.admin.ch</ili2c:modelAt>
+      <ili2c:textMinimalCharset>ili23AnnexB</ili2c:textMinimalCharset>
+    </xsd:appinfo>
+    <xsd:appinfo source="http://www.interlis.ch/ili2c">
+      <ili2c:model>Axis</ili2c:model>
+      <ili2c:modelVersion>2011-09-22</ili2c:modelVersion>
+      <ili2c:modelAt>http://www.mistra.ch/</ili2c:modelAt>
+      <ili2c:textMinimalCharset>ili23AnnexB</ili2c:textMinimalCharset>
+    </xsd:appinfo>
+  </xsd:annotation>
+  <xsd:element name="TRANSFER" type="Transfer"/>
+  <xsd:simpleType name="IliID">
+    <xsd:restriction base="xsd:string">
+      <xsd:pattern value="([a-zA-Z_][0-9a-zA-Z_\-\.]*:)?[0-9a-zA-Z_][0-9a-zA-Z_\-\.]*"/>
+    </xsd:restriction>
+  </xsd:simpleType>
+  <xsd:complexType name="Transfer">
+    <xsd:sequence>
+      <xsd:element name="HEADERSECTION" type="HeaderSection"/>
+      <xsd:element name="DATASECTION" type="DataSection"/>
+    </xsd:sequence>
+  </xsd:complexType>
+  <!-- ALIAS TABLE 
+    <ENTRIES FOR="CoordSys">
+      <TAGENTRY FROM="CoordSys.Angle_DMS_S" TO="CoordSys.Angle_DMS_S"/>
+      <TAGENTRY FROM="CoordSys.CoordsysTopic" TO="CoordSys.CoordsysTopic"/>
+      <TAGENTRY FROM="CoordSys.CoordsysTopic.Ellipsoid" TO="CoordSys.CoordsysTopic.Ellipsoid"/>
+      <TAGENTRY FROM="CoordSys.CoordsysTopic.GravityModel" TO="CoordSys.CoordsysTopic.GravityModel"/>
+      <TAGENTRY FROM="CoordSys.CoordsysTopic.GeoidModel" TO="CoordSys.CoordsysTopic.GeoidModel"/>
+      <TAGENTRY FROM="CoordSys.CoordsysTopic.LengthAXIS" TO="CoordSys.CoordsysTopic.LengthAXIS"/>
+      <TAGENTRY FROM="CoordSys.CoordsysTopic.AngleAXIS" TO="CoordSys.CoordsysTopic.AngleAXIS"/>
+      <TAGENTRY FROM="CoordSys.CoordsysTopic.GeoCartesian1D" TO="CoordSys.CoordsysTopic.GeoCartesian1D"/>
+      <TAGENTRY FROM="CoordSys.CoordsysTopic.GeoHeight" TO="CoordSys.CoordsysTopic.GeoCartesian1D"/>
+      <DELENTRY TAG="CoordSys.CoordsysTopic.GeoHeight" ATTR="System"/>
+      <DELENTRY TAG="CoordSys.CoordsysTopic.GeoHeight" ATTR="ReferenceHeight"/>
+      <DELENTRY TAG="CoordSys.CoordsysTopic.GeoHeight" ATTR="ReferenceHeightDescr"/>
+      <TAGENTRY FROM="CoordSys.CoordsysTopic.GeoHeight" TO="CoordSys.CoordsysTopic.GeoHeight"/>
+      <TAGENTRY FROM="CoordSys.CoordsysTopic.HeightEllips" TO="CoordSys.CoordsysTopic.HeightEllips"/>
+      <TAGENTRY FROM="CoordSys.CoordsysTopic.HeightGravit" TO="CoordSys.CoordsysTopic.HeightGravit"/>
+      <TAGENTRY FROM="CoordSys.CoordsysTopic.HeightGeoid" TO="CoordSys.CoordsysTopic.HeightGeoid"/>
+      <TAGENTRY FROM="CoordSys.CoordsysTopic.GeoCartesian2D" TO="CoordSys.CoordsysTopic.GeoCartesian2D"/>
+      <TAGENTRY FROM="CoordSys.CoordsysTopic.GeoCartesian3D" TO="CoordSys.CoordsysTopic.GeoCartesian3D"/>
+      <TAGENTRY FROM="CoordSys.CoordsysTopic.GeoEllipsoidal" TO="CoordSys.CoordsysTopic.GeoEllipsoidal"/>
+      <TAGENTRY FROM="CoordSys.CoordsysTopic.EllCSEllips" TO="CoordSys.CoordsysTopic.EllCSEllips"/>
+      <TAGENTRY FROM="CoordSys.CoordsysTopic.ToGeoEllipsoidal" TO="CoordSys.CoordsysTopic.ToGeoEllipsoidal"/>
+      <TAGENTRY FROM="CoordSys.CoordsysTopic.ToGeoCartesian3D" TO="CoordSys.CoordsysTopic.ToGeoCartesian3D"/>
+      <TAGENTRY FROM="CoordSys.CoordsysTopic.BidirectGeoCartesian2D" TO="CoordSys.CoordsysTopic.BidirectGeoCartesian2D"/>
+      <TAGENTRY FROM="CoordSys.CoordsysTopic.BidirectGeoCartesian3D" TO="CoordSys.CoordsysTopic.BidirectGeoCartesian3D"/>
+      <TAGENTRY FROM="CoordSys.CoordsysTopic.BidirectGeoEllipsoidal" TO="CoordSys.CoordsysTopic.BidirectGeoEllipsoidal"/>
+      <TAGENTRY FROM="CoordSys.CoordsysTopic.TransverseMercator" TO="CoordSys.CoordsysTopic.TransverseMercator"/>
+      <TAGENTRY FROM="CoordSys.CoordsysTopic.SwissProjection" TO="CoordSys.CoordsysTopic.SwissProjection"/>
+      <TAGENTRY FROM="CoordSys.CoordsysTopic.Mercator" TO="CoordSys.CoordsysTopic.Mercator"/>
+      <TAGENTRY FROM="CoordSys.CoordsysTopic.ObliqueMercator" TO="CoordSys.CoordsysTopic.ObliqueMercator"/>
+      <TAGENTRY FROM="CoordSys.CoordsysTopic.Lambert" TO="CoordSys.CoordsysTopic.Lambert"/>
+      <TAGENTRY FROM="CoordSys.CoordsysTopic.Polyconic" TO="CoordSys.CoordsysTopic.Polyconic"/>
+      <TAGENTRY FROM="CoordSys.CoordsysTopic.Albus" TO="CoordSys.CoordsysTopic.Albus"/>
+      <TAGENTRY FROM="CoordSys.CoordsysTopic.Azimutal" TO="CoordSys.CoordsysTopic.Azimutal"/>
+      <TAGENTRY FROM="CoordSys.CoordsysTopic.Stereographic" TO="CoordSys.CoordsysTopic.Stereographic"/>
+      <TAGENTRY FROM="CoordSys.CoordsysTopic.HeightConversion" TO="CoordSys.CoordsysTopic.HeightConversion"/>
+    </ENTRIES>
+    <ENTRIES FOR="Dictionaries_V1">
+    </ENTRIES>
+    <ENTRIES FOR="DictionariesCH_V1">
+    </ENTRIES>
+    <ENTRIES FOR="CatalogueObjects_V1">
+    </ENTRIES>
+    <ENTRIES FOR="CatalogueObjectTrees_V1">
+    </ENTRIES>
+    <ENTRIES FOR="Axis">
+      <TAGENTRY FROM="Axis.AxisCatalogs" TO="Axis.AxisCatalogs"/>
+      <TAGENTRY FROM="Axis.AxisCatalogs.AxisCatalogItem" TO="Axis.AxisCatalogs.AxisCatalogItem"/>
+      <TAGENTRY FROM="Axis.AxisCatalogs.AxisStatus" TO="Axis.AxisCatalogs.AxisCatalogItem"/>
+      <TAGENTRY FROM="Axis.AxisCatalogs.AxisType" TO="Axis.AxisCatalogs.AxisCatalogItem"/>
+      <TAGENTRY FROM="Axis.AxisCatalogs.CaptureMethod" TO="Axis.AxisCatalogs.AxisCatalogItem"/>
+      <TAGENTRY FROM="Axis.AxisCatalogs.MarkerType" TO="Axis.AxisCatalogs.AxisCatalogItem"/>
+      <TAGENTRY FROM="Axis.AxisCatalogs.PlateFixationType" TO="Axis.AxisCatalogs.AxisCatalogItem"/>
+      <TAGENTRY FROM="Axis.AxisCatalogs.PlateLabelType" TO="Axis.AxisCatalogs.AxisCatalogItem"/>
+      <TAGENTRY FROM="Axis.AxisCatalogs.PlateLocationType" TO="Axis.AxisCatalogs.AxisCatalogItem"/>
+      <TAGENTRY FROM="Axis.AxisCatalogs.PlateType" TO="Axis.AxisCatalogs.AxisCatalogItem"/>
+      <TAGENTRY FROM="Axis.AxisCatalogs.SectorMaterializationType" TO="Axis.AxisCatalogs.AxisCatalogItem"/>
+      <TAGENTRY FROM="Axis.AxisCatalogs.RoadOwner" TO="Axis.AxisCatalogs.RoadOwner"/>
+      <TAGENTRY FROM="Axis.AxisCatalogs.Database" TO="Axis.AxisCatalogs.Database"/>
+      <TAGENTRY FROM="Axis.AxisCatalogs.AxisType" TO="Axis.AxisCatalogs.AxisType"/>
+      <TAGENTRY FROM="Axis.AxisCatalogs.AxisTypeRef" TO="Axis.AxisCatalogs.AxisTypeRef"/>
+      <TAGENTRY FROM="Axis.AxisCatalogs.AxisStatus" TO="Axis.AxisCatalogs.AxisStatus"/>
+      <TAGENTRY FROM="Axis.AxisCatalogs.AxisStatusRef" TO="Axis.AxisCatalogs.AxisStatusRef"/>
+      <TAGENTRY FROM="Axis.AxisCatalogs.MarkerType" TO="Axis.AxisCatalogs.MarkerType"/>
+      <TAGENTRY FROM="Axis.AxisCatalogs.MarkerTypeRef" TO="Axis.AxisCatalogs.MarkerTypeRef"/>
+      <TAGENTRY FROM="Axis.AxisCatalogs.SectorMaterializationType" TO="Axis.AxisCatalogs.SectorMaterializationType"/>
+      <TAGENTRY FROM="Axis.AxisCatalogs.SectorMaterializationTypeRef" TO="Axis.AxisCatalogs.SectorMaterializationTypeRef"/>
+      <TAGENTRY FROM="Axis.AxisCatalogs.PlateType" TO="Axis.AxisCatalogs.PlateType"/>
+      <TAGENTRY FROM="Axis.AxisCatalogs.PlateTypeRef" TO="Axis.AxisCatalogs.PlateTypeRef"/>
+      <TAGENTRY FROM="Axis.AxisCatalogs.PlateLabelType" TO="Axis.AxisCatalogs.PlateLabelType"/>
+      <TAGENTRY FROM="Axis.AxisCatalogs.PlateLabelTypeRef" TO="Axis.AxisCatalogs.PlateLabelTypeRef"/>
+      <TAGENTRY FROM="Axis.AxisCatalogs.PlateFixationType" TO="Axis.AxisCatalogs.PlateFixationType"/>
+      <TAGENTRY FROM="Axis.AxisCatalogs.PlateFixationTypeRef" TO="Axis.AxisCatalogs.PlateFixationTypeRef"/>
+      <TAGENTRY FROM="Axis.AxisCatalogs.PlateLocationType" TO="Axis.AxisCatalogs.PlateLocationType"/>
+      <TAGENTRY FROM="Axis.AxisCatalogs.PlateLocationTypeRef" TO="Axis.AxisCatalogs.PlateLocationTypeRef"/>
+      <TAGENTRY FROM="Axis.AxisCatalogs.CaptureMethod" TO="Axis.AxisCatalogs.CaptureMethod"/>
+      <TAGENTRY FROM="Axis.AxisCatalogs.CaptureMethodRef" TO="Axis.AxisCatalogs.CaptureMethodRef"/>
+      <TAGENTRY FROM="Axis.Axis" TO="Axis.Axis"/>
+      <TAGENTRY FROM="Axis.Axis.Measure" TO="Axis.Axis.Measure"/>
+      <TAGENTRY FROM="Axis.Axis.AxisSegmentGeometry" TO="Axis.Axis.AxisSegmentGeometry"/>
+      <TAGENTRY FROM="Axis.Axis.ObjectVersionInfo" TO="Axis.Axis.ObjectVersionInfo"/>
+      <TAGENTRY FROM="Axis.Axis.Axis" TO="Axis.Axis.Axis"/>
+      <TAGENTRY FROM="Axis.Axis.AxisSegment" TO="Axis.Axis.AxisSegment"/>
+      <TAGENTRY FROM="Axis.Axis.CalPoint" TO="Axis.Axis.CalPoint"/>
+      <TAGENTRY FROM="Axis.Axis.Sector" TO="Axis.Axis.Sector"/>
+      <TAGENTRY FROM="Axis.Axis.Materialization" TO="Axis.Axis.Materialization"/>
+      <TAGENTRY FROM="Axis.Axis.Plate" TO="Axis.Axis.Plate"/>
+      <TAGENTRY FROM="Axis.Axis.Axis_AxisSegment" TO="Axis.Axis.Axis_AxisSegment"/>
+      <TAGENTRY FROM="Axis.Axis.AxisSegment_Sector" TO="Axis.Axis.AxisSegment_Sector"/>
+      <TAGENTRY FROM="Axis.Axis.RefPoint_Plate" TO="Axis.Axis.RefPoint_Plate"/>
+      <TAGENTRY FROM="Axis.Axis.RefPoint_Materialization" TO="Axis.Axis.RefPoint_Materialization"/>
+      <TAGENTRY FROM="Axis.Axis.Sector_CalPoint" TO="Axis.Axis.Sector_CalPoint"/>
+    </ENTRIES>
+      ALIAS TABLE -->
+  <xsd:complexType name="Models">
+    <xsd:sequence>
+      <xsd:element name="MODEL" type="Model" minOccurs="0" maxOccurs="unbounded"/>
+    </xsd:sequence>
+  </xsd:complexType>
+  <xsd:complexType name="Model">
+    <xsd:attribute name="NAME" type="INTERLIS.NAME" use="required"/>
+    <xsd:attribute name="VERSION" type="xsd:string" use="required"/>
+    <xsd:attribute name="URI" type="xsd:anyURI" use="required"/>
+  </xsd:complexType>
+  <xsd:complexType name="Alias">
+    <xsd:sequence>
+      <xsd:element name="ENTRIES" type="Entries" minOccurs="0" maxOccurs="unbounded"/>
+    </xsd:sequence>
+  </xsd:complexType>
+  <xsd:complexType name="Entries">
+    <xsd:sequence>
+      <xsd:choice maxOccurs="unbounded">
+        <xsd:element name="TAGENTRY" type="Tagentry"/>
+        <xsd:element name="VALENTRY" type="Valentry"/>
+        <xsd:element name="DELENTRY" type="Delentry"/>
+      </xsd:choice>
+    </xsd:sequence>
+    <xsd:attribute name="FOR" type="xsd:string" use="required"/>
+  </xsd:complexType>
+  <xsd:complexType name="Tagentry">
+    <xsd:attribute name="FROM" type="xsd:string" use="required"/>
+    <xsd:attribute name="TO" type="xsd:string" use="required"/>
+  </xsd:complexType>
+  <xsd:complexType name="Valentry">
+    <xsd:attribute name="TAG" type="xsd:string" use="required"/>
+    <xsd:attribute name="ATTR" type="xsd:string" use="required"/>
+    <xsd:attribute name="FROM" type="xsd:string" use="required"/>
+    <xsd:attribute name="TO" type="xsd:string" use="required"/>
+  </xsd:complexType>
+  <xsd:complexType name="Delentry">
+    <xsd:attribute name="TAG" type="xsd:string" use="required"/>
+    <xsd:attribute name="ATTR" type="xsd:string"/>
+  </xsd:complexType>
+  <xsd:complexType name="RoleType">
+    <xsd:simpleContent>
+      <xsd:extension base="xsd:string">
+        <xsd:attribute name="REF" type="IliID" use="required"/>
+        <xsd:attribute name="BID" type="IliID"/>
+        <xsd:attribute name="ORDER_POS" type="xsd:positiveInteger"/>
+      </xsd:extension>
+    </xsd:simpleContent>
+  </xsd:complexType>
+  <xsd:complexType name="DataSection">
+    <xsd:sequence>
+      <xsd:choice minOccurs="0" maxOccurs="unbounded">
+        <xsd:element name="CoordSys.CoordsysTopic" type="CoordSys.CoordsysTopic"/>
+        <xsd:element name="Axis.AxisCatalogs" type="Axis.AxisCatalogs"/>
+        <xsd:element name="Axis.Axis" type="Axis.Axis"/>
+      </xsd:choice>
+    </xsd:sequence>
+  </xsd:complexType>
+  <xsd:complexType  name="CoordSys.Angle_DMS_S">
+    <xsd:sequence>
+      <xsd:element name="Degrees" minOccurs="0">
+        <xsd:simpleType>
+          <xsd:restriction base="xsd:integer">
+            <xsd:minInclusive value="-180"/>
+            <xsd:maxInclusive value="180"/>
+          </xsd:restriction>
+        </xsd:simpleType>
+      </xsd:element>
+      <xsd:element name="Minutes" minOccurs="0">
+        <xsd:simpleType>
+          <xsd:restriction base="xsd:integer">
+            <xsd:minInclusive value="0"/>
+            <xsd:maxInclusive value="59"/>
+          </xsd:restriction>
+        </xsd:simpleType>
+      </xsd:element>
+      <xsd:element name="Seconds" minOccurs="0">
+        <xsd:simpleType>
+          <xsd:restriction base="xsd:double">
+            <xsd:minInclusive value="0.0"/>
+            <xsd:maxInclusive value="59.999"/>
+          </xsd:restriction>
+        </xsd:simpleType>
+      </xsd:element>
+    </xsd:sequence>
+  </xsd:complexType>
+  <xsd:simpleType name="CoordSys.Angle_DMS">
+    <xsd:restriction base="xsd:normalizedString">
+    </xsd:restriction>
+  </xsd:simpleType>
+  <xsd:simpleType name="CoordSys.Angle_DMS_90">
+    <xsd:restriction base="xsd:normalizedString">
+    </xsd:restriction>
+  </xsd:simpleType>
+  <xsd:complexType  name="CoordSys.CoordsysTopic.Ellipsoid">
+    <xsd:sequence>
+      <xsd:element name="Name" type="INTERLIS.NAME"/>
+      <xsd:element name="EllipsoidAlias" minOccurs="0">
+        <xsd:simpleType>
+          <xsd:restriction base="xsd:normalizedString">
+            <xsd:maxLength value="70"/>
+          </xsd:restriction>
+        </xsd:simpleType>
+      </xsd:element>
+      <xsd:element name="SemiMajorAxis">
+        <xsd:simpleType>
+          <xsd:restriction base="xsd:double">
+            <xsd:minInclusive value="6360000.0"/>
+            <xsd:maxInclusive value="6390000.0"/>
+          </xsd:restriction>
+        </xsd:simpleType>
+      </xsd:element>
+      <xsd:element name="InverseFlattening">
+        <xsd:simpleType>
+          <xsd:restriction base="xsd:double">
+            <xsd:minInclusive value="0.0"/>
+            <xsd:maxInclusive value="350.0"/>
+          </xsd:restriction>
+        </xsd:simpleType>
+      </xsd:element>
+      <xsd:element name="Remarks" minOccurs="0">
+        <xsd:simpleType>
+          <xsd:restriction base="xsd:normalizedString">
+            <xsd:maxLength value="70"/>
+          </xsd:restriction>
+        </xsd:simpleType>
+      </xsd:element>
+    </xsd:sequence>
+    <xsd:attribute name="TID" type="IliID" use="required"/>
+  </xsd:complexType>
+  <xsd:complexType  name="CoordSys.CoordsysTopic.GravityModel">
+    <xsd:sequence>
+      <xsd:element name="Name" type="INTERLIS.NAME"/>
+      <xsd:element name="GravityModAlias" minOccurs="0">
+        <xsd:simpleType>
+          <xsd:restriction base="xsd:normalizedString">
+            <xsd:maxLength value="70"/>
+          </xsd:restriction>
+        </xsd:simpleType>
+      </xsd:element>
+      <xsd:element name="Definition" minOccurs="0">
+        <xsd:simpleType>
+          <xsd:restriction base="xsd:normalizedString">
+            <xsd:maxLength value="70"/>
+          </xsd:restriction>
+        </xsd:simpleType>
+      </xsd:element>
+    </xsd:sequence>
+    <xsd:attribute name="TID" type="IliID" use="required"/>
+  </xsd:complexType>
+  <xsd:complexType  name="CoordSys.CoordsysTopic.GeoidModel">
+    <xsd:sequence>
+      <xsd:element name="Name" type="INTERLIS.NAME"/>
+      <xsd:element name="GeoidModAlias" minOccurs="0">
+        <xsd:simpleType>
+          <xsd:restriction base="xsd:normalizedString">
+            <xsd:maxLength value="70"/>
+          </xsd:restriction>
+        </xsd:simpleType>
+      </xsd:element>
+      <xsd:element name="Definition" minOccurs="0">
+        <xsd:simpleType>
+          <xsd:restriction base="xsd:normalizedString">
+            <xsd:maxLength value="70"/>
+          </xsd:restriction>
+        </xsd:simpleType>
+      </xsd:element>
+    </xsd:sequence>
+    <xsd:attribute name="TID" type="IliID" use="required"/>
+  </xsd:complexType>
+  <xsd:complexType  name="CoordSys.CoordsysTopic.LengthAXIS">
+    <xsd:sequence>
+      <xsd:element name="ShortName" minOccurs="0">
+        <xsd:simpleType>
+          <xsd:restriction base="xsd:normalizedString">
+            <xsd:maxLength value="12"/>
+          </xsd:restriction>
+        </xsd:simpleType>
+      </xsd:element>
+      <xsd:element name="Description" minOccurs="0">
+        <xsd:simpleType>
+          <xsd:restriction base="xsd:normalizedString">
+            <xsd:maxLength value="255"/>
+          </xsd:restriction>
+        </xsd:simpleType>
+      </xsd:element>
+    </xsd:sequence>
+  </xsd:complexType>
+  <xsd:complexType  name="CoordSys.CoordsysTopic.AngleAXIS">
+    <xsd:sequence>
+      <xsd:element name="ShortName" minOccurs="0">
+        <xsd:simpleType>
+          <xsd:restriction base="xsd:normalizedString">
+            <xsd:maxLength value="12"/>
+          </xsd:restriction>
+        </xsd:simpleType>
+      </xsd:element>
+      <xsd:element name="Description" minOccurs="0">
+        <xsd:simpleType>
+          <xsd:restriction base="xsd:normalizedString">
+            <xsd:maxLength value="255"/>
+          </xsd:restriction>
+        </xsd:simpleType>
+      </xsd:element>
+    </xsd:sequence>
+  </xsd:complexType>
+  <xsd:complexType  name="CoordSys.CoordsysTopic.GeoCartesian1D">
+    <xsd:sequence>
+      <xsd:element name="Name" type="INTERLIS.NAME"/>
+      <xsd:element name="Axis">
+        <xsd:complexType>
+          <xsd:sequence>
+            <xsd:element name="CoordSys.CoordsysTopic.LengthAXIS" type="CoordSys.CoordsysTopic.LengthAXIS"/>
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+    </xsd:sequence>
+    <xsd:attribute name="TID" type="IliID" use="required"/>
+  </xsd:complexType>
+  <xsd:complexType  name="CoordSys.CoordsysTopic.GeoHeight">
+    <xsd:sequence>
+      <xsd:element name="Name" type="INTERLIS.NAME"/>
+      <xsd:element name="Axis">
+        <xsd:complexType>
+          <xsd:sequence>
+            <xsd:element name="CoordSys.CoordsysTopic.LengthAXIS" type="CoordSys.CoordsysTopic.LengthAXIS"/>
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+      <xsd:element name="System">
+        <xsd:simpleType>
+          <xsd:restriction base="xsd:string">
+            <xsd:enumeration value="normal"/>
+            <xsd:enumeration value="orthometric"/>
+            <xsd:enumeration value="ellipsoidal"/>
+            <xsd:enumeration value="other"/>
+          </xsd:restriction>
+        </xsd:simpleType>
+      </xsd:element>
+      <xsd:element name="ReferenceHeight">
+        <xsd:simpleType>
+          <xsd:restriction base="xsd:double">
+            <xsd:minInclusive value="-10000.0"/>
+            <xsd:maxInclusive value="10000.0"/>
+          </xsd:restriction>
+        </xsd:simpleType>
+      </xsd:element>
+      <xsd:element name="ReferenceHeightDescr" minOccurs="0">
+        <xsd:simpleType>
+          <xsd:restriction base="xsd:normalizedString">
+            <xsd:maxLength value="70"/>
+          </xsd:restriction>
+        </xsd:simpleType>
+      </xsd:element>
+      <xsd:element name="EllipsoidRef">
+        <xsd:complexType>
+          <xsd:attribute name="REF" type="IliID" use="required"/>
+          <xsd:attribute name="BID" type="IliID"/>
+          <xsd:attribute name="ORDER_POS" type="xsd:positiveInteger"/>
+        </xsd:complexType>
+      </xsd:element>
+      <xsd:element name="GeoidRef">
+        <xsd:complexType>
+          <xsd:attribute name="REF" type="IliID" use="required"/>
+          <xsd:attribute name="BID" type="IliID"/>
+          <xsd:attribute name="ORDER_POS" type="xsd:positiveInteger"/>
+        </xsd:complexType>
+      </xsd:element>
+      <xsd:element name="GravityRef">
+        <xsd:complexType>
+          <xsd:attribute name="REF" type="IliID" use="required"/>
+          <xsd:attribute name="BID" type="IliID"/>
+          <xsd:attribute name="ORDER_POS" type="xsd:positiveInteger"/>
+        </xsd:complexType>
+      </xsd:element>
+    </xsd:sequence>
+    <xsd:attribute name="TID" type="IliID" use="required"/>
+  </xsd:complexType>
+  <xsd:complexType  name="CoordSys.CoordsysTopic.GeoCartesian2D">
+    <xsd:sequence>
+      <xsd:element name="Name" type="INTERLIS.NAME"/>
+      <xsd:element name="Axis">
+        <xsd:complexType>
+          <xsd:sequence>
+            <xsd:element name="CoordSys.CoordsysTopic.LengthAXIS" type="CoordSys.CoordsysTopic.LengthAXIS" minOccurs="2" maxOccurs="2"/>
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+      <xsd:element name="Definition" minOccurs="0">
+        <xsd:simpleType>
+          <xsd:restriction base="xsd:normalizedString">
+            <xsd:maxLength value="70"/>
+          </xsd:restriction>
+        </xsd:simpleType>
+      </xsd:element>
+    </xsd:sequence>
+    <xsd:attribute name="TID" type="IliID" use="required"/>
+  </xsd:complexType>
+  <xsd:complexType  name="CoordSys.CoordsysTopic.GeoCartesian3D">
+    <xsd:sequence>
+      <xsd:element name="Name" type="INTERLIS.NAME"/>
+      <xsd:element name="Axis">
+        <xsd:complexType>
+          <xsd:sequence>
+            <xsd:element name="CoordSys.CoordsysTopic.LengthAXIS" type="CoordSys.CoordsysTopic.LengthAXIS" minOccurs="3" maxOccurs="3"/>
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+      <xsd:element name="Definition" minOccurs="0">
+        <xsd:simpleType>
+          <xsd:restriction base="xsd:normalizedString">
+            <xsd:maxLength value="70"/>
+          </xsd:restriction>
+        </xsd:simpleType>
+      </xsd:element>
+    </xsd:sequence>
+    <xsd:attribute name="TID" type="IliID" use="required"/>
+  </xsd:complexType>
+  <xsd:complexType  name="CoordSys.CoordsysTopic.GeoEllipsoidal">
+    <xsd:sequence>
+      <xsd:element name="Name" type="INTERLIS.NAME"/>
+      <xsd:element name="Axis">
+        <xsd:complexType>
+          <xsd:sequence>
+            <xsd:element name="CoordSys.CoordsysTopic.AngleAXIS" type="CoordSys.CoordsysTopic.AngleAXIS" minOccurs="2" maxOccurs="2"/>
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+      <xsd:element name="Definition" minOccurs="0">
+        <xsd:simpleType>
+          <xsd:restriction base="xsd:normalizedString">
+            <xsd:maxLength value="70"/>
+          </xsd:restriction>
+        </xsd:simpleType>
+      </xsd:element>
+      <xsd:element name="EllipsoidRef">
+        <xsd:complexType>
+          <xsd:attribute name="REF" type="IliID" use="required"/>
+          <xsd:attribute name="BID" type="IliID"/>
+          <xsd:attribute name="ORDER_POS" type="xsd:positiveInteger"/>
+        </xsd:complexType>
+      </xsd:element>
+    </xsd:sequence>
+    <xsd:attribute name="TID" type="IliID" use="required"/>
+  </xsd:complexType>
+  <xsd:complexType  name="CoordSys.CoordsysTopic.ToGeoEllipsoidal">
+    <xsd:sequence>
+      <xsd:element name="From" type="RoleType"/>
+      <xsd:element name="To" type="RoleType"/>
+      <xsd:element name="ToHeight" type="RoleType"/>
+    </xsd:sequence>
+    <xsd:attribute name="TID" type="IliID" use="required"/>
+  </xsd:complexType>
+  <xsd:complexType  name="CoordSys.CoordsysTopic.ToGeoCartesian3D">
+    <xsd:sequence>
+      <xsd:element name="From2" type="RoleType"/>
+      <xsd:element name="FromHeight" type="RoleType"/>
+      <xsd:element name="To3" type="RoleType"/>
+    </xsd:sequence>
+    <xsd:attribute name="TID" type="IliID" use="required"/>
+  </xsd:complexType>
+  <xsd:complexType  name="CoordSys.CoordsysTopic.BidirectGeoCartesian2D">
+    <xsd:sequence>
+      <xsd:element name="From" type="RoleType"/>
+      <xsd:element name="To" type="RoleType"/>
+    </xsd:sequence>
+    <xsd:attribute name="TID" type="IliID" use="required"/>
+  </xsd:complexType>
+  <xsd:complexType  name="CoordSys.CoordsysTopic.BidirectGeoCartesian3D">
+    <xsd:sequence>
+      <xsd:element name="From" type="RoleType"/>
+      <xsd:element name="To2" type="RoleType"/>
+      <xsd:element name="Precision">
+        <xsd:simpleType>
+          <xsd:restriction base="xsd:string">
+            <xsd:enumeration value="exact"/>
+            <xsd:enumeration value="measure_based"/>
+          </xsd:restriction>
+        </xsd:simpleType>
+      </xsd:element>
+      <xsd:element name="ShiftAxis1">
+        <xsd:simpleType>
+          <xsd:restriction base="xsd:double">
+            <xsd:minInclusive value="-10000.0"/>
+            <xsd:maxInclusive value="10000.0"/>
+          </xsd:restriction>
+        </xsd:simpleType>
+      </xsd:element>
+      <xsd:element name="ShiftAxis2">
+        <xsd:simpleType>
+          <xsd:restriction base="xsd:double">
+            <xsd:minInclusive value="-10000.0"/>
+            <xsd:maxInclusive value="10000.0"/>
+          </xsd:restriction>
+        </xsd:simpleType>
+      </xsd:element>
+      <xsd:element name="ShiftAxis3">
+        <xsd:simpleType>
+          <xsd:restriction base="xsd:double">
+            <xsd:minInclusive value="-10000.0"/>
+            <xsd:maxInclusive value="10000.0"/>
+          </xsd:restriction>
+        </xsd:simpleType>
+      </xsd:element>
+      <xsd:element name="RotationAxis1" type="CoordSys.Angle_DMS_90" minOccurs="0"/>
+      <xsd:element name="RotationAxis2" type="CoordSys.Angle_DMS_90" minOccurs="0"/>
+      <xsd:element name="RotationAxis3" type="CoordSys.Angle_DMS_90" minOccurs="0"/>
+      <xsd:element name="NewScale" minOccurs="0">
+        <xsd:simpleType>
+          <xsd:restriction base="xsd:double">
+            <xsd:minInclusive value="1.0E-6"/>
+            <xsd:maxInclusive value="1000000.0"/>
+          </xsd:restriction>
+        </xsd:simpleType>
+      </xsd:element>
+    </xsd:sequence>
+    <xsd:attribute name="TID" type="IliID" use="required"/>
+  </xsd:complexType>
+  <xsd:complexType  name="CoordSys.CoordsysTopic.BidirectGeoEllipsoidal">
+    <xsd:sequence>
+      <xsd:element name="From4" type="RoleType"/>
+      <xsd:element name="To4" type="RoleType"/>
+    </xsd:sequence>
+    <xsd:attribute name="TID" type="IliID" use="required"/>
+  </xsd:complexType>
+  <xsd:complexType  name="CoordSys.CoordsysTopic.MapProjection">
+    <xsd:sequence>
+      <xsd:element name="From5" type="RoleType"/>
+      <xsd:element name="To5" type="RoleType"/>
+      <xsd:element name="FromCo1_FundPt" type="CoordSys.Angle_DMS_90"/>
+      <xsd:element name="FromCo2_FundPt" type="CoordSys.Angle_DMS_90"/>
+      <xsd:element name="ToCoord1_FundPt">
+        <xsd:simpleType>
+          <xsd:restriction base="xsd:integer">
+            <xsd:minInclusive value="-10000000"/>
+            <xsd:maxInclusive value="10000000"/>
+          </xsd:restriction>
+        </xsd:simpleType>
+      </xsd:element>
+      <xsd:element name="ToCoord2_FundPt">
+        <xsd:simpleType>
+          <xsd:restriction base="xsd:integer">
+            <xsd:minInclusive value="-10000000"/>
+            <xsd:maxInclusive value="10000000"/>
+          </xsd:restriction>
+        </xsd:simpleType>
+      </xsd:element>
+    </xsd:sequence>
+    <xsd:attribute name="TID" type="IliID" use="required"/>
+  </xsd:complexType>
+  <xsd:complexType  name="CoordSys.CoordsysTopic.TransverseMercator">
+    <xsd:sequence>
+      <xsd:element name="From5" type="RoleType"/>
+      <xsd:element name="To5" type="RoleType"/>
+      <xsd:element name="FromCo1_FundPt" type="CoordSys.Angle_DMS_90"/>
+      <xsd:element name="FromCo2_FundPt" type="CoordSys.Angle_DMS_90"/>
+      <xsd:element name="ToCoord1_FundPt">
+        <xsd:simpleType>
+          <xsd:restriction base="xsd:integer">
+            <xsd:minInclusive value="-10000000"/>
+            <xsd:maxInclusive value="10000000"/>
+          </xsd:restriction>
+        </xsd:simpleType>
+      </xsd:element>
+      <xsd:element name="ToCoord2_FundPt">
+        <xsd:simpleType>
+          <xsd:restriction base="xsd:integer">
+            <xsd:minInclusive value="-10000000"/>
+            <xsd:maxInclusive value="10000000"/>
+          </xsd:restriction>
+        </xsd:simpleType>
+      </xsd:element>
+    </xsd:sequence>
+    <xsd:attribute name="TID" type="IliID" use="required"/>
+  </xsd:complexType>
+  <xsd:complexType  name="CoordSys.CoordsysTopic.SwissProjection">
+    <xsd:sequence>
+      <xsd:element name="From5" type="RoleType"/>
+      <xsd:element name="To5" type="RoleType"/>
+      <xsd:element name="FromCo1_FundPt" type="CoordSys.Angle_DMS_90"/>
+      <xsd:element name="FromCo2_FundPt" type="CoordSys.Angle_DMS_90"/>
+      <xsd:element name="ToCoord1_FundPt">
+        <xsd:simpleType>
+          <xsd:restriction base="xsd:integer">
+            <xsd:minInclusive value="-10000000"/>
+            <xsd:maxInclusive value="10000000"/>
+          </xsd:restriction>
+        </xsd:simpleType>
+      </xsd:element>
+      <xsd:element name="ToCoord2_FundPt">
+        <xsd:simpleType>
+          <xsd:restriction base="xsd:integer">
+            <xsd:minInclusive value="-10000000"/>
+            <xsd:maxInclusive value="10000000"/>
+          </xsd:restriction>
+        </xsd:simpleType>
+      </xsd:element>
+      <xsd:element name="IntermFundP1" type="CoordSys.Angle_DMS_90"/>
+      <xsd:element name="IntermFundP2" type="CoordSys.Angle_DMS_90"/>
+    </xsd:sequence>
+    <xsd:attribute name="TID" type="IliID" use="required"/>
+  </xsd:complexType>
+  <xsd:complexType  name="CoordSys.CoordsysTopic.Mercator">
+    <xsd:sequence>
+      <xsd:element name="From5" type="RoleType"/>
+      <xsd:element name="To5" type="RoleType"/>
+      <xsd:element name="FromCo1_FundPt" type="CoordSys.Angle_DMS_90"/>
+      <xsd:element name="FromCo2_FundPt" type="CoordSys.Angle_DMS_90"/>
+      <xsd:element name="ToCoord1_FundPt">
+        <xsd:simpleType>
+          <xsd:restriction base="xsd:integer">
+            <xsd:minInclusive value="-10000000"/>
+            <xsd:maxInclusive value="10000000"/>
+          </xsd:restriction>
+        </xsd:simpleType>
+      </xsd:element>
+      <xsd:element name="ToCoord2_FundPt">
+        <xsd:simpleType>
+          <xsd:restriction base="xsd:integer">
+            <xsd:minInclusive value="-10000000"/>
+            <xsd:maxInclusive value="10000000"/>
+          </xsd:restriction>
+        </xsd:simpleType>
+      </xsd:element>
+    </xsd:sequence>
+    <xsd:attribute name="TID" type="IliID" use="required"/>
+  </xsd:complexType>
+  <xsd:complexType  name="CoordSys.CoordsysTopic.ObliqueMercator">
+    <xsd:sequence>
+      <xsd:element name="From5" type="RoleType"/>
+      <xsd:element name="To5" type="RoleType"/>
+      <xsd:element name="FromCo1_FundPt" type="CoordSys.Angle_DMS_90"/>
+      <xsd:element name="FromCo2_FundPt" type="CoordSys.Angle_DMS_90"/>
+      <xsd:element name="ToCoord1_FundPt">
+        <xsd:simpleType>
+          <xsd:restriction base="xsd:integer">
+            <xsd:minInclusive value="-10000000"/>
+            <xsd:maxInclusive value="10000000"/>
+          </xsd:restriction>
+        </xsd:simpleType>
+      </xsd:element>
+      <xsd:element name="ToCoord2_FundPt">
+        <xsd:simpleType>
+          <xsd:restriction base="xsd:integer">
+            <xsd:minInclusive value="-10000000"/>
+            <xsd:maxInclusive value="10000000"/>
+          </xsd:restriction>
+        </xsd:simpleType>
+      </xsd:element>
+    </xsd:sequence>
+    <xsd:attribute name="TID" type="IliID" use="required"/>
+  </xsd:complexType>
+  <xsd:complexType  name="CoordSys.CoordsysTopic.Lambert">
+    <xsd:sequence>
+      <xsd:element name="From5" type="RoleType"/>
+      <xsd:element name="To5" type="RoleType"/>
+      <xsd:element name="FromCo1_FundPt" type="CoordSys.Angle_DMS_90"/>
+      <xsd:element name="FromCo2_FundPt" type="CoordSys.Angle_DMS_90"/>
+      <xsd:element name="ToCoord1_FundPt">
+        <xsd:simpleType>
+          <xsd:restriction base="xsd:integer">
+            <xsd:minInclusive value="-10000000"/>
+            <xsd:maxInclusive value="10000000"/>
+          </xsd:restriction>
+        </xsd:simpleType>
+      </xsd:element>
+      <xsd:element name="ToCoord2_FundPt">
+        <xsd:simpleType>
+          <xsd:restriction base="xsd:integer">
+            <xsd:minInclusive value="-10000000"/>
+            <xsd:maxInclusive value="10000000"/>
+          </xsd:restriction>
+        </xsd:simpleType>
+      </xsd:element>
+    </xsd:sequence>
+    <xsd:attribute name="TID" type="IliID" use="required"/>
+  </xsd:complexType>
+  <xsd:complexType  name="CoordSys.CoordsysTopic.Polyconic">
+    <xsd:sequence>
+      <xsd:element name="From5" type="RoleType"/>
+      <xsd:element name="To5" type="RoleType"/>
+      <xsd:element name="FromCo1_FundPt" type="CoordSys.Angle_DMS_90"/>
+      <xsd:element name="FromCo2_FundPt" type="CoordSys.Angle_DMS_90"/>
+      <xsd:element name="ToCoord1_FundPt">
+        <xsd:simpleType>
+          <xsd:restriction base="xsd:integer">
+            <xsd:minInclusive value="-10000000"/>
+            <xsd:maxInclusive value="10000000"/>
+          </xsd:restriction>
+        </xsd:simpleType>
+      </xsd:element>
+      <xsd:element name="ToCoord2_FundPt">
+        <xsd:simpleType>
+          <xsd:restriction base="xsd:integer">
+            <xsd:minInclusive value="-10000000"/>
+            <xsd:maxInclusive value="10000000"/>
+          </xsd:restriction>
+        </xsd:simpleType>
+      </xsd:element>
+    </xsd:sequence>
+    <xsd:attribute name="TID" type="IliID" use="required"/>
+  </xsd:complexType>
+  <xsd:complexType  name="CoordSys.CoordsysTopic.Albus">
+    <xsd:sequence>
+      <xsd:element name="From5" type="RoleType"/>
+      <xsd:element name="To5" type="RoleType"/>
+      <xsd:element name="FromCo1_FundPt" type="CoordSys.Angle_DMS_90"/>
+      <xsd:element name="FromCo2_FundPt" type="CoordSys.Angle_DMS_90"/>
+      <xsd:element name="ToCoord1_FundPt">
+        <xsd:simpleType>
+          <xsd:restriction base="xsd:integer">
+            <xsd:minInclusive value="-10000000"/>
+            <xsd:maxInclusive value="10000000"/>
+          </xsd:restriction>
+        </xsd:simpleType>
+      </xsd:element>
+      <xsd:element name="ToCoord2_FundPt">
+        <xsd:simpleType>
+          <xsd:restriction base="xsd:integer">
+            <xsd:minInclusive value="-10000000"/>
+            <xsd:maxInclusive value="10000000"/>
+          </xsd:restriction>
+        </xsd:simpleType>
+      </xsd:element>
+    </xsd:sequence>
+    <xsd:attribute name="TID" type="IliID" use="required"/>
+  </xsd:complexType>
+  <xsd:complexType  name="CoordSys.CoordsysTopic.Azimutal">
+    <xsd:sequence>
+      <xsd:element name="From5" type="RoleType"/>
+      <xsd:element name="To5" type="RoleType"/>
+      <xsd:element name="FromCo1_FundPt" type="CoordSys.Angle_DMS_90"/>
+      <xsd:element name="FromCo2_FundPt" type="CoordSys.Angle_DMS_90"/>
+      <xsd:element name="ToCoord1_FundPt">
+        <xsd:simpleType>
+          <xsd:restriction base="xsd:integer">
+            <xsd:minInclusive value="-10000000"/>
+            <xsd:maxInclusive value="10000000"/>
+          </xsd:restriction>
+        </xsd:simpleType>
+      </xsd:element>
+      <xsd:element name="ToCoord2_FundPt">
+        <xsd:simpleType>
+          <xsd:restriction base="xsd:integer">
+            <xsd:minInclusive value="-10000000"/>
+            <xsd:maxInclusive value="10000000"/>
+          </xsd:restriction>
+        </xsd:simpleType>
+      </xsd:element>
+    </xsd:sequence>
+    <xsd:attribute name="TID" type="IliID" use="required"/>
+  </xsd:complexType>
+  <xsd:complexType  name="CoordSys.CoordsysTopic.Stereographic">
+    <xsd:sequence>
+      <xsd:element name="From5" type="RoleType"/>
+      <xsd:element name="To5" type="RoleType"/>
+      <xsd:element name="FromCo1_FundPt" type="CoordSys.Angle_DMS_90"/>
+      <xsd:element name="FromCo2_FundPt" type="CoordSys.Angle_DMS_90"/>
+      <xsd:element name="ToCoord1_FundPt">
+        <xsd:simpleType>
+          <xsd:restriction base="xsd:integer">
+            <xsd:minInclusive value="-10000000"/>
+            <xsd:maxInclusive value="10000000"/>
+          </xsd:restriction>
+        </xsd:simpleType>
+      </xsd:element>
+      <xsd:element name="ToCoord2_FundPt">
+        <xsd:simpleType>
+          <xsd:restriction base="xsd:integer">
+            <xsd:minInclusive value="-10000000"/>
+            <xsd:maxInclusive value="10000000"/>
+          </xsd:restriction>
+        </xsd:simpleType>
+      </xsd:element>
+    </xsd:sequence>
+    <xsd:attribute name="TID" type="IliID" use="required"/>
+  </xsd:complexType>
+  <xsd:complexType  name="CoordSys.CoordsysTopic.HeightConversion">
+    <xsd:sequence>
+      <xsd:element name="FromHeight" type="RoleType"/>
+      <xsd:element name="ToHeight" type="RoleType"/>
+      <xsd:element name="Definition" minOccurs="0">
+        <xsd:simpleType>
+          <xsd:restriction base="xsd:normalizedString">
+            <xsd:maxLength value="70"/>
+          </xsd:restriction>
+        </xsd:simpleType>
+      </xsd:element>
+    </xsd:sequence>
+    <xsd:attribute name="TID" type="IliID" use="required"/>
+  </xsd:complexType>
+  <xsd:complexType name="CoordSys.CoordsysTopic">
+    <xsd:sequence>
+      <xsd:choice minOccurs="0" maxOccurs="unbounded">
+        <xsd:element name="CoordSys.CoordsysTopic.Ellipsoid" type="CoordSys.CoordsysTopic.Ellipsoid"/>
+        <xsd:element name="CoordSys.CoordsysTopic.GravityModel" type="CoordSys.CoordsysTopic.GravityModel"/>
+        <xsd:element name="CoordSys.CoordsysTopic.GeoidModel" type="CoordSys.CoordsysTopic.GeoidModel"/>
+        <xsd:element name="CoordSys.CoordsysTopic.GeoCartesian1D" type="CoordSys.CoordsysTopic.GeoCartesian1D"/>
+        <xsd:element name="CoordSys.CoordsysTopic.GeoHeight" type="CoordSys.CoordsysTopic.GeoHeight"/>
+        <xsd:element name="CoordSys.CoordsysTopic.GeoCartesian2D" type="CoordSys.CoordsysTopic.GeoCartesian2D"/>
+        <xsd:element name="CoordSys.CoordsysTopic.GeoCartesian3D" type="CoordSys.CoordsysTopic.GeoCartesian3D"/>
+        <xsd:element name="CoordSys.CoordsysTopic.GeoEllipsoidal" type="CoordSys.CoordsysTopic.GeoEllipsoidal"/>
+        <xsd:element name="CoordSys.CoordsysTopic.ToGeoEllipsoidal" type="CoordSys.CoordsysTopic.ToGeoEllipsoidal"/>
+        <xsd:element name="CoordSys.CoordsysTopic.ToGeoCartesian3D" type="CoordSys.CoordsysTopic.ToGeoCartesian3D"/>
+        <xsd:element name="CoordSys.CoordsysTopic.BidirectGeoCartesian2D" type="CoordSys.CoordsysTopic.BidirectGeoCartesian2D"/>
+        <xsd:element name="CoordSys.CoordsysTopic.BidirectGeoCartesian3D" type="CoordSys.CoordsysTopic.BidirectGeoCartesian3D"/>
+        <xsd:element name="CoordSys.CoordsysTopic.BidirectGeoEllipsoidal" type="CoordSys.CoordsysTopic.BidirectGeoEllipsoidal"/>
+        <xsd:element name="CoordSys.CoordsysTopic.TransverseMercator" type="CoordSys.CoordsysTopic.TransverseMercator"/>
+        <xsd:element name="CoordSys.CoordsysTopic.SwissProjection" type="CoordSys.CoordsysTopic.SwissProjection"/>
+        <xsd:element name="CoordSys.CoordsysTopic.Mercator" type="CoordSys.CoordsysTopic.Mercator"/>
+        <xsd:element name="CoordSys.CoordsysTopic.ObliqueMercator" type="CoordSys.CoordsysTopic.ObliqueMercator"/>
+        <xsd:element name="CoordSys.CoordsysTopic.Lambert" type="CoordSys.CoordsysTopic.Lambert"/>
+        <xsd:element name="CoordSys.CoordsysTopic.Polyconic" type="CoordSys.CoordsysTopic.Polyconic"/>
+        <xsd:element name="CoordSys.CoordsysTopic.Albus" type="CoordSys.CoordsysTopic.Albus"/>
+        <xsd:element name="CoordSys.CoordsysTopic.Azimutal" type="CoordSys.CoordsysTopic.Azimutal"/>
+        <xsd:element name="CoordSys.CoordsysTopic.Stereographic" type="CoordSys.CoordsysTopic.Stereographic"/>
+        <xsd:element name="CoordSys.CoordsysTopic.HeightConversion" type="CoordSys.CoordsysTopic.HeightConversion"/>
+      </xsd:choice>
+    </xsd:sequence>
+    <xsd:attribute name="BID" type="IliID" use="required"/>
+  </xsd:complexType>
+  <xsd:simpleType name="InternationalCodes_V1.LanguageCode_ISO639_1">
+    <xsd:restriction base="xsd:string">
+      <xsd:enumeration value="de"/>
+      <xsd:enumeration value="fr"/>
+      <xsd:enumeration value="it"/>
+      <xsd:enumeration value="rm"/>
+      <xsd:enumeration value="en"/>
+      <xsd:enumeration value="aa"/>
+      <xsd:enumeration value="ab"/>
+      <xsd:enumeration value="af"/>
+      <xsd:enumeration value="am"/>
+      <xsd:enumeration value="ar"/>
+      <xsd:enumeration value="as"/>
+      <xsd:enumeration value="ay"/>
+      <xsd:enumeration value="az"/>
+      <xsd:enumeration value="ba"/>
+      <xsd:enumeration value="be"/>
+      <xsd:enumeration value="bg"/>
+      <xsd:enumeration value="bh"/>
+      <xsd:enumeration value="bi"/>
+      <xsd:enumeration value="bn"/>
+      <xsd:enumeration value="bo"/>
+      <xsd:enumeration value="br"/>
+      <xsd:enumeration value="ca"/>
+      <xsd:enumeration value="co"/>
+      <xsd:enumeration value="cs"/>
+      <xsd:enumeration value="cy"/>
+      <xsd:enumeration value="da"/>
+      <xsd:enumeration value="dz"/>
+      <xsd:enumeration value="el"/>
+      <xsd:enumeration value="eo"/>
+      <xsd:enumeration value="es"/>
+      <xsd:enumeration value="et"/>
+      <xsd:enumeration value="eu"/>
+      <xsd:enumeration value="fa"/>
+      <xsd:enumeration value="fi"/>
+      <xsd:enumeration value="fj"/>
+      <xsd:enumeration value="fo"/>
+      <xsd:enumeration value="fy"/>
+      <xsd:enumeration value="ga"/>
+      <xsd:enumeration value="gd"/>
+      <xsd:enumeration value="gl"/>
+      <xsd:enumeration value="gn"/>
+      <xsd:enumeration value="gu"/>
+      <xsd:enumeration value="ha"/>
+      <xsd:enumeration value="he"/>
+      <xsd:enumeration value="hi"/>
+      <xsd:enumeration value="hr"/>
+      <xsd:enumeration value="hu"/>
+      <xsd:enumeration value="hy"/>
+      <xsd:enumeration value="ia"/>
+      <xsd:enumeration value="id"/>
+      <xsd:enumeration value="ie"/>
+      <xsd:enumeration value="ik"/>
+      <xsd:enumeration value="is"/>
+      <xsd:enumeration value="iu"/>
+      <xsd:enumeration value="ja"/>
+      <xsd:enumeration value="jw"/>
+      <xsd:enumeration value="ka"/>
+      <xsd:enumeration value="kk"/>
+      <xsd:enumeration value="kl"/>
+      <xsd:enumeration value="km"/>
+      <xsd:enumeration value="kn"/>
+      <xsd:enumeration value="ko"/>
+      <xsd:enumeration value="ks"/>
+      <xsd:enumeration value="ku"/>
+      <xsd:enumeration value="ky"/>
+      <xsd:enumeration value="la"/>
+      <xsd:enumeration value="ln"/>
+      <xsd:enumeration value="lo"/>
+      <xsd:enumeration value="lt"/>
+      <xsd:enumeration value="lv"/>
+      <xsd:enumeration value="mg"/>
+      <xsd:enumeration value="mi"/>
+      <xsd:enumeration value="mk"/>
+      <xsd:enumeration value="ml"/>
+      <xsd:enumeration value="mn"/>
+      <xsd:enumeration value="mo"/>
+      <xsd:enumeration value="mr"/>
+      <xsd:enumeration value="ms"/>
+      <xsd:enumeration value="mt"/>
+      <xsd:enumeration value="my"/>
+      <xsd:enumeration value="na"/>
+      <xsd:enumeration value="ne"/>
+      <xsd:enumeration value="nl"/>
+      <xsd:enumeration value="no"/>
+      <xsd:enumeration value="oc"/>
+      <xsd:enumeration value="om"/>
+      <xsd:enumeration value="or"/>
+      <xsd:enumeration value="pa"/>
+      <xsd:enumeration value="pl"/>
+      <xsd:enumeration value="ps"/>
+      <xsd:enumeration value="pt"/>
+      <xsd:enumeration value="qu"/>
+      <xsd:enumeration value="rn"/>
+      <xsd:enumeration value="ro"/>
+      <xsd:enumeration value="ru"/>
+      <xsd:enumeration value="rw"/>
+      <xsd:enumeration value="sa"/>
+      <xsd:enumeration value="sd"/>
+      <xsd:enumeration value="sg"/>
+      <xsd:enumeration value="sh"/>
+      <xsd:enumeration value="si"/>
+      <xsd:enumeration value="sk"/>
+      <xsd:enumeration value="sl"/>
+      <xsd:enumeration value="sm"/>
+      <xsd:enumeration value="sn"/>
+      <xsd:enumeration value="so"/>
+      <xsd:enumeration value="sq"/>
+      <xsd:enumeration value="sr"/>
+      <xsd:enumeration value="ss"/>
+      <xsd:enumeration value="st"/>
+      <xsd:enumeration value="su"/>
+      <xsd:enumeration value="sv"/>
+      <xsd:enumeration value="sw"/>
+      <xsd:enumeration value="ta"/>
+      <xsd:enumeration value="te"/>
+      <xsd:enumeration value="tg"/>
+      <xsd:enumeration value="th"/>
+      <xsd:enumeration value="ti"/>
+      <xsd:enumeration value="tk"/>
+      <xsd:enumeration value="tl"/>
+      <xsd:enumeration value="tn"/>
+      <xsd:enumeration value="to"/>
+      <xsd:enumeration value="tr"/>
+      <xsd:enumeration value="ts"/>
+      <xsd:enumeration value="tt"/>
+      <xsd:enumeration value="tw"/>
+      <xsd:enumeration value="ug"/>
+      <xsd:enumeration value="uk"/>
+      <xsd:enumeration value="ur"/>
+      <xsd:enumeration value="uz"/>
+      <xsd:enumeration value="vi"/>
+      <xsd:enumeration value="vo"/>
+      <xsd:enumeration value="wo"/>
+      <xsd:enumeration value="xh"/>
+      <xsd:enumeration value="yi"/>
+      <xsd:enumeration value="yo"/>
+      <xsd:enumeration value="za"/>
+      <xsd:enumeration value="zh"/>
+      <xsd:enumeration value="zu"/>
+    </xsd:restriction>
+  </xsd:simpleType>
+  <xsd:simpleType name="InternationalCodes_V1.CountryCode_ISO3166_1">
+    <xsd:restriction base="xsd:string">
+      <xsd:enumeration value="CHE"/>
+      <xsd:enumeration value="ABW"/>
+      <xsd:enumeration value="AFG"/>
+      <xsd:enumeration value="AGO"/>
+      <xsd:enumeration value="AIA"/>
+      <xsd:enumeration value="ALA"/>
+      <xsd:enumeration value="ALB"/>
+      <xsd:enumeration value="AND_"/>
+      <xsd:enumeration value="ANT"/>
+      <xsd:enumeration value="ARE"/>
+      <xsd:enumeration value="ARG"/>
+      <xsd:enumeration value="ARM"/>
+      <xsd:enumeration value="ASM"/>
+      <xsd:enumeration value="ATA"/>
+      <xsd:enumeration value="ATF"/>
+      <xsd:enumeration value="ATG"/>
+      <xsd:enumeration value="AUS"/>
+      <xsd:enumeration value="AUT"/>
+      <xsd:enumeration value="AZE"/>
+      <xsd:enumeration value="BDI"/>
+      <xsd:enumeration value="BEL"/>
+      <xsd:enumeration value="BEN"/>
+      <xsd:enumeration value="BFA"/>
+      <xsd:enumeration value="BGD"/>
+      <xsd:enumeration value="BGR"/>
+      <xsd:enumeration value="BHR"/>
+      <xsd:enumeration value="BHS"/>
+      <xsd:enumeration value="BIH"/>
+      <xsd:enumeration value="BLR"/>
+      <xsd:enumeration value="BLZ"/>
+      <xsd:enumeration value="BMU"/>
+      <xsd:enumeration value="BOL"/>
+      <xsd:enumeration value="BRA"/>
+      <xsd:enumeration value="BRB"/>
+      <xsd:enumeration value="BRN"/>
+      <xsd:enumeration value="BTN"/>
+      <xsd:enumeration value="BVT"/>
+      <xsd:enumeration value="BWA"/>
+      <xsd:enumeration value="CAF"/>
+      <xsd:enumeration value="CAN"/>
+      <xsd:enumeration value="CCK"/>
+      <xsd:enumeration value="CHL"/>
+      <xsd:enumeration value="CHN"/>
+      <xsd:enumeration value="CIV"/>
+      <xsd:enumeration value="CMR"/>
+      <xsd:enumeration value="COD"/>
+      <xsd:enumeration value="COG"/>
+      <xsd:enumeration value="COK"/>
+      <xsd:enumeration value="COL"/>
+      <xsd:enumeration value="COM"/>
+      <xsd:enumeration value="CPV"/>
+      <xsd:enumeration value="CRI"/>
+      <xsd:enumeration value="CUB"/>
+      <xsd:enumeration value="CXR"/>
+      <xsd:enumeration value="CYM"/>
+      <xsd:enumeration value="CYP"/>
+      <xsd:enumeration value="CZE"/>
+      <xsd:enumeration value="DEU"/>
+      <xsd:enumeration value="DJI"/>
+      <xsd:enumeration value="DMA"/>
+      <xsd:enumeration value="DNK"/>
+      <xsd:enumeration value="DOM"/>
+      <xsd:enumeration value="DZA"/>
+      <xsd:enumeration value="ECU"/>
+      <xsd:enumeration value="EGY"/>
+      <xsd:enumeration value="ERI"/>
+      <xsd:enumeration value="ESH"/>
+      <xsd:enumeration value="ESP"/>
+      <xsd:enumeration value="EST"/>
+      <xsd:enumeration value="ETH"/>
+      <xsd:enumeration value="FIN"/>
+      <xsd:enumeration value="FJI"/>
+      <xsd:enumeration value="FLK"/>
+      <xsd:enumeration value="FRA"/>
+      <xsd:enumeration value="FRO"/>
+      <xsd:enumeration value="FSM"/>
+      <xsd:enumeration value="GAB"/>
+      <xsd:enumeration value="GBR"/>
+      <xsd:enumeration value="GEO"/>
+      <xsd:enumeration value="GGY"/>
+      <xsd:enumeration value="GHA"/>
+      <xsd:enumeration value="GIB"/>
+      <xsd:enumeration value="GIN"/>
+      <xsd:enumeration value="GLP"/>
+      <xsd:enumeration value="GMB"/>
+      <xsd:enumeration value="GNB"/>
+      <xsd:enumeration value="GNQ"/>
+      <xsd:enumeration value="GRC"/>
+      <xsd:enumeration value="GRD"/>
+      <xsd:enumeration value="GRL"/>
+      <xsd:enumeration value="GTM"/>
+      <xsd:enumeration value="GUF"/>
+      <xsd:enumeration value="GUM"/>
+      <xsd:enumeration value="GUY"/>
+      <xsd:enumeration value="HKG"/>
+      <xsd:enumeration value="HMD"/>
+      <xsd:enumeration value="HND"/>
+      <xsd:enumeration value="HRV"/>
+      <xsd:enumeration value="HTI"/>
+      <xsd:enumeration value="HUN"/>
+      <xsd:enumeration value="IDN"/>
+      <xsd:enumeration value="IMN"/>
+      <xsd:enumeration value="IND"/>
+      <xsd:enumeration value="IOT"/>
+      <xsd:enumeration value="IRL"/>
+      <xsd:enumeration value="IRN"/>
+      <xsd:enumeration value="IRQ"/>
+      <xsd:enumeration value="ISL"/>
+      <xsd:enumeration value="ISR"/>
+      <xsd:enumeration value="ITA"/>
+      <xsd:enumeration value="JAM"/>
+      <xsd:enumeration value="JEY"/>
+      <xsd:enumeration value="JOR"/>
+      <xsd:enumeration value="JPN"/>
+      <xsd:enumeration value="KAZ"/>
+      <xsd:enumeration value="KEN"/>
+      <xsd:enumeration value="KGZ"/>
+      <xsd:enumeration value="KHM"/>
+      <xsd:enumeration value="KIR"/>
+      <xsd:enumeration value="KNA"/>
+      <xsd:enumeration value="KOR"/>
+      <xsd:enumeration value="KWT"/>
+      <xsd:enumeration value="LAO"/>
+      <xsd:enumeration value="LBN"/>
+      <xsd:enumeration value="LBR"/>
+      <xsd:enumeration value="LBY"/>
+      <xsd:enumeration value="LCA"/>
+      <xsd:enumeration value="LIE"/>
+      <xsd:enumeration value="LKA"/>
+      <xsd:enumeration value="LSO"/>
+      <xsd:enumeration value="LTU"/>
+      <xsd:enumeration value="LUX"/>
+      <xsd:enumeration value="LVA"/>
+      <xsd:enumeration value="MAC"/>
+      <xsd:enumeration value="MAR"/>
+      <xsd:enumeration value="MCO"/>
+      <xsd:enumeration value="MDA"/>
+      <xsd:enumeration value="MDG"/>
+      <xsd:enumeration value="MDV"/>
+      <xsd:enumeration value="MEX"/>
+      <xsd:enumeration value="MHL"/>
+      <xsd:enumeration value="MKD"/>
+      <xsd:enumeration value="MLI"/>
+      <xsd:enumeration value="MLT"/>
+      <xsd:enumeration value="MMR"/>
+      <xsd:enumeration value="MNE"/>
+      <xsd:enumeration value="MNG"/>
+      <xsd:enumeration value="MNP"/>
+      <xsd:enumeration value="MOZ"/>
+      <xsd:enumeration value="MRT"/>
+      <xsd:enumeration value="MSR"/>
+      <xsd:enumeration value="MTQ"/>
+      <xsd:enumeration value="MUS"/>
+      <xsd:enumeration value="MWI"/>
+      <xsd:enumeration value="MYS"/>
+      <xsd:enumeration value="MYT"/>
+      <xsd:enumeration value="NAM"/>
+      <xsd:enumeration value="NCL"/>
+      <xsd:enumeration value="NER"/>
+      <xsd:enumeration value="NFK"/>
+      <xsd:enumeration value="NGA"/>
+      <xsd:enumeration value="NIC"/>
+      <xsd:enumeration value="NIU"/>
+      <xsd:enumeration value="NLD"/>
+      <xsd:enumeration value="NOR"/>
+      <xsd:enumeration value="NPL"/>
+      <xsd:enumeration value="NRU"/>
+      <xsd:enumeration value="NZL"/>
+      <xsd:enumeration value="OMN"/>
+      <xsd:enumeration value="PAK"/>
+      <xsd:enumeration value="PAN"/>
+      <xsd:enumeration value="PCN"/>
+      <xsd:enumeration value="PER"/>
+      <xsd:enumeration value="PHL"/>
+      <xsd:enumeration value="PLW"/>
+      <xsd:enumeration value="PNG"/>
+      <xsd:enumeration value="POL"/>
+      <xsd:enumeration value="PRI"/>
+      <xsd:enumeration value="PRK"/>
+      <xsd:enumeration value="PRT"/>
+      <xsd:enumeration value="PRY"/>
+      <xsd:enumeration value="PSE"/>
+      <xsd:enumeration value="PYF"/>
+      <xsd:enumeration value="QAT"/>
+      <xsd:enumeration value="REU"/>
+      <xsd:enumeration value="ROU"/>
+      <xsd:enumeration value="RUS"/>
+      <xsd:enumeration value="RWA"/>
+      <xsd:enumeration value="SAU"/>
+      <xsd:enumeration value="SDN"/>
+      <xsd:enumeration value="SEN"/>
+      <xsd:enumeration value="SGP"/>
+      <xsd:enumeration value="SGS"/>
+      <xsd:enumeration value="SHN"/>
+      <xsd:enumeration value="SJM"/>
+      <xsd:enumeration value="SLB"/>
+      <xsd:enumeration value="SLE"/>
+      <xsd:enumeration value="SLV"/>
+      <xsd:enumeration value="SMR"/>
+      <xsd:enumeration value="SOM"/>
+      <xsd:enumeration value="SPM"/>
+      <xsd:enumeration value="SRB"/>
+      <xsd:enumeration value="STP"/>
+      <xsd:enumeration value="SUR"/>
+      <xsd:enumeration value="SVK"/>
+      <xsd:enumeration value="SVN"/>
+      <xsd:enumeration value="SWE"/>
+      <xsd:enumeration value="SWZ"/>
+      <xsd:enumeration value="SYC"/>
+      <xsd:enumeration value="SYR"/>
+      <xsd:enumeration value="TCA"/>
+      <xsd:enumeration value="TCD"/>
+      <xsd:enumeration value="TGO"/>
+      <xsd:enumeration value="THA"/>
+      <xsd:enumeration value="TJK"/>
+      <xsd:enumeration value="TKL"/>
+      <xsd:enumeration value="TKM"/>
+      <xsd:enumeration value="TLS"/>
+      <xsd:enumeration value="TON"/>
+      <xsd:enumeration value="TTO"/>
+      <xsd:enumeration value="TUN"/>
+      <xsd:enumeration value="TUR"/>
+      <xsd:enumeration value="TUV"/>
+      <xsd:enumeration value="TWN"/>
+      <xsd:enumeration value="TZA"/>
+      <xsd:enumeration value="UGA"/>
+      <xsd:enumeration value="UKR"/>
+      <xsd:enumeration value="UMI"/>
+      <xsd:enumeration value="URY"/>
+      <xsd:enumeration value="USA"/>
+      <xsd:enumeration value="UZB"/>
+      <xsd:enumeration value="VAT"/>
+      <xsd:enumeration value="VCT"/>
+      <xsd:enumeration value="VEN"/>
+      <xsd:enumeration value="VGB"/>
+      <xsd:enumeration value="VIR"/>
+      <xsd:enumeration value="VNM"/>
+      <xsd:enumeration value="VUT"/>
+      <xsd:enumeration value="WLF"/>
+      <xsd:enumeration value="WSM"/>
+      <xsd:enumeration value="YEM"/>
+      <xsd:enumeration value="ZAF"/>
+      <xsd:enumeration value="ZMB"/>
+      <xsd:enumeration value="ZWE"/>
+    </xsd:restriction>
+  </xsd:simpleType>
+  <xsd:complexType  name="Localisation_V1.LocalisedText">
+    <xsd:sequence>
+      <xsd:element name="Language" type="InternationalCodes_V1.LanguageCode_ISO639_1" minOccurs="0"/>
+      <xsd:element name="Text">
+        <xsd:simpleType>
+          <xsd:restriction base="xsd:normalizedString">
+          </xsd:restriction>
+        </xsd:simpleType>
+      </xsd:element>
+    </xsd:sequence>
+  </xsd:complexType>
+  <xsd:complexType  name="Localisation_V1.LocalisedMText">
+    <xsd:sequence>
+      <xsd:element name="Language" type="InternationalCodes_V1.LanguageCode_ISO639_1" minOccurs="0"/>
+      <xsd:element name="Text">
+        <xsd:simpleType>
+          <xsd:restriction base="xsd:string">
+          </xsd:restriction>
+        </xsd:simpleType>
+      </xsd:element>
+    </xsd:sequence>
+  </xsd:complexType>
+  <xsd:complexType  name="Localisation_V1.MultilingualText">
+    <xsd:sequence>
+      <xsd:element name="LocalisedText">
+        <xsd:complexType>
+          <xsd:sequence>
+            <xsd:choice maxOccurs="unbounded">
+              <xsd:element name="LocalisationCH_V1.LocalisedText" type="LocalisationCH_V1.LocalisedText"/>
+              <xsd:element name="Localisation_V1.LocalisedText" type="Localisation_V1.LocalisedText"/>
+            </xsd:choice>
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+    </xsd:sequence>
+  </xsd:complexType>
+  <xsd:complexType  name="Localisation_V1.MultilingualMText">
+    <xsd:sequence>
+      <xsd:element name="LocalisedText">
+        <xsd:complexType>
+          <xsd:sequence>
+            <xsd:choice maxOccurs="unbounded">
+              <xsd:element name="Localisation_V1.LocalisedMText" type="Localisation_V1.LocalisedMText"/>
+              <xsd:element name="LocalisationCH_V1.LocalisedMText" type="LocalisationCH_V1.LocalisedMText"/>
+            </xsd:choice>
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+    </xsd:sequence>
+  </xsd:complexType>
+  <xsd:complexType  name="LocalisationCH_V1.LocalisedText">
+    <xsd:sequence>
+      <xsd:element name="Language" type="InternationalCodes_V1.LanguageCode_ISO639_1" minOccurs="0"/>
+      <xsd:element name="Text">
+        <xsd:simpleType>
+          <xsd:restriction base="xsd:normalizedString">
+          </xsd:restriction>
+        </xsd:simpleType>
+      </xsd:element>
+    </xsd:sequence>
+  </xsd:complexType>
+  <xsd:complexType  name="LocalisationCH_V1.LocalisedMText">
+    <xsd:sequence>
+      <xsd:element name="Language" type="InternationalCodes_V1.LanguageCode_ISO639_1" minOccurs="0"/>
+      <xsd:element name="Text">
+        <xsd:simpleType>
+          <xsd:restriction base="xsd:string">
+          </xsd:restriction>
+        </xsd:simpleType>
+      </xsd:element>
+    </xsd:sequence>
+  </xsd:complexType>
+  <xsd:complexType  name="LocalisationCH_V1.MultilingualText">
+    <xsd:sequence>
+      <xsd:element name="LocalisedText">
+        <xsd:complexType>
+          <xsd:sequence>
+            <xsd:element name="LocalisationCH_V1.LocalisedText" type="LocalisationCH_V1.LocalisedText" maxOccurs="unbounded"/>
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+    </xsd:sequence>
+  </xsd:complexType>
+  <xsd:complexType  name="LocalisationCH_V1.MultilingualMText">
+    <xsd:sequence>
+      <xsd:element name="LocalisedText">
+        <xsd:complexType>
+          <xsd:sequence>
+            <xsd:element name="LocalisationCH_V1.LocalisedMText" type="LocalisationCH_V1.LocalisedMText" maxOccurs="unbounded"/>
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+    </xsd:sequence>
+  </xsd:complexType>
+  <xsd:complexType  name="Dictionaries_V1.Dictionaries.Entry">
+    <xsd:sequence>
+      <xsd:element name="Text">
+        <xsd:simpleType>
+          <xsd:restriction base="xsd:normalizedString">
+          </xsd:restriction>
+        </xsd:simpleType>
+      </xsd:element>
+    </xsd:sequence>
+  </xsd:complexType>
+  <xsd:complexType  name="Dictionaries_V1.Dictionaries.Dictionary">
+    <xsd:sequence>
+      <xsd:element name="Language" type="InternationalCodes_V1.LanguageCode_ISO639_1"/>
+      <xsd:element name="Entries" minOccurs="0">
+        <xsd:complexType>
+          <xsd:sequence>
+            <xsd:element name="Dictionaries_V1.Dictionaries.Entry" type="Dictionaries_V1.Dictionaries.Entry" maxOccurs="unbounded"/>
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+    </xsd:sequence>
+    <xsd:attribute name="TID" type="IliID" use="required"/>
+  </xsd:complexType>
+  <xsd:complexType name="Dictionaries_V1.Dictionaries">
+    <xsd:sequence>
+      <xsd:choice minOccurs="0" maxOccurs="unbounded">
+        <xsd:element name="Dictionaries_V1.Dictionaries.Dictionary" type="Dictionaries_V1.Dictionaries.Dictionary"/>
+      </xsd:choice>
+    </xsd:sequence>
+    <xsd:attribute name="BID" type="IliID" use="required"/>
+  </xsd:complexType>
+  <xsd:complexType  name="DictionariesCH_V1.Dictionaries.Dictionary">
+    <xsd:sequence>
+      <xsd:element name="Language" type="InternationalCodes_V1.LanguageCode_ISO639_1"/>
+      <xsd:element name="Entries" minOccurs="0">
+        <xsd:complexType>
+          <xsd:sequence>
+            <xsd:element name="Dictionaries_V1.Dictionaries.Entry" type="Dictionaries_V1.Dictionaries.Entry" maxOccurs="unbounded"/>
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+    </xsd:sequence>
+    <xsd:attribute name="TID" type="IliID" use="required"/>
+  </xsd:complexType>
+  <xsd:complexType name="DictionariesCH_V1.Dictionaries">
+    <xsd:sequence>
+      <xsd:choice minOccurs="0" maxOccurs="unbounded">
+        <xsd:element name="DictionariesCH_V1.Dictionaries.Dictionary" type="DictionariesCH_V1.Dictionaries.Dictionary"/>
+      </xsd:choice>
+    </xsd:sequence>
+    <xsd:attribute name="BID" type="IliID" use="required"/>
+  </xsd:complexType>
+  <xsd:complexType  name="CatalogueObjects_V1.Catalogues.Item">
+    <xsd:sequence>
+    </xsd:sequence>
+    <xsd:attribute name="TID" type="IliID" use="required"/>
+  </xsd:complexType>
+  <xsd:complexType  name="CatalogueObjects_V1.Catalogues.CatalogueReference">
+    <xsd:sequence>
+      <xsd:element name="Reference" minOccurs="0">
+        <xsd:complexType>
+          <xsd:attribute name="REF" type="IliID" use="required"/>
+          <xsd:attribute name="BID" type="IliID"/>
+        </xsd:complexType>
+      </xsd:element>
+    </xsd:sequence>
+  </xsd:complexType>
+  <xsd:complexType  name="CatalogueObjects_V1.Catalogues.MandatoryCatalogueReference">
+    <xsd:sequence>
+      <xsd:element name="Reference">
+        <xsd:complexType>
+          <xsd:attribute name="REF" type="IliID" use="required"/>
+          <xsd:attribute name="BID" type="IliID"/>
+        </xsd:complexType>
+      </xsd:element>
+    </xsd:sequence>
+  </xsd:complexType>
+  <xsd:complexType name="CatalogueObjects_V1.Catalogues">
+    <xsd:sequence>
+      <xsd:choice minOccurs="0" maxOccurs="unbounded">
+      </xsd:choice>
+    </xsd:sequence>
+    <xsd:attribute name="BID" type="IliID" use="required"/>
+  </xsd:complexType>
+  <xsd:complexType  name="CatalogueObjectTrees_V1.Catalogues.Item">
+    <xsd:sequence>
+      <xsd:element name="IsSuperItem" type="xsd:boolean"/>
+      <xsd:element name="IsUseable" type="xsd:boolean"/>
+      <xsd:element name="Parent" minOccurs="0">
+        <xsd:complexType>
+          <xsd:attribute name="REF" type="IliID" use="required"/>
+          <xsd:attribute name="BID" type="IliID"/>
+          <xsd:attribute name="ORDER_POS" type="xsd:positiveInteger"/>
+        </xsd:complexType>
+      </xsd:element>
+    </xsd:sequence>
+    <xsd:attribute name="TID" type="IliID" use="required"/>
+  </xsd:complexType>
+  <xsd:complexType  name="CatalogueObjectTrees_V1.Catalogues.CatalogueReference">
+    <xsd:sequence>
+      <xsd:element name="Reference" minOccurs="0">
+        <xsd:complexType>
+          <xsd:attribute name="REF" type="IliID" use="required"/>
+          <xsd:attribute name="BID" type="IliID"/>
+        </xsd:complexType>
+      </xsd:element>
+    </xsd:sequence>
+  </xsd:complexType>
+  <xsd:complexType  name="CatalogueObjectTrees_V1.Catalogues.MandatoryCatalogueReference">
+    <xsd:sequence>
+      <xsd:element name="Reference">
+        <xsd:complexType>
+          <xsd:attribute name="REF" type="IliID" use="required"/>
+          <xsd:attribute name="BID" type="IliID"/>
+        </xsd:complexType>
+      </xsd:element>
+    </xsd:sequence>
+  </xsd:complexType>
+  <xsd:complexType name="CatalogueObjectTrees_V1.Catalogues">
+    <xsd:sequence>
+      <xsd:choice minOccurs="0" maxOccurs="unbounded">
+      </xsd:choice>
+    </xsd:sequence>
+    <xsd:attribute name="BID" type="IliID" use="required"/>
+  </xsd:complexType>
+  <xsd:complexType name="GeometryCHLV03_V1.Coord2">
+    <xsd:sequence>
+      <xsd:element name="COORD" type="CoordValue"/>
+    </xsd:sequence>
+  </xsd:complexType>
+  <xsd:complexType name="GeometryCHLV03_V1.Coord3">
+    <xsd:sequence>
+      <xsd:element name="COORD" type="CoordValue"/>
+    </xsd:sequence>
+  </xsd:complexType>
+  <xsd:complexType name="GeometryCHLV03_V1.Surface">
+    <xsd:sequence>
+      <xsd:element name="SURFACE">
+        <xsd:complexType>
+          <xsd:sequence>
+            <xsd:element name="BOUNDARY" maxOccurs="unbounded">
+              <xsd:complexType>
+                <xsd:sequence>
+                  <xsd:element name="POLYLINE" maxOccurs="unbounded">
+                    <xsd:complexType>
+                      <xsd:choice minOccurs="2" maxOccurs="unbounded">
+                        <xsd:element name="COORD" type="CoordValue"/>
+                        <xsd:element name="ARC" type="ArcPoint"/>
+                      </xsd:choice>
+                    </xsd:complexType>
+                  </xsd:element>
+                </xsd:sequence>
+              </xsd:complexType>
+            </xsd:element>
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+    </xsd:sequence>
+  </xsd:complexType>
+  <xsd:complexType name="GeometryCHLV03_V1.Area">
+    <xsd:sequence>
+      <xsd:element name="SURFACE">
+        <xsd:complexType>
+          <xsd:sequence>
+            <xsd:element name="BOUNDARY" maxOccurs="unbounded">
+              <xsd:complexType>
+                <xsd:sequence>
+                  <xsd:element name="POLYLINE" maxOccurs="unbounded">
+                    <xsd:complexType>
+                      <xsd:choice minOccurs="2" maxOccurs="unbounded">
+                        <xsd:element name="COORD" type="CoordValue"/>
+                        <xsd:element name="ARC" type="ArcPoint"/>
+                      </xsd:choice>
+                    </xsd:complexType>
+                  </xsd:element>
+                </xsd:sequence>
+              </xsd:complexType>
+            </xsd:element>
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+    </xsd:sequence>
+  </xsd:complexType>
+  <xsd:complexType name="GeometryCHLV03_V1.Line">
+    <xsd:sequence>
+      <xsd:element name="POLYLINE">
+        <xsd:complexType>
+          <xsd:choice minOccurs="2" maxOccurs="unbounded">
+            <xsd:element name="COORD" type="CoordValue"/>
+            <xsd:element name="ARC" type="ArcPoint"/>
+          </xsd:choice>
+        </xsd:complexType>
+      </xsd:element>
+    </xsd:sequence>
+  </xsd:complexType>
+  <xsd:complexType name="GeometryCHLV03_V1.DirectedLine">
+    <xsd:sequence>
+      <xsd:element name="POLYLINE">
+        <xsd:complexType>
+          <xsd:choice minOccurs="2" maxOccurs="unbounded">
+            <xsd:element name="COORD" type="CoordValue"/>
+            <xsd:element name="ARC" type="ArcPoint"/>
+          </xsd:choice>
+        </xsd:complexType>
+      </xsd:element>
+    </xsd:sequence>
+  </xsd:complexType>
+  <xsd:complexType name="GeometryCHLV03_V1.LineWithAltitude">
+    <xsd:sequence>
+      <xsd:element name="POLYLINE">
+        <xsd:complexType>
+          <xsd:choice minOccurs="2" maxOccurs="unbounded">
+            <xsd:element name="COORD" type="CoordValue"/>
+            <xsd:element name="ARC" type="ArcPoint"/>
+          </xsd:choice>
+        </xsd:complexType>
+      </xsd:element>
+    </xsd:sequence>
+  </xsd:complexType>
+  <xsd:complexType name="GeometryCHLV03_V1.DirectedLineWithAltitude">
+    <xsd:sequence>
+      <xsd:element name="POLYLINE">
+        <xsd:complexType>
+          <xsd:choice minOccurs="2" maxOccurs="unbounded">
+            <xsd:element name="COORD" type="CoordValue"/>
+            <xsd:element name="ARC" type="ArcPoint"/>
+          </xsd:choice>
+        </xsd:complexType>
+      </xsd:element>
+    </xsd:sequence>
+  </xsd:complexType>
+  <xsd:complexType name="GeometryCHLV03_V1.SurfaceWithOverlaps2mm">
+    <xsd:sequence>
+      <xsd:element name="SURFACE">
+        <xsd:complexType>
+          <xsd:sequence>
+            <xsd:element name="BOUNDARY" maxOccurs="unbounded">
+              <xsd:complexType>
+                <xsd:sequence>
+                  <xsd:element name="POLYLINE" maxOccurs="unbounded">
+                    <xsd:complexType>
+                      <xsd:choice minOccurs="2" maxOccurs="unbounded">
+                        <xsd:element name="COORD" type="CoordValue"/>
+                        <xsd:element name="ARC" type="ArcPoint"/>
+                      </xsd:choice>
+                    </xsd:complexType>
+                  </xsd:element>
+                </xsd:sequence>
+              </xsd:complexType>
+            </xsd:element>
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+    </xsd:sequence>
+  </xsd:complexType>
+  <xsd:complexType name="GeometryCHLV03_V1.AreaWithOverlaps2mm">
+    <xsd:sequence>
+      <xsd:element name="SURFACE">
+        <xsd:complexType>
+          <xsd:sequence>
+            <xsd:element name="BOUNDARY" maxOccurs="unbounded">
+              <xsd:complexType>
+                <xsd:sequence>
+                  <xsd:element name="POLYLINE" maxOccurs="unbounded">
+                    <xsd:complexType>
+                      <xsd:choice minOccurs="2" maxOccurs="unbounded">
+                        <xsd:element name="COORD" type="CoordValue"/>
+                        <xsd:element name="ARC" type="ArcPoint"/>
+                      </xsd:choice>
+                    </xsd:complexType>
+                  </xsd:element>
+                </xsd:sequence>
+              </xsd:complexType>
+            </xsd:element>
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+    </xsd:sequence>
+  </xsd:complexType>
+  <xsd:simpleType name="GeometryCHLV03_V1.Orientation">
+    <xsd:restriction base="xsd:double">
+      <xsd:minInclusive value="0.0"/>
+      <xsd:maxInclusive value="359.99999"/>
+    </xsd:restriction>
+  </xsd:simpleType>
+  <xsd:simpleType name="GeometryCHLV03_V1.Accuracy">
+    <xsd:restriction base="xsd:string">
+      <xsd:enumeration value="cm"/>
+      <xsd:enumeration value="cm50"/>
+      <xsd:enumeration value="m"/>
+      <xsd:enumeration value="m10"/>
+      <xsd:enumeration value="m50"/>
+      <xsd:enumeration value="vague"/>
+    </xsd:restriction>
+  </xsd:simpleType>
+  <xsd:simpleType name="GeometryCHLV03_V1.Method">
+    <xsd:restriction base="xsd:string">
+      <xsd:enumeration value="measured"/>
+      <xsd:enumeration value="sketched"/>
+      <xsd:enumeration value="calculated"/>
+    </xsd:restriction>
+  </xsd:simpleType>
+  <xsd:complexType  name="GeometryCHLV03_V1.LineStructure">
+    <xsd:sequence>
+      <xsd:element name="Line" type="GeometryCHLV03_V1.Line" minOccurs="0"/>
+    </xsd:sequence>
+  </xsd:complexType>
+  <xsd:complexType  name="GeometryCHLV03_V1.DirectedLineStructure">
+    <xsd:sequence>
+      <xsd:element name="Line" type="GeometryCHLV03_V1.DirectedLine" minOccurs="0"/>
+    </xsd:sequence>
+  </xsd:complexType>
+  <xsd:complexType  name="GeometryCHLV03_V1.MultiLine">
+    <xsd:sequence>
+      <xsd:element name="Lines">
+        <xsd:complexType>
+          <xsd:sequence>
+            <xsd:element name="GeometryCHLV03_V1.LineStructure" type="GeometryCHLV03_V1.LineStructure" maxOccurs="unbounded"/>
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+    </xsd:sequence>
+  </xsd:complexType>
+  <xsd:complexType  name="GeometryCHLV03_V1.MultiDirectedLine">
+    <xsd:sequence>
+      <xsd:element name="Lines">
+        <xsd:complexType>
+          <xsd:sequence>
+            <xsd:element name="GeometryCHLV03_V1.DirectedLineStructure" type="GeometryCHLV03_V1.DirectedLineStructure" maxOccurs="unbounded"/>
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+    </xsd:sequence>
+  </xsd:complexType>
+  <xsd:complexType  name="GeometryCHLV03_V1.SurfaceStructure">
+    <xsd:sequence>
+      <xsd:element name="Surface" type="GeometryCHLV03_V1.Surface" minOccurs="0"/>
+    </xsd:sequence>
+  </xsd:complexType>
+  <xsd:complexType  name="GeometryCHLV03_V1.MultiSurface">
+    <xsd:sequence>
+      <xsd:element name="Surfaces">
+        <xsd:complexType>
+          <xsd:sequence>
+            <xsd:element name="GeometryCHLV03_V1.SurfaceStructure" type="GeometryCHLV03_V1.SurfaceStructure" maxOccurs="unbounded"/>
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+    </xsd:sequence>
+  </xsd:complexType>
+  <xsd:complexType name="GeometryCHLV95_V1.Coord2">
+    <xsd:sequence>
+      <xsd:element name="COORD" type="CoordValue"/>
+    </xsd:sequence>
+  </xsd:complexType>
+  <xsd:complexType name="GeometryCHLV95_V1.Coord3">
+    <xsd:sequence>
+      <xsd:element name="COORD" type="CoordValue"/>
+    </xsd:sequence>
+  </xsd:complexType>
+  <xsd:complexType name="GeometryCHLV95_V1.Surface">
+    <xsd:sequence>
+      <xsd:element name="SURFACE">
+        <xsd:complexType>
+          <xsd:sequence>
+            <xsd:element name="BOUNDARY" maxOccurs="unbounded">
+              <xsd:complexType>
+                <xsd:sequence>
+                  <xsd:element name="POLYLINE" maxOccurs="unbounded">
+                    <xsd:complexType>
+                      <xsd:choice minOccurs="2" maxOccurs="unbounded">
+                        <xsd:element name="COORD" type="CoordValue"/>
+                        <xsd:element name="ARC" type="ArcPoint"/>
+                      </xsd:choice>
+                    </xsd:complexType>
+                  </xsd:element>
+                </xsd:sequence>
+              </xsd:complexType>
+            </xsd:element>
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+    </xsd:sequence>
+  </xsd:complexType>
+  <xsd:complexType name="GeometryCHLV95_V1.Area">
+    <xsd:sequence>
+      <xsd:element name="SURFACE">
+        <xsd:complexType>
+          <xsd:sequence>
+            <xsd:element name="BOUNDARY" maxOccurs="unbounded">
+              <xsd:complexType>
+                <xsd:sequence>
+                  <xsd:element name="POLYLINE" maxOccurs="unbounded">
+                    <xsd:complexType>
+                      <xsd:choice minOccurs="2" maxOccurs="unbounded">
+                        <xsd:element name="COORD" type="CoordValue"/>
+                        <xsd:element name="ARC" type="ArcPoint"/>
+                      </xsd:choice>
+                    </xsd:complexType>
+                  </xsd:element>
+                </xsd:sequence>
+              </xsd:complexType>
+            </xsd:element>
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+    </xsd:sequence>
+  </xsd:complexType>
+  <xsd:complexType name="GeometryCHLV95_V1.Line">
+    <xsd:sequence>
+      <xsd:element name="POLYLINE">
+        <xsd:complexType>
+          <xsd:choice minOccurs="2" maxOccurs="unbounded">
+            <xsd:element name="COORD" type="CoordValue"/>
+            <xsd:element name="ARC" type="ArcPoint"/>
+          </xsd:choice>
+        </xsd:complexType>
+      </xsd:element>
+    </xsd:sequence>
+  </xsd:complexType>
+  <xsd:complexType name="GeometryCHLV95_V1.DirectedLine">
+    <xsd:sequence>
+      <xsd:element name="POLYLINE">
+        <xsd:complexType>
+          <xsd:choice minOccurs="2" maxOccurs="unbounded">
+            <xsd:element name="COORD" type="CoordValue"/>
+            <xsd:element name="ARC" type="ArcPoint"/>
+          </xsd:choice>
+        </xsd:complexType>
+      </xsd:element>
+    </xsd:sequence>
+  </xsd:complexType>
+  <xsd:complexType name="GeometryCHLV95_V1.LineWithAltitude">
+    <xsd:sequence>
+      <xsd:element name="POLYLINE">
+        <xsd:complexType>
+          <xsd:choice minOccurs="2" maxOccurs="unbounded">
+            <xsd:element name="COORD" type="CoordValue"/>
+            <xsd:element name="ARC" type="ArcPoint"/>
+          </xsd:choice>
+        </xsd:complexType>
+      </xsd:element>
+    </xsd:sequence>
+  </xsd:complexType>
+  <xsd:complexType name="GeometryCHLV95_V1.DirectedLineWithAltitude">
+    <xsd:sequence>
+      <xsd:element name="POLYLINE">
+        <xsd:complexType>
+          <xsd:choice minOccurs="2" maxOccurs="unbounded">
+            <xsd:element name="COORD" type="CoordValue"/>
+            <xsd:element name="ARC" type="ArcPoint"/>
+          </xsd:choice>
+        </xsd:complexType>
+      </xsd:element>
+    </xsd:sequence>
+  </xsd:complexType>
+  <xsd:complexType name="GeometryCHLV95_V1.SurfaceWithOverlaps2mm">
+    <xsd:sequence>
+      <xsd:element name="SURFACE">
+        <xsd:complexType>
+          <xsd:sequence>
+            <xsd:element name="BOUNDARY" maxOccurs="unbounded">
+              <xsd:complexType>
+                <xsd:sequence>
+                  <xsd:element name="POLYLINE" maxOccurs="unbounded">
+                    <xsd:complexType>
+                      <xsd:choice minOccurs="2" maxOccurs="unbounded">
+                        <xsd:element name="COORD" type="CoordValue"/>
+                        <xsd:element name="ARC" type="ArcPoint"/>
+                      </xsd:choice>
+                    </xsd:complexType>
+                  </xsd:element>
+                </xsd:sequence>
+              </xsd:complexType>
+            </xsd:element>
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+    </xsd:sequence>
+  </xsd:complexType>
+  <xsd:complexType name="GeometryCHLV95_V1.AreaWithOverlaps2mm">
+    <xsd:sequence>
+      <xsd:element name="SURFACE">
+        <xsd:complexType>
+          <xsd:sequence>
+            <xsd:element name="BOUNDARY" maxOccurs="unbounded">
+              <xsd:complexType>
+                <xsd:sequence>
+                  <xsd:element name="POLYLINE" maxOccurs="unbounded">
+                    <xsd:complexType>
+                      <xsd:choice minOccurs="2" maxOccurs="unbounded">
+                        <xsd:element name="COORD" type="CoordValue"/>
+                        <xsd:element name="ARC" type="ArcPoint"/>
+                      </xsd:choice>
+                    </xsd:complexType>
+                  </xsd:element>
+                </xsd:sequence>
+              </xsd:complexType>
+            </xsd:element>
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+    </xsd:sequence>
+  </xsd:complexType>
+  <xsd:simpleType name="GeometryCHLV95_V1.Orientation">
+    <xsd:restriction base="xsd:double">
+      <xsd:minInclusive value="0.0"/>
+      <xsd:maxInclusive value="359.99999"/>
+    </xsd:restriction>
+  </xsd:simpleType>
+  <xsd:simpleType name="GeometryCHLV95_V1.Accuracy">
+    <xsd:restriction base="xsd:string">
+      <xsd:enumeration value="cm"/>
+      <xsd:enumeration value="cm50"/>
+      <xsd:enumeration value="m"/>
+      <xsd:enumeration value="m10"/>
+      <xsd:enumeration value="m50"/>
+      <xsd:enumeration value="vague"/>
+    </xsd:restriction>
+  </xsd:simpleType>
+  <xsd:simpleType name="GeometryCHLV95_V1.Method">
+    <xsd:restriction base="xsd:string">
+      <xsd:enumeration value="measured"/>
+      <xsd:enumeration value="sketched"/>
+      <xsd:enumeration value="calculated"/>
+    </xsd:restriction>
+  </xsd:simpleType>
+  <xsd:complexType  name="GeometryCHLV95_V1.LineStructure">
+    <xsd:sequence>
+      <xsd:element name="Line" type="GeometryCHLV95_V1.Line" minOccurs="0"/>
+    </xsd:sequence>
+  </xsd:complexType>
+  <xsd:complexType  name="GeometryCHLV95_V1.DirectedLineStructure">
+    <xsd:sequence>
+      <xsd:element name="Line" type="GeometryCHLV95_V1.DirectedLine" minOccurs="0"/>
+    </xsd:sequence>
+  </xsd:complexType>
+  <xsd:complexType  name="GeometryCHLV95_V1.MultiLine">
+    <xsd:sequence>
+      <xsd:element name="Lines">
+        <xsd:complexType>
+          <xsd:sequence>
+            <xsd:element name="GeometryCHLV95_V1.LineStructure" type="GeometryCHLV95_V1.LineStructure" maxOccurs="unbounded"/>
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+    </xsd:sequence>
+  </xsd:complexType>
+  <xsd:complexType  name="GeometryCHLV95_V1.MultiDirectedLine">
+    <xsd:sequence>
+      <xsd:element name="Lines">
+        <xsd:complexType>
+          <xsd:sequence>
+            <xsd:element name="GeometryCHLV95_V1.DirectedLineStructure" type="GeometryCHLV95_V1.DirectedLineStructure" maxOccurs="unbounded"/>
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+    </xsd:sequence>
+  </xsd:complexType>
+  <xsd:complexType  name="GeometryCHLV95_V1.SurfaceStructure">
+    <xsd:sequence>
+      <xsd:element name="Surface" type="GeometryCHLV95_V1.Surface" minOccurs="0"/>
+    </xsd:sequence>
+  </xsd:complexType>
+  <xsd:complexType  name="GeometryCHLV95_V1.MultiSurface">
+    <xsd:sequence>
+      <xsd:element name="Surfaces">
+        <xsd:complexType>
+          <xsd:sequence>
+            <xsd:element name="GeometryCHLV95_V1.SurfaceStructure" type="GeometryCHLV95_V1.SurfaceStructure" maxOccurs="unbounded"/>
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+    </xsd:sequence>
+  </xsd:complexType>
+  <xsd:simpleType name="Axis.AxisPositionCode">
+    <xsd:restriction base="xsd:string">
+      <xsd:enumeration value="plus"/>
+      <xsd:enumeration value="minus"/>
+      <xsd:enumeration value="equal"/>
+    </xsd:restriction>
+  </xsd:simpleType>
+  <xsd:simpleType name="Axis.PlateLocationAccessCode">
+    <xsd:restriction base="xsd:string">
+      <xsd:enumeration value="yes"/>
+      <xsd:enumeration value="no"/>
+      <xsd:enumeration value="unknown"/>
+    </xsd:restriction>
+  </xsd:simpleType>
+  <xsd:complexType  name="Axis.AxisCatalogs.AxisCatalogItem">
+    <xsd:sequence>
+      <xsd:element name="ItemId" type="INTERLIS.UUIDOID"/>
+      <xsd:element name="NameShort">
+        <xsd:complexType>
+          <xsd:sequence>
+            <xsd:element name="LocalisationCH_V1.MultilingualText" type="LocalisationCH_V1.MultilingualText"/>
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+      <xsd:element name="NameLong">
+        <xsd:complexType>
+          <xsd:sequence>
+            <xsd:element name="LocalisationCH_V1.MultilingualText" type="LocalisationCH_V1.MultilingualText"/>
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+    </xsd:sequence>
+    <xsd:attribute name="TID" type="IliID" use="required"/>
+  </xsd:complexType>
+  <xsd:complexType  name="Axis.AxisCatalogs.RoadOwner">
+    <xsd:sequence>
+      <xsd:element name="OwnerCode">
+        <xsd:simpleType>
+          <xsd:restriction base="xsd:normalizedString">
+            <xsd:maxLength value="12"/>
+          </xsd:restriction>
+        </xsd:simpleType>
+      </xsd:element>
+    </xsd:sequence>
+    <xsd:attribute name="TID" type="IliID" use="required"/>
+  </xsd:complexType>
+  <xsd:complexType  name="Axis.AxisCatalogs.Database">
+    <xsd:sequence>
+      <xsd:element name="DatabaseId" type="INTERLIS.UUIDOID"/>
+      <xsd:element name="DatabaseName">
+        <xsd:simpleType>
+          <xsd:restriction base="xsd:normalizedString">
+            <xsd:maxLength value="36"/>
+          </xsd:restriction>
+        </xsd:simpleType>
+      </xsd:element>
+    </xsd:sequence>
+    <xsd:attribute name="TID" type="IliID" use="required"/>
+  </xsd:complexType>
+  <xsd:complexType  name="Axis.AxisCatalogs.AxisType">
+    <xsd:sequence>
+      <xsd:element name="ItemId" type="INTERLIS.UUIDOID"/>
+      <xsd:element name="NameShort">
+        <xsd:complexType>
+          <xsd:sequence>
+            <xsd:element name="LocalisationCH_V1.MultilingualText" type="LocalisationCH_V1.MultilingualText"/>
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+      <xsd:element name="NameLong">
+        <xsd:complexType>
+          <xsd:sequence>
+            <xsd:element name="LocalisationCH_V1.MultilingualText" type="LocalisationCH_V1.MultilingualText"/>
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+    </xsd:sequence>
+    <xsd:attribute name="TID" type="IliID" use="required"/>
+  </xsd:complexType>
+  <xsd:complexType  name="Axis.AxisCatalogs.AxisTypeRef">
+    <xsd:sequence>
+      <xsd:element name="Reference">
+        <xsd:complexType>
+          <xsd:attribute name="REF" type="IliID" use="required"/>
+          <xsd:attribute name="BID" type="IliID"/>
+        </xsd:complexType>
+      </xsd:element>
+    </xsd:sequence>
+  </xsd:complexType>
+  <xsd:complexType  name="Axis.AxisCatalogs.AxisStatus">
+    <xsd:sequence>
+      <xsd:element name="ItemId" type="INTERLIS.UUIDOID"/>
+      <xsd:element name="NameShort">
+        <xsd:complexType>
+          <xsd:sequence>
+            <xsd:element name="LocalisationCH_V1.MultilingualText" type="LocalisationCH_V1.MultilingualText"/>
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+      <xsd:element name="NameLong">
+        <xsd:complexType>
+          <xsd:sequence>
+            <xsd:element name="LocalisationCH_V1.MultilingualText" type="LocalisationCH_V1.MultilingualText"/>
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+    </xsd:sequence>
+    <xsd:attribute name="TID" type="IliID" use="required"/>
+  </xsd:complexType>
+  <xsd:complexType  name="Axis.AxisCatalogs.AxisStatusRef">
+    <xsd:sequence>
+      <xsd:element name="Reference">
+        <xsd:complexType>
+          <xsd:attribute name="REF" type="IliID" use="required"/>
+          <xsd:attribute name="BID" type="IliID"/>
+        </xsd:complexType>
+      </xsd:element>
+    </xsd:sequence>
+  </xsd:complexType>
+  <xsd:complexType  name="Axis.AxisCatalogs.MarkerType">
+    <xsd:sequence>
+      <xsd:element name="ItemId" type="INTERLIS.UUIDOID"/>
+      <xsd:element name="NameShort">
+        <xsd:complexType>
+          <xsd:sequence>
+            <xsd:element name="LocalisationCH_V1.MultilingualText" type="LocalisationCH_V1.MultilingualText"/>
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+      <xsd:element name="NameLong">
+        <xsd:complexType>
+          <xsd:sequence>
+            <xsd:element name="LocalisationCH_V1.MultilingualText" type="LocalisationCH_V1.MultilingualText"/>
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+    </xsd:sequence>
+    <xsd:attribute name="TID" type="IliID" use="required"/>
+  </xsd:complexType>
+  <xsd:complexType  name="Axis.AxisCatalogs.MarkerTypeRef">
+    <xsd:sequence>
+      <xsd:element name="Reference">
+        <xsd:complexType>
+          <xsd:attribute name="REF" type="IliID" use="required"/>
+          <xsd:attribute name="BID" type="IliID"/>
+        </xsd:complexType>
+      </xsd:element>
+    </xsd:sequence>
+  </xsd:complexType>
+  <xsd:complexType  name="Axis.AxisCatalogs.SectorMaterializationType">
+    <xsd:sequence>
+      <xsd:element name="ItemId" type="INTERLIS.UUIDOID"/>
+      <xsd:element name="NameShort">
+        <xsd:complexType>
+          <xsd:sequence>
+            <xsd:element name="LocalisationCH_V1.MultilingualText" type="LocalisationCH_V1.MultilingualText"/>
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+      <xsd:element name="NameLong">
+        <xsd:complexType>
+          <xsd:sequence>
+            <xsd:element name="LocalisationCH_V1.MultilingualText" type="LocalisationCH_V1.MultilingualText"/>
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+    </xsd:sequence>
+    <xsd:attribute name="TID" type="IliID" use="required"/>
+  </xsd:complexType>
+  <xsd:complexType  name="Axis.AxisCatalogs.SectorMaterializationTypeRef">
+    <xsd:sequence>
+      <xsd:element name="Reference">
+        <xsd:complexType>
+          <xsd:attribute name="REF" type="IliID" use="required"/>
+          <xsd:attribute name="BID" type="IliID"/>
+        </xsd:complexType>
+      </xsd:element>
+    </xsd:sequence>
+  </xsd:complexType>
+  <xsd:complexType  name="Axis.AxisCatalogs.PlateType">
+    <xsd:sequence>
+      <xsd:element name="ItemId" type="INTERLIS.UUIDOID"/>
+      <xsd:element name="NameShort">
+        <xsd:complexType>
+          <xsd:sequence>
+            <xsd:element name="LocalisationCH_V1.MultilingualText" type="LocalisationCH_V1.MultilingualText"/>
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+      <xsd:element name="NameLong">
+        <xsd:complexType>
+          <xsd:sequence>
+            <xsd:element name="LocalisationCH_V1.MultilingualText" type="LocalisationCH_V1.MultilingualText"/>
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+    </xsd:sequence>
+    <xsd:attribute name="TID" type="IliID" use="required"/>
+  </xsd:complexType>
+  <xsd:complexType  name="Axis.AxisCatalogs.PlateTypeRef">
+    <xsd:sequence>
+      <xsd:element name="Reference">
+        <xsd:complexType>
+          <xsd:attribute name="REF" type="IliID" use="required"/>
+          <xsd:attribute name="BID" type="IliID"/>
+        </xsd:complexType>
+      </xsd:element>
+    </xsd:sequence>
+  </xsd:complexType>
+  <xsd:complexType  name="Axis.AxisCatalogs.PlateLabelType">
+    <xsd:sequence>
+      <xsd:element name="ItemId" type="INTERLIS.UUIDOID"/>
+      <xsd:element name="NameShort">
+        <xsd:complexType>
+          <xsd:sequence>
+            <xsd:element name="LocalisationCH_V1.MultilingualText" type="LocalisationCH_V1.MultilingualText"/>
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+      <xsd:element name="NameLong">
+        <xsd:complexType>
+          <xsd:sequence>
+            <xsd:element name="LocalisationCH_V1.MultilingualText" type="LocalisationCH_V1.MultilingualText"/>
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+    </xsd:sequence>
+    <xsd:attribute name="TID" type="IliID" use="required"/>
+  </xsd:complexType>
+  <xsd:complexType  name="Axis.AxisCatalogs.PlateLabelTypeRef">
+    <xsd:sequence>
+      <xsd:element name="Reference">
+        <xsd:complexType>
+          <xsd:attribute name="REF" type="IliID" use="required"/>
+          <xsd:attribute name="BID" type="IliID"/>
+        </xsd:complexType>
+      </xsd:element>
+    </xsd:sequence>
+  </xsd:complexType>
+  <xsd:complexType  name="Axis.AxisCatalogs.PlateFixationType">
+    <xsd:sequence>
+      <xsd:element name="ItemId" type="INTERLIS.UUIDOID"/>
+      <xsd:element name="NameShort">
+        <xsd:complexType>
+          <xsd:sequence>
+            <xsd:element name="LocalisationCH_V1.MultilingualText" type="LocalisationCH_V1.MultilingualText"/>
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+      <xsd:element name="NameLong">
+        <xsd:complexType>
+          <xsd:sequence>
+            <xsd:element name="LocalisationCH_V1.MultilingualText" type="LocalisationCH_V1.MultilingualText"/>
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+    </xsd:sequence>
+    <xsd:attribute name="TID" type="IliID" use="required"/>
+  </xsd:complexType>
+  <xsd:complexType  name="Axis.AxisCatalogs.PlateFixationTypeRef">
+    <xsd:sequence>
+      <xsd:element name="Reference">
+        <xsd:complexType>
+          <xsd:attribute name="REF" type="IliID" use="required"/>
+          <xsd:attribute name="BID" type="IliID"/>
+        </xsd:complexType>
+      </xsd:element>
+    </xsd:sequence>
+  </xsd:complexType>
+  <xsd:complexType  name="Axis.AxisCatalogs.PlateLocationType">
+    <xsd:sequence>
+      <xsd:element name="ItemId" type="INTERLIS.UUIDOID"/>
+      <xsd:element name="NameShort">
+        <xsd:complexType>
+          <xsd:sequence>
+            <xsd:element name="LocalisationCH_V1.MultilingualText" type="LocalisationCH_V1.MultilingualText"/>
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+      <xsd:element name="NameLong">
+        <xsd:complexType>
+          <xsd:sequence>
+            <xsd:element name="LocalisationCH_V1.MultilingualText" type="LocalisationCH_V1.MultilingualText"/>
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+    </xsd:sequence>
+    <xsd:attribute name="TID" type="IliID" use="required"/>
+  </xsd:complexType>
+  <xsd:complexType  name="Axis.AxisCatalogs.PlateLocationTypeRef">
+    <xsd:sequence>
+      <xsd:element name="Reference">
+        <xsd:complexType>
+          <xsd:attribute name="REF" type="IliID" use="required"/>
+          <xsd:attribute name="BID" type="IliID"/>
+        </xsd:complexType>
+      </xsd:element>
+    </xsd:sequence>
+  </xsd:complexType>
+  <xsd:complexType  name="Axis.AxisCatalogs.CaptureMethod">
+    <xsd:sequence>
+      <xsd:element name="ItemId" type="INTERLIS.UUIDOID"/>
+      <xsd:element name="NameShort">
+        <xsd:complexType>
+          <xsd:sequence>
+            <xsd:element name="LocalisationCH_V1.MultilingualText" type="LocalisationCH_V1.MultilingualText"/>
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+      <xsd:element name="NameLong">
+        <xsd:complexType>
+          <xsd:sequence>
+            <xsd:element name="LocalisationCH_V1.MultilingualText" type="LocalisationCH_V1.MultilingualText"/>
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+    </xsd:sequence>
+    <xsd:attribute name="TID" type="IliID" use="required"/>
+  </xsd:complexType>
+  <xsd:complexType  name="Axis.AxisCatalogs.CaptureMethodRef">
+    <xsd:sequence>
+      <xsd:element name="Reference">
+        <xsd:complexType>
+          <xsd:attribute name="REF" type="IliID" use="required"/>
+          <xsd:attribute name="BID" type="IliID"/>
+        </xsd:complexType>
+      </xsd:element>
+    </xsd:sequence>
+  </xsd:complexType>
+  <xsd:complexType name="Axis.AxisCatalogs">
+    <xsd:sequence>
+      <xsd:choice minOccurs="0" maxOccurs="unbounded">
+        <xsd:element name="Axis.AxisCatalogs.AxisCatalogItem">
+          <xsd:complexType>
+            <xsd:complexContent>
+              <xsd:extension base="Axis.AxisCatalogs.AxisCatalogItem">
+                <xsd:attribute name="BID" type="IliID"/>
+                <xsd:attribute name="OPERATION" type="OperationType"/>
+                <xsd:attribute name="CONSISTENCY" type="ConsistencyType"/>
+              </xsd:extension>
+            </xsd:complexContent>
+          </xsd:complexType>
+        </xsd:element>
+        <xsd:element name="Axis.AxisCatalogs.RoadOwner">
+          <xsd:complexType>
+            <xsd:complexContent>
+              <xsd:extension base="Axis.AxisCatalogs.RoadOwner">
+                <xsd:attribute name="BID" type="IliID"/>
+                <xsd:attribute name="OPERATION" type="OperationType"/>
+                <xsd:attribute name="CONSISTENCY" type="ConsistencyType"/>
+              </xsd:extension>
+            </xsd:complexContent>
+          </xsd:complexType>
+        </xsd:element>
+        <xsd:element name="Axis.AxisCatalogs.Database">
+          <xsd:complexType>
+            <xsd:complexContent>
+              <xsd:extension base="Axis.AxisCatalogs.Database">
+                <xsd:attribute name="BID" type="IliID"/>
+                <xsd:attribute name="OPERATION" type="OperationType"/>
+                <xsd:attribute name="CONSISTENCY" type="ConsistencyType"/>
+              </xsd:extension>
+            </xsd:complexContent>
+          </xsd:complexType>
+        </xsd:element>
+        <xsd:element name="Axis.AxisCatalogs.AxisType">
+          <xsd:complexType>
+            <xsd:complexContent>
+              <xsd:extension base="Axis.AxisCatalogs.AxisType">
+                <xsd:attribute name="BID" type="IliID"/>
+                <xsd:attribute name="OPERATION" type="OperationType"/>
+                <xsd:attribute name="CONSISTENCY" type="ConsistencyType"/>
+              </xsd:extension>
+            </xsd:complexContent>
+          </xsd:complexType>
+        </xsd:element>
+        <xsd:element name="Axis.AxisCatalogs.AxisStatus">
+          <xsd:complexType>
+            <xsd:complexContent>
+              <xsd:extension base="Axis.AxisCatalogs.AxisStatus">
+                <xsd:attribute name="BID" type="IliID"/>
+                <xsd:attribute name="OPERATION" type="OperationType"/>
+                <xsd:attribute name="CONSISTENCY" type="ConsistencyType"/>
+              </xsd:extension>
+            </xsd:complexContent>
+          </xsd:complexType>
+        </xsd:element>
+        <xsd:element name="Axis.AxisCatalogs.MarkerType">
+          <xsd:complexType>
+            <xsd:complexContent>
+              <xsd:extension base="Axis.AxisCatalogs.MarkerType">
+                <xsd:attribute name="BID" type="IliID"/>
+                <xsd:attribute name="OPERATION" type="OperationType"/>
+                <xsd:attribute name="CONSISTENCY" type="ConsistencyType"/>
+              </xsd:extension>
+            </xsd:complexContent>
+          </xsd:complexType>
+        </xsd:element>
+        <xsd:element name="Axis.AxisCatalogs.SectorMaterializationType">
+          <xsd:complexType>
+            <xsd:complexContent>
+              <xsd:extension base="Axis.AxisCatalogs.SectorMaterializationType">
+                <xsd:attribute name="BID" type="IliID"/>
+                <xsd:attribute name="OPERATION" type="OperationType"/>
+                <xsd:attribute name="CONSISTENCY" type="ConsistencyType"/>
+              </xsd:extension>
+            </xsd:complexContent>
+          </xsd:complexType>
+        </xsd:element>
+        <xsd:element name="Axis.AxisCatalogs.PlateType">
+          <xsd:complexType>
+            <xsd:complexContent>
+              <xsd:extension base="Axis.AxisCatalogs.PlateType">
+                <xsd:attribute name="BID" type="IliID"/>
+                <xsd:attribute name="OPERATION" type="OperationType"/>
+                <xsd:attribute name="CONSISTENCY" type="ConsistencyType"/>
+              </xsd:extension>
+            </xsd:complexContent>
+          </xsd:complexType>
+        </xsd:element>
+        <xsd:element name="Axis.AxisCatalogs.PlateLabelType">
+          <xsd:complexType>
+            <xsd:complexContent>
+              <xsd:extension base="Axis.AxisCatalogs.PlateLabelType">
+                <xsd:attribute name="BID" type="IliID"/>
+                <xsd:attribute name="OPERATION" type="OperationType"/>
+                <xsd:attribute name="CONSISTENCY" type="ConsistencyType"/>
+              </xsd:extension>
+            </xsd:complexContent>
+          </xsd:complexType>
+        </xsd:element>
+        <xsd:element name="Axis.AxisCatalogs.PlateFixationType">
+          <xsd:complexType>
+            <xsd:complexContent>
+              <xsd:extension base="Axis.AxisCatalogs.PlateFixationType">
+                <xsd:attribute name="BID" type="IliID"/>
+                <xsd:attribute name="OPERATION" type="OperationType"/>
+                <xsd:attribute name="CONSISTENCY" type="ConsistencyType"/>
+              </xsd:extension>
+            </xsd:complexContent>
+          </xsd:complexType>
+        </xsd:element>
+        <xsd:element name="Axis.AxisCatalogs.PlateLocationType">
+          <xsd:complexType>
+            <xsd:complexContent>
+              <xsd:extension base="Axis.AxisCatalogs.PlateLocationType">
+                <xsd:attribute name="BID" type="IliID"/>
+                <xsd:attribute name="OPERATION" type="OperationType"/>
+                <xsd:attribute name="CONSISTENCY" type="ConsistencyType"/>
+              </xsd:extension>
+            </xsd:complexContent>
+          </xsd:complexType>
+        </xsd:element>
+        <xsd:element name="Axis.AxisCatalogs.CaptureMethod">
+          <xsd:complexType>
+            <xsd:complexContent>
+              <xsd:extension base="Axis.AxisCatalogs.CaptureMethod">
+                <xsd:attribute name="BID" type="IliID"/>
+                <xsd:attribute name="OPERATION" type="OperationType"/>
+                <xsd:attribute name="CONSISTENCY" type="ConsistencyType"/>
+              </xsd:extension>
+            </xsd:complexContent>
+          </xsd:complexType>
+        </xsd:element>
+      </xsd:choice>
+    </xsd:sequence>
+    <xsd:attribute name="BID" type="IliID" use="required"/>
+    <xsd:attribute name="TOPICS" type="xsd:string"/>
+    <xsd:attribute name="KIND" type="TransferKindType"/>
+    <xsd:attribute name="STARTSTATE" type="xsd:string"/>
+    <xsd:attribute name="ENDSTATE" type="xsd:string"/>
+    <xsd:attribute name="CONSISTENCY" type="ConsistencyType"/>
+  </xsd:complexType>
+  <xsd:complexType  name="Axis.Axis.Measure">
+    <xsd:sequence>
+      <xsd:element name="Measure">
+        <xsd:simpleType>
+          <xsd:restriction base="xsd:double">
+            <xsd:minInclusive value="0.0"/>
+            <xsd:maxInclusive value="1000000.0"/>
+          </xsd:restriction>
+        </xsd:simpleType>
+      </xsd:element>
+    </xsd:sequence>
+  </xsd:complexType>
+  <xsd:complexType  name="Axis.Axis.AxisSegmentGeometry">
+    <xsd:sequence>
+      <xsd:element name="Geometry" type="GeometryCHLV03_V1.LineWithAltitude"/>
+      <xsd:element name="LinDist">
+        <xsd:complexType>
+          <xsd:sequence>
+            <xsd:element name="Axis.Axis.Measure" type="Axis.Axis.Measure" minOccurs="2" maxOccurs="unbounded"/>
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+      <xsd:element name="CaptureMethod" minOccurs="0">
+        <xsd:complexType>
+          <xsd:sequence>
+            <xsd:element name="Axis.AxisCatalogs.CaptureMethodRef" type="Axis.AxisCatalogs.CaptureMethodRef"/>
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+      <xsd:element name="CaptureDate" type="xsd:date" minOccurs="0"/>
+      <xsd:element name="AccuracyHorizontal" minOccurs="0">
+        <xsd:simpleType>
+          <xsd:restriction base="xsd:double">
+            <xsd:minInclusive value="0.0"/>
+            <xsd:maxInclusive value="100.0"/>
+          </xsd:restriction>
+        </xsd:simpleType>
+      </xsd:element>
+      <xsd:element name="AccuracyVertical" minOccurs="0">
+        <xsd:simpleType>
+          <xsd:restriction base="xsd:double">
+            <xsd:minInclusive value="0.0"/>
+            <xsd:maxInclusive value="100.0"/>
+          </xsd:restriction>
+        </xsd:simpleType>
+      </xsd:element>
+    </xsd:sequence>
+  </xsd:complexType>
+  <xsd:complexType  name="Axis.Axis.ObjectVersionInfo">
+    <xsd:sequence>
+      <xsd:element name="VersionValidFrom" type="xsd:date" minOccurs="0"/>
+      <xsd:element name="VersionValidTo" type="xsd:date" minOccurs="0"/>
+      <xsd:element name="ObjectValidFrom" type="xsd:date" minOccurs="0"/>
+      <xsd:element name="ObjectValidTo" type="xsd:date" minOccurs="0"/>
+    </xsd:sequence>
+  </xsd:complexType>
+  <xsd:complexType  name="Axis.Axis.Axis">
+    <xsd:sequence>
+      <xsd:element name="Validity">
+        <xsd:complexType>
+          <xsd:sequence>
+            <xsd:element name="Axis.Axis.ObjectVersionInfo" type="Axis.Axis.ObjectVersionInfo"/>
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+      <xsd:element name="Owner">
+        <xsd:simpleType>
+          <xsd:restriction base="xsd:normalizedString">
+            <xsd:maxLength value="12"/>
+          </xsd:restriction>
+        </xsd:simpleType>
+      </xsd:element>
+      <xsd:element name="DatabaseId" type="INTERLIS.UUIDOID"/>
+      <xsd:element name="AxisName">
+        <xsd:simpleType>
+          <xsd:restriction base="xsd:normalizedString">
+            <xsd:maxLength value="64"/>
+          </xsd:restriction>
+        </xsd:simpleType>
+      </xsd:element>
+      <xsd:element name="AxisNameLong" minOccurs="0">
+        <xsd:simpleType>
+          <xsd:restriction base="xsd:normalizedString">
+            <xsd:maxLength value="256"/>
+          </xsd:restriction>
+        </xsd:simpleType>
+      </xsd:element>
+      <xsd:element name="AxisPositionCode" type="Axis.AxisPositionCode"/>
+      <xsd:element name="AxisType">
+        <xsd:complexType>
+          <xsd:sequence>
+            <xsd:element name="Axis.AxisCatalogs.AxisTypeRef" type="Axis.AxisCatalogs.AxisTypeRef"/>
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+      <xsd:element name="Status">
+        <xsd:complexType>
+          <xsd:sequence>
+            <xsd:element name="Axis.AxisCatalogs.AxisStatusRef" type="Axis.AxisCatalogs.AxisStatusRef"/>
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+    </xsd:sequence>
+    <xsd:attribute name="TID" type="IliID" use="required"/>
+  </xsd:complexType>
+  <xsd:complexType  name="Axis.Axis.AxisSegment">
+    <xsd:sequence>
+      <xsd:element name="Sequence">
+        <xsd:simpleType>
+          <xsd:restriction base="xsd:integer">
+            <xsd:minInclusive value="1"/>
+            <xsd:maxInclusive value="10000"/>
+          </xsd:restriction>
+        </xsd:simpleType>
+      </xsd:element>
+      <xsd:element name="SegmentName">
+        <xsd:simpleType>
+          <xsd:restriction base="xsd:normalizedString">
+            <xsd:maxLength value="64"/>
+          </xsd:restriction>
+        </xsd:simpleType>
+      </xsd:element>
+      <xsd:element name="Geometry">
+        <xsd:complexType>
+          <xsd:sequence>
+            <xsd:element name="Axis.Axis.AxisSegmentGeometry" type="Axis.Axis.AxisSegmentGeometry"/>
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+      <xsd:element name="rAxisContainer">
+        <xsd:complexType>
+          <xsd:attribute name="REF" type="IliID" use="required"/>
+          <xsd:attribute name="BID" type="IliID"/>
+          <xsd:attribute name="ORDER_POS" type="xsd:positiveInteger"/>
+        </xsd:complexType>
+      </xsd:element>
+    </xsd:sequence>
+    <xsd:attribute name="TID" type="IliID" use="required"/>
+  </xsd:complexType>
+  <xsd:complexType  name="Axis.Axis.CalPoint">
+    <xsd:sequence>
+      <xsd:element name="Distance_u">
+        <xsd:simpleType>
+          <xsd:restriction base="xsd:double">
+            <xsd:minInclusive value="0.0"/>
+            <xsd:maxInclusive value="1000000.0"/>
+          </xsd:restriction>
+        </xsd:simpleType>
+      </xsd:element>
+      <xsd:element name="Geometry" type="GeometryCHLV03_V1.Coord3"/>
+      <xsd:element name="rCalibree">
+        <xsd:complexType>
+          <xsd:attribute name="REF" type="IliID" use="required"/>
+          <xsd:attribute name="BID" type="IliID"/>
+          <xsd:attribute name="ORDER_POS" type="xsd:positiveInteger"/>
+        </xsd:complexType>
+      </xsd:element>
+    </xsd:sequence>
+    <xsd:attribute name="TID" type="IliID" use="required"/>
+  </xsd:complexType>
+  <xsd:complexType  name="Axis.Axis.Sector">
+    <xsd:sequence>
+      <xsd:element name="Sequence">
+        <xsd:simpleType>
+          <xsd:restriction base="xsd:double">
+            <xsd:minInclusive value="0.0"/>
+            <xsd:maxInclusive value="1000000.0"/>
+          </xsd:restriction>
+        </xsd:simpleType>
+      </xsd:element>
+      <xsd:element name="SectorName">
+        <xsd:simpleType>
+          <xsd:restriction base="xsd:normalizedString">
+            <xsd:maxLength value="64"/>
+          </xsd:restriction>
+        </xsd:simpleType>
+      </xsd:element>
+      <xsd:element name="SectorLength">
+        <xsd:simpleType>
+          <xsd:restriction base="xsd:double">
+            <xsd:minInclusive value="0.0"/>
+            <xsd:maxInclusive value="1000000.0"/>
+          </xsd:restriction>
+        </xsd:simpleType>
+      </xsd:element>
+      <xsd:element name="Km">
+        <xsd:simpleType>
+          <xsd:restriction base="xsd:double">
+            <xsd:minInclusive value="0.0"/>
+            <xsd:maxInclusive value="1000.0"/>
+          </xsd:restriction>
+        </xsd:simpleType>
+      </xsd:element>
+      <xsd:element name="MarkerGeometry" type="GeometryCHLV03_V1.Coord3"/>
+      <xsd:element name="MarkerAccuracyHorizontal" minOccurs="0">
+        <xsd:simpleType>
+          <xsd:restriction base="xsd:double">
+            <xsd:minInclusive value="0.0"/>
+            <xsd:maxInclusive value="100.0"/>
+          </xsd:restriction>
+        </xsd:simpleType>
+      </xsd:element>
+      <xsd:element name="MarkerAccuracyVertical" minOccurs="0">
+        <xsd:simpleType>
+          <xsd:restriction base="xsd:double">
+            <xsd:minInclusive value="0.0"/>
+            <xsd:maxInclusive value="100.0"/>
+          </xsd:restriction>
+        </xsd:simpleType>
+      </xsd:element>
+      <xsd:element name="MarkerType" minOccurs="0">
+        <xsd:complexType>
+          <xsd:sequence>
+            <xsd:element name="Axis.AxisCatalogs.MarkerTypeRef" type="Axis.AxisCatalogs.MarkerTypeRef"/>
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+      <xsd:element name="MarkerDescription" minOccurs="0">
+        <xsd:simpleType>
+          <xsd:restriction base="xsd:normalizedString">
+            <xsd:maxLength value="256"/>
+          </xsd:restriction>
+        </xsd:simpleType>
+      </xsd:element>
+      <xsd:element name="rAxisSegmentLR">
+        <xsd:complexType>
+          <xsd:attribute name="REF" type="IliID" use="required"/>
+          <xsd:attribute name="BID" type="IliID"/>
+          <xsd:attribute name="ORDER_POS" type="xsd:positiveInteger"/>
+        </xsd:complexType>
+      </xsd:element>
+    </xsd:sequence>
+    <xsd:attribute name="TID" type="IliID" use="required"/>
+  </xsd:complexType>
+  <xsd:complexType  name="Axis.Axis.Materialization">
+    <xsd:sequence>
+      <xsd:element name="MatGeometry" type="GeometryCHLV03_V1.Coord3"/>
+      <xsd:element name="MatAccuracyHorzizontal" minOccurs="0">
+        <xsd:simpleType>
+          <xsd:restriction base="xsd:double">
+            <xsd:minInclusive value="0.0"/>
+            <xsd:maxInclusive value="10.0"/>
+          </xsd:restriction>
+        </xsd:simpleType>
+      </xsd:element>
+      <xsd:element name="MatAccuracyVertical" minOccurs="0">
+        <xsd:simpleType>
+          <xsd:restriction base="xsd:double">
+            <xsd:minInclusive value="0.0"/>
+            <xsd:maxInclusive value="10.0"/>
+          </xsd:restriction>
+        </xsd:simpleType>
+      </xsd:element>
+      <xsd:element name="Mat_v" minOccurs="0">
+        <xsd:simpleType>
+          <xsd:restriction base="xsd:double">
+            <xsd:minInclusive value="-100.0"/>
+            <xsd:maxInclusive value="100.0"/>
+          </xsd:restriction>
+        </xsd:simpleType>
+      </xsd:element>
+      <xsd:element name="MatType" minOccurs="0">
+        <xsd:complexType>
+          <xsd:sequence>
+            <xsd:element name="Axis.AxisCatalogs.SectorMaterializationTypeRef" type="Axis.AxisCatalogs.SectorMaterializationTypeRef"/>
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+      <xsd:element name="MatDescription" minOccurs="0">
+        <xsd:simpleType>
+          <xsd:restriction base="xsd:normalizedString">
+            <xsd:maxLength value="256"/>
+          </xsd:restriction>
+        </xsd:simpleType>
+      </xsd:element>
+      <xsd:element name="rAssuree">
+        <xsd:complexType>
+          <xsd:attribute name="REF" type="IliID" use="required"/>
+          <xsd:attribute name="BID" type="IliID"/>
+          <xsd:attribute name="ORDER_POS" type="xsd:positiveInteger"/>
+        </xsd:complexType>
+      </xsd:element>
+    </xsd:sequence>
+    <xsd:attribute name="TID" type="IliID" use="required"/>
+  </xsd:complexType>
+  <xsd:complexType  name="Axis.Axis.Plate">
+    <xsd:sequence>
+      <xsd:element name="PlateType" minOccurs="0">
+        <xsd:complexType>
+          <xsd:sequence>
+            <xsd:element name="Axis.AxisCatalogs.PlateTypeRef" type="Axis.AxisCatalogs.PlateTypeRef"/>
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+      <xsd:element name="PlateLabel" minOccurs="0">
+        <xsd:complexType>
+          <xsd:sequence>
+            <xsd:element name="Axis.AxisCatalogs.PlateLabelTypeRef" type="Axis.AxisCatalogs.PlateLabelTypeRef"/>
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+      <xsd:element name="PlateFixation" minOccurs="0">
+        <xsd:complexType>
+          <xsd:sequence>
+            <xsd:element name="Axis.AxisCatalogs.PlateFixationTypeRef" type="Axis.AxisCatalogs.PlateFixationTypeRef"/>
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+      <xsd:element name="PlateLocation" minOccurs="0">
+        <xsd:complexType>
+          <xsd:sequence>
+            <xsd:element name="Axis.AxisCatalogs.PlateLocationTypeRef" type="Axis.AxisCatalogs.PlateLocationTypeRef"/>
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+      <xsd:element name="PlateLocationAccess" type="Axis.PlateLocationAccessCode" minOccurs="0"/>
+      <xsd:element name="PlateText" minOccurs="0">
+        <xsd:simpleType>
+          <xsd:restriction base="xsd:normalizedString">
+            <xsd:maxLength value="256"/>
+          </xsd:restriction>
+        </xsd:simpleType>
+      </xsd:element>
+      <xsd:element name="Plate_u" minOccurs="0">
+        <xsd:simpleType>
+          <xsd:restriction base="xsd:double">
+            <xsd:minInclusive value="-100.0"/>
+            <xsd:maxInclusive value="100.0"/>
+          </xsd:restriction>
+        </xsd:simpleType>
+      </xsd:element>
+      <xsd:element name="Plate_v" minOccurs="0">
+        <xsd:simpleType>
+          <xsd:restriction base="xsd:double">
+            <xsd:minInclusive value="-100.0"/>
+            <xsd:maxInclusive value="100.0"/>
+          </xsd:restriction>
+        </xsd:simpleType>
+      </xsd:element>
+      <xsd:element name="rAnnotee">
+        <xsd:complexType>
+          <xsd:attribute name="REF" type="IliID" use="required"/>
+          <xsd:attribute name="BID" type="IliID"/>
+          <xsd:attribute name="ORDER_POS" type="xsd:positiveInteger"/>
+        </xsd:complexType>
+      </xsd:element>
+    </xsd:sequence>
+    <xsd:attribute name="TID" type="IliID" use="required"/>
+  </xsd:complexType>
+  <xsd:complexType name="Axis.Axis">
+    <xsd:sequence>
+      <xsd:choice minOccurs="0" maxOccurs="unbounded">
+        <xsd:element name="Axis.Axis.Axis">
+          <xsd:complexType>
+            <xsd:complexContent>
+              <xsd:extension base="Axis.Axis.Axis">
+                <xsd:attribute name="BID" type="IliID"/>
+                <xsd:attribute name="OPERATION" type="OperationType"/>
+                <xsd:attribute name="CONSISTENCY" type="ConsistencyType"/>
+              </xsd:extension>
+            </xsd:complexContent>
+          </xsd:complexType>
+        </xsd:element>
+        <xsd:element name="Axis.Axis.AxisSegment">
+          <xsd:complexType>
+            <xsd:complexContent>
+              <xsd:extension base="Axis.Axis.AxisSegment">
+                <xsd:attribute name="BID" type="IliID"/>
+                <xsd:attribute name="OPERATION" type="OperationType"/>
+                <xsd:attribute name="CONSISTENCY" type="ConsistencyType"/>
+              </xsd:extension>
+            </xsd:complexContent>
+          </xsd:complexType>
+        </xsd:element>
+        <xsd:element name="Axis.Axis.CalPoint">
+          <xsd:complexType>
+            <xsd:complexContent>
+              <xsd:extension base="Axis.Axis.CalPoint">
+                <xsd:attribute name="BID" type="IliID"/>
+                <xsd:attribute name="OPERATION" type="OperationType"/>
+                <xsd:attribute name="CONSISTENCY" type="ConsistencyType"/>
+              </xsd:extension>
+            </xsd:complexContent>
+          </xsd:complexType>
+        </xsd:element>
+        <xsd:element name="Axis.Axis.Sector">
+          <xsd:complexType>
+            <xsd:complexContent>
+              <xsd:extension base="Axis.Axis.Sector">
+                <xsd:attribute name="BID" type="IliID"/>
+                <xsd:attribute name="OPERATION" type="OperationType"/>
+                <xsd:attribute name="CONSISTENCY" type="ConsistencyType"/>
+              </xsd:extension>
+            </xsd:complexContent>
+          </xsd:complexType>
+        </xsd:element>
+        <xsd:element name="Axis.Axis.Materialization">
+          <xsd:complexType>
+            <xsd:complexContent>
+              <xsd:extension base="Axis.Axis.Materialization">
+                <xsd:attribute name="BID" type="IliID"/>
+                <xsd:attribute name="OPERATION" type="OperationType"/>
+                <xsd:attribute name="CONSISTENCY" type="ConsistencyType"/>
+              </xsd:extension>
+            </xsd:complexContent>
+          </xsd:complexType>
+        </xsd:element>
+        <xsd:element name="Axis.Axis.Plate">
+          <xsd:complexType>
+            <xsd:complexContent>
+              <xsd:extension base="Axis.Axis.Plate">
+                <xsd:attribute name="BID" type="IliID"/>
+                <xsd:attribute name="OPERATION" type="OperationType"/>
+                <xsd:attribute name="CONSISTENCY" type="ConsistencyType"/>
+              </xsd:extension>
+            </xsd:complexContent>
+          </xsd:complexType>
+        </xsd:element>
+      </xsd:choice>
+    </xsd:sequence>
+    <xsd:attribute name="BID" type="IliID" use="required"/>
+    <xsd:attribute name="TOPICS" type="xsd:string"/>
+    <xsd:attribute name="KIND" type="TransferKindType"/>
+    <xsd:attribute name="STARTSTATE" type="xsd:string"/>
+    <xsd:attribute name="ENDSTATE" type="xsd:string"/>
+    <xsd:attribute name="CONSISTENCY" type="ConsistencyType"/>
+  </xsd:complexType>
+  <xsd:complexType name="CoordValue">
+    <xsd:sequence>
+      <xsd:element name="C1" type="xsd:double"/>
+      <xsd:element name="C2" type="xsd:double" minOccurs="0"/>
+      <xsd:element name="C3" type="xsd:double" minOccurs="0"/>
+    </xsd:sequence>
+  </xsd:complexType>
+  <xsd:complexType name="ArcPoint">
+    <xsd:sequence>
+      <xsd:element name="C1" type="xsd:double"/>
+      <xsd:element name="C2" type="xsd:double"/>
+      <xsd:element name="C3" type="xsd:double" minOccurs="0"/>
+      <xsd:element name="A1" type="xsd:double"/>
+      <xsd:element name="A2" type="xsd:double"/>
+      <xsd:element name="R" type="xsd:double" minOccurs="0"/>
+    </xsd:sequence>
+  </xsd:complexType>
+  <xsd:simpleType name="INTERLIS.NAME">
+    <xsd:restriction base="xsd:normalizedString">
+      <xsd:maxLength value="255"/>
+    </xsd:restriction>
+  </xsd:simpleType>
+  <xsd:simpleType name="INTERLIS.UUIDOID">
+    <xsd:restriction base="xsd:string">
+      <xsd:pattern value="([a-zA-Z_][0-9a-zA-Z_\-\.]*:)?[0-9a-zA-Z_][0-9a-zA-Z_\-\.]*"/>
+    </xsd:restriction>
+  </xsd:simpleType>  
+  <xsd:complexType name="HeaderSection">
+    <xsd:sequence>
+      <xsd:element name="MODELS" type="Models"/>
+      <xsd:element name="ALIAS" type="Alias" minOccurs="0"/>
+      <xsd:element name="COMMENT" type="xsd:string" minOccurs="0"/>
+    </xsd:sequence>
+    <xsd:attribute name="VERSION" type="xsd:decimal" use="required" fixed="2.3"/>
+    <xsd:attribute name="SENDER" type="xsd:string" use="required"/>
+  </xsd:complexType>
+  <xsd:simpleType name="OperationType">
+    <xsd:restriction base="xsd:string">
+      <xsd:enumeration value="INSERT"/>
+      <xsd:enumeration value="UPDATE"/>
+      <xsd:enumeration value="DELETE"/>
+    </xsd:restriction>
+  </xsd:simpleType>
+  <xsd:simpleType name="TransferKindType">
+    <xsd:restriction base="xsd:string">
+      <xsd:enumeration value="FULL"/>
+      <xsd:enumeration value="INITIAL"/>
+      <xsd:enumeration value="UPDATE"/>
+    </xsd:restriction>
+  </xsd:simpleType>
+  <xsd:simpleType name="ConsistencyType">
+    <xsd:restriction base="xsd:string">
+      <xsd:enumeration value="COMPLETE"/>
+      <xsd:enumeration value="INCOMPLETE"/>
+      <xsd:enumeration value="INCONSISTENT"/>
+      <xsd:enumeration value="ADAPTED"/>
+    </xsd:restriction>
+  </xsd:simpleType>
+</xsd:schema>

@@ -1,0 +1,15 @@
+<layer>
+  <name>Zustandsabschnitt_Massnahmetyp_Trottoir_AuswertungRight</name>
+  <id>LayerInfoImpl-5a828897:156ea4b1d5b:-7b5a</id>
+  <type>VECTOR</type>
+  <defaultStyle>
+    <id>StyleInfoImpl-5395701e:15704052cf3:-77a</id>
+  </defaultStyle>
+  <resource class="featureType">
+    <id>FeatureTypeInfoImpl-5a828897:156ea4b1d5b:-7b5b</id>
+  </resource>
+  <attribution>
+    <logoWidth>0</logoWidth>
+    <logoHeight>0</logoHeight>
+  </attribution>
+</layer>

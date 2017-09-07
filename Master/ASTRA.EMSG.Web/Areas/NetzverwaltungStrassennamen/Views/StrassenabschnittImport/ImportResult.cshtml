@@ -1,0 +1,56 @@
+﻿@using ASTRA.EMSG.Business.Models.Strassennamen
+@using ASTRA.EMSG.Common
+@using ASTRA.EMSG.Web.Infrastructure.HtmlHelperExtensions
+@using Kendo.Mvc.UI
+@using Resources
+@model ImportResultModel<StrassenabschnittImportModel, StrassenabschnittImportOverviewModel>
+<fieldset class="popupFormFieldset">
+    <div>@NotificationLocalization.StrassenabschnittImportCommitInformation</div>
+    <div style="margin-top: 15px">
+        <b>@TitleLocalization.StrassenabschnittImportCommitCreateListSubTitle</b>
+    </div>
+    @(Html.Kendo().Grid<StrassenabschnittImportOverviewModel>()
+          .Name("StrassenabschnittCreateImportOverviewGrid")
+          .ApplyEmsgSettings(pageable: false, filterable: false, editable: false)
+          .DataSource(dataBinding => dataBinding
+              .Ajax()
+              .Read(c => c.Action("GetAllCreateImportOverviewModel", "StrassenabschnittImport")))
+          .Columns(columns =>
+          {
+              columns.Bound(m => m.Strassenname).Title(GridHeaderFooterLocalization.Strassenname);
+              columns.Bound(m => m.BezeichnungVon).Title(GridHeaderFooterLocalization.BezeichnungVon);
+              columns.Bound(m => m.BezeichnungBis).Title(GridHeaderFooterLocalization.BezeichnungBis);
+              columns.Bound(m => m.Abschnittsnummer).Title(GridHeaderFooterLocalization.Abschnittsnummer).Format(FormatStrings.NoDecimalFormat).AlignRight();
+              columns.Bound(m => m.Laenge).Title(GridHeaderFooterLocalization.Laenge).Format(FormatStrings.NoDecimalFormat).AlignRight();
+          })
+          )
+    <div style="margin-top: 15px">
+        <b>@TitleLocalization.StrassenabschnittImportCommitUpdateListSubTitle</b>
+    </div>
+    @(Html.Kendo().Grid<StrassenabschnittImportOverviewModel>()
+          .Name("StrassenabschnittUpdateImportOverviewGrid")
+          .ApplyEmsgSettings(pageable: false, filterable: false, editable: false)
+          .DataSource(dataBinding => dataBinding
+              .Ajax()
+              .Read(c => c.Action("GetAllUpdateImportOverviewModel", "StrassenabschnittImport")))
+          .Columns(columns =>
+          {
+              columns.Bound(m => m.Strassenname).Title(GridHeaderFooterLocalization.Strassenname);
+              columns.Bound(m => m.BezeichnungVon).Title(GridHeaderFooterLocalization.BezeichnungVon);
+              columns.Bound(m => m.BezeichnungBis).Title(GridHeaderFooterLocalization.BezeichnungBis);
+              columns.Bound(m => m.Abschnittsnummer).Title(GridHeaderFooterLocalization.Abschnittsnummer).Format(FormatStrings.NoDecimalFormat).AlignRight();
+              columns.Bound(m => m.Laenge).Title(GridHeaderFooterLocalization.Laenge).Format(FormatStrings.NoDecimalFormat).AlignRight();
+          })
+          )
+    <div class="popupFormButtons">
+        <div style="display: table-cell;">
+            @Html.UnobtrusiveCommitImportButton()
+        </div>
+        <div style="display: table-cell;">
+            @Html.UnobtrusiveCancelImportButton()
+        </div>
+    </div>
+</fieldset>
+<div class="helpButton">@Html.HelpButtonFor("Import")</div>
+<div id="importParameters" style="display: none" data-import-widow-close-confirmation="@(NotificationLocalization.CancelImportConfirmation)">
+</div>

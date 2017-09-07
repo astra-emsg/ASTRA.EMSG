@@ -1,0 +1,412 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<root>
+  <!-- 
+    Microsoft ResX Schema 
+    
+    Version 2.0
+    
+    The primary goals of this format is to allow a simple XML format 
+    that is mostly human readable. The generation and parsing of the 
+    various data types are done through the TypeConverter classes 
+    associated with the data types.
+    
+    Example:
+    
+    ... ado.net/XML headers & schema ...
+    <resheader name="resmimetype">text/microsoft-resx</resheader>
+    <resheader name="version">2.0</resheader>
+    <resheader name="reader">System.Resources.ResXResourceReader, System.Windows.Forms, ...</resheader>
+    <resheader name="writer">System.Resources.ResXResourceWriter, System.Windows.Forms, ...</resheader>
+    <data name="Name1"><value>this is my long string</value><comment>this is a comment</comment></data>
+    <data name="Color1" type="System.Drawing.Color, System.Drawing">Blue</data>
+    <data name="Bitmap1" mimetype="application/x-microsoft.net.object.binary.base64">
+        <value>[base64 mime encoded serialized .NET Framework object]</value>
+    </data>
+    <data name="Icon1" type="System.Drawing.Icon, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
+        <value>[base64 mime encoded string representing a byte array form of the .NET Framework object]</value>
+        <comment>This is a comment</comment>
+    </data>
+                
+    There are any number of "resheader" rows that contain simple 
+    name/value pairs.
+    
+    Each data row contains a name, and value. The row also contains a 
+    type or mimetype. Type corresponds to a .NET class that support 
+    text/value conversion through the TypeConverter architecture. 
+    Classes that don't support this are serialized and stored with the 
+    mimetype set.
+    
+    The mimetype is used for serialized objects, and tells the 
+    ResXResourceReader how to depersist the object. This is currently not 
+    extensible. For a given mimetype the value must be set accordingly:
+    
+    Note - application/x-microsoft.net.object.binary.base64 is the format 
+    that the ResXResourceWriter will generate, however the reader can 
+    read any of the formats listed below.
+    
+    mimetype: application/x-microsoft.net.object.binary.base64
+    value   : The object must be serialized with 
+            : System.Runtime.Serialization.Formatters.Binary.BinaryFormatter
+            : and then encoded with base64 encoding.
+    
+    mimetype: application/x-microsoft.net.object.soap.base64
+    value   : The object must be serialized with 
+            : System.Runtime.Serialization.Formatters.Soap.SoapFormatter
+            : and then encoded with base64 encoding.
+
+    mimetype: application/x-microsoft.net.object.bytearray.base64
+    value   : The object must be serialized into a byte array 
+            : using a System.ComponentModel.TypeConverter
+            : and then encoded with base64 encoding.
+    -->
+  <xsd:schema id="root" xmlns="" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:msdata="urn:schemas-microsoft-com:xml-msdata">
+    <xsd:import namespace="http://www.w3.org/XML/1998/namespace" />
+    <xsd:element name="root" msdata:IsDataSet="true">
+      <xsd:complexType>
+        <xsd:choice maxOccurs="unbounded">
+          <xsd:element name="metadata">
+            <xsd:complexType>
+              <xsd:sequence>
+                <xsd:element name="value" type="xsd:string" minOccurs="0" />
+              </xsd:sequence>
+              <xsd:attribute name="name" use="required" type="xsd:string" />
+              <xsd:attribute name="type" type="xsd:string" />
+              <xsd:attribute name="mimetype" type="xsd:string" />
+              <xsd:attribute ref="xml:space" />
+            </xsd:complexType>
+          </xsd:element>
+          <xsd:element name="assembly">
+            <xsd:complexType>
+              <xsd:attribute name="alias" type="xsd:string" />
+              <xsd:attribute name="name" type="xsd:string" />
+            </xsd:complexType>
+          </xsd:element>
+          <xsd:element name="data">
+            <xsd:complexType>
+              <xsd:sequence>
+                <xsd:element name="value" type="xsd:string" minOccurs="0" msdata:Ordinal="1" />
+                <xsd:element name="comment" type="xsd:string" minOccurs="0" msdata:Ordinal="2" />
+              </xsd:sequence>
+              <xsd:attribute name="name" type="xsd:string" use="required" msdata:Ordinal="1" />
+              <xsd:attribute name="type" type="xsd:string" msdata:Ordinal="3" />
+              <xsd:attribute name="mimetype" type="xsd:string" msdata:Ordinal="4" />
+              <xsd:attribute ref="xml:space" />
+            </xsd:complexType>
+          </xsd:element>
+          <xsd:element name="resheader">
+            <xsd:complexType>
+              <xsd:sequence>
+                <xsd:element name="value" type="xsd:string" minOccurs="0" msdata:Ordinal="1" />
+              </xsd:sequence>
+              <xsd:attribute name="name" type="xsd:string" use="required" />
+            </xsd:complexType>
+          </xsd:element>
+        </xsd:choice>
+      </xsd:complexType>
+    </xsd:element>
+  </xsd:schema>
+  <resheader name="resmimetype">
+    <value>text/microsoft-resx</value>
+  </resheader>
+  <resheader name="version">
+    <value>2.0</value>
+  </resheader>
+  <resheader name="reader">
+    <value>System.Resources.ResXResourceReader, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </resheader>
+  <resheader name="writer">
+    <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </resheader>
+  <data name="CanNotDoAuswertung" xml:space="preserve">
+    <value>Non è stato ancora fatto il bilancio annuale. I rapporti possono essere generati solo se è stato fatto almeno un bilancio annuale. </value>
+  </data>
+  <data name="CanNotJahresAbschluss" xml:space="preserve">
+    <value>Per l'anno {0} avete già fatto un bilancio annuale!</value>
+    <comment>{0}: l'anno</comment>
+  </data>
+  <data name="CopyZustandsabschnitteInfoText" xml:space="preserve">
+    <value>Avete la possibilità di trasferire i tratti di strada, incluso i danneggiamenti rilevati e gli interventi consigliati dell'anno precedente.</value>
+  </data>
+  <data name="DeleteConfirmation" xml:space="preserve">
+    <value>Sei sicuro di voler cancellare l'immissione?</value>
+  </data>
+  <data name="ImportStrassennetzErrorHelp" xml:space="preserve">
+    <value>Informazioni sulla struttura del file Excel e sui valori attesi, le troverete nel menù aiuto.</value>
+  </data>
+  <data name="ImportStrassennetzErrorTitle" xml:space="preserve">
+    <value>Durante l'import Excel per la rete stradale si sono presentati i seguenti errori:</value>
+  </data>
+  <data name="ImportStrassennetzProgressText" xml:space="preserve">
+    <value>La rete stradale è in fase d'importazione. Attendere prego fino alla conclusione del procedimento.</value>
+  </data>
+  <data name="ImportStrassennetzSuccessful" xml:space="preserve">
+    <value>La rete stradale è stata importata con successo.</value>
+  </data>
+  <data name="JahresabschlussMissingZustandsabschnitteConfirmation" xml:space="preserve">
+    <value>Attenzione: i rilevamenti dello stato non sono stati eseguiti per tutti i tratti di strada. Vuoi eseguire lo stesso il bilancio annuale?</value>
+  </data>
+  <data name="JahresAbschlussWasSuccessfull" xml:space="preserve">
+    <value>Il bilancio annuale è stato eseguito con successo!</value>
+  </data>
+  <data name="NoDataForTheSelectedFilters" xml:space="preserve">
+    <value>Per il filtro selezionato non sono disponibili dati.</value>
+  </data>
+  <data name="SplitComfirmation" xml:space="preserve">
+    <value>Sei sicuro di voler salvare? Dopo il salvataggio il precedente tratto di strada (ed ev. i tratti di stato già presenti) sarà eliminato!</value>
+  </data>
+  <data name="ZustandserfassungsmodeChangedWarning" xml:space="preserve">
+    <value>Se non avete ancora salvato le vostre immissioni, queste andranno perdute durante la modifica del rilevamento dello stato. Siete sicuri di voler modificare il tipo di rilevamento dello stato?</value>
+  </data>
+  <data name="ArbeitsmodusWechselnWasSuccessfull" xml:space="preserve">
+    <value>La commutazione del modo di lavoro è stata eseguita con successo!</value>
+  </data>
+  <data name="DoAchsenUpdateWarning" xml:space="preserve">
+    <value>Attualizza i dati assi per il vostro mandante!</value>
+  </data>
+  <data name="RealisierteMassnahmeSavedWarning" xml:space="preserve">
+    <value>Prego adattare gli stati!</value>
+  </data>
+  <data name="JahresabschlussConfirmation" xml:space="preserve">
+    <value>Attenzione: sei sicuro di voler eseguire il bilancio annuale?</value>
+  </data>
+  <data name="CancelConfirmation" xml:space="preserve">
+    <value>Con questa azione la registrazione sarà interrotta. Sei sicuro di voler interrompere?</value>
+  </data>
+  <data name="ErrorWhileProcessingRequest" xml:space="preserve">
+    <value>Durante l'elaborazione dati si è presentato un errore. Puoi segnalarlo all'amministratore dell'applicazione mediante TrackId: ({0}).</value>
+    <comment>{0}:TrackId</comment>
+  </data>
+  <data name="UploadFileLimitExceeded" xml:space="preserve">
+    <value>Errore (dimensione massima del file durante il caricamento è di 10 MB)</value>
+  </data>
+  <data name="AndereBenutzerrollenEinnehmenWasSuccessfull" xml:space="preserve">
+    <value>La ripresa di un'altro (nome) d'utente è stato eseguito con successo!</value>
+  </data>
+  <data name="ImportInspektionsroutenErrorTitle" xml:space="preserve">
+    <value>Durante l'import si sono presentati i seguenti errori:</value>
+  </data>
+  <data name="ImportInspektionsroutenProgressText" xml:space="preserve">
+    <value>Gli itinerari d'ispezione sono in fase d'importazione. Attendere fino alla conclusione della procedura.</value>
+  </data>
+  <data name="ImportInspektionsroutenSuccessful" xml:space="preserve">
+    <value>Gli itinerari d'ispezione sono stati importati con successo.</value>
+  </data>
+  <data name="StrassenabschnittIsInInspektionsroute" xml:space="preserve">
+    <value>Il tratto di strada è assegnato ad un itinerario d'ispezione. Tratti di strada, che sono stati assegnati a itinerari d'ispezione, non possono essere eliminati.</value>
+  </data>
+  <data name="RealisierteMassnahmeSummarichSavedWarning" xml:space="preserve">
+    <value>Si prega di adattare il valore "Stato medio".</value>
+  </data>
+  <data name="SplitStrassenabschnittLaengeLargerConfirmation" xml:space="preserve">
+    <value>I nuovi tratti di strada sono di {0} metri più lunghi del tratto di strada originale. Vuoi salvare lo stesso?</value>
+    <comment>{0}: la differenza in lunghezza</comment>
+  </data>
+  <data name="LookupIsUsedCanNotDelete" xml:space="preserve">
+    <value>Questo valore di catalogo viene impiegato e non può quindi essere cancellato!</value>
+  </data>
+  <data name="BelagChangeConfirmation" xml:space="preserve">
+    <value>Avete modificato il tipo di rivestimento! Sei sicuro che volete salvare? Dopo il salvataggio saranno azzerati l'indice dello stato per tutti i tratti di strada!</value>
+  </data>
+  <data name="NoDetallierteSchadenerfassungsformular" xml:space="preserve">
+    <value>Il rapporto non può essere eseguito! Non esiste alcun tratto di stato con formulario dei danneggiamenti di superficie dettagliato!</value>
+  </data>
+  <data name="EmptyInspektionsrouteExportWarning" xml:space="preserve">
+    <value>Per l'export deve essere selezionato almeno un itinerario d'ispezione!</value>
+  </data>
+  <data name="CanNotUseKenngroessenFruehererJahre" xml:space="preserve">
+    <value>Non è stato ancora fatto il bilancio annuale. Questa funzione è disponibile solo se è stato già fatto un bilancio annuale.</value>
+  </data>
+  <data name="SplitStrassenabschnittLaengeSmallerConfirmation" xml:space="preserve">
+    <value>I nuovi tratti di strada sono di {0} metri più lunghi del tratto di strada originale. Vuoi salvare lo stesso?</value>
+    <comment>{0}: la differenza in lunghezza</comment>
+  </data>
+  <data name="CancellExportConfirmation" xml:space="preserve">
+    <value>Sei sicuro di volere annullare il check-out degli itinerari d'ispezione?</value>
+  </data>
+  <data name="StrassenabschnittImportInformation" xml:space="preserve">
+    <value>Se il "nome della strada" + "denominazione da" + "denominazione a" sono uguali, il tratto di strada viene aggiornato. Se il "nome della strada" + "denominazione da" + "denominazione fino a" sono diversi o non presenti, viene formato un nuovo tratto di strada.</value>
+  </data>
+  <data name="UncompletDataInCurrentErfassungsperiodNotification" xml:space="preserve">
+    <value>Per l'anno di rilevamento attuale ev. non sono stati ancora rilevati tutti i dati.</value>
+  </data>
+  <data name="AchsenUpdateInformation" xml:space="preserve">
+    <value>Qui puoi eseguire l'aggiornamento degli assi!</value>
+  </data>
+  <data name="InspektionsrouteLockedNotification" xml:space="preserve">
+    <value>Questa immissione non può essere salvata. L'itinerario d'ispezione è al momento esportato.</value>
+  </data>
+  <data name="InspektionsrouteLockedDeleteNotification" xml:space="preserve">
+    <value>Dieser Eintrag kann nicht gelöscht werden. Die Inspektionsroute ist derzeit exportiert.</value>
+  </data>
+  <data name="ImportZustandsabschnittErrorHelp" xml:space="preserve">
+    <value>Informazioni sulla struttura del file Excel e sui valori attesi, le troverete nel menù aiuto.</value>
+  </data>
+  <data name="ImportZustandsabschnittErrorTitle" xml:space="preserve">
+    <value>Durante l'import Excel per i tratti di strada si sono presentati i seguenti errori:</value>
+  </data>
+  <data name="ImportZustandsabschnittProgressText" xml:space="preserve">
+    <value>I tratti di strada sono in fase d'importazione. Attendere prego fino alla conclusione del procedimento.</value>
+  </data>
+  <data name="ImportZustandsabschnittSuccessful" xml:space="preserve">
+    <value>I tratti di strada sono stati importati con successo.</value>
+  </data>
+  <data name="ZustandsabschnittImportInformation" xml:space="preserve">
+    <value>Informazione import dei tratti di stato</value>
+  </data>
+  <data name="MandantLogoUploadErrorHelp" xml:space="preserve">
+    <value>Il logo del mandante non può essere più grande che 2 MB e può essere solo un'immagine. (JPEG, BMP, PNG)</value>
+  </data>
+  <data name="MandantLogoUploadErrorTitle" xml:space="preserve">
+    <value>Durante il caricamento del logo del mandante si sono presentati i seguenti errori:</value>
+  </data>
+  <data name="MandantLogoUploadSuccessful" xml:space="preserve">
+    <value>Il logo del mandante è stato caricato con successo!</value>
+  </data>
+  <data name="UploadMandantenlogoProgressText" xml:space="preserve">
+    <value>Carica il logo del mandante ...</value>
+  </data>
+  <data name="ClearLogConfirmation" xml:space="preserve">
+    <value>Sei sicuro di volere cancellare tutte le immissioni del log degli eventi?</value>
+  </data>
+  <data name="UploadGlobalResourceProgressText" xml:space="preserve">
+    <value>Carica file di traduzione ...</value>
+  </data>
+  <data name="GlobaleResourceUploadErrorHelp" xml:space="preserve">
+    <value>Il file di traduzione deve essere uno dei file scaricati (dal file-ZIP).</value>
+  </data>
+  <data name="GlobaleResourceUploadErrorTitle" xml:space="preserve">
+    <value>Durante il caricamento del file traduzione si sono presentati i seguenti errori:</value>
+  </data>
+  <data name="GlobaleResourceUploadSuccessful" xml:space="preserve">
+    <value>Il file di traduzione è stato caricato con successo!</value>
+  </data>
+  <data name="MandantDetailsModelSpeichernWasSuccessfull" xml:space="preserve">
+    <value>Il salvataggio dei dati d'organizzazione è stato eseguito con successo!</value>
+  </data>
+  <data name="NotEnoughDataForBechmarking" xml:space="preserve">
+    <value>Sono a disposizione troppi pochi mandanti per il rapporto benchmark!</value>
+  </data>
+  <data name="HelpSystemUploadErrorHelp" xml:space="preserve">
+    <value>I file di aiuto devono essere in un pacchetto-ZIP!</value>
+  </data>
+  <data name="HelpSystemUploadErrorTitle" xml:space="preserve">
+    <value>Durante il caricamento del sistema di aiuto si sono presentati i seguenti errori:</value>
+  </data>
+  <data name="HelpSystemUploadSuccessful" xml:space="preserve">
+    <value>Il sistema di aiuto è stato caricato con successo!</value>
+  </data>
+  <data name="UploadHelpSystemProgressText" xml:space="preserve">
+    <value>Carica il sistema di aiuto...</value>
+  </data>
+  <data name="InCompleteMandantenDetails" xml:space="preserve">
+    <value>I dati dell'organizzazione non sono completi! Il bilancio annuale non può essere eseguito! Completa i dati dell'organizzazione all'interno del menù Amministrazione / Modifca dati organizzazione !</value>
+  </data>
+  <data name="UploadGlobalResourceFileExtensionErrorText" xml:space="preserve">
+    <value>Per la localizzazione è possibile caricare soltanto file RESX.</value>
+  </data>
+  <data name="UploadHelpSystemFileExtensionErrorText" xml:space="preserve">
+    <value>Per la gestione della Guida è possibile caricare soltanto file ZIP.</value>
+  </data>
+  <data name="UploadImportInspektionsroutenFileExtensionErrorText" xml:space="preserve">
+    <value>Per l'importazione degli itinerari d'ispezione è possibile caricare soltanto file EMSGI.</value>
+  </data>
+  <data name="UploadMandantLogoFileExtensionErrorText" xml:space="preserve">
+    <value>Per il logo del mandante è possibile caricare soltanto file JPG, JPEG, BMP o PNG.</value>
+  </data>
+  <data name="UploadStrassenabschnittImportFileExtensionErrorText" xml:space="preserve">
+    <value>Per l'importazione dei tratti di strada è possibile caricare soltanto file XLSX.</value>
+  </data>
+  <data name="UploadZustandabschnittImportFileExtensionErrorText" xml:space="preserve">
+    <value>Per l'importazione dei tratti di stato è possibile caricare soltanto file XLSX.</value>
+  </data>
+  <data name="ThereAreLockedStrassenabschnitte" xml:space="preserve">
+    <value>Itinerari d'ispezione (in modalità SIG) non ancora importati. Importare gli itinerari o annullare l'operazione con la funzione "Amministrazione &gt; Annulla check-out itinerari d'ispezione". Il bilancio annuale può essere effettuato solo se non è stato esportato alcun itinerario d'ispezione.</value>
+  </data>
+  <data name="BelagBelastungskategorieMismatchConfirmation" xml:space="preserve">
+    <value>Attenzione: mancata corrispondenza tra categoria di carico e rivestimento! Salvare comunque?</value>
+  </data>
+  <data name="BelagBelastungskategorieMismatchSplitConfirmation" xml:space="preserve">
+    <value>In almeno un tratto di strada, la combinazione rivestimento/categoria di carico è tecnicamente dubbia.</value>
+  </data>
+  <data name="ImportStrassenabschnittWarningTitle" xml:space="preserve">
+    <value>Avvisi durante l'import in Excel relativo al tratto di strada:</value>
+  </data>
+  <data name="ImportZustandsabschnittWarningTitle" xml:space="preserve">
+    <value>Avvisi durante l'import in Excel relativo al tratto di stato:</value>
+  </data>
+  <data name="CancelImportConfirmation" xml:space="preserve">
+    <value>Cancellare l'import?</value>
+  </data>
+  <data name="StrassenabschnittImportCommitInformation" xml:space="preserve">
+    <value>Inserimento/aggiornamento dei seguenti tratti. Controllare le 2 tabelle e confermare l'importazione in fondo alle 2 tabelle.</value>
+  </data>
+  <data name="ZustandsabschnittImportCommitInformation" xml:space="preserve">
+    <value>Inserimento/aggiornamento dei seguenti tratti. Controllare le 2 tabelle e confermare l'importazione in fondo alle 2 tabelle.</value>
+  </data>
+  <data name="JahresAbschlussDurationWarning" xml:space="preserve">
+    <value>La procedura può richiedere fino a {0} min. durante la procedura non si possono modificare i dati! I dati modificati non possono essere ripresi e devono essere inseriti nuovamente.  La modifca dei dati può anche causare errori nel bilancio annuale. Il browser può essere chiuso durante la procedura.</value>
+    <comment>{0} expected duration in minutes</comment>
+  </data>
+  <data name="InspektionsrouteExportTimeWarning" xml:space="preserve">
+    <value>La generazione di file di esportazione varia in base alle dimensioni della zona selezionata degli itinerari d'ispezione e quindi:
+
+- una superficie di 1 Km&amp;#xb2; dura 30-60 secondi
+- una superficie di 10 km&amp;#xb2; dura 2-3 minuti
+- una superficie di 100 km&amp;#xb2; dura 2-3 ore</value>
+  </data>
+  <data name="BenchmarkauswertungNotificationText" xml:space="preserve">
+    <value>Attenzione: i dati dell'analisi dei benchmark variano con ogni Comune addizionale che esegue il bilancio annuale.</value>
+  </data>
+  <data name="CancelGrobDetailZustandserfassungConfirmation" xml:space="preserve">
+    <value>L'operazione interromperà il rilevamento dello stato. Interrompere comunque?</value>
+  </data>
+  <data name="AchsenUpdateConfirmation" xml:space="preserve">
+    <value>Il processo può richiedere fino a 5 min.</value>
+  </data>
+  <data name="BenchmarkauswertungNoJahresabschlussNotificationText" xml:space="preserve">
+    <value>Per eseguire l'analisi dei benchmark, è necessario effettuare il bilancio annuale.</value>
+  </data>
+  <data name="UncompletDataInCurrentErfassungsperiodNotificationMap" xml:space="preserve">
+    <value>* Per l'anno di rilevamento attuale ev. non sono stati ancora rilevati tutti i dati.</value>
+  </data>
+  <data name="RealisierteMassnahmeGISSavedWarning" xml:space="preserve">
+    <value>Prego adattare le misure coordinate, le misure proposte e gli stati.</value>
+  </data>
+  <data name="ReportModeIncompatiblityNoticitationTest" xml:space="preserve">
+    <value>La valutazione non è disponibile per l’anno selezionato, poiché precedentemente il bilancio di fine anno veniva redatto in una modalità semplificata, in cui non erano inclusi alcuni dati necessari per questa valutazione.</value>
+  </data>
+  <data name="ConfirmMapDownload" xml:space="preserve">
+    <value>Un pacchetto senza materiale cartografico può essere fornito entro 30-60 secondi.
+Desiderate scaricare il pacchetto con materiale cartografico  o senza materiale cartografico ?</value>
+  </data>
+  <data name="WithMap" xml:space="preserve">
+    <value>con mappa</value>
+  </data>
+  <data name="WithoutMap" xml:space="preserve">
+    <value>senza mappa</value>
+  </data>
+  <data name="LetztenJahresAbschlussRueckgaengingMachenWarning" xml:space="preserve">
+    <value>Attenzione: Intende di annullare il bilancio annuale?</value>
+  </data>
+  <data name="JahresAbschlussRueckgaengingMachenWasSuccessfull" xml:space="preserve">
+    <value>Effettuato annullamento bilancio annuale!</value>
+  </data>
+  <data name="AchsenEditModeChangeWasSuccessfull" xml:space="preserve">
+    <value>Cambiare modo editare assi effettuato con successo</value>
+  </data>
+  <data name="AchsenEditModeChangeWarning" xml:space="preserve">
+    <value>Attenzione: Cambiando a "Editare assi", il mandante perderà la possibilità di aggiornare gli assi via incrementi. Il cambiamento ad "editare assi" può essere revocato soltanto usando la funzione "annullare il bilancio annuale".</value>
+  </data>
+  <data name="AchsenEditEnabled" xml:space="preserve">
+    <value>Editare asse già attivato!</value>
+  </data>
+  <data name="AchsenEditModeChangeConfirmation" xml:space="preserve">
+    <value>Attenzione: Cambiando a "Editare assi", il mandante perderà la possibilità di aggiornare gli assi via incrementi. Il cambiamento ad "editare assi" può essere revocato soltanto usando la funzione "annullare il bilancio annuale".</value>
+  </data>
+  <data name="AchenModificationWarning" xml:space="preserve">
+    <value>Sull'asse de Lei trattato si trovano già dati specifici. Può fare adattare i dati specifici automaticamente secondo le modifiche da Lei effettuate o può fare cancellare i dati specifici (cioè tratti di strada e tratti di stato).</value>
+  </data>
+  <data name="KenngroessenFruehererJahreWarning" xml:space="preserve">
+    <value>Delete all KenngroessenFruehererJahre</value>
+  </data>
+</root>

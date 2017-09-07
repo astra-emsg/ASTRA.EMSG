@@ -1,0 +1,56 @@
+﻿@using ASTRA.EMSG.Business.Models.GIS
+@using ASTRA.EMSG.Common
+@using ASTRA.EMSG.Web.Infrastructure.HtmlHelperExtensions
+@using ASTRA.EMSG.Web.Infrastructure.TelerikExtensions
+@using Resources
+@using Kendo.Mvc.UI
+
+@model SerializableGridModel<InspektionsRouteGISOverviewModel>
+<div class="scrollable-grid">
+    @(Html.Kendo().Grid<InspektionsRouteGISOverviewModel>()
+          .Name("InspektionsroutenGrid")
+          .ApplyEmsgSettings(pageable: false)
+          .HtmlAttributes(new
+          {
+              data_empty_list_warning = NotificationLocalization.EmptyInspektionsrouteExportWarning,
+              data_export_time_warning = NotificationLocalization.InspektionsrouteExportTimeWarning,
+              data_export_map_confirmation = NotificationLocalization.ConfirmMapDownload,
+              data_yes = NotificationLocalization.WithMap,
+              data_no = NotificationLocalization.WithoutMap,
+              data_cancel = ButtonLocalization.Cancel,
+              data_is_locked_message = NotificationLocalization.InspektionsrouteLockedDeleteNotification,
+          })
+          .DataSource(dataBinding => dataBinding
+              .Ajax()
+              .Read(c => c.Action("GetAll", "InspektionsroutenGIS"))
+              .Destroy(c => c.Action("Delete", "InspektionsroutenGIS"))
+              .Model(keys => keys.Id(m => m.Id)))
+         .ToolBar(commands =>
+         {
+             commands.Template(
+             new EmsgToolbarBuilder()
+                 .AddButton("overview.create()", ButtonLocalization.AddNewInspektionsroute)
+                 .ExportButton(string.Format("overview.exportInspektionsrouten('{0}', '{1}')", Url.Action("Export"), Url.Action("GetLastExport")), ButtonLocalization.ExportInspektionsroute)
+                 .ImportButton(string.Format("overview.importInspektionsrouten('{0}')", Url.Action("ImportInspektionsrouten")), ButtonLocalization.ImportInspektionsroute)
+                 .CustomButton(ButtonLocalization.GetMobileClient, Url.Action("GetMobileClientInstaller", "Home", new { area = "" }))
+                 .ToTemplate());
+         })
+          .Columns(columns =>
+          {
+              columns.Bound(m => m.Id).AsEmsgCommand().ClientTemplate("<input class='emsg-row-selector' data-id='#= Id #' type='checkbox'/>").Width(40).Filterable(false);
+              columns.Bound(m => m.Id).GridCommands(
+                  Html.EditButton("overview.edit('#= Id #')").ToHtmlString(),
+                  Html.GridDeleteButton().ToHtmlString()).Width(85);
+
+              columns.Bound(m => m.Bezeichnung).Title(GridHeaderFooterLocalization.Bezeichnung);
+              columns.Bound(m => m.StrassenabschnittCount).Title(GridHeaderFooterLocalization.EnthalteneAbschnitte);
+              columns.Bound(m => m.StatusBezeichnung).Title(GridHeaderFooterLocalization.Status);
+              columns.Bound(m => m.InInspektionBei).Title(GridHeaderFooterLocalization.InInspektionBei);
+              columns.Bound(m => m.InInspektionBis).Title(GridHeaderFooterLocalization.InInspektionBis).Format(FormatStrings.ShortDateTimeFormat);
+          })
+          .Events(c => c.DataBound("overview.onRowDataBound"))
+          )
+</div>
+
+@(Html.TelerikWindow(TitleLocalization.ImportInspektionsroutenPopupTitle, "ImportWindow", "importDiv").Events(events => events.Close("overview.onImportWindowClose")))
+@(Html.TelerikWindow(ButtonLocalization.ExportInspektionsroute, "exportConfirmDiv", "exportConfirmContent").Events(events => events.Close("overview.onImportWindowClose")).Width(500))

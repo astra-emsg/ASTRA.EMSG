@@ -1,0 +1,36 @@
+﻿@using System.Data.SqlClient
+@using System.Reflection
+@using ASTRA.EMSG.Common.Enums
+@using ASTRA.EMSG.Common.Master.ConfigurationHandling
+@using ASTRA.EMSG.Web.Controllers
+@{
+    Layout = null;
+}
+
+@{
+    var serverConfigurationProvider = new ServerConfigurationProvider();
+    var assembly = Assembly.GetAssembly(typeof(HomeController));
+    var builder = new SqlConnectionStringBuilder(serverConfigurationProvider.ConnectionString);
+
+    var color = "";
+    switch (serverConfigurationProvider.Environment)
+    {
+        case ApplicationEnvironment.Development:
+            color = "blue";
+            break;
+        case ApplicationEnvironment.SpecFlow:
+            color = "yellow";
+            break;
+    }
+}
+
+<div style="float: right; margin-top: 5px; margin-right: 15px; font-size: 10px; color: #999999;">
+    <div style="background-color: @(color); display: inline; margin-right: 5px">
+        <b style="color: white;">
+            <span>Environment: @serverConfigurationProvider.Environment - Database: @builder.InitialCatalog</span>
+        </b>
+    </div>
+
+    <span style="margin-right: 5px">v@(assembly.GetName().Version/* + "-" + VersionPostfix.Postfix */)</span>
+    <span>(@File.GetLastWriteTime(assembly.Location).ToString("dd.MM.yyyy - HH:mm:ss"))</span>
+</div>

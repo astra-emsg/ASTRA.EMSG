@@ -1,0 +1,194 @@
+<?xml version="1.0" encoding="utf-8"?>
+<TRANSFER xmlns="http://www.interlis.ch/INTERLIS2.3">
+  <DATASECTION>
+     <Axis.Axis BID="Axis" KIND="UPDATE">
+
+<Axis.Axis.Axis TID="GUID:3afb032c-4454-453b-87b9-fc641009c397" OPERATION="UPDATE" xmlns="http://www.interlis.ch/INTERLIS2.3">
+        <Validity>
+          <Axis.Axis.ObjectVersionInfo>
+            <VersionValidFrom>2010-07-29</VersionValidFrom>
+            <VersionValidTo>9999-12-31</VersionValidTo>
+            <ObjectValidFrom>2010-07-29</ObjectValidFrom>
+            <ObjectValidTo>9999-12-31</ObjectValidTo>
+          </Axis.Axis.ObjectVersionInfo>
+        </Validity>
+        <Owner>0358</Owner>
+        <DatabaseId>GUID:3d3b1d00-cba1-6d4a-803e-105110885a25</DatabaseId>
+        <AxisName>Lindenweg</AxisName>
+        <AxisNameLong>Lindenweg@0358</AxisNameLong>
+        <AxisPositionCode>equal</AxisPositionCode>
+        <AxisType>
+          <Axis.AxisCatalogs.AxisTypeRef>
+            <Reference REF="GUID:89aa138a-999a-554e-b120-13721dbbb055" />
+          </Axis.AxisCatalogs.AxisTypeRef>
+        </AxisType>
+        <Status>
+          <Axis.AxisCatalogs.AxisStatusRef>
+            <Reference REF="GUID:040eeb90-09a3-5749-bd0e-5e0c67e3ee1c" />
+          </Axis.AxisCatalogs.AxisStatusRef>
+        </Status>
+      </Axis.Axis.Axis>
+<Axis.Axis.AxisSegment TID="GUID:c2bddc8b-f1df-4f42-b89d-33cf001ba11c" OPERATION="UPDATE" xmlns="http://www.interlis.ch/INTERLIS2.3">
+        <Sequence>1</Sequence>
+        <SegmentName>08866C810BA4424BB4E586149B3DAAC3_00</SegmentName>
+        <Geometry>
+          <Axis.Axis.AxisSegmentGeometry>
+            <Geometry>
+              <POLYLINE>
+<!--
+			  <COORD>
+                  <C1>606440.071</C1>
+                  <C2>200917.289</C2>
+                  <C3>0.000</C3>
+                </COORD>
+                <COORD>
+                  <C1>606452.497</C1>
+                  <C2>200920.749</C2>
+                  <C3>0.000</C3>
+                </COORD>
+                <COORD>
+                  <C1>606458.753</C1>
+                  <C2>200921.745</C2>
+                  <C3>0.000</C3>
+                </COORD>
+                <COORD>
+                  <C1>606464.499</C1>
+                  <C2>200921.751</C2>
+                  <C3>0.000</C3>
+                </COORD>
+                <COORD>
+                  <C1>606468.998</C1>
+                  <C2>200921.000</C2>
+                  <C3>0.000</C3>
+                </COORD>
+                <COORD>
+                  <C1>606481.250</C1>
+                  <C2>200916.255</C2>
+                  <C3>0.000</C3>
+                </COORD>
+                <COORD>
+                  <C1>606490.021</C1>
+                  <C2>200935.208</C2>
+                  <C3>0.000</C3>
+                </COORD>
+-->				
+                <COORD>
+                  <C1>606491.858</C1>
+                  <C2>200939.312</C2>
+                  <C3>0.000</C3>
+                </COORD>
+<!--
+                <COORD>
+                  <C1>606493.720</C1>
+                  <C2>200941.838</C2>
+                  <C3>0.000</C3>
+                </COORD>
+                <COORD>
+                  <C1>606495.698</C1>
+                  <C2>200943.296</C2>
+                  <C3>0.000</C3>
+                </COORD>
+                <COORD>
+                  <C1>606498.878</C1>
+                  <C2>200944.245</C2>
+                  <C3>0.000</C3>
+                </COORD>
+                <COORD>
+                  <C1>606502.448</C1>
+                  <C2>200944.515</C2>
+                  <C3>0.000</C3>
+                </COORD>
+--> 
+				<COORD>
+                  <C1>606508.279</C1>
+                  <C2>200943.744</C2>
+                  <C3>0.000</C3>
+                </COORD>
+              </POLYLINE>
+            </Geometry>
+            <LinDist>
+<!--              
+			  <Axis.Axis.Measure>
+                <Measure>0.000</Measure>
+              </Axis.Axis.Measure>
+
+              <Axis.Axis.Measure>
+                <Measure>12.899</Measure>
+              </Axis.Axis.Measure>
+              <Axis.Axis.Measure>
+                <Measure>19.234</Measure>
+              </Axis.Axis.Measure>
+              <Axis.Axis.Measure>
+                <Measure>24.980</Measure>
+              </Axis.Axis.Measure>
+              <Axis.Axis.Measure>
+                <Measure>29.541</Measure>
+              </Axis.Axis.Measure>
+              <Axis.Axis.Measure>
+                <Measure>42.679</Measure>
+              </Axis.Axis.Measure>
+              <Axis.Axis.Measure>
+                <Measure>63.564</Measure>
+              </Axis.Axis.Measure>
+              <Axis.Axis.Measure>
+                <Measure>68.060</Measure>
+              </Axis.Axis.Measure>
+-->			  
+              <Axis.Axis.Measure>
+                <Measure>0.000</Measure>
+              </Axis.Axis.Measure>
+<!--
+              <Axis.Axis.Measure>
+                <Measure>73.655</Measure>
+              </Axis.Axis.Measure>
+              <Axis.Axis.Measure>
+                <Measure>76.974</Measure>
+              </Axis.Axis.Measure>
+              <Axis.Axis.Measure>
+                <Measure>80.554</Measure>
+              </Axis.Axis.Measure>
+-->
+              <Axis.Axis.Measure>
+                <Measure>15.000</Measure>
+              </Axis.Axis.Measure>
+            </LinDist>
+            <CaptureMethod>
+              <Axis.AxisCatalogs.CaptureMethodRef>
+                <Reference REF="GUID:f158b02a-d08b-0b41-8ffe-9de9950c65fb" />
+              </Axis.AxisCatalogs.CaptureMethodRef>
+            </CaptureMethod>
+          </Axis.Axis.AxisSegmentGeometry>
+        </Geometry>
+        <rAxisContainer REF="GUID:3afb032c-4454-453b-87b9-fc641009c397" />
+      </Axis.Axis.AxisSegment>
+<Axis.Axis.Sector TID="GUID:b50d087a-a4e6-4f5c-9dd9-10b56cec1fde" OPERATION="UPDATE" xmlns="http://www.interlis.ch/INTERLIS2.3">
+        <Sequence>0</Sequence>
+        <SectorName>00</SectorName>
+        <SectorLength>86.436</SectorLength>
+        <Km>0</Km>
+        <MarkerGeometry>
+          <COORD>
+            <C1>606440.071</C1>
+            <C2>200917.289</C2>
+            <C3>0.000</C3>
+          </COORD>
+        </MarkerGeometry>
+        <rAxisSegmentLR REF="GUID:c2bddc8b-f1df-4f42-b89d-33cf001ba11c" />
+      </Axis.Axis.Sector>
+<Axis.Axis.Sector TID="GUID:13cad4db-ead1-4ef7-b846-213d1c912c3f" OPERATION="UPDATE" xmlns="http://www.interlis.ch/INTERLIS2.3">
+        <Sequence>86.436</Sequence>
+        <SectorName>10</SectorName>
+        <SectorLength>0</SectorLength>
+        <Km>0.086</Km>
+        <MarkerGeometry>
+          <COORD>
+            <C1>606508.279</C1>
+            <C2>200943.744</C2>
+            <C3>0.000</C3>
+          </COORD>
+        </MarkerGeometry>
+        <rAxisSegmentLR REF="GUID:c2bddc8b-f1df-4f42-b89d-33cf001ba11c" />
+      </Axis.Axis.Sector>
+</Axis.Axis>
+</DATASECTION>
+</TRANSFER>

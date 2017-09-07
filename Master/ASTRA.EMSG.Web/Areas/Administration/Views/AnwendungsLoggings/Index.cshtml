@@ -1,0 +1,27 @@
+﻿@using ASTRA.EMSG.Web.Infrastructure.HtmlHelperExtensions
+@using Resources
+@using Kendo.Mvc.UI
+@model ASTRA.EMSG.Business.Models.Administration.LogLevelModel
+
+@section JavaScript
+{
+    <script type="text/javascript" src="@Url.Content("~/Scripts/Areas/Administration/AnwendungsLoggings/AnwendungsLoggings.js")"></script>
+}
+
+<h2>@TitleLocalization.AnwendungsLoggingsPageTitle</h2>
+@using (Html.BeginForm("SelectLogLevel", "AnwendungsLoggings", FormMethod.Post, new { id = "form", className = "k-edit-form" }))
+{
+    <div id="parameters" data-cancel-url="@(Url.Action("Cancel"))" />
+
+    <fieldset class="formFieldset k-edit-form-container">
+        @(Html.EditorTable().WithCustomEditorFor(m => m.LogLevel, MvcHtmlString.Create(
+                Html.Kendo()
+                .DropDownListFor(m => m.LogLevel)
+                .BindTo((IEnumerable<DropDownListItem>)ViewBag.LogLevels)
+                .HtmlAttributes(new { style = "width: 200px;" })
+                .ToHtmlString())))
+        
+        @Html.UnobtrusiveOkCancelFormButtons(ButtonLocalization.ChangeLogLevel)
+    </fieldset>
+    @Html.RequiredFieldLegend()
+}

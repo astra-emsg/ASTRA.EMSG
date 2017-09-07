@@ -1,0 +1,41 @@
+﻿@using ASTRA.EMSG.Business.Models.GIS
+@using ASTRA.EMSG.Web.Areas.Common.GridCommands
+@using ASTRA.EMSG.Web.Infrastructure.HtmlHelperExtensions
+@using ASTRA.EMSG.Web.Infrastructure.TelerikExtensions
+@using Resources
+@using Kendo.Mvc.UI
+@model SerializableGridModel<MassnahmenvorschlagTeilsystemeGISOverviewModel>
+@(Html.ToGridFilterBuilder<MassnahmenvorschlagTeilsystemeGridCommand>()
+                        .WithTextFilter(f => f.ProjektnameFilter, triggerOn3Char: true)
+                        .WithFilterButton(useUnobtrusive: true, filterButtonLabel: ButtonLocalization.Search))
+
+<div class="scrollable-grid">
+    @(Html.Kendo().Grid<MassnahmenvorschlagTeilsystemeGISOverviewModel>()
+    .Name("MassnahmenvorschlagTeilsystemeGrid")
+    .ApplyEmsgSettings()
+    .DataSource(dataBinding => dataBinding
+        .Ajax()
+        .Read(c => c.Action("GetAll", "MassnahmenvorschlaegeAndererTeilsysteme").Data("index.getFilteredData"))
+        .Destroy(c => c.Action("Delete", "MassnahmenvorschlaegeAndererTeilsysteme"))
+        .Model(keys => keys.Id(m => m.Id))
+        .PageSize(ASTRA.EMSG.Web.Infrastructure.ConstantSettings.GridPageSize))
+    .ToolBar(commands =>
+    {
+        commands.Template(
+        new EmsgToolbarBuilder()
+            .AddButton("overview.create()", ButtonLocalization.AddNewMassnahmeEinesTeilsystems)
+            .ToTemplate());
+    })
+    .Columns(columns =>
+    {
+        columns.Bound(m => m.Id).GridCommands(Html.EditButton("overview.edit('#= Id #')").ToHtmlString(),
+            Html.GridDeleteButton().ToHtmlString()).Width(85);
+
+        columns.Bound(m => m.Projektname).Title(GridHeaderFooterLocalization.Projektname);
+        columns.Bound(m => m.BezeichnungVon).Title(GridHeaderFooterLocalization.BezeichnungVon);
+        columns.Bound(m => m.BezeichnungBis).Title(GridHeaderFooterLocalization.BezeichnungBis);
+        columns.Bound(m => m.TeilsystemBezeichnung).Title(GridHeaderFooterLocalization.Teilsystem);
+        columns.Bound(m => m.DringlichkeitBezeichnung).Title(GridHeaderFooterLocalization.Dringlichkeit);
+        columns.Bound(m => m.StatusBezeichnung).Title(GridHeaderFooterLocalization.Status);
+    }))
+</div>

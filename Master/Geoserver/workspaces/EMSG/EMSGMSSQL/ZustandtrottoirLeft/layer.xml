@@ -1,0 +1,15 @@
+<layer>
+  <name>ZustandtrottoirLeft</name>
+  <id>LayerInfoImpl--712dd8df:156b736ad9b:-7dc4</id>
+  <type>VECTOR</type>
+  <defaultStyle>
+    <id>StyleInfoImpl-5a828897:156ea4b1d5b:-7b6e</id>
+  </defaultStyle>
+  <resource class="featureType">
+    <id>FeatureTypeInfoImpl--712dd8df:156b736ad9b:-7dc5</id>
+  </resource>
+  <attribution>
+    <logoWidth>0</logoWidth>
+    <logoHeight>0</logoHeight>
+  </attribution>
+</layer>

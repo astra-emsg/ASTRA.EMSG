@@ -1,0 +1,15 @@
+<layer>
+  <name>Inspektionsroute</name>
+  <id>LayerInfoImpl--712dd8df:156b736ad9b:-7dcd</id>
+  <type>VECTOR</type>
+  <defaultStyle>
+    <id>StyleInfoImpl--712dd8df:156b736ad9b:-79b0</id>
+  </defaultStyle>
+  <resource class="featureType">
+    <id>FeatureTypeInfoImpl--712dd8df:156b736ad9b:-7dce</id>
+  </resource>
+  <attribution>
+    <logoWidth>0</logoWidth>
+    <logoHeight>0</logoHeight>
+  </attribution>
+</layer>

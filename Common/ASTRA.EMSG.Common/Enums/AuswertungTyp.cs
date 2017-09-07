@@ -1,0 +1,33 @@
+﻿namespace ASTRA.EMSG.Common.Enums
+{
+    public enum AuswertungTyp
+    {
+        W1_1,
+        W1_2,
+        W1_3,
+        W1_4,
+        W1_5,
+        W1_6,
+        W1_7,
+        W2_1,
+        W2_2,
+        W2_3,
+        W3_1,
+        W3_2,
+        W3_3,
+        W3_4,
+        W3_5,
+        W3_6,
+        W3_7,
+        W3_8,
+        W4_1,
+        W4_2,
+        W4_3,
+        W4_4,
+        W5_1,
+        W5_2,
+        W5_3,
+        W5_4,
+        W6_1
+    }
+}

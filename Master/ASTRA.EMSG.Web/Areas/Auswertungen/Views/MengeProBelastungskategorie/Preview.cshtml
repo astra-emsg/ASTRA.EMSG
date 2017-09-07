@@ -1,0 +1,51 @@
+﻿@using ASTRA.EMSG.Business.Reports.MengeProBelastungskategorie
+@using ASTRA.EMSG.Common.Enums
+
+@using ASTRA.EMSG.Web.Infrastructure.HtmlHelperExtensions
+@using Resources
+@using Kendo.Mvc.UI
+
+@if ((NetzErfassungsmodus)ViewBag.NetzErfassungsmodus != NetzErfassungsmodus.Summarisch)
+{
+    @(Html.ToGridFilterBuilder<MengeProBelastungskategorieParameter>()
+                                .WithEnumFilter<EigentuemerTyp?, EigentuemerTyp>(f => f.Eigentuemer))
+}
+
+@ReportViewHelpers.TabellarischReportButtons(Html, "MengeProBelastungskategorie", "MengeProBelastungskategorie")
+<div class="scrollable-grid-border">
+    <div class="scrollable-grid">
+        @(Html.Kendo().Grid<MengeProBelastungskategoriePo>()
+              .Name("MengeProBelastungskategorie")
+              .ApplyEmsgSettings(pageable: false, editable: false)
+              .Columns(columns =>
+              {
+                  var isSummarischeModus = (NetzErfassungsmodus) ViewBag.NetzErfassungsmodus == NetzErfassungsmodus.Summarisch;
+
+                  columns.Bound(m => m.BelastungskategorieKurzBezeichnung).Title(GridHeaderFooterLocalization.Belastungskategorie).SumLabel();
+                  columns.Bound(m => m.Fahrbahnflaeche).Title(GridHeaderFooterLocalization.Strassenflaeche).Sum();
+                  columns.Bound(m => m.Trottoirflaeche).Title(GridHeaderFooterLocalization.FlaecheTrottoir).Hidden(isSummarischeModus).Sum();
+              })
+              .DataSource(dataSource => dataSource
+                    .Ajax()
+                    .Aggregates(aggregate =>
+                    {
+                        aggregate.Add(p => p.Fahrbahnflaeche).Sum();
+                        aggregate.Add(p => p.Trottoirflaeche).Sum();
+                    })
+                    .Read(c => c.Action("GetAll", "MengeProBelastungskategorie").Data("BuildParameter")))
+              .Events(c => c.DataBound("OnDataBound"))
+         )
+    </div>
+</div>
+<script type="text/javascript">
+
+    function RefreshGrid() {
+        common.refreshGrid('#MengeProBelastungskategorie');
+    }
+
+    function GetReportParameter() {
+        return {
+            Eigentuemer: $("#Eigentuemer").val()
+        };
+    }
+</script>

@@ -1,0 +1,23 @@
+﻿@using ASTRA.EMSG.Business.Models
+@using ASTRA.EMSG.Common
+@using ASTRA.EMSG.Web.Infrastructure.HtmlHelperExtensions
+@model ASTRA.EMSG.Business.Models.GIS.ZustandsabschnittGISModel
+
+       
+@Html.HiddenFor(m => m.Id)
+@Html.HiddenFor(m => m.StrassenabschnittGIS)
+@Html.HiddenFor(m => m.IsLocked)
+@Html.HiddenFor(m => m.ReferenzGruppe)
+@Html.HiddenFor(m => m.HasTrottoir)
+@Html.ValidationMessageFor(m => m.FeatureGeoJSONString)
+<input type="hidden" value="@Model.FeatureGeoJSONString" id="Stammdaten_FeatureGeoJSONString" name="Stammdaten.FeatureGeoJSONString"/>    
+@(Html.EditorTable()
+        .WithReadOnlyFieldFor(m => m.Laenge)
+        .WithDisplayFor(m => m.FlaecheFahrbahn, false)
+        .WithDisplayFor(m => m.FlaceheTrottoirLinks, false)
+        .WithDisplayFor(m => m.FlaceheTrottoirRechts, false)
+        .WithDateTimeEditorFor(m => m.Aufnahmedatum)
+        .WithIntegerEditorFor(m => m.Abschnittsnummer, 9, false)
+        .WithTextBoxFor(m => m.Aufnahmeteam, false)
+        .WithEnumEditorFor(m => m.Wetter, () => Model.Wetter, requiredField: false, customize: cbb => cbb.Events(events => events.Change("details.dropDownChanged")))
+        .WithTextAreaFor(m => m.Bemerkung, false))

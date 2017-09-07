@@ -1,0 +1,45 @@
+﻿@using ASTRA.EMSG.Business.Reports.ZustandsspiegelProJahrGrafische
+@using ASTRA.EMSG.Common.Enums
+
+@using ASTRA.EMSG.Web.Infrastructure.HtmlHelperExtensions
+@using Kendo.Mvc.UI
+
+@{ var erfassugnsPeriodList = (IEnumerable<DropDownListItem>) ViewBag.ErfassugnsPeriodList; }
+
+@(Html.ToGridFilterBuilder<ZustandsspiegelProJahrGrafischeParameter>()
+    .WithLookupFilter(f => f.ErfassungsPeriodIdVon, erfassugnsPeriodList, 300, "RenderPreview")
+    .WithLookupFilter(f => f.ErfassungsPeriodIdBis, erfassugnsPeriodList, 300, "RenderPreview")
+    .WithEnumFilter<EigentuemerTyp?, EigentuemerTyp>(f => f.Eigentuemer, filterFunction: "RenderPreview"))
+
+@ReportViewHelpers.CurrentErfassungsperiodNotification((Guid)(ViewBag.CurrentErfassungsPeriodId))
+
+<div id="ReportImagePreview"/>
+
+<script type="text/javascript">
+    function RenderPreview() {
+        $.ajax({
+            url: '@(Url.Action("GetReportImagePreview"))',
+            type: 'POST',
+            data: GetReportParameter(),
+            success: function (data) {
+                $('#ReportImagePreview').empty().append(data);
+
+                //Show or Hide 'UncompletDataInCurrentErfassungsperiodNotification' depending on the selected Year
+                var selectedId = $('#ErfassungsPeriodIdBis').data('kendoDropDownList').value();
+                var currentErfassungsPeriodId = $('#CurrentErfassungsPeriodId').val();
+                $('#currentErfassungsperiodNotification').toggle(selectedId == currentErfassungsPeriodId);
+            }
+        });
+    }
+
+    function GetReportParameter() {
+        return {
+            ErfassungsPeriodId: $("#ErfassungsPeriod").val(),
+            ErfassungsPeriodIdVon: $("#ErfassungsPeriodIdVon").val(),
+            ErfassungsPeriodIdBis: $("#ErfassungsPeriodIdBis").val(),
+            Eigentuemer: $("#Eigentuemer").val()
+        };
+    }
+
+    $(RenderPreview);
+</script>

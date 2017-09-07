@@ -1,0 +1,69 @@
+﻿@using Resources
+@using ASTRA.EMSG.Web.Infrastructure.HtmlHelperExtensions
+@using Kendo.Mvc.UI
+@model ASTRA.EMSG.Business.Models.Strassennamen.ImportResultModel<ASTRA.EMSG.Business.Models.Strassennamen.ZustandsabschnittImportModel, ASTRA.EMSG.Business.Models.Strassennamen.ZustandsabschnittImportOverviewModel>
+<fieldset class="popupFormFieldset">
+    <div style="margin-bottom: 20px">
+        @Html.ActionLinkButton(ButtonLocalization.GetZustandsabschnittImportTemplate, "GetXlsxImportTemplate")
+    </div>
+    <hr />
+    <div>@NotificationLocalization.ZustandsabschnittImportInformation</div>
+    <hr style="margin-bottom: 20px" />
+    @{ 
+        Html.Kendo().Upload()
+            .Name("importFiles")
+            .Multiple(false)
+            .Async(async => async.Save("Upload", "ZustandsabschnittImport").AutoUpload(false))
+            .Events(events =>
+                {
+                    events.Success("zustandsabschnittImport.onSuccess");
+                    events.Error("zustandsabschnittImport.onError");
+                    events.Select("zustandsabschnittImport.onSelect");
+                    events.Upload("zustandsabschnittImport.onUpload");
+                })
+            .Render();
+    }
+
+    <br />
+    <div id="result">
+        @if (Model != null && Model.Errors.Any())
+        {
+            if (Model.Warnings.Any())
+            {
+                <span>@NotificationLocalization.ImportZustandsabschnittWarningTitle</span>
+                <br />
+                <br />
+                foreach (var warning in Model.Warnings)
+                {
+                    <span style="color: orange">@warning</span><br />
+                }
+                <br />
+                <br />
+            }
+    
+            <span>@NotificationLocalization.ImportZustandsabschnittErrorTitle</span>
+            <br />
+            <br />
+            foreach (var error in Model.Errors)
+            {
+                <span style="color: red">@error</span><br />
+            }
+            <br />
+            <span>@NotificationLocalization.ImportZustandsabschnittErrorHelp</span>
+        }
+    </div>
+
+    <hr />
+    <div class="popupFormButtons">
+        @Html.BackToOverviewButton("zustandsabschnittImport.closeImportWindow()")
+    </div>
+</fieldset>
+<div class="helpButton">@Html.HelpButtonFor("Import")</div>
+@(Html.Hidden("parameters", null, new Dictionary<string, object>
+                                        {
+                                            {"id", "parameters"},
+                                            {"data-uploadResultUrl", Url.Action("GetLastImportResult")},
+                                            {"data-progressText", NotificationLocalization.ImportZustandsabschnittProgressText},
+                                            {"data-errorMessage", NotificationLocalization.UploadFileLimitExceeded},
+                                            {"data-fileExtensionErrorMessage", NotificationLocalization.UploadZustandabschnittImportFileExtensionErrorText},
+                                        }))

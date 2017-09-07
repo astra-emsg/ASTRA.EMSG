@@ -1,0 +1,15 @@
+﻿@using ASTRA.EMSG.Common.Enums
+@model ASTRA.EMSG.Business.Models.Common.ZustandsabschnittdetailsModel
+
+@Html.HiddenFor(m => m.IsDetailInitializiert)
+@Html.HiddenFor(m => m.IsGrobInitializiert)
+
+@switch (Model.Erfassungsmodus)
+{
+    case ZustandsErfassungsmodus.Grob:
+    @Html.Partial("GrobZustandsErfassungForm", Model)
+        break;
+    case ZustandsErfassungsmodus.Detail:
+    @Html.Partial("DetailZustandsErfassungForm", Model)
+        break;
+}

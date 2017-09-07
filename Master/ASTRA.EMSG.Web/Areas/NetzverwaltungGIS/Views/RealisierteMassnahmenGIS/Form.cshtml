@@ -1,0 +1,10 @@
+﻿@using ASTRA.EMSG.Web.Areas.NetzverwaltungGIS.Controllers
+@using Resources
+<div id="realisierteMassnahmeEditFormDiv"
+     data-create-action="@Url.Action("Create", "RealisierteMassnahmenGIS")" 
+     data-edit-action="@Url.Action("Edit", "RealisierteMassnahmenGIS")"
+     data-saved-warning ="@Html.Raw(NotificationLocalization.RealisierteMassnahmeGISSavedWarning)"
+     @*data-saved-warning = "@Url.Action("DataSaved", "RealisierteMassnahmenGIS")"*@
+     data-cancel-confirmation = "@Html.Raw(NotificationLocalization.CancelConfirmation)"
+    >
+</div>

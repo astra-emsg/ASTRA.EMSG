@@ -1,0 +1,110 @@
+﻿declare
+
+procedure drop_index(p_index_name in varchar2) is  
+  coord_dimension number(1) := 2;
+  index_not_exists EXCEPTION;
+  PRAGMA EXCEPTION_INIT(index_not_exists, -1418);
+  BEGIN
+    EXECUTE IMMEDIATE 'drop index ' || p_index_name;
+  Exception
+    WHEN index_not_exists then null;
+  END drop_index;
+
+procedure create_user_sdo_geom_metadata(p_table_name in varchar2, p_3d in boolean) is
+  BEGIN
+    delete from USER_SDO_GEOM_METADATA where TABLE_NAME = p_table_name;
+    IF p_3d THEN
+      INSERT INTO USER_SDO_GEOM_METADATA
+        VALUES (
+        p_table_name,
+        'SHAPE',
+        MDSYS.SDO_DIM_ARRAY(   -- 20X20 grid
+          MDSYS.SDO_DIM_ELEMENT('X', 485869.5728, 837076.5648, 0.01),
+          MDSYS.SDO_DIM_ELEMENT('Y', 76443.1884,  299941.7864, 0.01),
+          MDSYS.SDO_DIM_ELEMENT('Z', -100000.0,  100000.5, 0.02)
+           ),
+        21781
+        );
+    ELSE
+      INSERT INTO USER_SDO_GEOM_METADATA
+          VALUES (
+          p_table_name,
+          'SHAPE',
+          MDSYS.SDO_DIM_ARRAY(   -- 20X20 grid
+            MDSYS.SDO_DIM_ELEMENT('X', 485869.5728, 837076.5648, 0.01),
+            MDSYS.SDO_DIM_ELEMENT('Y', 76443.1884,  299941.7864, 0.01)
+             ),
+          21781
+          );
+    END IF ;
+  END create_user_sdo_geom_metadata;
+
+procedure create_index(p_table_name in varchar2, p_spatial_index_name in varchar2, p_3d in boolean) is
+  coord_dimension number(1) := 2;  
+  BEGIN
+    IF p_3d THEN
+      coord_dimension := 3;
+    ELSE
+      coord_dimension := 2;
+    END IF ;
+    EXECUTE IMMEDIATE
+      'CREATE INDEX ' || p_spatial_index_name ||
+          ' ON ' || p_table_name || ' (SHAPE) INDEXTYPE IS
+          MDSYS.SPATIAL_INDEX PARAMETERS ('' SDO_INDX_DIMS=' || coord_dimension ||
+          ' LAYER_GTYPE="COLLECTION" SDO_RTR_PCTFREE=2 INITIAL=64K NEXT=8192
+          MINEXTENTS=1 MAXEXTENTS=2147483645 PCTINCREASE=0'')';
+  END create_index;
+  
+procedure create_materialized_view(p_table_name in varchar2, p_view_name in varchar2)
+  is
+    cmd varchar2(32000);
+  BEGIN
+    begin
+      EXECUTE IMMEDIATE 'drop table ' || p_view_name;
+      exception when others then null;
+    end;
+    begin
+      EXECUTE IMMEDIATE 'drop Materialized VIEW ' || p_view_name;
+      exception when others then null;
+    end;
+
+    begin
+      EXECUTE IMMEDIATE 'drop Materialized VIEW LOG ON ' || p_table_name;
+      exception when others then null;
+    end;
+    
+    EXECUTE IMMEDIATE ' CREATE MATERIALIZED VIEW LOG ON ' || p_table_name || ' 
+	    WITH SEQUENCE, ROWID
+	    (ID, SHAPE)
+	    INCLUDING NEW VALUES ';
+      
+    cmd :='CREATE materialized view ' || p_view_name || ' refresh on demand AS
+      select to_char(rawtohex(ID)) as ID , ID as RAWID , SDO_CS.MAKE_2D(SHAPE, 21781) as SHAPE from ' || p_table_name;
+    EXECUTE IMMEDIATE cmd;
+  END create_materialized_view;
+  
+begin
+create_user_sdo_geom_metadata('ACHSENSEGMENT', TRUE);
+create_user_sdo_geom_metadata('ACHSENREFERENZ', FALSE);
+create_user_sdo_geom_metadata('STRASSENABSCHNITTGIS', FALSE);
+create_user_sdo_geom_metadata('ZUSTANDSABSCHNITTGIS', FALSE);
+drop_index('SPAT_IX_ACHSENSEGMENT');
+drop_index('SPAT_IX_ACHSENREFERENZ');
+drop_index('SPAT_IX_STRAABSGIS');
+drop_index('SPAT_IX_ZUSTANDSABSCHNITTGIS');
+create_index('ACHSENSEGMENT', 'SPAT_IX_ACHSENSEGMENT', TRUE);
+create_index('ACHSENREFERENZ', 'SPAT_IX_ACHSENREFERENZ', FALSE);
+create_index('STRASSENABSCHNITTGIS', 'SPAT_IX_STRAABSGIS', FALSE);
+create_index('ZUSTANDSABSCHNITTGIS', 'SPAT_IX_ZUSTANDSABSCHNITTGIS', FALSE);
+
+--
+--materialized view für wms (achsensegment = 3d - materialziedview = 2d)
+--AUF REIHENFOLGE AUFPASSEN! 
+--http://www.oracledistilled.com/oracle-database/troubleshooting/ora-04020-when-dropping-materialized-view-with-a-spatial-index/
+--
+drop_index('SPAT_IX_MVW_ACHSENSEGMENT');
+create_materialized_view('ACHSENSEGMENT', 'MVW_ACHSENSEGMENT');
+create_user_sdo_geom_metadata('MVW_ACHSENSEGMENT', FALSE);
+create_index('MVW_ACHSENSEGMENT', 'SPAT_IX_MVW_ACHSENSEGMENT', FALSE);
+
+end;

@@ -1,0 +1,162 @@
+﻿@using ASTRA.EMSG.Business.Models.Strassennamen
+@using ASTRA.EMSG.Common
+@using ASTRA.EMSG.Web.Areas.Common.GridCommands
+@using ASTRA.EMSG.Web.Infrastructure.HtmlHelperExtensions
+@using ASTRA.EMSG.Web.Infrastructure.TelerikExtensions
+@using Kendo.Mvc.UI
+@using Resources
+
+@section JavaScript
+{
+    <script type="text/javascript" src="@(Url.Content("~/Scripts/Areas/NetzverwaltungStrassennamen/NetzdefinitionUndStrassenabschnitt/NetzdefinitionUndStrassenabschnitt.js"))"></script>
+    <script type="text/javascript" src="@(Url.Content("~/Scripts/Areas/NetzverwaltungStrassennamen/ZustaendeUndMassnahmenvorschlaege/ZustaendeUndMassnahmenvorschlaege.js"))"></script>
+}
+<h2>@TitleLocalization.StrassenabschnittPageTitle</h2>
+
+@(Html.ToGridFilterBuilder<StrassenabschnittGridCommand>()
+                        .WithTextFilter(f => f.StrassennameFilter)
+                        .WithTextFilter(f => f.Ortsbezeichnung)
+                        .WithFilterButton(filterButtonLabel: ButtonLocalization.Search))
+
+<div class="scrollable-grid-border">
+    <div class="scrollable-grid">
+        @(Html.Kendo().Grid<StrassenabschnittOverviewModel>()
+            .Name("StrassenabschnittenGrid")
+            .ApplyEmsgSettings()
+            .DataSource(dataBinding => dataBinding
+                .Ajax()
+                .Read(c => c.Action("GetAll", "NetzdefinitionUndStrassenabschnitt").Data("getFilteredData"))
+                .Destroy(c => c.Action("Delete", "NetzdefinitionUndStrassenabschnitt"))
+                .PageSize(ASTRA.EMSG.Web.Infrastructure.ConstantSettings.GridPageSize)
+                .Model(keys => keys.Id(m => m.Id)))
+            .HtmlAttributes(new
+            {
+                data_createurl = Url.Action("Create"),
+                data_createwindowtitle = TitleLocalization.StrassenabschnittCreatePopupTitle,
+                data_editurl = Url.Action("EditStrassenabschnitt"),
+                data_editwindowtitle = TitleLocalization.StrassenabschnittEditPopupTitle,
+                data_split_url = Url.Action("SplitStrassenabschnitt"),
+                style = "display : inline-block"
+            })
+            .ToolBar(commands =>
+            {
+                commands.Template(
+                new EmsgToolbarBuilder()
+                    .AddButton("strassenabschnittPage.index.openÇreateStrassenabschnittWindow()", ButtonLocalization.AddNewStrassenabschnitt)
+                    .CustomButton(ButtonLocalization.ExportStrassenabschnitt, Url.Action("DownloadExcelReport", "NetzdefinitionUndStrassenabschnitt"), string.Format("background: url('{0}'); height: 16px; width: 16px; vertical-align: middle; margin-bottom: 2px", new UrlHelper(HttpContext.Current.Request.RequestContext).Content("~/Content/images/page_excel.png")))
+                    .CustomButton(ButtonLocalization.ImportStrassennetz, "javascript:openImportWindow()", string.Format("background: url('{0}'); height: 16px; width: 16px; vertical-align: middle; margin-bottom: 2px", new UrlHelper(HttpContext.Current.Request.RequestContext).Content("~/Content/images/page_excel.png")))
+                    .ToTemplate());
+            })
+            .Columns(columns =>
+            {
+                columns.Bound(m => m.Id).GridCommands(
+                    Html.EditButton("strassenabschnittPage.index.openStrassenabschnittWindow('#= Id #')").ToHtmlString(),
+                    Html.SplitButton("strassenabschnittPage.index.openSplitStrassenabschnittWindow('#= Id #')").ToHtmlString(),
+                    Html.StrassenabschnittDetailButton("openDetails('" + Url.Action("Index", "Zustandsabschnitt") + "/?id=#= Id #', '#= Strassenname #')").ToHtmlString(),
+                    Html.GridDeleteButton().ToHtmlString()).Width(150);
+
+                columns.Bound(m => m.Abschnittsnummer).Title(GridHeaderFooterLocalization.Strassenabschnittsnummer);
+                columns.Bound(m => m.Strassenname).Title(GridHeaderFooterLocalization.Strassenname);
+                columns.Bound(m => m.BezeichnungVon).Title(GridHeaderFooterLocalization.BezeichnungVon);
+                columns.Bound(m => m.BezeichnungBis).Title(GridHeaderFooterLocalization.BezeichnungBis);
+                columns.Bound(m => m.ExternalId).Title(GridHeaderFooterLocalization.ExternalId);
+                columns.Bound(m => m.Ortsbezeichnung).Title(GridHeaderFooterLocalization.Ortsbezeichnung);
+                columns.Bound(m => m.BelastungskategorieBezeichnung).Title(GridHeaderFooterLocalization.BelastungskategorieTyp);
+                columns.Bound(m => m.Laenge).Title(GridHeaderFooterLocalization.Laenge).Format(FormatStrings.NoDecimalFormat).AlignRight();
+                columns.Bound(m => m.FlaecheFahrbahn).Title(GridHeaderFooterLocalization.FlaecheFahrbahn).Format(FormatStrings.NoDecimalFormat).AlignRight();
+                columns.Bound(m => m.FlaecheTrottoir).Title(GridHeaderFooterLocalization.FlaecheTrottoir).Format(FormatStrings.NoDecimalFormat).AlignRight();
+                columns.Bound(m => m.ErfassungsStatusBezeichnung).Title(GridHeaderFooterLocalization.ZustandsErfassungsStatus);
+            })
+        )
+    </div>
+</div>
+@{
+    Html.TelerikWindow(TitleLocalization.ImportStrassennetzPopupTitle, "ImportWindow", "importFormDiv")
+        .Events(events => events.Close("importWindowOnClose"))
+        .Render();
+
+    Html.TelerikWindow("ZustandsabschnittList", "ZustandsabschnittListWindow", "zustandsabschnittListDiv")
+        .Events(events => events.Close("onClose"))
+        .Render();
+
+    Html.TelerikWindow(TitleLocalization.StrassenabschnittEditPopupTitle, "StrassenabschnittWindow", "strassenabschnittWindowDiv")
+        .Events(events => events.Close("onClose"))
+        .Height(700)
+        .Render();
+
+    Html.TelerikWindow(TitleLocalization.SplitStrassenabschnittPopupTitle, "SplitStrassenabschnittWindow", "splitStrassenabschnittFormDiv")
+        .Events(events => events.Close("onClose"))
+        .Render();
+}
+
+<script type="text/javascript">
+
+    function getFilteredData(e) {
+        return {
+            StrassennameFilter: $("#StrassennameFilter").val(),
+            Ortsbezeichnung: $("#Ortsbezeichnung").val()
+        };
+    }
+
+    function OnComplete(e) {
+        if (e.name == "delete") {
+            RefreshGrid(true);
+        }
+    }
+
+    function clearStrassennameFilter() {
+        $("#StrassennameFilter").val("");
+    }
+
+    function clearOrtsbezeichnungFilter() {
+        $("#Ortsbezeichnung").val("");
+    }
+    
+    function RefreshGrid(keepCurentPage) {
+        common.refreshGrid('#StrassenabschnittenGrid', keepCurentPage);
+    }
+
+    function openDetails(url, name) {
+        openGeneralWindow(url, "zustandsabschnittListDiv", "ZustandsabschnittListWindow");
+        var w = $('#ZustandsabschnittListWindow').data('kendoWindow');
+        w.title('@TitleLocalization.StrassenabschnittEditFormTitle' + ' ' + name);
+        w.setOptions({
+            width: 1360
+        });
+        w.center();
+    }
+
+    function openImportWindow() {
+        openGeneralWindow('@(Url.Action("Import", "StrassenabschnittImport"))', "importFormDiv", "ImportWindow");
+        var w = $('#ImportWindow').data('kendoWindow');
+        w.setOptions({
+            width: 800,
+            height: 620
+        });
+        w.center();    
+    }
+
+    function onClose() {
+        clearStrassennameFilter();
+        clearOrtsbezeichnungFilter();
+        $('#strassenabschnittWindowDiv').empty();
+        $('#splitStrassenabschnittFormDiv').empty();
+        $('#copyFormDiv').empty();
+        common.refreshGrid('#StrassenabschnittenGrid', true);
+    }
+    
+    function importWindowOnClose(e) {
+        var importParameters = $("#importParameters");
+        if(importParameters.length == 1 && !confirm(importParameters.data("import-widow-close-confirmation"))) {
+            e.preventDefault();
+            return;
+        }
+
+        clearStrassennameFilter();
+        clearOrtsbezeichnungFilter();
+        common.refreshGrid('#StrassenabschnittenGrid');
+    }
+
+    //Note: Used for Belag/Bleastungskategorie Warnings
+    var belastungskategorienDictionary = @(Html.Raw(ViewBag.BelastungskategorienDictionary));
+</script>

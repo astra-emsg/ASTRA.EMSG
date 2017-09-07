@@ -1,0 +1,290 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Report xmlns="http://schemas.microsoft.com/sqlserver/reporting/2008/01/reportdefinition" xmlns:rd="http://schemas.microsoft.com/SQLServer/reporting/reportdesigner">
+  <Body>
+    <Height>5.18584cm</Height>
+    <Style />
+  </Body>
+  <Width>25.04722cm</Width>
+  <Page>
+    <PageHeader>
+      <Height>2.635cm</Height>
+      <PrintOnFirstPage>true</PrintOnFirstPage>
+      <PrintOnLastPage>true</PrintOnLastPage>
+      <ReportItems>
+        <Line Name="HeaderLine">
+          <Top>2.14111cm</Top>
+          <Height>0cm</Height>
+          <Width>710pt</Width>
+          <Style>
+            <Border>
+              <Color>#c0c0c0</Color>
+              <Style>Solid</Style>
+            </Border>
+          </Style>
+        </Line>
+        <Image Name="HeaderMandantImage">
+          <Source>Database</Source>
+          <Value>=IIf(Not(Parameters!IsPreview.Value), System.Convert.FromBase64String(Parameters!MandantImage.Value), "")</Value>
+          <MIMEType>image/png</MIMEType>
+          <Sizing>FitProportional</Sizing>
+          <Top>0cm</Top>
+          <Left>20cm</Left>
+          <Height>2cm</Height>
+          <Width>5cm</Width>
+          <ZIndex>1</ZIndex>
+          <Style>
+            <Border>
+              <Style>None</Style>
+            </Border>
+          </Style>
+        </Image>
+        <Textbox Name="HeaderReportTitleTextbox">
+          <CanGrow>true</CanGrow>
+          <KeepTogether>true</KeepTogether>
+          <Paragraphs>
+            <Paragraph>
+              <TextRuns>
+                <TextRun>
+                  <Value rd:LocID="TitleLocalization.WiederbeschaffungswertUndWertverlustProStrassenabschnittPageTitle">=Parameters!ReportTitle.Value</Value>
+                  <Style>
+                    <FontStyle>Normal</FontStyle>
+                    <FontSize>18pt</FontSize>
+                    <FontWeight>Normal</FontWeight>
+                    <TextDecoration>None</TextDecoration>
+                    <Color>#366092</Color>
+                  </Style>
+                </TextRun>
+              </TextRuns>
+              <Style>
+                <TextAlign>Left</TextAlign>
+              </Style>
+            </Paragraph>
+          </Paragraphs>
+          <Height>2cm</Height>
+          <Width>550pt</Width>
+          <ZIndex>2</ZIndex>
+          <Style>
+            <Border>
+              <Style>None</Style>
+            </Border>
+            <VerticalAlign>Bottom</VerticalAlign>
+            <PaddingLeft>2pt</PaddingLeft>
+            <PaddingRight>2pt</PaddingRight>
+            <PaddingTop>2pt</PaddingTop>
+            <PaddingBottom>2pt</PaddingBottom>
+          </Style>
+        </Textbox>
+      </ReportItems>
+      <Style>
+        <Border>
+          <Style>None</Style>
+        </Border>
+      </Style>
+    </PageHeader>
+    <PageFooter>
+      <Height>1.19972cm</Height>
+      <PrintOnFirstPage>true</PrintOnFirstPage>
+      <PrintOnLastPage>true</PrintOnLastPage>
+      <ReportItems>
+        <Textbox Name="FooterPageNumberTextbox">
+          <CanGrow>true</CanGrow>
+          <KeepTogether>true</KeepTogether>
+          <Paragraphs>
+            <Paragraph>
+              <TextRuns>
+                <TextRun>
+                  <Value>=Globals.PageNumber &amp; "/" &amp; Globals.TotalPages</Value>
+                  <Style />
+                </TextRun>
+              </TextRuns>
+              <Style>
+                <TextAlign>Right</TextAlign>
+              </Style>
+            </Paragraph>
+          </Paragraphs>
+          <Top>0.28222cm</Top>
+          <Left>20cm</Left>
+          <Height>0.6cm</Height>
+          <Width>4.96063cm</Width>
+          <Style>
+            <Border>
+              <Style>None</Style>
+            </Border>
+            <PaddingLeft>2pt</PaddingLeft>
+            <PaddingRight>2pt</PaddingRight>
+            <PaddingTop>2pt</PaddingTop>
+            <PaddingBottom>2pt</PaddingBottom>
+          </Style>
+        </Textbox>
+        <Textbox Name="FooterTextTextbox">
+          <CanGrow>true</CanGrow>
+          <KeepTogether>true</KeepTogether>
+          <Paragraphs>
+            <Paragraph>
+              <TextRuns>
+                <TextRun>
+                  <Value>=Parameters!FooterText.Value</Value>
+                  <Style />
+                </TextRun>
+              </TextRuns>
+              <Style>
+                <TextAlign>Center</TextAlign>
+              </Style>
+            </Paragraph>
+          </Paragraphs>
+          <Top>0.28222cm</Top>
+          <Left>4.89219cm</Left>
+          <Height>0.6cm</Height>
+          <Width>15.14309cm</Width>
+          <ZIndex>1</ZIndex>
+          <Style>
+            <Border>
+              <Style>None</Style>
+            </Border>
+            <PaddingLeft>2pt</PaddingLeft>
+            <PaddingRight>2pt</PaddingRight>
+            <PaddingTop>2pt</PaddingTop>
+            <PaddingBottom>2pt</PaddingBottom>
+          </Style>
+        </Textbox>
+        <Textbox Name="FooterPrintDateTimeTextbox">
+          <CanGrow>true</CanGrow>
+          <KeepTogether>true</KeepTogether>
+          <Paragraphs>
+            <Paragraph>
+              <TextRuns>
+                <TextRun>
+                  <Value>=Now.ToString("d",System.Globalization.CultureInfo.CreateSpecificCulture(Parameters!CultureCode.Value))</Value>
+                  <Style />
+                </TextRun>
+              </TextRuns>
+              <Style>
+                <TextAlign>Left</TextAlign>
+              </Style>
+            </Paragraph>
+          </Paragraphs>
+          <Top>0.28222cm</Top>
+          <Left>1.19274cm</Left>
+          <Height>0.6cm</Height>
+          <Width>3.66417cm</Width>
+          <ZIndex>2</ZIndex>
+          <Visibility>
+            <Hidden>=Parameters!IsExcelOutput.Value</Hidden>
+          </Visibility>
+          <Style>
+            <Border>
+              <Style>None</Style>
+            </Border>
+            <PaddingLeft>2pt</PaddingLeft>
+            <PaddingRight>2pt</PaddingRight>
+            <PaddingTop>2pt</PaddingTop>
+            <PaddingBottom>2pt</PaddingBottom>
+          </Style>
+        </Textbox>
+        <Image Name="FooterEmsgImage">
+          <Source>Embedded</Source>
+          <Value>EMSG_Icon_ohne_Rahmen_62x65</Value>
+          <Sizing>FitProportional</Sizing>
+          <Height>1.15535cm</Height>
+          <Width>1.12958cm</Width>
+          <ZIndex>3</ZIndex>
+          <Visibility>
+            <Hidden>=Parameters!IsExcelOutput.Value</Hidden>
+          </Visibility>
+          <Style>
+            <Border>
+              <Style>None</Style>
+            </Border>
+          </Style>
+        </Image>
+        <Textbox Name="FooterPrintDateTimeTextbox2">
+          <CanGrow>true</CanGrow>
+          <KeepTogether>true</KeepTogether>
+          <Paragraphs>
+            <Paragraph>
+              <TextRuns>
+                <TextRun>
+                  <Value>="MISTRA EMSG " &amp; Now.ToString("d",System.Globalization.CultureInfo.CreateSpecificCulture(Parameters!CultureCode.Value))</Value>
+                  <Style />
+                </TextRun>
+              </TextRuns>
+              <Style>
+                <TextAlign>Left</TextAlign>
+              </Style>
+            </Paragraph>
+          </Paragraphs>
+          <Top>0.28222cm</Top>
+          <Height>0.6cm</Height>
+          <Width>4.85691cm</Width>
+          <ZIndex>4</ZIndex>
+          <Visibility>
+            <Hidden>=Not(Parameters!IsExcelOutput.Value)</Hidden>
+          </Visibility>
+          <Style>
+            <Border>
+              <Style>None</Style>
+            </Border>
+            <PaddingLeft>2pt</PaddingLeft>
+            <PaddingRight>2pt</PaddingRight>
+            <PaddingTop>2pt</PaddingTop>
+            <PaddingBottom>2pt</PaddingBottom>
+          </Style>
+        </Textbox>
+      </ReportItems>
+      <Style>
+        <Border>
+          <Style>None</Style>
+        </Border>
+      </Style>
+    </PageFooter>
+    <PageHeight>21cm</PageHeight>
+    <PageWidth>29.7cm</PageWidth>
+    <LeftMargin>1cm</LeftMargin>
+    <RightMargin>1cm</RightMargin>
+    <TopMargin>1cm</TopMargin>
+    <BottomMargin>1cm</BottomMargin>
+    <ColumnSpacing>1.27cm</ColumnSpacing>
+    <Style />
+  </Page>
+  <AutoRefresh>0</AutoRefresh>
+  <ReportParameters>
+    <ReportParameter Name="ReportTitle">
+      <DataType>String</DataType>
+      <Prompt>ReportParameter1</Prompt>
+    </ReportParameter>
+    <ReportParameter Name="MandantImage">
+      <DataType>String</DataType>
+      <Prompt>ReportParameter1</Prompt>
+    </ReportParameter>
+    <ReportParameter Name="IsPreview">
+      <DataType>Boolean</DataType>
+      <Prompt>ReportParameter1</Prompt>
+    </ReportParameter>
+    <ReportParameter Name="CultureCode">
+      <DataType>String</DataType>
+      <Prompt>ReportParameter1</Prompt>
+    </ReportParameter>
+    <ReportParameter Name="FooterText">
+      <DataType>String</DataType>
+      <Nullable>true</Nullable>
+      <AllowBlank>true</AllowBlank>
+      <Prompt>ReportParameter1</Prompt>
+    </ReportParameter>
+    <ReportParameter Name="IsExcelOutput">
+      <DataType>Boolean</DataType>
+      <Prompt>ReportParameter1</Prompt>
+    </ReportParameter>
+  </ReportParameters>
+  <EmbeddedImages>
+    <EmbeddedImage Name="EMSG_Icon_ohne_Rahmen_62x65">
+      <MIMEType>image/gif</MIMEType>
+      <ImageData>R0lGODlhPgBBAFAAACH5BAAAAAAALAAAAAA+AEEAhwAAAAAAMwAAZgAAmQAAzAAA/wArAAArMwArZgArmQArzAAr/wBVAABVMwBVZgBVmQBVzABV/wCAAACAMwCAZgCAmQCAzACA/wCqAACqMwCqZgCqmQCqzACq/wDVAADVMwDVZgDVmQDVzADV/wD/AAD/MwD/ZgD/mQD/zAD//zMAADMAMzMAZjMAmTMAzDMA/zMrADMrMzMrZjMrmTMrzDMr/zNVADNVMzNVZjNVmTNVzDNV/zOAADOAMzOAZjOAmTOAzDOA/zOqADOqMzOqZjOqmTOqzDOq/zPVADPVMzPVZjPVmTPVzDPV/zP/ADP/MzP/ZjP/mTP/zDP//2YAAGYAM2YAZmYAmWYAzGYA/2YrAGYrM2YrZmYrmWYrzGYr/2ZVAGZVM2ZVZmZVmWZVzGZV/2aAAGaAM2aAZmaAmWaAzGaA/2aqAGaqM2aqZmaqmWaqzGaq/2bVAGbVM2bVZmbVmWbVzGbV/2b/AGb/M2b/Zmb/mWb/zGb//5kAAJkAM5kAZpkAmZkAzJkA/5krAJkrM5krZpkrmZkrzJkr/5lVAJlVM5lVZplVmZlVzJlV/5mAAJmAM5mAZpmAmZmAzJmA/5mqAJmqM5mqZpmqmZmqzJmq/5nVAJnVM5nVZpnVmZnVzJnV/5n/AJn/M5n/Zpn/mZn/zJn//8wAAMwAM8wAZswAmcwAzMwA/8wrAMwrM8wrZswrmcwrzMwr/8xVAMxVM8xVZsxVmcxVzMxV/8yAAMyAM8yAZsyAmcyAzMyA/8yqAMyqM8yqZsyqmcyqzMyq/8zVAMzVM8zVZszVmczVzMzV/8z/AMz/M8z/Zsz/mcz/zMz///8AAP8AM/8AZv8Amf8AzP8A//8rAP8rM/8rZv8rmf8rzP8r//9VAP9VM/9VZv9Vmf9VzP9V//+AAP+AM/+AZv+Amf+AzP+A//+qAP+qM/+qZv+qmf+qzP+q
+///VAP/VM//VZv/Vmf/VzP/V////AP//M///Zv//mf//zP///wAAAAAAAAAAAAAAAAj/APcJHEiwoMGDCBMqXMjwoLt2tbK9yuZKIkWJ32y1a8ixo8B23165mjhSYslXIi3youexpUGIKC26iugqZDZaFmudNOfSpT5bErFNpDWx6CuhKIVWJIlyY8+G7pianEoUY8WIQ4sK5fV0Ybujr2jafBVSa9KzJLNhBdcVYbuTSMFWnFvL6LeRd8mKBPutbcGv4GqVvSlRb+GgtYRalKr3lS2/Aum9YruPF9KgKXEuLToXLOa533pB1ul0r1BsdQvrrXkSq061Rim683vOKb127WxdnkuxqERvnjcLBa64FmSDZYW6/qz6Ms6YKIG/ctqznr6B9fYNQ2WT90jUhcGH/1XceXdfl/VCPt4HcTFqW+Z48TJni/PYpWptyY9/1+Q5l2+98t8+taACVi3DLKNMNApGoww9qX1Hki3DPMiggssMY5NxLdWXzTC3FfVNhfso86CJ9CijoDmbqQWigyfGSAxSLHWkz0Uo8aWiiTv2uOAwv4VFDDQoKrijgtDoNp1HX6nFWy080qOglCcuk6IytrgyTS0p1tOjkVfWk0lF63H0FX4oDeMlj2wauWMhabJ5ZYpGKrgdWR7xUpRm5hCJoYpU0nmlH66w46CXf06JYjSTjMRlR+Cg+c2OKaZIJJsmRtMLKrb4eCWPfyrDSFE1NsSLkxTZYqWJGC4iBpWI6v8jhitqxqhgIYtEM6eKi+xVKkNYWTSMnybqM4kf5mBqoh9QsmriPmKg0ouzP/ph0a8LgSMXl2CqyIgrxACqoJip8LKmMmsWgmCJgCqTCSqaKdNRXTSBcymGyfjxjZs8LgIukWtGM4wf9qLIKpykdmSOZxWumuK7vUATpol/THouumig0vCOAhNCV3ZmxgRlnQv2+qCb0UjiRzug8sgsMZ+iO6uIHklGkTmKmkiMvm4iugg24fb8rr1GrhlG
+YRnVnNowDo4LzSSEJEjtwLwY7CU0vVZIpzLQ9OKHXNRxBI5aBvNYSDYnXrlPxqJ9qYy1ztL5rVoSYcvQMK6cA03Ry/L/Euqtryi7jyR/CLMqq/medV5LI57MasbE6OOssYTYC6uJ37JMbSapPLckgD1euUizh2cYOKYC+9GpolL6S9LiLV284M7gXPzp1msygqzEy+y97GHDPCWuifVkLMyRbseYei3E8BsNI4Qc2JWcJsJpi64G5/xnIa7YIjnx1eNnN0ck9z5M9Ml6GjqRumczbennRxf8U9B4GWbGZMGIrtsKts8ltc8rSZl6Ei4fwYkiteKawfSRoUUwq3tl89IBudIVevjuWZkoxGUyIS909a5/hLDWRIbBwB5lghDYoOD0qqQiSbiDJtlARSHEMAlMTIIRhfBD9EzyjQKeaB9wGlBb/0KVokkI5FQxcYUr/IAKjxUlMZNp2o6IEYawCS970BgGMQYCkbxghDPhYdqn9rHF46xqSsuQRDT+ghUwYgUbneKRl44zEEwpyIgHocc5atFGpWTDb/RYIx3ruKOrkUgh9LgNbnqBm+sMsiBlQ1caHklHeS2DgSWSBCUhkwlGMAINjBDDJ+W1ScjUDxr7qF8e20EMVrKSJe4oI0HcAaLInIMXvcBWPYbBi3DMzy+2SEWOmrKPV6TiV/SAxStmM4xU1MIWyvxlL4xpi/rAYnweeYVoCkIPYf5yH9N8BT30kYpt7iMcx2RPKoQomQG6JCqzKcg0bRGOgbTzMcRIZ2ReUc4PyZhTIOd4RVuaWSOQgVMjZapmOB7TTmxNE5tdCecwWSKgYQh0H1H5yYCiIsxcCqQWsODiMM4xjHg+RRvMY2UsBXLMbl5Hm/VYJkHoMc10wiKhr1CmOz1Czm9+JBX7SOYuBZpReshyH/pwzD5sQRl7yvQpkjHpQCwqEAHJdJra0adAbgrOVDhSIA+NaCrckUiysqSaAqnPempxi6CmwhYsoalMG9rPcLal
+PsMsZzEHdAtxVtUpUUGJMKnjDmWipBYLLaViF8vYxjr2sRwJCAA7</ImageData>
+    </EmbeddedImage>
+  </EmbeddedImages>
+  <Language>=Parameters!CultureCode.Value</Language>
+  <rd:ReportUnitType>Cm</rd:ReportUnitType>
+  <rd:ReportID>16822f99-1202-4b9d-9c67-101efd1d2532</rd:ReportID>
+</Report>

@@ -1,0 +1,67 @@
+﻿@using Resources
+@using ASTRA.EMSG.Web.Infrastructure.HtmlHelperExtensions
+@using Kendo.Mvc.UI
+@model ASTRA.EMSG.Business.Models.Strassennamen.ImportResultModel<ASTRA.EMSG.Business.Models.Strassennamen.StrassenabschnittImportModel, ASTRA.EMSG.Business.Models.Strassennamen.StrassenabschnittImportOverviewModel>
+<fieldset class="popupFormFieldset">
+    <div style="margin-bottom: 20px">
+        @Html.ActionLinkButton(ButtonLocalization.GetStrassennetzImportTemplate, "GetXlsxImportTemplate")
+    </div>
+    <hr />
+    <div>@NotificationLocalization.StrassenabschnittImportInformation</div>
+    <hr style="margin-bottom: 20px" />
+    @{ 
+        Html.Kendo().Upload()
+            .Name("importFiles")
+            .Multiple(false)
+            .Async(async => async.Save("Upload", "StrassenabschnittImport").AutoUpload(false))
+            .Events(events =>
+                {
+                    events.Success("strassenabschnittPage.strassenabschnittImport.onSuccess");
+                    events.Error("strassenabschnittPage.strassenabschnittImport.onError");
+                    events.Select("strassenabschnittPage.strassenabschnittImport.onSelect");
+                    events.Upload("strassenabschnittPage.strassenabschnittImport.onUpload");
+                })
+            .Render();
+    }
+    <br />
+    <div id="result">
+        @if (Model != null && Model.Errors.Any())
+        {
+            if (Model.Warnings.Any())
+            {
+                <span>@NotificationLocalization.ImportStrassenabschnittWarningTitle</span>
+                <br />
+                <br />
+                foreach (var warning in Model.Warnings)
+                {
+                    <span style="color: orange">@warning</span><br />
+                }
+                <br />
+                <br />
+            }
+    
+            <span>@NotificationLocalization.ImportStrassennetzErrorTitle</span>
+            <br />
+            <br />
+            foreach (var error in Model.Errors)
+            {
+                <span style="color: red">@error</span><br />
+            }
+            <br />
+            <span>@NotificationLocalization.ImportStrassennetzErrorHelp</span>
+        }
+    </div>
+    <hr />
+    <div class="popupFormButtons">
+        @Html.BackToOverviewButton("strassenabschnittPage.strassenabschnittImport.closeImportWindow()")
+    </div>
+</fieldset>
+<div class="helpButton">@Html.HelpButtonFor("Import")</div>
+@(Html.Hidden("parameters", null, new Dictionary<string, object>
+                                        {
+                                            {"id", "parameters"},
+                                            {"data-uploadResultUrl", Url.Action("GetLastImportResult")},
+                                            {"data-progressText", NotificationLocalization.ImportStrassennetzProgressText},
+                                            {"data-errorMessage", NotificationLocalization.UploadFileLimitExceeded},
+                                            {"data-fileExtensionErrorMessage", NotificationLocalization.UploadStrassenabschnittImportFileExtensionErrorText},
+                                        }))

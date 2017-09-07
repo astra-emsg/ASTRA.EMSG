@@ -1,0 +1,43 @@
+﻿@using ASTRA.EMSG.Common.Utils
+@using ASTRA.EMSG.Web.Infrastructure.HtmlHelperExtensions
+@using Resources
+@using Kendo.Mvc.UI
+@model ASTRA.EMSG.Business.Reports.BenchmarkauswertungKennwertenRealisiertenMassnahmen.BenchmarkauswertungKennwertenRealisiertenMassnahmenParameter
+@{ var erfassugnsPeriodList = (IEnumerable<DropDownListItem>) ViewBag.ErfassugnsPeriodList; }
+
+
+<div id="BenchmarkingPreview">
+     @if (erfassugnsPeriodList.IsEmpty())
+     {
+         @NotificationLocalization.BenchmarkauswertungNoJahresabschlussNotificationText
+     }
+     else
+     {
+         using (Ajax.BeginForm("GetBenchmarkauswertungPreview", "BenchmarkauswertungKennwertenRealisiertenMassnahmen",
+                                new AjaxOptions
+                                    {
+                                        HttpMethod = "POST",
+                                        UpdateTargetId = "BenchmarkingPreview",
+                                        InsertionMode = InsertionMode.Replace,
+                                    }))
+          {
+
+
+              @(Html.EditorTable(200, 350)
+                    .WithLookupEditorFor(f => f.JahrId, erfassugnsPeriodList, 250)
+                    .WithCustomEditorFor(s => s.BenchmarkingGruppenTypList, Html.EditorFor(s => s.BenchmarkingGruppenTypList, "BenchmarkingGruppenTyp"), false)
+                    )
+
+              <div style="margin-top: 10px; margin-bottom: 10px">
+                  <b>@(NotificationLocalization.BenchmarkauswertungNotificationText)</b>
+              </div>
+
+              @Html.UnobtrusiveSubmitButton(ButtonLocalization.GenerateReport, null)
+          }
+
+          if ((ViewBag.IsValid ?? false))
+          {
+              @Html.Action("GetReportImagePreview", "BenchmarkauswertungKennwertenRealisiertenMassnahmen")
+          }
+     }
+</div>

@@ -1,0 +1,38 @@
+﻿@using ASTRA.EMSG.Common.Enums
+
+@using ASTRA.EMSG.Web.Areas.Auswertungen.ReportGridCommands
+@using ASTRA.EMSG.Web.Infrastructure
+@using ASTRA.EMSG.Web.Infrastructure.HtmlHelperExtensions
+@using Resources
+@using Kendo.Mvc.UI
+@model ListeDerInspektionsroutenGridCommand
+@{
+    ViewData.Model = new ListeDerInspektionsroutenGridCommand();
+}
+
+@Html.Hidden("ErfassungsPeriod", Model.ErfassungsPeriodId)
+
+<div class="emsg-filter-expand-area-bottom">
+    <div id="filterDiv">
+        <div style="display: inline-block; width: @(ViewSizeConstants.GisReportFilterBlockWidth)px">
+             @(Html.ToGridFilterBuilder<ListeDerInspektionsroutenGridCommand>(ViewSizeConstants.GisReportFilterFieldLabelWidth, ViewSizeConstants.GisReportFilterInputFieldWidth)
+                .WithTextFilter(m => m.Strassenname, triggerOn3Char: true)
+                .WithTextFilter(m => m.InspektionsrouteInInspektionBei, triggerOn3Char: true)
+                .WithGisReportFilterButton(filterFunction: "gisReport.form.refreshGrid"))
+        </div>
+        <div style="display: inline-block; width: @(ViewSizeConstants.GisReportFilterBlockWidth)px">
+            @(Html.ToGridFilterBuilder<ListeDerInspektionsroutenGridCommand>(ViewSizeConstants.GisReportFilterFieldLabelWidth, ViewSizeConstants.GisReportFilterInputFieldWidth)
+                  .WithIntEnumFilter<EigentuemerTyp>(m => m.Eigentuemer, filterFunction: "gisReport.form.refreshGrid")
+                  .WithDateFilter(m => m.InspektionsrouteInInspektionBisVon, null)
+                  .WithoutFilterButton())
+        </div>
+        <div style="display: inline-block">
+             @(Html.ToGridFilterBuilder<ListeDerInspektionsroutenGridCommand>(ViewSizeConstants.GisReportFilterFieldLabelWidth, ViewSizeConstants.GisReportFilterInputFieldWidth)
+                  .WithTextFilter(m => m.Inspektionsroutename, triggerOn3Char: true)
+                  .WithDateFilter(m => m.InspektionsrouteInInspektionBisBis, null)
+                  .WithoutFilterButton())
+        </div>
+    </div>
+</div>
+
+@Html.Partial("MapGridTabs")

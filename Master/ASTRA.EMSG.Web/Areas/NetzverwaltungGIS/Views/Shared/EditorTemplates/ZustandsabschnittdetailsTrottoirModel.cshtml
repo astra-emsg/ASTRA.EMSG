@@ -1,0 +1,66 @@
+﻿@using ASTRA.EMSG.Common.Enums
+@using ASTRA.EMSG.Web.Infrastructure.HtmlHelperExtensions
+@using Resources
+@using Kendo.Mvc.UI
+
+@model ASTRA.EMSG.Business.Models.Common.ZustandsabschnittdetailsTrottoirModel
+
+    @Html.HiddenFor(m => m.Id)
+    @Html.HiddenFor(m => m.Strassenname)
+    @Html.HiddenFor(m => m.BezeichnungVon)
+    @Html.HiddenFor(m => m.BezeichnungBis)
+    @Html.HiddenFor(m => m.Trottoir)
+    @Html.HiddenFor(m => m.BelastungskategorieTyp)
+    @Html.HiddenFor(m => m.IsLocked)
+    <div class="popupFormFieldset k-edit-form-container">
+        
+        @if (Model.Trottoir == TrottoirTyp.BeideSeiten || Model.Trottoir == TrottoirTyp.Links)
+        {
+            <h2>@TitleLocalization.ZustandTrottoirLinksFormPartTitle</h2>
+                
+            @Html.EditorTable(140).WithEnumEditorFor(m => m.LinkeTrottoirZustandsindex, () => Model.LinkeTrottoirZustandsindex, null, false)
+                
+            <h2>@TitleLocalization.MassnahmenTrottoirLinksFormPartTitle</h2>
+            <div>
+                @(Html.EditorTable(140)
+
+                .WithLookupEditorFor(m => m.LinkeTrottoirMassnahmenvorschlagKatalogId, 
+                                    (IEnumerable<DropDownListItem>)ViewBag.TrottoirLinksMassnahmenvorschlagKatalogen, 
+                                    requiredField: false,
+                                    customize: b => b.Events(events => 
+                                        events.Change("details.getMassnahmenvorschlagKosten"))
+                                        .HtmlAttributes(new { data_rechte_trottoir = @Html.ClientIdFor(m => m.LinkeTrottoirKosten)}))
+           .WithDisplayFor(m => m.LinkeTrottoirKosten, false, TextLocalization.KostenProQuadratmeter)
+           .WithEnumEditorFor(m => m.LinkeTrottoirDringlichkeit, () => Model.LinkeTrottoirDringlichkeit, null, false, customize: d => d.Events(events =>
+                                        events.Change(string.Format("details.dropDownChanged"))))
+           .WithDisplayFor(m => m.LinkeTrottoirGesamtKosten, false, TextLocalization.GesamtKostenCurrency))
+            </div>
+        }
+            
+        @if (Model.Trottoir == TrottoirTyp.BeideSeiten)
+        {
+            <hr/>
+        }
+
+        @if (Model.Trottoir == TrottoirTyp.BeideSeiten || Model.Trottoir == TrottoirTyp.Rechts)
+        {
+            <h2>@TitleLocalization.ZustandTrottoirRechtsFormPartTitle</h2>
+                
+            @Html.EditorTable(140).WithEnumEditorFor(m => m.RechteTrottoirZustandsindex, () => Model.RechteTrottoirZustandsindex, null, false)
+                
+            <h2>@TitleLocalization.MassnahmenTrottoirRechtsFormPartTitle</h2>
+            <div>
+                @(Html.EditorTable(140)
+                .WithLookupEditorFor(m => m.RechteTrottoirMassnahmenvorschlagKatalogId, 
+                                    (IEnumerable<DropDownListItem>)ViewBag.TrottoirRechtsMassnahmenvorschlagKatalogen, 
+                                    requiredField: false,
+                                    customize: b => b.Events(events => 
+                                        events.Change("details.getMassnahmenvorschlagKosten"))
+                                        .HtmlAttributes(new { data_rechte_trottoir = @Html.ClientIdFor(m => m.RechteTrottoirKosten)}))
+           .WithDisplayFor(m => m.RechteTrottoirKosten, false, TextLocalization.KostenProQuadratmeter)
+           .WithEnumEditorFor(m => m.RechteTrottoirDringlichkeit, () => Model.RechteTrottoirDringlichkeit, null, false, customize: d => d.Events(events =>
+                                        events.Change(string.Format("details.dropDownChanged"))))
+           .WithDisplayFor(m => m.RechteTrottoirGesamtKosten, false, TextLocalization.GesamtKostenCurrency))
+            </div>
+        }
+    </div>

@@ -1,0 +1,339 @@
+<?xml version="1.0" encoding="utf-8"?>
+<root>
+  <!-- 
+    Microsoft ResX Schema 
+    
+    Version 2.0
+    
+    The primary goals of this format is to allow a simple XML format 
+    that is mostly human readable. The generation and parsing of the 
+    various data types are done through the TypeConverter classes 
+    associated with the data types.
+    
+    Example:
+    
+    ... ado.net/XML headers & schema ...
+    <resheader name="resmimetype">text/microsoft-resx</resheader>
+    <resheader name="version">2.0</resheader>
+    <resheader name="reader">System.Resources.ResXResourceReader, System.Windows.Forms, ...</resheader>
+    <resheader name="writer">System.Resources.ResXResourceWriter, System.Windows.Forms, ...</resheader>
+    <data name="Name1"><value>this is my long string</value><comment>this is a comment</comment></data>
+    <data name="Color1" type="System.Drawing.Color, System.Drawing">Blue</data>
+    <data name="Bitmap1" mimetype="application/x-microsoft.net.object.binary.base64">
+        <value>[base64 mime encoded serialized .NET Framework object]</value>
+    </data>
+    <data name="Icon1" type="System.Drawing.Icon, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
+        <value>[base64 mime encoded string representing a byte array form of the .NET Framework object]</value>
+        <comment>This is a comment</comment>
+    </data>
+                
+    There are any number of "resheader" rows that contain simple 
+    name/value pairs.
+    
+    Each data row contains a name, and value. The row also contains a 
+    type or mimetype. Type corresponds to a .NET class that support 
+    text/value conversion through the TypeConverter architecture. 
+    Classes that don't support this are serialized and stored with the 
+    mimetype set.
+    
+    The mimetype is used for serialized objects, and tells the 
+    ResXResourceReader how to depersist the object. This is currently not 
+    extensible. For a given mimetype the value must be set accordingly:
+    
+    Note - application/x-microsoft.net.object.binary.base64 is the format 
+    that the ResXResourceWriter will generate, however the reader can 
+    read any of the formats listed below.
+    
+    mimetype: application/x-microsoft.net.object.binary.base64
+    value   : The object must be serialized with 
+            : System.Runtime.Serialization.Formatters.Binary.BinaryFormatter
+            : and then encoded with base64 encoding.
+    
+    mimetype: application/x-microsoft.net.object.soap.base64
+    value   : The object must be serialized with 
+            : System.Runtime.Serialization.Formatters.Soap.SoapFormatter
+            : and then encoded with base64 encoding.
+
+    mimetype: application/x-microsoft.net.object.bytearray.base64
+    value   : The object must be serialized into a byte array 
+            : using a System.ComponentModel.TypeConverter
+            : and then encoded with base64 encoding.
+    -->
+  <xsd:schema id="root" xmlns="" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:msdata="urn:schemas-microsoft-com:xml-msdata">
+    <xsd:import namespace="http://www.w3.org/XML/1998/namespace" />
+    <xsd:element name="root" msdata:IsDataSet="true">
+      <xsd:complexType>
+        <xsd:choice maxOccurs="unbounded">
+          <xsd:element name="metadata">
+            <xsd:complexType>
+              <xsd:sequence>
+                <xsd:element name="value" type="xsd:string" minOccurs="0" />
+              </xsd:sequence>
+              <xsd:attribute name="name" use="required" type="xsd:string" />
+              <xsd:attribute name="type" type="xsd:string" />
+              <xsd:attribute name="mimetype" type="xsd:string" />
+              <xsd:attribute ref="xml:space" />
+            </xsd:complexType>
+          </xsd:element>
+          <xsd:element name="assembly">
+            <xsd:complexType>
+              <xsd:attribute name="alias" type="xsd:string" />
+              <xsd:attribute name="name" type="xsd:string" />
+            </xsd:complexType>
+          </xsd:element>
+          <xsd:element name="data">
+            <xsd:complexType>
+              <xsd:sequence>
+                <xsd:element name="value" type="xsd:string" minOccurs="0" msdata:Ordinal="1" />
+                <xsd:element name="comment" type="xsd:string" minOccurs="0" msdata:Ordinal="2" />
+              </xsd:sequence>
+              <xsd:attribute name="name" type="xsd:string" use="required" msdata:Ordinal="1" />
+              <xsd:attribute name="type" type="xsd:string" msdata:Ordinal="3" />
+              <xsd:attribute name="mimetype" type="xsd:string" msdata:Ordinal="4" />
+              <xsd:attribute ref="xml:space" />
+            </xsd:complexType>
+          </xsd:element>
+          <xsd:element name="resheader">
+            <xsd:complexType>
+              <xsd:sequence>
+                <xsd:element name="value" type="xsd:string" minOccurs="0" msdata:Ordinal="1" />
+              </xsd:sequence>
+              <xsd:attribute name="name" type="xsd:string" use="required" />
+            </xsd:complexType>
+          </xsd:element>
+        </xsd:choice>
+      </xsd:complexType>
+    </xsd:element>
+  </xsd:schema>
+  <resheader name="resmimetype">
+    <value>text/microsoft-resx</value>
+  </resheader>
+  <resheader name="version">
+    <value>2.0</value>
+  </resheader>
+  <resheader name="reader">
+    <value>System.Resources.ResXResourceReader, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </resheader>
+  <resheader name="writer">
+    <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </resheader>
+  <data name="Administration" xml:space="preserve">
+    <value>Administration</value>
+  </data>
+  <data name="Administration_Achsenupdate_Index" xml:space="preserve">
+    <value>Actualisation des axes</value>
+  </data>
+  <data name="Administration_Administration_Index" xml:space="preserve">
+    <value>Test Administration</value>
+  </data>
+  <data name="Administration_AndereBenutzerrollenEinnehmen_Index" xml:space="preserve">
+    <value>Prendre autre (nom d')utilisateurs</value>
+  </data>
+  <data name="Administration_AnwendungsLoggings_Index" xml:space="preserve">
+    <value>Modifier le niveau de détail du logging de l'application</value>
+  </data>
+  <data name="Administration_ArbeitsmodusWechseln_Index" xml:space="preserve">
+    <value>Changer de mode de travail</value>
+  </data>
+  <data name="Administration_ErfassungsPeriodAbschluss_Index" xml:space="preserve">
+    <value>Bilan annuel</value>
+  </data>
+  <data name="Administration_Massnahmenvorschlag_Index" xml:space="preserve">
+    <value>Interventions proposées</value>
+  </data>
+  <data name="Administration_RealisierteMassnahmenvorschlagKatalog_Index" xml:space="preserve">
+    <value>Types d'interventions</value>
+  </data>
+  <data name="Administration_SystemparameterPflegen" xml:space="preserve">
+    <value>Gérer les paramètres système</value>
+  </data>
+  <data name="Administration_WiederbeschaffungswertAndAlterungsbeiwert_Index" xml:space="preserve">
+    <value>Valeur de remplacement et coefficient de dépréciation par catégorie de charges</value>
+  </data>
+  <data name="Auswertungen" xml:space="preserve">
+    <value>Exploitations</value>
+  </data>
+  <data name="Auswertungen_AusgefuellteErfassungsformulareFuerOberflaechenschaeden_Index" xml:space="preserve">
+    <value>Formulaire des dégradations de surface rempli pour chaque tronçon de route</value>
+  </data>
+  <data name="Auswertungen_ErfassungsformulareFuerOberflaechenschaeden_Index" xml:space="preserve">
+    <value>Formulaire des dégradations de surface vide</value>
+  </data>
+  <data name="Auswertungen_Fortschreibung" xml:space="preserve">
+    <value>Complément données passées</value>
+  </data>
+  <data name="Auswertungen_Invertar" xml:space="preserve">
+    <value>Inventaire</value>
+  </data>
+  <data name="Auswertungen_MassnahmenDerTeilsystemeUndKoordinierteMassnahmen" xml:space="preserve">
+    <value>Interventions des sous-systèmes et interventions coordonnées</value>
+  </data>
+  <data name="Auswertungen_MengeProBelastungskategorieGrafische_Index" xml:space="preserve">
+    <value>Répartition des surfaces de routes selon catégorie de charges (graphique)</value>
+  </data>
+  <data name="Auswertungen_MengeProBelastungskategorie_Index" xml:space="preserve">
+    <value>Répartition des surfaces de routes selon catégorie de charges (tableau)</value>
+  </data>
+  <data name="Auswertungen_NochNichtInspizierteStrassenabschnitte_Index" xml:space="preserve">
+    <value>Tronçons de route pas encore inspectés (tableau)</value>
+  </data>
+  <data name="Auswertungen_StrassenabschnitteListe_Index" xml:space="preserve">
+    <value>Tronçons de route</value>
+  </data>
+  <data name="Auswertungen_WiederbeschaffungswertUndWertverlust" xml:space="preserve">
+    <value>Valeur de remplacement et dépréciation</value>
+  </data>
+  <data name="Auswertungen_WiederbeschaffungswertUndWertverlustGrafische_Index" xml:space="preserve">
+    <value>Répartition selon catégorie de charges (graphique)</value>
+  </data>
+  <data name="Auswertungen_WiederbeschaffungswertUndWertverlustProStrassenabschnitt_Index" xml:space="preserve">
+    <value>Par tronçon de route (tableau)</value>
+  </data>
+  <data name="Auswertungen_ZustandsspiegelProBelastungskategorieGrafische_Index" xml:space="preserve">
+    <value>Miroir d'état par catégorie de charges (graphique)</value>
+  </data>
+  <data name="Auswertungen_ZustandUndMassnahmenvorschläge" xml:space="preserve">
+    <value>Etat et interventions proposées</value>
+  </data>
+  <data name="NetzverwaltungGIS" xml:space="preserve">
+    <value>Gestion du réseau</value>
+  </data>
+  <data name="NetzverwaltungGIS_InspektionsroutenGIS_Index" xml:space="preserve">
+    <value>Composer itinéraire d'inspection</value>
+  </data>
+  <data name="NetzverwaltungGIS_KenngroessenFruehererJahreGIS_Index" xml:space="preserve">
+    <value>Valeurs caractéristiques des années précédentes</value>
+  </data>
+  <data name="NetzverwaltungGIS_KoordinierteMassnahmen_Index" xml:space="preserve">
+    <value>Interventions coordonnées</value>
+  </data>
+  <data name="NetzverwaltungGIS_MassnahmenvorschlaegeAndererTeilsysteme_Index" xml:space="preserve">
+    <value>Interventions des sous-systèmes</value>
+  </data>
+  <data name="NetzverwaltungGIS_NetzdefinitionUndStrassenabschnittGIS_Index" xml:space="preserve">
+    <value>Définition du réseau</value>
+  </data>
+  <data name="NetzverwaltungGIS_RealisierteMassnahmenGIS_Index" xml:space="preserve">
+    <value>Interventions réalisées</value>
+  </data>
+  <data name="NetzverwaltungGIS_ZustaendeUndMassnahmenvorschlaegeGIS_Index" xml:space="preserve">
+    <value>Etats et interventions proposées</value>
+  </data>
+  <data name="NetzverwaltungStrassennamen" xml:space="preserve">
+    <value>Gestion du réseau</value>
+  </data>
+  <data name="NetzverwaltungStrassennamen_KenngroessenFruehererJahre_Index" xml:space="preserve">
+    <value>Valeurs caractéristiques des années précédentes</value>
+  </data>
+  <data name="NetzverwaltungStrassennamen_NetzdefinitionUndStrassenabschnitt_Index" xml:space="preserve">
+    <value>Définition du réseau</value>
+  </data>
+  <data name="NetzverwaltungStrassennamen_RealisierteMassnahmen_Index" xml:space="preserve">
+    <value>Interventions réalisées</value>
+  </data>
+  <data name="NetzverwaltungStrassennamen_ZustaendeUndMassnahmenvorschlaege_Index" xml:space="preserve">
+    <value>Etats et interventions proposées</value>
+  </data>
+  <data name="NetzverwaltungSummarisch" xml:space="preserve">
+    <value>Gestion du réseau</value>
+  </data>
+  <data name="NetzverwaltungSummarisch_KenngroessenFruehererJahreSummarisch_Index" xml:space="preserve">
+    <value>Valeurs caractéristiques des années précédentes</value>
+  </data>
+  <data name="NetzverwaltungSummarisch_RealisierteMassnahmenSummarisch_Index" xml:space="preserve">
+    <value>Interventions réalisées</value>
+  </data>
+  <data name="NetzverwaltungSummarisch_StrassenmengeUndZustand_Index" xml:space="preserve">
+    <value>Quantité des routes et état</value>
+  </data>
+  <data name="_Home_Index" xml:space="preserve">
+    <value>Page de démarrage</value>
+  </data>
+  <data name="Auswertungen_ZustandProZustandsabschnitt_Index" xml:space="preserve">
+    <value>Tronçons d'état</value>
+  </data>
+  <data name="Administration_CheckOutRueckgaengig_Index" xml:space="preserve">
+    <value>Annuler le check-out des itinéraires d'inspection</value>
+  </data>
+  <data name="Auswertungen_MassnahmenvorschlagProZustandsabschnitt_Index" xml:space="preserve">
+    <value>Intervention proposée chaussée</value>
+  </data>
+  <data name="Auswertungen_WiederbeschaffungswertUndWertverlustProBelastungskategorie_Index" xml:space="preserve">
+    <value>Répartition selon catégorie de charges (tableau)</value>
+  </data>
+  <data name="NetzverwaltungStrassennamen_Zustandsabschnitt_Index" xml:space="preserve">
+    <value>Tronçon d'état</value>
+  </data>
+  <data name="Administration_MandantLogo_Index" xml:space="preserve">
+    <value>Gérer le logo</value>
+  </data>
+  <data name="Auswertungen_ListeDerInspektionsrouten_Index" xml:space="preserve">
+    <value>Itinéraires d'inspection</value>
+  </data>
+  <data name="Auswertungen_StrassenabschnitteListeOhneInspektionsroute_Index" xml:space="preserve">
+    <value>Tronçons de route pas attribués à un itinéraire d'inspection</value>
+  </data>
+  <data name="Administration_EreignisLog_Index" xml:space="preserve">
+    <value>Log des événements</value>
+  </data>
+  <data name="Auswertungen_EineListeVonKoordiniertenMassnahmen_Index" xml:space="preserve">
+    <value>Interventions coordonnées</value>
+  </data>
+  <data name="Auswertungen_EineListeVonMassnahmenGegliedertNachTeilsystemen_Index" xml:space="preserve">
+    <value>Interventions des sous-systèmes</value>
+  </data>
+  <data name="Administration_GlobalResource_Index" xml:space="preserve">
+    <value>Gérer la localisation</value>
+  </data>
+  <data name="Auswertungen_ZustandsspiegelProJahrGrafische_Index" xml:space="preserve">
+    <value>Développement de l'état du réseau saisi (graphique)</value>
+  </data>
+  <data name="Auswertungen_EineListeVonRealisiertenMassnahmenGeordnetNachJahrenGIS_Index" xml:space="preserve">
+    <value>Interventions réalisées (tableau)</value>
+  </data>
+  <data name="Auswertungen_EineListeVonRealisiertenMassnahmenGeordnetNachJahrenSummarisch_Index" xml:space="preserve">
+    <value>Interventions réalisées (tableau)</value>
+  </data>
+  <data name="Auswertungen_EineListeVonRealisiertenMassnahmenGeordnetNachJahren_Index" xml:space="preserve">
+    <value>Interventions réalisées (tableau)</value>
+  </data>
+  <data name="Auswertungen_WiederbeschaffungswertUndWertverlustProJahrGrafische_Index" xml:space="preserve">
+    <value>Développement du réseau saisi (graphique)</value>
+  </data>
+  <data name="Auswertungen_RealisiertenMassnahmenWertverlustZustandsindexProJahrGrafische_Index" xml:space="preserve">
+    <value>Interventions réalisées, dépréciation et indice d’état moyen (graphique)</value>
+  </data>
+  <data name="Administration_MandantDetails_Index" xml:space="preserve">
+    <value>Modifier les données d'organisation</value>
+  </data>
+  <data name="Benchmarking" xml:space="preserve">
+    <value>Benchmarking</value>
+  </data>
+  <data name="Benchmarking_BenchmarkauswertungInventarkennwerten_Index" xml:space="preserve">
+    <value>Exploitation benchmark pour les valeurs caractéristiques de l'inventaire</value>
+  </data>
+  <data name="Benchmarking_BenchmarkauswertungKennwertenRealisiertenMassnahmen_Index" xml:space="preserve">
+    <value>Exploitation benchmark pour les valeurs caractéristiques des interventions réalisées</value>
+  </data>
+  <data name="Benchmarking_BenchmarkauswertungZustandskennwerten_Index" xml:space="preserve">
+    <value>Exploitation benchmark pour les valeurs caractéristiques de l'état</value>
+  </data>
+  <data name="Administration_HelpSystem_Index" xml:space="preserve">
+    <value>Gérer l'aide</value>
+  </data>
+  <data name="Auswertungen_Zustandsabschnitt_Index" xml:space="preserve">
+    <value>Tronçon d'état</value>
+  </data>
+  <data name="Massnahmen" xml:space="preserve">
+    <value>Interventions</value>
+  </data>
+  <data name="Strassennetz" xml:space="preserve">
+    <value>Réseau de routes</value>
+  </data>
+  <data name="Zustand" xml:space="preserve">
+    <value>Etat</value>
+  </data>
+  <data name="GISExportTitle" xml:space="preserve">
+    <value>Export SIG</value>
+  </data>
+</root>

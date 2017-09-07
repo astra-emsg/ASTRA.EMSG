@@ -1,0 +1,139 @@
+<featureType>
+  <id>FeatureTypeInfoImpl--712dd8df:156b736ad9b:-7dce</id>
+  <name>Inspektionsroute</name>
+  <nativeName>InspektionsrouteGIS</nativeName>
+  <namespace>
+    <id>NamespaceInfoImpl--712dd8df:156b736ad9b:-7fe4</id>
+  </namespace>
+  <title>Inspektionsroute</title>
+  <keywords>
+    <string>features</string>
+    <string>InspektionsrouteGIS</string>
+  </keywords>
+  <nativeCRS class="projected">PROJCS[&quot;CH1903 / LV03&quot;, 
+  GEOGCS[&quot;CH1903&quot;, 
+    DATUM[&quot;CH1903&quot;, 
+      SPHEROID[&quot;Bessel 1841&quot;, 6377397.155, 299.1528128, AUTHORITY[&quot;EPSG&quot;,&quot;7004&quot;]], 
+      TOWGS84[674.4, 15.1, 405.3, 0.0, 0.0, 0.0, 0.0], 
+      AUTHORITY[&quot;EPSG&quot;,&quot;6149&quot;]], 
+    PRIMEM[&quot;Greenwich&quot;, 0.0, AUTHORITY[&quot;EPSG&quot;,&quot;8901&quot;]], 
+    UNIT[&quot;degree&quot;, 0.017453292519943295], 
+    AXIS[&quot;Geodetic longitude&quot;, EAST], 
+    AXIS[&quot;Geodetic latitude&quot;, NORTH], 
+    AUTHORITY[&quot;EPSG&quot;,&quot;4149&quot;]], 
+  PROJECTION[&quot;Oblique_Mercator&quot;], 
+  PARAMETER[&quot;longitude_of_center&quot;, 7.439583333333333], 
+  PARAMETER[&quot;latitude_of_center&quot;, 46.952405555555565], 
+  PARAMETER[&quot;azimuth&quot;, 90.0], 
+  PARAMETER[&quot;scale_factor&quot;, 1.0], 
+  PARAMETER[&quot;false_easting&quot;, 600000.0], 
+  PARAMETER[&quot;false_northing&quot;, 200000.0], 
+  PARAMETER[&quot;rectified_grid_angle&quot;, 90.0], 
+  UNIT[&quot;m&quot;, 1.0], 
+  AXIS[&quot;Easting&quot;, EAST], 
+  AXIS[&quot;Northing&quot;, NORTH], 
+  AUTHORITY[&quot;EPSG&quot;,&quot;21781&quot;]]</nativeCRS>
+  <srs>EPSG:21781</srs>
+  <nativeBoundingBox>
+    <minx>485071.54</minx>
+    <maxx>828515.78</maxx>
+    <miny>75346.36</miny>
+    <maxy>299941.84</maxy>
+  </nativeBoundingBox>
+  <latLonBoundingBox>
+    <minx>5.903388512370682</minx>
+    <maxx>10.489999260149055</maxx>
+    <miny>45.79125085445424</miny>
+    <maxy>47.84996839239129</maxy>
+    <crs>GEOGCS[&quot;WGS84(DD)&quot;, 
+  DATUM[&quot;WGS84&quot;, 
+    SPHEROID[&quot;WGS84&quot;, 6378137.0, 298.257223563]], 
+  PRIMEM[&quot;Greenwich&quot;, 0.0], 
+  UNIT[&quot;degree&quot;, 0.017453292519943295], 
+  AXIS[&quot;Geodetic longitude&quot;, EAST], 
+  AXIS[&quot;Geodetic latitude&quot;, NORTH]]</crs>
+  </latLonBoundingBox>
+  <projectionPolicy>FORCE_DECLARED</projectionPolicy>
+  <enabled>true</enabled>
+  <metadata>
+    <entry key="JDBC_VIRTUAL_TABLE">
+      <virtualTable>
+        <name>InspektionsrouteGIS</name>
+        <sql>SELECT  &#xd;
+  insp.irg_id AS ID, &#xd;
+  insp.irg_irg_man_nor_id AS MANDANT_ID, &#xd;
+  aref.acr_shape_vl as SHAPE, &#xd;
+  stattable.irv_status_vl, &#xd;
+  aref.acr_id as ACHSREFID, &#xd;
+  CAST(seg.acs_isinverted_vl AS INT) as ISINVERTED, &#xd;
+  CASE stattable.irv_status_vl WHEN 2 THEN 1  ELSE 0 END as ISEXPORTED &#xd;
+FROM &#xd;
+  add_inspekroute_msg insp &#xd;
+  INNER JOIN &#xd;
+    (&#xd;
+      SeleCt&#xd;
+      statu.irv_irv_irg_nor_id, &#xd;
+      statu.irv_status_vl&#xd;
+      from&#xd;
+      add_inspekstatu_msg statu       &#xd;
+      INNER JOIN&#xd;
+      (&#xd;
+        Select &#xd;
+          irv_irv_irg_nor_id as statid, &#xd;
+          Max(irv_datum_dt) as lastdate      &#xd;
+        from &#xd;
+          add_inspekstatu_msg &#xd;
+        group by irv_irv_irg_nor_id&#xd;
+      ) stats&#xd;
+      on &#xd;
+        stats.statid = statu.irv_irv_irg_nor_id &#xd;
+      and &#xd;
+        stats.lastdate = statu.irv_datum_dt&#xd;
+    ) stattable&#xd;
+  on &#xd;
+    stattable.irv_irv_irg_nor_id = insp.irg_id &#xd;
+  INNER JOIN &#xd;
+    add_inspekstra_msg irstr &#xd;
+  on &#xd;
+    irstr.irs_irs_irg_nor_id = insp.irg_id &#xd;
+  INNER JOIN &#xd;
+    add_stragis_msg str &#xd;
+  on &#xd;
+    str.stg_id = irstr.irs_irs_stg_nor_id &#xd;
+  INNER JOIN &#xd;
+    adr_refgruppe_msg refg &#xd;
+  on &#xd;
+    str.stg_stg_rfg_nor_id = refg.rfg_id   &#xd;
+  INNER JOIN &#xd;
+    add_achsref_msg aref &#xd;
+  on &#xd;
+    aref.acr_acr_rfg_nor_id = refg.rfg_id   &#xd;
+  INNER JOIN &#xd;
+    srd_achsseg_msg seg &#xd;
+  on &#xd;
+    seg.acs_id = aref.acr_acr_acs_nor_id  &#xd;
+where &#xd;
+  insp.irg_irg_epr_nor_id in (select e.epr_id from add_erfperiode_msg e where e.epr_istabgeschl_vl =0) &#xd;
+  and &#xd;
+    stattable.irv_irv_irg_nor_id = insp.irg_id
+</sql>
+        <escapeSql>false</escapeSql>
+        <keyColumn>ID</keyColumn>
+        <geometry>
+          <name>SHAPE</name>
+          <type>MultiLineString</type>
+          <srid>21781</srid>
+        </geometry>
+      </virtualTable>
+    </entry>
+    <entry key="cachingEnabled">false</entry>
+  </metadata>
+  <store class="dataStore">
+    <id>DataStoreInfoImpl--712dd8df:156b736ad9b:-7fe3</id>
+  </store>
+  <maxFeatures>0</maxFeatures>
+  <numDecimals>0</numDecimals>
+  <overridingServiceSRS>false</overridingServiceSRS>
+  <skipNumberMatched>false</skipNumberMatched>
+  <circularArcPresent>false</circularArcPresent>
+</featureType>

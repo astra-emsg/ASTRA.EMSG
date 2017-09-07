@@ -1,0 +1,15 @@
+<layer>
+  <name>AchsenSegment</name>
+  <id>LayerInfoImpl-5a828897:156ea4b1d5b:-7fff</id>
+  <type>VECTOR</type>
+  <defaultStyle>
+    <id>StyleInfoImpl--712dd8df:156b736ad9b:-7dc8</id>
+  </defaultStyle>
+  <resource class="featureType">
+    <id>FeatureTypeInfoImpl-5a828897:156ea4b1d5b:-8000</id>
+  </resource>
+  <attribution>
+    <logoWidth>0</logoWidth>
+    <logoHeight>0</logoHeight>
+  </attribution>
+</layer>

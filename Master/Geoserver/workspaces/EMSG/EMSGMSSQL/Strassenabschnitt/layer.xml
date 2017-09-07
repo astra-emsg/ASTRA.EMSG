@@ -1,0 +1,15 @@
+<layer>
+  <name>Strassenabschnitt</name>
+  <id>LayerInfoImpl--712dd8df:156b736ad9b:-7dc0</id>
+  <type>VECTOR</type>
+  <defaultStyle>
+    <id>StyleInfoImpl--712dd8df:156b736ad9b:-7aae</id>
+  </defaultStyle>
+  <resource class="featureType">
+    <id>FeatureTypeInfoImpl--712dd8df:156b736ad9b:-7dc1</id>
+  </resource>
+  <attribution>
+    <logoWidth>0</logoWidth>
+    <logoHeight>0</logoHeight>
+  </attribution>
+</layer>

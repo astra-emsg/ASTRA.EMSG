@@ -1,0 +1,101 @@
+
+/* tool icons */
+ .emsgControlEditingToolbar .emsgControlNewItemActive
+,.emsgControlEditingToolbar .emsgControlNewItemInactive
+{
+  background-image: url(./images/map/new_add.png);
+}
+
+/**
+ * Tool Icons: Split
+ */
+ .emsgControlEditingToolbar .emsgControlSplitItemActive
+,.emsgControlEditingToolbar .emsgControlSplitItemInactive
+{
+  background-image: url(./images/map/split_street.png);
+}
+
+ .emsgControlEditingToolbar .emsgControlInspSelectExportItemActive
+,.emsgControlEditingToolbar .emsgControlInspSelectExportItemInactive
+{
+  background-image: url(./images/map/selection-export.png);
+}
+
+ .emsgControlEditingToolbar .emsgControlInspExportItemActive
+,.emsgControlEditingToolbar .emsgControlInspExportItemInactive
+{
+  background-image: url(./images/map/export.png);
+}
+
+ .emsgControlEditingToolbar .emsgControlEditItemActive
+,.emsgControlEditingToolbar .emsgControlEditItemInactive
+{
+  background-image: url(./images/map/edit.png);
+}
+
+ .emsgControlEditingToolbar .emsgControlSelectItemActive
+,.emsgControlEditingToolbar .emsgControlSelectItemInactive
+{
+  background-image: url(./images/map/select.png);
+}
+
+/* tool active border */
+  .emsgControlEditingToolbar .emsgControlNewItemActive
+, .emsgControlEditingToolbar .emsgControlEditItemActive
+, .emsgControlEditingToolbar .emsgControlSelectItemActive
+, .emsgControlEditingToolbar .emsgControlSplitItemActive
+, .emsgControlEditingToolbar .emsgControlInspSelectExportItemActive
+, .panelTopLeft .DummyPanItemActive
+, .panelTopLeft .olControlZoomBoxItemActive
+, .panelTopLeft .MeasureLineItemActive
+, .panelTopLeft .MeasureAreaItemActive
+{
+  border: 1px solid red;
+  box-shadow: 0 1px 2px rgba(0, 0, 0, 0.3) inset;
+  background-color: #ffd7a8;
+}
+
+/* tool disabled opacity */
+  .emsgControlNewDisabled .emsgControlNewItemActive
+, .emsgControlNewDisabled .emsgControlNewItemInactive
+, .emsgControlEditDisabled .emsgControlEditItemActive
+, .emsgControlEditDisabled .emsgControlEditItemInactive
+, .emsgControlSelectDisabled .emsgControlSelectItemActive
+, .emsgControlSelectDisabled .emsgControlSelectItemInactive
+, .emsgControlSplitDisabled .emsgControlSplitItemActive
+, .emsgControlSplitDisabled .emsgControlSplitItemInactive
+, .DummyPanDisabled .DummyPanItemActive
+, .DummyPanDisabled .DummyPanItemInactive
+, .olControlZoomBoxDisabled .olControlZoomBoxItemActive
+, .olControlZoomBoxDisabled .olControlZoomBoxItemInactive
+, .panelTopLeft .PrevItemInactive
+, .panelTopLeft .NextItemInactive
+, .panelTopLeft .CurrentItemInactive
+{
+  border: 1px solid lightGrey;
+  opacity: 0.5;
+  filter: alpha(opacity=50); /* For IE8 and earlier */
+}
+.emsgControlEditingToolbar
+{
+  float: right;
+  right: 50px;
+}
+
+  .panelTopLeft div
+, .emsgControlEditingToolbar div
+{
+  float: left;
+  display: block;
+  width: 24px;
+  height: 24px;
+  background-repeat: no-repeat;
+  background-position: 50% 50%;
+  border: 1px solid blue;
+  margin: 2px;
+}
+
+.emsgControlEditingToolbar div
+{
+  float: right;
+}

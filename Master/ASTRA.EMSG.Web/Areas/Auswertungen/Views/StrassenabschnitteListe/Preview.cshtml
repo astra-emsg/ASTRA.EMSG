@@ -1,0 +1,38 @@
+﻿@using ASTRA.EMSG.Common.Enums
+@model StrassenabschnitteListeGridCommand
+@using ASTRA.EMSG.Web.Areas.Auswertungen.ReportGridCommands
+@using ASTRA.EMSG.Web.Infrastructure.HtmlHelperExtensions
+@using HtmlAgilityPack
+@using Resources
+@using Kendo.Mvc.UI
+@{
+    ViewData.Model = new StrassenabschnitteListeGridCommand();
+}
+
+<div id="formDiv">
+    <div id="filters">
+        @Html.Hidden("ErfassungsPeriod", Model.ErfassungsPeriodId)
+
+        <div style="margin-top: 5px"><b>@TitleLocalization.Filter</b></div>
+
+        @{
+            string belastungskategorieDropDown = Html.Kendo()
+                                                     .DropDownList().Name(ASTRA.EMSG.Common.ExpressionHelper.GetPropertyName<StrassenabschnitteListeGridCommand, Guid?>(m => m.Belastungskategorie))
+                                                     .BindTo((IEnumerable<DropDownListItem>)ViewBag.Belastungskategorien).Events(events => events.Change("gisReport.form.refreshGrid"))
+                                                     .HtmlAttributes(new { style = "width: 200px;" })
+                                                     .ToString();
+        }
+        @(Html.ToGridFilterBuilder<StrassenabschnitteListeGridCommand>()
+              .WithIntEnumFilter<EigentuemerTyp>(m => m.Eigentuemer, filterFunction: "gisReport.form.refreshGrid")
+              .WithCustomFilter(m => m.Belastungskategorie, MvcHtmlString.Create(belastungskategorieDropDown))
+              .WithTextFilter(m => m.Ortsbezeichnung)
+              .WithFilterButton(true, "gisReport.form.refreshGrid"))
+    </div>
+    @ReportViewHelpers.GisReportButtons(Html, (NetzErfassungsmodus)ViewBag.NetzErfassungsmodus)
+
+    <div class="scrollable-grid-border">
+        <div class="scrollable-grid">
+            @Html.Partial("StrassenabschnitteListeGrid", "StrassenabschnitteListe")
+        </div>
+    </div>
+</div>

@@ -1,0 +1,25 @@
+﻿@using ASTRA.EMSG.Web.Infrastructure.HtmlHelperExtensions
+@using Resources
+@model ASTRA.EMSG.Business.Models.Summarisch.NetzSummarischModel
+
+@using (Ajax.BeginForm("SaveMittleresErhebungsjahr", "StrassenmengeUndZustand",
+                        new AjaxOptions
+                        {
+                            HttpMethod = "POST",
+                            UpdateTargetId = "mittleresErhebungsjahrFormDiv",
+                            InsertionMode = InsertionMode.Replace,
+                        }))
+{
+<fieldset class="popupFormFieldset">
+    @Html.HiddenFor(m => m.Id)
+    <div style="margin-top: 10px; margin-bottom: 10px;">@TitleLocalization.MittleresErhebungsjahrEditFormSubTitle</div>
+
+    @Html.EditorTable().WithDateTimeEditorFor(m => m.MittleresErhebungsJahr, false)
+    
+    @*Workaround Form with a single input Issue*@
+    <input id="SecondInput" type="text" style="display: none"/>
+
+    @Html.UnobtrusiveOkCancelPopupFormButtons()
+</fieldset>
+}
+<div class="helpButton">@Html.HelpButtonFor("EditMittleresErhebungsjahr")</div>

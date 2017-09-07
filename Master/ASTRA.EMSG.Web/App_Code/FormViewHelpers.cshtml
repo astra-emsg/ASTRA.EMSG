@@ -1,0 +1,44 @@
+﻿@using ASTRA.EMSG.Web.Infrastructure.HtmlHelperExtensions
+@using JetBrains.Annotations
+@using Resources
+@helper UnobtrusiveFormButtons(System.Web.Mvc.HtmlHelper htmlHelper, string editFormDiv, bool showApply = false, [AspMvcAction] string applyAction = null, bool showDeleteButton = false, [AspMvcAction] string deleteAction = null, string confirmationMessage = null, string deleteConfirmationMessage = null)
+    {
+    <div style="margin-top: 20px; margin-right: 5px; text-align: right;">
+        <div style="display: inline-block; text-align: right;">
+            @htmlHelper.UnobtrusiveSubmitButton(confirmationMessage)
+
+            @if (showApply)
+            {
+                @htmlHelper.UnobtrusiveApplyButton(applyAction, editFormDiv, confirmationMessage)
+            }
+
+            @htmlHelper.UnobtrusiveCancelButton()
+
+            @if (showDeleteButton)
+            {
+                @htmlHelper.UnobtrusiveDeleteButton(deleteAction, comfirmationMessage: deleteConfirmationMessage)
+            }
+        </div>
+    </div>
+}
+@helper InspektionsrouteLockedNotification(System.Web.Mvc.HtmlHelper htmlHelper, bool isLocked)
+    {
+    if (isLocked)
+    {
+    <div style="border: solid; border-color: black; border-width: 1px; color: black;
+        font-size: 11pt; margin-bottom: 20px; padding: 10px;">
+        <table>
+            <tr>
+                <td style="vertical-align: top">
+                    <img src="@(htmlHelper.ToUrlHelper().Content("~/Content/images/bullet_error.png"))"/>
+                </td>
+                <td>
+                    <b>
+                        @htmlHelper.Raw(NotificationLocalization.InspektionsrouteLockedNotification)
+                    </b>
+                </td>
+            </tr>
+        </table>
+    </div>
+    }
+}

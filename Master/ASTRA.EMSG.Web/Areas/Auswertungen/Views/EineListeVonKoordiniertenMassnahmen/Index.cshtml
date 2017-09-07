@@ -1,0 +1,10 @@
+﻿@using Resources
+@using Kendo.Mvc.UI
+
+@section JavaScript
+{
+    <script type="text/javascript" src="@(Url.Content("~/Scripts/Areas/Auswertungen/GisReport.js"))"></script>
+    <script type="text/javascript" src="@(Url.Content("~/Scripts/Areas/Auswertungen/EineListeVonKoordiniertenMassnahmen/EineListeVonKoordiniertenMassnahmen.js"))"></script>
+}
+
+@ReportViewHelpers.GisReportIndexContent(Html, (IEnumerable<DropDownListItem>)ViewBag.ClosedErfassungsperiods)

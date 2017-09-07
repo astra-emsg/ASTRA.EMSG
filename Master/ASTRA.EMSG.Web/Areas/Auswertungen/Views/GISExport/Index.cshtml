@@ -1,0 +1,46 @@
+﻿@using ASTRA.EMSG.Web.Infrastructure
+@using ASTRA.EMSG.Web.Infrastructure.HtmlHelperExtensions
+@using Resources
+@using Kendo.Mvc.UI
+
+<h2>@TitleLocalization.GISExportTitle</h2>
+
+@if (!string.IsNullOrEmpty((string) ViewBag.ErrorMessage))
+{
+    <span>@ViewBag.ErrorMessage</span>
+}
+else
+{
+    using (Html.BeginForm("Export", "GISExport"))
+    {
+        <table>
+            <tr>
+                <td class="field-label">@TextLocalization.ErfassungsPeriodAbschlussFilter
+                </td>
+                <td class="field-input">
+                    @(Html.Kendo()
+                          .DropDownList()
+                          .Name("ErfassungsPeriodId")
+                          .BindTo((IEnumerable<DropDownListItem>) ViewBag.ClosedErfassungsperiods)
+                          .HtmlAttributes(new {style = "z-index:99; width: 250px"}))
+                </td>
+            </tr>
+        </table>
+        <div style="margin-top: 20px">
+            <div id="filterDiv">
+                <div style="display: inline-block; width: @(ViewSizeConstants.GisReportFilterBlockWidth)px">
+                    <input id="ShapeExportTypeStrassenabschnitte" type="radio" checked="checked" class="emsg-radio-button-matrix" name="ExType" value="1" style="width: auto; margin-left: 20px;" />@TextLocalization.Strassenabschnitte
+                    <br/>
+                    <input id="ShapeExportTypeZustandsabschnitte" type="radio" class="emsg-radio-button-matrix" name="ExType" value="0" style="width: auto; margin-left: 20px" />@TextLocalization.Zustandsabschnitte
+                    <br/>
+                    <input id="ShapeExportTypeTrottoir" type="radio" class="emsg-radio-button-matrix" name="ExType" value="2" style="width: auto; margin-left: 20px" />@TextLocalization.Trottoir
+                    <br/>
+                </div>
+                <br/>
+                <div style="margin-top: 20px; margin-left: 20px">
+                    @Html.Button(ButtonLocalization.DownloadShapeExport, string.Format("$(\"form\").submit()"))
+                </div>
+            </div>
+        </div>
+    }
+}

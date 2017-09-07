@@ -1,0 +1,49 @@
+﻿@using ASTRA.EMSG.Business.Models
+@using ASTRA.EMSG.Business.Models.GIS
+@using ASTRA.EMSG.Common
+@using ASTRA.EMSG.Web.Infrastructure.HtmlHelperExtensions
+@using ASTRA.EMSG.Web.Infrastructure.TelerikExtensions
+@using Resources
+@using Kendo.Mvc.UI
+@model ASTRA.EMSG.Business.Models.GIS.AchsenSegmentModel
+@{
+    var isLocked = ((bool?) ViewBag.IsLocked) ?? false;
+}
+@using (Ajax.BeginForm((ViewBag.IsNew ?? false) ? "Insert" : "Update", "Achsen",
+                        new AjaxOptions
+                        {
+                            HttpMethod = "POST",
+                            UpdateTargetId = "acheEditFormDiv",
+                            InsertionMode = InsertionMode.Replace,
+                        }))
+{
+    <fieldset class="formFieldset">
+
+        @FormViewHelpers.InspektionsrouteLockedNotification(Html, isLocked)
+
+        <legend>@(ViewBag.IsNew ? TitleLocalization.AchsenCreateFormTitle : TitleLocalization.AchsenEditFormTitle)</legend>
+        @Html.ValidationMessageFor(m => m.FeatureGeoJSONString)
+        <input type="hidden" value="@Model.FeatureGeoJSONString" id="FeatureGeoJSONString" name="FeatureGeoJSONString"/>
+        <input type="hidden" value="@ViewData.ModelState.IsValid" id="IsValid" name="IsValid"/>
+
+        <input type="hidden" value="@AchseModificationAction.Change" id="ModificationAction" name="ModificationAction"/>
+        @(Html.EditorTable(fieldEditorWidth: 220)
+              .WithTextBoxFor(s => s.Name))
+        @Html.HiddenFor(m => m.Id)
+
+        @if (isLocked)
+        {
+            <div style="margin-top: 20px; margin-right: 10px">
+                <div>@Html.UnobtrusiveCancelButton()</div>
+            </div>
+        }
+        else
+        {
+            @FormViewHelpers.UnobtrusiveFormButtons(Html, "acheEditFormDiv",
+                showApply: true, applyAction: "Apply" + ((ViewBag.IsNew ?? false) ? "Insert" : "Update"),
+                deleteAction: "Delete", showDeleteButton: !ViewBag.IsNew,
+                deleteConfirmationMessage: NotificationLocalization.DeleteConfirmation)
+        }
+    </fieldset>
+    @Html.RequiredFieldLegend()
+}

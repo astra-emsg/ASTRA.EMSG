@@ -1,0 +1,11 @@
+﻿<Window x:Class="ASTRA.EMSG.Mobile.Views.Windows.HelpWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        Title="{Binding Source={StaticResource Resx}, Path=MobileLocalization.HelpWindowTitle}" Height="600" Width="800"
+        WindowStartupLocation="CenterOwner"
+        Style="{StaticResource WindowBaseStyle}"
+        >
+    <Grid>
+        <WebBrowser x:Name="help" HorizontalAlignment="Stretch" VerticalAlignment="Stretch"/>
+    </Grid>
+</Window>

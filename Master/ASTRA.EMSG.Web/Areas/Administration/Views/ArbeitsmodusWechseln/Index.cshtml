@@ -1,0 +1,47 @@
+﻿@using ASTRA.EMSG.Common.Enums
+
+@using ASTRA.EMSG.Web.Infrastructure.HtmlHelperExtensions
+@using Resources
+@model ASTRA.EMSG.Business.Models.Administration.ArbeitsmodusModel
+
+@section JavaScript
+{
+    <script type="text/javascript" src="@Url.Content("~/Scripts/Areas/Administration/ArbeitsmodusWechseln/ArbeitsmodusWechseln.js")"></script>
+}
+
+<h2>@TitleLocalization.ArbeitsmodusWechselnPageTitle</h2>
+
+@using (Html.BeginForm("ArbeitsmodusWechseln", "ArbeitsmodusWechseln", FormMethod.Post, new { id = "form", className = "k-edit-form" }))
+{
+    <div id="parameters" data-cancel-url="@(Url.Action("Cancel"))" />    
+    <fieldset class="formFieldset k-edit-form-container">
+        <legend class="field-label field-required">@Html.LocalizedLabelFor(m => m.NetzErfassungsmodus)</legend>
+        <table>
+            <tr>
+                <td>
+                </td>
+                <td style="padding: 10px">
+                    @Html.RadioButtonFor(m => m.NetzErfassungsmodus, NetzErfassungsmodus.Summarisch, new { id = "Summarisch" })
+                    <label for="Summarisch">@Html.LocalizedEnum(NetzErfassungsmodus.Summarisch)</label>
+                </td>
+            </tr>
+            <tr>
+                <td>
+                </td>
+                <td style="padding: 10px">
+                    @Html.RadioButtonFor(m => m.NetzErfassungsmodus, NetzErfassungsmodus.Tabellarisch, new { id = "Tabellarisch" })
+                    <label for="Tabellarisch">@Html.LocalizedEnum(NetzErfassungsmodus.Tabellarisch)</label>
+                </td>
+            </tr>
+            <tr>
+                <td>
+                </td>
+                <td style="padding: 10px">
+                    @Html.RadioButtonFor(m => m.NetzErfassungsmodus, NetzErfassungsmodus.Gis, new { id = "Gis" })
+                    <label for="Gis">@Html.LocalizedEnum(NetzErfassungsmodus.Gis)</label>
+                </td>
+            </tr>
+        </table>
+        @Html.UnobtrusiveOkCancelFormButtons(ButtonLocalization.ArbeitsmodusWechseln)
+    </fieldset>
+}

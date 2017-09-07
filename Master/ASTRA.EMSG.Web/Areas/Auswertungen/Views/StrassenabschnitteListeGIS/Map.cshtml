@@ -1,0 +1,17 @@
+﻿<style type="text/css">
+.legend .Name_STRASSENABSCHNITTGISAUSWERTUNG
+{
+  display : inline;
+}
+</style>
+
+<script type="text/javascript">
+    globalMapAdjustCorrector = -20;
+
+  emsg.config.set("WMS.ARCGIS.LAYERS.STRASSENABSCHNITTE", "StrassenabschnittLayer_Report");
+  emsg.config.set("WMS.ARCGIS.LAYERID", "StrassenabschnittLayer_Report");
+
+  emsg.map = new Emsg.Map.Analysis(emsg);
+  emsg.map.layer_property = 'strabs';
+</script>
+

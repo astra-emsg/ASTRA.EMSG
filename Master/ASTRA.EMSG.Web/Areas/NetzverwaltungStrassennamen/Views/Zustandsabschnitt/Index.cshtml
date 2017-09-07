@@ -1,0 +1,56 @@
+﻿@using ASTRA.EMSG.Business.Models.Strassennamen
+@using ASTRA.EMSG.Web.Infrastructure.TelerikExtensions
+@using Resources
+@using ASTRA.EMSG.Web.Infrastructure.HtmlHelperExtensions
+@using Kendo.Mvc.UI
+
+<h2>@TitleLocalization.ZustandsabschnittPageTitle</h2>
+<div class="scrollable-grid-border">
+    <div class="scrollable-grid">
+        @(Html.Kendo().Grid<ZustandsabschnittModel>()
+            .Name("ZustandsabschnittenGrid")
+            .ApplyEmsgSettings()
+            .DataSource(dataBinding => dataBinding
+                .Ajax()
+                .Read(c => c.Action("GetAll", "Zustandsabschnitt", new { strassenabschnittId = ViewBag.StrassenabschnittId }))
+                .Destroy(c => c.Action("Delete", "Zustandsabschnitt", new { strassenabschnittId = ViewBag.StrassenabschnittId }))
+                .Model(keys => keys.Id(m => m.Id))
+                .PageSize(ASTRA.EMSG.Web.Infrastructure.ConstantSettings.GridPageSize))
+            .ToolBar(commands =>
+            {
+                commands.Template(
+                new EmsgToolbarBuilder()
+                    .AddButton(string.Format("index.openCreateZustandsabschnittWindow('{0}')", ViewBag.StrassenabschnittId), ButtonLocalization.AddNewZustandsabschnitt)
+                    .ToTemplate());
+            })
+            .HtmlAttributes(new
+            {
+                data_create_url = Url.Action("CreateZustandsabschnitt"),
+                data_edit_url = Url.Action("EditZustandsabschnitt"),
+            })
+            .Columns(columns =>
+            {
+                columns.Bound(m => m.Id).GridCommands(Html.EditButton("index.openZustandsabschnittWindow('#= Id #')", "~/Content/images/page_edit.png", "emsg-zustandsabschnitt-edit-button").ToHtmlString()
+                +
+                Html.EditButton("index.openZustandsabschnittWindow('#= Id #')", "~/Content/images/page_white_edit.png", "emsg-zustandsabschnitt-white-edit-button").ToHtmlString(),
+                Html.GridDeleteButton().ToHtmlString()).Width(85);
+
+                columns.Bound(m => m.Abschnittsnummer).Title(GridHeaderFooterLocalization.Abschnittsnummer);
+                columns.Bound(m => m.Strassenname).Title(GridHeaderFooterLocalization.Strassenname);
+                columns.Bound(m => m.Sreassenabschnittsnummer).Title(GridHeaderFooterLocalization.Strassenabschnittsnummer);
+                columns.Bound(m => m.StrasseOrtsbezeichnung).Title(GridHeaderFooterLocalization.Ortsbezeichnung);
+                columns.Bound(m => m.BezeichnungVon).Title(GridHeaderFooterLocalization.BezeichnungVon);
+                columns.Bound(m => m.BezeichnungBis).Title(GridHeaderFooterLocalization.BezeichnungBis);
+                columns.Bound(m => m.Zustandsindex).Title(GridHeaderFooterLocalization.Zustandsindex).AlignRight();
+                columns.Bound(m => m.FlaecheFahrbahn).Title(GridHeaderFooterLocalization.FlaecheFahrbahn).AlignRight();
+                columns.Bound(m => m.FlaceheTrottoirLinks).Title(GridHeaderFooterLocalization.FlaceheTrottoirLinks).AlignRight();
+                columns.Bound(m => m.FlaceheTrottoirRechts).Title(GridHeaderFooterLocalization.FlaceheTrottoirRechts).AlignRight();
+            })
+            .Events(events => events.DataBound("index.onRowDataBound"))
+        )
+    </div>
+</div>
+
+@(Html.TelerikWindow(TitleLocalization.ZustandsabschnittEditPopupTitle, "ZustandsabschnittWindow", "zustandsabschnittEditFormDiv")
+        .Resizable(c => c.Enabled(false))
+        .Events(events => events.Close("index.onClose")))

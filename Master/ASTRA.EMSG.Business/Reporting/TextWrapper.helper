@@ -1,0 +1,98 @@
+﻿Public Function TextWrapper(inputText As String, Optional cellWidthCM As Double = 1, Optional fontSize As Integer = 10, Optional fontFamily As String = "Arial", Optional numberOfRows As Integer = 3, Optional noIndent As Boolean = False, _
+	Optional isDebugMode As Boolean = False) As String
+	If isDebugMode Then
+		System.Diagnostics.Debugger.Break()
+	End If
+	If String.IsNullOrEmpty(inputText) Then
+		Return ""
+	End If
+
+	Try
+		Dim inputTypeFace = New System.Windows.Media.Typeface(New System.Windows.Media.FontFamily("Arial"), System.Windows.FontStyles.Normal, System.Windows.FontWeights.Normal, System.Windows.FontStretches.Normal)
+		Dim cellWidth As Double = cellWidthCM / 2.54
+		Dim actualWidth As Double = If(noIndent, (cellWidth - 0.1) * 0.75, (cellWidth - 0.2) * 0.75)
+		' + buffer
+		Dim rowContent As String() = New String(numberOfRows - 1) {}
+
+		For i As Integer = 0 To numberOfRows - 1
+			rowContent(i) = ""
+		Next
+
+		Dim words = inputText.Replace(vbLf, " ").Replace(vbTab, " ").Replace(vbCr, " ").Split(" "C)
+
+		Dim current As String = ""
+		' Text in the current row
+		Dim currentRow As Integer = 0
+		' index of the curent row
+		Dim currentCulture = System.Globalization.CultureInfo.CurrentCulture
+		Dim colorBrush = System.Windows.Media.Brushes.Black
+		Dim flowDirection = System.Windows.FlowDirection.LeftToRight
+		Try
+			For i As Integer = 0 To words.Length - 1
+
+				Dim word = words(i)
+				Dim formattedText = New System.Windows.Media.FormattedText(String.Format("{0} {1}", current, word), currentCulture, flowDirection, inputTypeFace, fontSize, colorBrush)
+				Dim rowLenght As Double = (If(String.IsNullOrEmpty(current), 0, formattedText.Width / 96))
+				If rowLenght < actualWidth Then
+					' fits in current row
+					current = If(String.IsNullOrEmpty(current), word, String.Format("{0} {1}", current, word))
+				ElseIf currentRow = numberOfRows - 1 Then
+					' doesn't fit and current is the last row
+					current = If(String.IsNullOrEmpty(current), word, String.Format("{0} {1}", current, word))
+					formattedText = New System.Windows.Media.FormattedText(current, currentCulture, flowDirection, inputTypeFace, fontSize, colorBrush)
+					rowLenght = formattedText.Width / 96
+					While rowLenght > actualWidth
+						Dim length = current.Length - 4
+						current = current.Substring(0, length) & "..."
+						formattedText = New System.Windows.Media.FormattedText(current, currentCulture, flowDirection, inputTypeFace, fontSize, colorBrush)
+						rowLenght = formattedText.Width / 96
+					End While
+					rowContent(currentRow) = current
+					Exit For
+				Else
+					' doesn't fit, but there ara other rows
+					If String.IsNullOrEmpty(current) Then
+						current = word
+					End If
+					formattedText = New System.Windows.Media.FormattedText(current, currentCulture, flowDirection, inputTypeFace, fontSize, colorBrush)
+					rowLenght = formattedText.Width / 96
+					Dim other As String = ""
+					Dim original = current
+					While rowLenght > actualWidth
+						Dim length = current.Length - 1
+						other = original.Substring(length)
+						current = current.Substring(0, length)
+						formattedText = New System.Windows.Media.FormattedText(current, currentCulture, flowDirection, inputTypeFace, fontSize, colorBrush)
+						rowLenght = formattedText.Width / 96
+					End While
+					rowContent(currentRow) = current
+					current = (If(String.IsNullOrEmpty(other), word, other & " " & word))
+					currentRow = currentRow + 1
+				End If
+				If i = words.Length - 1 Then
+					' done with the last word, put current row in
+					rowContent(currentRow) = current
+				End If
+			Next
+		Catch ex As System.Exception
+			Return ex.StackTrace
+		End Try
+		Dim actualContent As String = ""
+		For Each row As String In rowContent
+			actualContent = String.Format("{0}{1} ", actualContent, row)
+		Next
+
+		Dim entireText = New System.Windows.Media.FormattedText(actualContent, currentCulture, flowDirection, inputTypeFace, fontSize, colorBrush)
+		Dim entireWidth As Double = entireText.Width / 96
+		' while (System.Windows.Forms.TextRenderer.MeasureText(actualContent, inputFont).Width > cellWidth*3)
+		While entireWidth > actualWidth * numberOfRows
+			actualContent = actualContent.Substring(0, actualContent.Length - 4) & "..."
+			entireText = New System.Windows.Media.FormattedText(actualContent, currentCulture, flowDirection, inputTypeFace, fontSize, colorBrush)
+			entireWidth = entireText.WidthIncludingTrailingWhitespace / 96
+		End While
+
+		Return actualContent
+	Catch ex As System.Exception
+		Return ex.Message & " " & ex.StackTrace
+	End Try
+End Function

@@ -1,0 +1,62 @@
+﻿@using ASTRA.EMSG.Business.Reports.StrassenabschnitteListeOhneInspektionsroute
+@using ASTRA.EMSG.Common
+@using ASTRA.EMSG.Common.Enums
+@using ASTRA.EMSG.Web.Areas.Auswertungen.ReportGridCommands
+@using ASTRA.EMSG.Web.Infrastructure
+@using ASTRA.EMSG.Web.Infrastructure.HtmlHelperExtensions
+@using Resources
+@using Kendo.Mvc.UI
+
+@(Html.ToGridFilterBuilder<StrassenabschnitteListeOhneInspektionsrouteGridCommand>()
+      .WithEnumFilter<EigentuemerTyp?, EigentuemerTyp>(f => f.Eigentuemer)
+      .WithTextFilter(f => f.Strassenname, triggerOn3Char: true)
+      .WithFilterButton())
+
+@ReportViewHelpers.TabellarischReportButtons(Html, "StrassenabschnitteListeOhneInspektionsroute", "StrassenabschnitteListeOhneInspektionsroute")
+
+<div class="scrollable-grid-border">
+    <div class="scrollable-grid">
+        @(Html.Kendo().Grid<StrassenabschnitteListeOhneInspektionsroutePo>()
+              .Name("StrassenabschnitteListeOhneInspektionsroute")
+              .ApplyEmsgSettings(editable: false)
+              .Columns(columns =>
+              {
+                  columns.Bound(m => m.Strassenname).Title(GridHeaderFooterLocalization.Strassenname).Filterable(false).SumLabel();
+                  columns.Bound(m => m.BezeichnungVon).Title(GridHeaderFooterLocalization.BezeichnungVon);
+                  columns.Bound(m => m.BezeichnungBis).Title(GridHeaderFooterLocalization.BezeichnungBis);
+                  columns.Bound(m => m.Strasseneigentuemer).Hidden();
+                  columns.Bound(m => m.StrasseneigentuemerBezeichnung).Title(GridHeaderFooterLocalization.Strasseneigentuemer).Filterable(false);
+                  columns.Bound(m => m.BelastungskategorieTyp).Hidden();
+                  columns.Bound(m => m.BelastungskategorieBezeichnung).Title(GridHeaderFooterLocalization.BelastungskategorieTyp);
+                  columns.Bound(m => m.FlaecheFahrbahn).Title(GridHeaderFooterLocalization.FlaecheFahrbahn).Format(FormatStrings.NoDecimalFormat).Sum();
+                  columns.Bound(m => m.FlaecheTrottoirLinks).Title(GridHeaderFooterLocalization.FlaecheTrottoir).Format(FormatStrings.NoDecimalFormat).Sum();
+                  columns.Bound(m => m.FlaecheTrottoirRechts).Title(GridHeaderFooterLocalization.FlaecheTrottoir).Format(FormatStrings.NoDecimalFormat).Sum();
+              })
+              .DataSource(dataBinding => dataBinding
+                  .Ajax()
+                  .Read(c => c.Action("GetAll", "StrassenabschnitteListeOhneInspektionsroute").Data("BuildParameter"))
+                  .PageSize(ConstantSettings.GridPageSize)
+                  .Aggregates(aggregate =>
+                  {
+                      aggregate.Add(p => p.FlaecheFahrbahn).Sum();
+                      aggregate.Add(p => p.FlaecheTrottoirLinks).Sum();
+                      aggregate.Add(p => p.FlaecheTrottoirRechts).Sum();
+                  }))
+                  .Events(c => c.DataBound("OnDataBound"))
+              )
+    </div>
+</div>
+
+<script type="text/javascript">
+
+    function RefreshGrid() {
+        common.refreshGrid('#StrassenabschnitteListeOhneInspektionsroute');
+    }
+
+    function GetReportParameter() {
+        return {
+            Eigentuemer: $("#Eigentuemer").val(),
+            Strassenname: $("#Strassenname").val()
+        };
+    }
+</script>

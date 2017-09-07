@@ -1,0 +1,28 @@
+﻿@using ASTRA.EMSG.Business.Models
+@using ASTRA.EMSG.Web.Infrastructure.HtmlHelperExtensions
+@using Microsoft.ReportingServices.Interfaces
+@using Resources
+@model ASTRA.EMSG.Business.Models.Common.SplitStrassenabschnittBaseModel
+
+@using (Ajax.BeginForm("Split",
+                          new AjaxOptions
+                          {
+                              HttpMethod = "POST",
+                              UpdateTargetId = "splitStrassenabschnittFormDiv",
+                              InsertionMode = InsertionMode.Replace,
+                          }))
+{
+    @Html.ValidationSummary(true)
+    <fieldset class="popupFormFieldset">
+        @Html.HiddenFor(m => m.StrassenabschnittId)
+        @(Html.EditorTable()
+                .WithCustomEditorFor(m => m.Count, 
+                new MvcHtmlString(Html.IntegerTextBoxFor(m => m.Count, 9).Min(2).Max(10).Spinners(true).ToHtmlString())
+                )
+        )
+        @Html.UnobtrusiveSubmitButton(NotificationLocalization.SplitComfirmation)
+        @Html.UnobtrusiveCancelButton()
+    </fieldset>
+    @Html.RequiredFieldLegend()
+}
+<div class="helpButton">@Html.HelpButtonFor("EditZustandsabschnittTrottoir")</div>

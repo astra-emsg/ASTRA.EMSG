@@ -1,0 +1,32 @@
+﻿@using ASTRA.EMSG.Common.Enums
+
+@using ASTRA.EMSG.Web.Areas.Auswertungen.ReportGridCommands
+@using ASTRA.EMSG.Web.Infrastructure
+@using ASTRA.EMSG.Web.Infrastructure.HtmlHelperExtensions
+@using Resources
+@using Kendo.Mvc.UI
+@model EineListeVonMassnahmenGegliedertNachTeilsystemenGridCommand
+@{
+    ViewData.Model = new EineListeVonMassnahmenGegliedertNachTeilsystemenGridCommand();
+}
+
+@Html.Hidden("ErfassungsPeriod", Model.ErfassungsPeriodId)
+
+<div class="emsg-filter-expand-area-bottom">
+    <div id="filterDiv">
+        <div style="display: inline-block; width: @(ViewSizeConstants.GisReportFilterBlockWidth)px">
+             @(Html.ToGridFilterBuilder<EineListeVonMassnahmenGegliedertNachTeilsystemenGridCommand>(ViewSizeConstants.GisReportFilterFieldLabelWidth, ViewSizeConstants.GisReportFilterInputFieldWidth)
+                .WithTextFilter(m => m.Projektname, triggerOn3Char: true, notLastRow: true)
+                .WithIntEnumFilter<StatusTyp>(m => m.Status, filterFunction: "gisReport.form.refreshGrid")
+                .WithGisReportFilterButton(filterFunction: "gisReport.form.refreshGrid"))
+        </div>
+        <div style="display: inline-block">
+            @(Html.ToGridFilterBuilder<EineListeVonMassnahmenGegliedertNachTeilsystemenGridCommand>(ViewSizeConstants.GisReportFilterFieldLabelWidth, ViewSizeConstants.GisReportFilterInputFieldWidth)
+                  .WithIntEnumFilter<TeilsystemTyp>(m => m.Teilsystem, filterFunction: "gisReport.form.refreshGrid", width: 230)
+                  .WithIntEnumFilter<DringlichkeitTyp>(m => m.Dringlichkeit, filterFunction: "gisReport.form.refreshGrid", width: 230)
+                  .WithoutFilterButton())
+        </div>
+    </div>
+</div>
+
+@Html.Partial("MapGridTabs")

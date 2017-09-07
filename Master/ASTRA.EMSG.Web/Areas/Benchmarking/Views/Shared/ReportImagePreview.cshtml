@@ -1,0 +1,40 @@
+﻿@using ASTRA.EMSG.Business.Infrastructure.Reporting
+@using ASTRA.EMSG.Web.Infrastructure.HtmlHelperExtensions
+@using Resources
+@if (ViewBag.HasReportData)
+{
+    <div id="ReportButtons" style="margin-top: 10px;">
+        @Html.ExcelReportButton("GetExcelReport()")
+        @Html.PdfReportButton("GetPdfReport()")
+    </div>
+    
+    for (int i = 0; i < (ViewBag.PageCount ?? 0); i++)
+		{
+             <img id="previewImageImg@(i)" src="@Url.Content("~/Content/gifs/AjaxBusy.gif")"/>
+        }
+    
+    <script type="text/javascript">
+        function GetExcelReport() { GetReport('@(OutputFormat.Excel)'); };
+        function GetPdfReport() { GetReport('@(OutputFormat.Pdf)'); };
+
+        function GetReport(outputFormat) {
+            var reportParameter = {};
+            reportParameter.outputFormat = outputFormat;
+
+            $.post('@(Html.ToUrlHelper().Action("GenerateReport"))', reportParameter, function (data) { $.download('@(Html.ToUrlHelper().Action("GetLastGeneratedReport"))', {}); });
+        };
+        
+        @for (int i = 0; i < (ViewBag.PageCount ?? 0); i++)
+        {
+            @Html.Raw("$('#previewImageImg" + i + "').attr('src', '" + Url.Action("GetPreviewImage", new {page = i, ts = DateTime.Now}) + "');")
+        }
+
+    </script>
+}
+else
+{
+    <br />
+    <b>
+        @NotificationLocalization.NotEnoughDataForBechmarking
+    </b>
+}

@@ -1,0 +1,1014 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="12.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProductVersion>8.0.30703</ProductVersion>
+    <SchemaVersion>2.0</SchemaVersion>
+    <ProjectGuid>{529D8AAD-3D7E-4359-A37D-7360B88D8BF7}</ProjectGuid>
+    <OutputType>Library</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>ASTRA.EMSG.Business</RootNamespace>
+    <AssemblyName>ASTRA.EMSG.Business</AssemblyName>
+    <TargetFrameworkVersion>v4.6.1</TargetFrameworkVersion>
+    <FileAlignment>512</FileAlignment>
+    <SccProjectName>SAK</SccProjectName>
+    <SccLocalPath>SAK</SccLocalPath>
+    <SccAuxPath>SAK</SccAuxPath>
+    <SccProvider>SAK</SccProvider>
+    <TargetFrameworkProfile />
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+    <Prefer32Bit>false</Prefer32Bit>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+    <Prefer32Bit>false</Prefer32Bit>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="Autofac">
+      <HintPath>..\packages\Autofac.2.5.2.830\lib\NET40\Autofac.dll</HintPath>
+    </Reference>
+    <Reference Include="Autofac.Configuration">
+      <HintPath>..\packages\Autofac.2.5.2.830\lib\NET40\Autofac.Configuration.dll</HintPath>
+    </Reference>
+    <Reference Include="BruTile, Version=0.9.3.0, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>..\packages\BruTile.0.9.3\lib\net40\BruTile.dll</HintPath>
+    </Reference>
+    <Reference Include="ClosedXML, Version=0.60.0.0, Culture=neutral, PublicKeyToken=fd1eb21b62ae805b, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\packages\ClosedXML_NET_4.0.60.0\lib\ClosedXML.dll</HintPath>
+    </Reference>
+    <Reference Include="Common.Logging, Version=3.3.1.0, Culture=neutral, PublicKeyToken=af08829b84f0328e, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\packages\Common.Logging.3.3.1\lib\net40\Common.Logging.dll</HintPath>
+    </Reference>
+    <Reference Include="Common.Logging.Core">
+      <HintPath>..\packages\Common.Logging.Core.3.3.1\lib\net40\Common.Logging.Core.dll</HintPath>
+    </Reference>
+    <Reference Include="DocumentFormat.OpenXml, Version=2.0.5022.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>..\packages\DocumentFormat.OpenXmlSDK.2.0\lib\Net35\DocumentFormat.OpenXml.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="EntityFramework, Version=6.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089, processorArchitecture=MSIL">
+      <HintPath>..\packages\EntityFramework.6.1.3\lib\net45\EntityFramework.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="EntityFramework.SqlServer, Version=6.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089, processorArchitecture=MSIL">
+      <HintPath>..\packages\EntityFramework.6.1.3\lib\net45\EntityFramework.SqlServer.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="FluentNHibernate">
+      <HintPath>..\packages\FluentNHibernate.2.0.3.0\lib\net40\FluentNHibernate.dll</HintPath>
+    </Reference>
+    <Reference Include="FluentValidation, Version=3.4.6.0, Culture=neutral, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\packages\FluentValidation.3.4.6.0\lib\Net40\FluentValidation.dll</HintPath>
+    </Reference>
+    <Reference Include="GeoAPI">
+      <HintPath>..\packages\GeoAPI.1.7.4\lib\net40-client\GeoAPI.dll</HintPath>
+    </Reference>
+    <Reference Include="GeoJSON.NET, Version=1.0.0.0, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>..\libraries\GeoJSON.NET\GeoJSON.NET.dll</HintPath>
+    </Reference>
+    <Reference Include="HtmlAgilityPack">
+      <HintPath>..\packages\HtmlAgilityPack.1.4.2\lib\HtmlAgilityPack.dll</HintPath>
+    </Reference>
+    <Reference Include="Iesi.Collections">
+      <HintPath>..\packages\Iesi.Collections.4.0.0.4000\lib\net40\Iesi.Collections.dll</HintPath>
+    </Reference>
+    <Reference Include="Ionic.Zip">
+      <HintPath>..\packages\DotNetZip.1.9.1.8\lib\net20\Ionic.Zip.dll</HintPath>
+    </Reference>
+    <Reference Include="Jayrock">
+      <HintPath>..\libraries\GeoJSON\Jayrock.dll</HintPath>
+    </Reference>
+    <Reference Include="Jayrock.Json, Version=0.9.8316.0, Culture=neutral, PublicKeyToken=9586cafbf777a8f5, processorArchitecture=MSIL">
+      <HintPath>..\libraries\GeoJSON\Jayrock.Json.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.AspNet.Identity.Core, Version=2.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.AspNet.Identity.Core.2.2.1\lib\net45\Microsoft.AspNet.Identity.Core.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="Microsoft.AspNet.Identity.EntityFramework, Version=2.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.AspNet.Identity.EntityFramework.2.2.1\lib\net45\Microsoft.AspNet.Identity.EntityFramework.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="Microsoft.ReportViewer.Common, Version=12.0.0.0, Culture=neutral, PublicKeyToken=89845dcd8080cc91, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.ReportViewer.Runtime.Common.12.0.2402.15\lib\Microsoft.ReportViewer.Common.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="Microsoft.ReportViewer.DataVisualization, Version=12.0.0.0, Culture=neutral, PublicKeyToken=89845dcd8080cc91, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.ReportViewer.Runtime.Common.12.0.2402.15\lib\Microsoft.ReportViewer.DataVisualization.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="Microsoft.ReportViewer.ProcessingObjectModel, Version=12.0.0.0, Culture=neutral, PublicKeyToken=89845dcd8080cc91, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.ReportViewer.Runtime.Common.12.0.2402.15\lib\Microsoft.ReportViewer.ProcessingObjectModel.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="Microsoft.ReportViewer.WebForms, Version=12.0.0.0, Culture=neutral, PublicKeyToken=89845dcd8080cc91, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.ReportViewer.Runtime.WebForms.12.0.2402.15\lib\Microsoft.ReportViewer.WebForms.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="Microsoft.SqlServer.Types, Version=11.0.0.0, Culture=neutral, PublicKeyToken=89845dcd8080cc91, processorArchitecture=MSIL">
+      <Private>True</Private>
+      <HintPath>..\packages\Microsoft.SqlServer.Types.11.0.2\lib\net20\Microsoft.SqlServer.Types.dll</HintPath>
+    </Reference>
+    <Reference Include="NetTopologySuite">
+      <HintPath>..\packages\NetTopologySuite.1.14\lib\net40-client\NetTopologySuite.dll</HintPath>
+    </Reference>
+    <Reference Include="NetTopologySuite.IO">
+      <HintPath>..\packages\NetTopologySuite.IO.1.14.0.1\lib\net40-client\NetTopologySuite.IO.dll</HintPath>
+    </Reference>
+    <Reference Include="NetTopologySuite.IO.GeoTools, Version=1.14.0.0, Culture=neutral, PublicKeyToken=f580a05016ebada1, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\packages\NetTopologySuite.IO.1.14.0.1\lib\net40-client\NetTopologySuite.IO.GeoTools.dll</HintPath>
+    </Reference>
+    <Reference Include="NetTopologySuite.IO.MsSqlSpatial, Version=1.14.0.0, Culture=neutral, PublicKeyToken=f580a05016ebada1, processorArchitecture=MSIL">
+      <HintPath>..\packages\NetTopologySuite.IO.1.14.0.1\lib\net40-client\NetTopologySuite.IO.MsSqlSpatial.dll</HintPath>
+    </Reference>
+    <Reference Include="NetTopologySuite.IO.PostGis, Version=1.14.0.0, Culture=neutral, PublicKeyToken=f580a05016ebada1, processorArchitecture=MSIL">
+      <HintPath>..\packages\NetTopologySuite.IO.1.14.0.1\lib\net40-client\NetTopologySuite.IO.PostGis.dll</HintPath>
+    </Reference>
+    <Reference Include="NetTopologySuite.IO.ShapeFile, Version=1.14.0.0, Culture=neutral, PublicKeyToken=f580a05016ebada1, processorArchitecture=MSIL">
+      <HintPath>..\packages\NetTopologySuite.IO.1.14.0.1\lib\net40-client\NetTopologySuite.IO.ShapeFile.dll</HintPath>
+    </Reference>
+    <Reference Include="NetTopologySuite.IO.ShapeFile.Extended, Version=1.0.0.0, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>..\packages\NetTopologySuite.IO.1.14.0.1\lib\net40-client\NetTopologySuite.IO.ShapeFile.Extended.dll</HintPath>
+    </Reference>
+    <Reference Include="NetTopologySuite.MGeometries">
+      <HintPath>..\libraries\NetTopologySuite.MGeometries\NetTopologySuite.MGeometries.dll</HintPath>
+    </Reference>
+    <Reference Include="NHibernate">
+      <HintPath>..\packages\NHibernate.4.0.4.4000\lib\net40\NHibernate.dll</HintPath>
+    </Reference>
+    <Reference Include="NHibernate.Spatial">
+      <HintPath>..\packages\NHibernate.Spatial.MsSql.4.0.4.4001\lib\net40-Client\NHibernate.Spatial.dll</HintPath>
+    </Reference>
+    <Reference Include="NHibernate.Spatial.MsSql">
+      <HintPath>..\packages\NHibernate.Spatial.MsSql.4.0.4.4001\lib\net40-Client\NHibernate.Spatial.MsSql.dll</HintPath>
+    </Reference>
+    <Reference Include="NLog, Version=2.0.0.0, Culture=neutral, PublicKeyToken=5120e14c03d0593c, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\packages\NLog.4.2.3\lib\net40\NLog.dll</HintPath>
+    </Reference>
+    <Reference Include="PowerCollections, Version=1.0.0.0, Culture=neutral, PublicKeyToken=2573bf8a1bdddcd5, processorArchitecture=MSIL">
+      <HintPath>..\packages\NetTopologySuite.1.14\lib\net40-client\PowerCollections.dll</HintPath>
+    </Reference>
+    <Reference Include="PresentationCore" />
+    <Reference Include="System" />
+    <Reference Include="System.ComponentModel.DataAnnotations" />
+    <Reference Include="System.Configuration" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.Drawing" />
+    <Reference Include="System.Runtime.Serialization" />
+    <Reference Include="System.Web" />
+    <Reference Include="System.Web.Extensions" />
+    <Reference Include="System.Web.Mvc, Version=3.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\libraries\MVC3\System.Web.Mvc.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="System.Windows.Forms" />
+    <Reference Include="System.Xml.Linq" />
+    <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="Microsoft.CSharp" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Xml" />
+    <Reference Include="WindowsBase" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="..\..\Common\CommonAssemblyInfo.cs">
+      <Link>Properties\CommonAssemblyInfo.cs</Link>
+    </Compile>
+    <Compile Include="AchsenUpdate\AchsenAutoUpdate.cs" />
+    <Compile Include="AchsenUpdate\AchsenUpdateException.cs" />
+    <Compile Include="AchsenUpdate\AchsenUpdateStatistics.cs" />
+    <Compile Include="AchsenUpdate\AchsenUpdate.cs" />
+    <Compile Include="AchsenUpdate\IReferenceUpdater.cs" />
+    <Compile Include="AchsenUpdate\ReferenceUpdaterStatistics.cs" />
+    <Compile Include="AchsenUpdate\UpdateReferences\GeometryTransformer.cs" />
+    <Compile Include="AchsenUpdate\UpdateReferences\ReferenceUpdater.cs" />
+    <Compile Include="BusinessExceptions\ImportException.cs" />
+    <Compile Include="Entities\Common\BenchmarkingData.cs" />
+    <Compile Include="Entities\Common\BenchmarkingDataDetail.cs" />
+    <Compile Include="Entities\Common\BenchmarkingGruppenConfiguration.cs" />
+    <Compile Include="Entities\Common\EreignisLog.cs" />
+    <Compile Include="Entities\Common\EreignisTyp.cs" />
+    <Compile Include="Entities\Common\FlaecheProviderExtension.cs" />
+    <Compile Include="Entities\Common\IBelastungskategorieHolder.cs" />
+    <Compile Include="Entities\Common\IFlaecheFahrbahnUndTrottoirHolder.cs" />
+    <Compile Include="Entities\Common\IRealisierteMassnahmeKostenHolder.cs" />
+    <Compile Include="Entities\Common\ScriptLog.cs" />
+    <Compile Include="Entities\GIS\AchsenLock.cs" />
+    <Compile Include="Entities\GIS\IKopie.cs" />
+    <Compile Include="Entities\Katalogs\GemeindeKatalog.cs" />
+    <Compile Include="Entities\Common\MandantDetails.cs" />
+    <Compile Include="Entities\Common\MandantLogo.cs" />
+    <Compile Include="Entities\Katalogs\OeffentlicheVerkehrsmittelKatalog.cs" />
+    <Compile Include="Entities\GIS\AchsenReferenz.cs" />
+    <Compile Include="Entities\GIS\AchsenSegment.cs" />
+    <Compile Include="Entities\GIS\AchsenImportLog.cs" />
+    <Compile Include="Entities\GIS\RealisierteMassnahmeGIS.cs" />
+    <Compile Include="Entities\Katalogs\Belastungskategorie.cs" />
+    <Compile Include="Entities\GIS\CheckOutsGIS.cs" />
+    <Compile Include="Entities\Common\Defaults.cs" />
+    <Compile Include="Entities\Common\Entity.cs" />
+    <Compile Include="Entities\Common\IAbschnitt.cs" />
+    <Compile Include="Entities\Common\IEntity.cs" />
+    <Compile Include="Entities\Common\IErfassungsPeriodDependentEntity.cs" />
+    <Compile Include="Entities\Common\IMandantDependentEntity.cs" />
+    <Compile Include="Entities\Common\IStrassenabschnitt.cs" />
+    <Compile Include="Entities\Common\IZustandsabschnitt.cs" />
+    <Compile Include="Entities\Common\StrassenabschnittBase.cs" />
+    <Compile Include="Entities\Common\ZustandsabschnittBase.cs" />
+    <Compile Include="Entities\GIS\Achse.cs" />
+    <Compile Include="Entities\GIS\AchsenUpdateLog.cs" />
+    <Compile Include="Entities\GIS\AchsenUpdateConflict.cs" />
+    <Compile Include="Entities\Katalogs\GlobalMassnahmenvorschlagKatalog.cs" />
+    <Compile Include="Entities\Katalogs\GlobalWiederbeschaffungswertKatalog.cs" />
+    <Compile Include="Entities\Common\KenngroessenFruehererJahre.cs" />
+    <Compile Include="Entities\Common\KenngroessenFruehererJahreDetail.cs" />
+    <Compile Include="Entities\GIS\KoordinierteMassnahmeGIS.cs" />
+    <Compile Include="Entities\Mapping\AchsenImportLogMapping.cs" />
+    <Compile Include="Entities\Mapping\AchsenLockMapping.cs" />
+    <Compile Include="Entities\Mapping\AchsenUpdateLogMapping.cs" />
+    <Compile Include="Entities\Mapping\AchsenUpdateConflictMapping.cs" />
+    <Compile Include="Entities\Mapping\BenchmarkingDataDetailMapping.cs" />
+    <Compile Include="Entities\Mapping\BenchmarkingDataMapping.cs" />
+    <Compile Include="Entities\Mapping\BenchmarkingGruppenConfigurationMapping.cs" />
+    <Compile Include="Entities\Mapping\EreignisLogMapping.cs" />
+    <Compile Include="Entities\Mapping\GemeindeKatalogMapping.cs" />
+    <Compile Include="Entities\Mapping\MandantDetailsMapping.cs" />
+    <Compile Include="Entities\Mapping\OeffentlicheVerkehrsmittelKatalogMapping.cs" />
+    <Compile Include="Entities\Mapping\RealisierteMassnahmenGISMapping.cs" />
+    <Compile Include="Entities\Mapping\GlobalMassnahmenvorschlagTypMapping.cs" />
+    <Compile Include="Entities\Mapping\GlobalWiederbeschaffungswertKatalogMapping.cs" />
+    <Compile Include="Entities\Mapping\KenngroessenFruehererJahreDetailMapping.cs" />
+    <Compile Include="Entities\Mapping\KenngroessenFruehererJahreMapping.cs" />
+    <Compile Include="Entities\Mapping\KoordinierteMassnahmenGISMapping.cs" />
+    <Compile Include="Entities\Mapping\MandantLogoMapping.cs" />
+    <Compile Include="Entities\Mapping\MassnahmenvorschlagTeilsystemeGISMapping.cs" />
+    <Compile Include="Entities\Mapping\MassnahmenvorschlagKatalogMapping.cs" />
+    <Compile Include="Entities\Mapping\ScriptLogMapping.cs" />
+    <Compile Include="Entities\Mapping\SektorMapping.cs" />
+    <Compile Include="Entities\GIS\MassnahmenvorschlagTeilsystemeGIS.cs" />
+    <Compile Include="Entities\Katalogs\MassnahmenvorschlagKatalogBase.cs" />
+    <Compile Include="Entities\GIS\Sektor.cs" />
+    <Compile Include="Entities\Common\ErfassungsPeriod.cs" />
+    <Compile Include="Entities\GIS\IAbschnittGISBase.cs" />
+    <Compile Include="Entities\GIS\InspektionsRouteGIS.cs" />
+    <Compile Include="Entities\GIS\InspektionsRouteStatus.cs" />
+    <Compile Include="Entities\GIS\InspektionsRouteStatusverlauf.cs" />
+    <Compile Include="Entities\GIS\InspektionsRtStrAbschnitte.cs" />
+    <Compile Include="Entities\GIS\KopieAchse.cs" />
+    <Compile Include="Entities\GIS\KopieAchsenSegment.cs" />
+    <Compile Include="Entities\GIS\KopieSektor.cs" />
+    <Compile Include="Entities\Common\Mandant.cs" />
+    <Compile Include="Entities\Mapping\AchseMapping.cs" />
+    <Compile Include="Entities\Mapping\AchsenReferenzMapping.cs" />
+    <Compile Include="Entities\Mapping\AchsenSegmentMapping.cs" />
+    <Compile Include="Entities\Mapping\BelastungskategorieMapping.cs" />
+    <Compile Include="Entities\Mapping\CheckOutsGISMapping.cs" />
+    <Compile Include="Entities\Mapping\ClassMapBase.cs" />
+    <Compile Include="Entities\Mapping\InspektionsRouteStatusverlaufMapping.cs" />
+    <Compile Include="Entities\Mapping\KopieSektorMapping.cs" />
+    <Compile Include="Entities\Mapping\KopieAchsenSegmentMapping.cs" />
+    <Compile Include="Entities\Mapping\ErfassungsPeriodMapping.cs" />
+    <Compile Include="Entities\Mapping\InspektionsRouteGISMapping.cs" />
+    <Compile Include="Entities\Mapping\InspektionsRtStrAbschnitteMapping.cs" />
+    <Compile Include="Entities\Mapping\KopieAchseMapping.cs" />
+    <Compile Include="Entities\Mapping\MandantMapping.cs" />
+    <Compile Include="Entities\Mapping\NetzSummarischDetailMapping.cs" />
+    <Compile Include="Entities\Mapping\NetzSummarischMapping.cs" />
+    <Compile Include="Entities\Mapping\RealisierteMassnahmeMapping.cs" />
+    <Compile Include="Entities\Mapping\RealisierteMassnahmeSummarsichMapping.cs" />
+    <Compile Include="Entities\Mapping\ReferenzGruppeMapping.cs" />
+    <Compile Include="Entities\Mapping\SchadendetailMapping.cs" />
+    <Compile Include="Entities\Mapping\SchadengruppeMapping.cs" />
+    <Compile Include="Entities\Mapping\StrassenabschnittGISMapping.cs" />
+    <Compile Include="Entities\Mapping\StrassenabschnittMapping.cs" />
+    <Compile Include="Entities\Mapping\TestUserInfoMapping.cs" />
+    <Compile Include="Entities\Mapping\WiederbeschaffungswertKatalogMapping.cs" />
+    <Compile Include="Entities\Mapping\ZustandsabschnittGISMapping.cs" />
+    <Compile Include="Entities\Mapping\ZustandsabschnittMapping.cs" />
+    <Compile Include="Entities\Katalogs\MassnahmenvorschlagKatalog.cs" />
+    <Compile Include="Entities\Strassennamen\RealisierteMassnahmeBase.cs" />
+    <Compile Include="Entities\Summarisch\NetzSummarisch.cs" />
+    <Compile Include="Entities\Summarisch\NetzSummarischDetail.cs" />
+    <Compile Include="Entities\Strassennamen\RealisierteMassnahme.cs" />
+    <Compile Include="Entities\Summarisch\RealisierteMassnahmeSummarsich.cs" />
+    <Compile Include="Entities\GIS\ReferenzGruppe.cs" />
+    <Compile Include="Entities\Common\Schadendetail.cs" />
+    <Compile Include="Entities\Common\Schadengruppe.cs" />
+    <Compile Include="Entities\Strassennamen\Strassenabschnitt.cs" />
+    <Compile Include="Entities\GIS\StrassenabschnittGIS.cs" />
+    <Compile Include="Entities\Common\TestUserInfo.cs" />
+    <Compile Include="Entities\Katalogs\WiederbeschaffungswertKatalog.cs" />
+    <Compile Include="Entities\Katalogs\WiederbeschaffungswertKatalogBase.cs" />
+    <Compile Include="Entities\Strassennamen\Zustandsabschnitt.cs" />
+    <Compile Include="Entities\GIS\ZustandsabschnittGIS.cs" />
+    <Compile Include="Infrastructure\Filtering\FilterBuilderBase.cs" />
+    <Compile Include="Infrastructure\Filtering\Filterer.cs" />
+    <Compile Include="Infrastructure\Filtering\FiltererFactory.cs" />
+    <Compile Include="Infrastructure\Filtering\ICanBuildFilterFor.cs" />
+    <Compile Include="Infrastructure\Filtering\IFilterParameter.cs" />
+    <Compile Include="Infrastructure\MappingRules\IgnoreIdMappingRule.cs" />
+    <Compile Include="Infrastructure\MappingRules\MLineStringTo2DMappingRule.cs" />
+    <Compile Include="Infrastructure\Transactioning\AuditEventListener.cs" />
+    <Compile Include="Infrastructure\Transactioning\NHibernateConfigurationExtensions.cs" />
+    <Compile Include="Infrastructure\Transactioning\MsSql2012GeometryDialect.cs" />
+    <Compile Include="Models\GIS\AchsenSegmentOverviewModel.cs" />
+    <Compile Include="Models\Identity\ApplicationDbContext.cs" />
+    <Compile Include="Models\Identity\ApplicationUser.cs" />
+    <Compile Include="Models\Identity\AllowAnonymousAttribute.cs" />
+    <Compile Include="Models\Identity\ChangePasswordModel.cs" />
+    <Compile Include="Models\Identity\LoginModel.cs" />
+    <Compile Include="Models\Identity\MandantRole.cs" />
+    <Compile Include="Models\Katalogs\ShapeExportModel.cs" />
+    <Compile Include="Models\Strassennamen\ExportStrassenabschnittModel.cs" />
+    <Compile Include="Models\Strassennamen\ExportZustandsabschnittModel.cs" />
+    <Compile Include="Models\Strassennamen\ImportResultModel.cs" />
+    <Compile Include="Models\Strassennamen\RealisierteMassnahmeOverviewModel.cs" />
+    <Compile Include="Models\Strassennamen\StrassenabschnittImportModel.cs" />
+    <Compile Include="Models\Strassennamen\StrassenabschnittImportOverviewModel.cs" />
+    <Compile Include="Models\Strassennamen\StrassenabschnittImportResultModel.cs" />
+    <Compile Include="Models\Strassennamen\StrassenabschnittSplitModel.cs" />
+    <Compile Include="Models\Strassennamen\ZustandsabschnittImportOverviewModel.cs" />
+    <Compile Include="Models\Strassennamen\ZustandsabschnittImportResultModel.cs" />
+    <Compile Include="Models\Common\HilfeSucheModel.cs" />
+    <Compile Include="Models\Summarisch\RealisierteMassnahmeSummarsichOverviewModel.cs" />
+    <Compile Include="Reporting\EmsgFilterablePoProviderBase.cs" />
+    <Compile Include="Reporting\EmsgGisMapPoProviderBase.cs" />
+    <Compile Include="Reporting\PercentPartitioningCorrector.cs" />
+    <Compile Include="Reporting\ReportLegendImageService.cs" />
+    <Compile Include="Reporting\ReportInfoAttribute.cs" />
+    <Compile Include="Interlis\AxisImportScanner\AxisImportScanner.cs" />
+    <Compile Include="Interlis\AxisImportScanner\ImportFolders.cs" />
+    <Compile Include="Interlis\AxisImportScanner\TestAxisImportScanner.cs" />
+    <Compile Include="Interlis\AxisImport\AxisImportCancelledException.cs" />
+    <Compile Include="Interlis\AxisImport\AxisImportStatistics.cs" />
+    <Compile Include="Interlis\AxisImport\IAxisImportMonitor.cs" />
+    <Compile Include="Interlis\AxisImport\AxisImport.cs" />
+    <Compile Include="Interlis\AxisImport\AxisImportDataHandler.cs" />
+    <Compile Include="Interlis\AxisImport\AxisImportDataHandlerFull.cs" />
+    <Compile Include="Interlis\AxisImport\AxisImportDataHandlerIncr.cs" />
+    <Compile Include="Interlis\AxisImport\AxisImportException.cs" />
+    <Compile Include="Interlis\AxisImport\AxisImportOperation.cs" />
+    <Compile Include="Interlis\AxisImport\SimpleAxisImportMonitor.cs" />
+    <Compile Include="Interlis\AxisImport\TestAxisImport.cs" />
+    <Compile Include="Interlis\AxisImport\TransactionHandling\SingleTransactionCommitter.cs" />
+    <Compile Include="Interlis\AxisImport\TransactionHandling\MultiTransactionCommitter.cs" />
+    <Compile Include="Interlis\AxisImport\TransactionHandling\ITransactionCommitter.cs" />
+    <Compile Include="Interlis\Parser\IImportedItem.cs" />
+    <Compile Include="Models\Administration\BenchmarkingGruppenConfigurationModel.cs" />
+    <Compile Include="Models\Administration\EreignisLogOverviewModel.cs" />
+    <Compile Include="Models\Administration\HomeModel.cs" />
+    <Compile Include="Models\Administration\MandantDetailsModel.cs" />
+    <Compile Include="Models\Administration\MandantLogoModel.cs" />
+    <Compile Include="Models\Administration\RangeModel.cs" />
+    <Compile Include="Models\Common\BenchmarkingDataModel.cs" />
+    <Compile Include="Models\GIS\AchsenImportModel.cs" />
+    <Compile Include="Models\GIS\AchsenModel.cs" />
+    <Compile Include="Models\Administration\AndereBenutzerrollenEinnehmenModel.cs" />
+    <Compile Include="Models\GIS\CheckInGISStreams.cs" />
+    <Compile Include="Interlis\Parser\AchsenCollectedData.cs" />
+    <Compile Include="Interlis\Parser\AchsenImportUtils.cs" />
+    <Compile Include="Interlis\Parser\AchsenSegmentWrapper.cs" />
+    <Compile Include="Interlis\Parser\AchsenSektorWrapper.cs" />
+    <Compile Include="Interlis\Parser\AchseWrapper.cs" />
+    <Compile Include="Interlis\Parser\AutoGen\Axis.cs">
+      <DependentUpon>Axis.xsd</DependentUpon>
+    </Compile>
+    <Compile Include="Interlis\Parser\AxisReader.cs" />
+    <Compile Include="Interlis\Parser\AxisReader2.cs" />
+    <Compile Include="Interlis\Parser\IAxisReaderDataHandler.cs" />
+    <Compile Include="Interlis\Parser\IImportedAchse.cs" />
+    <Compile Include="Interlis\Parser\IImportedSegment.cs" />
+    <Compile Include="Interlis\Parser\IImportedSektor.cs" />
+    <Compile Include="Models\GIS\CheckOutGISStreams.cs" />
+    <Compile Include="Models\GIS\RealisierteMassnahmeGISOverviewModel.cs" />
+    <Compile Include="Models\GIS\RealisierteMassnahmeGISModel.cs" />
+    <Compile Include="Models\Katalogs\GemeindeKatalogModel.cs" />
+    <Compile Include="Models\Katalogs\OeffentlicheVerkehrsmittelKatalogModel.cs" />
+    <Compile Include="Models\Reports\AusgefuellteErfassungsformulareFuerOberflaechenschaeden.cs" />
+    <Compile Include="Models\Katalogs\GlobalNewMassnahmenvorschlagKatalogModel.cs" />
+    <Compile Include="Models\GIS\IAbschnittGISModelBase.cs" />
+    <Compile Include="Models\GIS\AchsenReferenzModel.cs" />
+    <Compile Include="Models\GIS\AchsenSegmentModel.cs" />
+    <Compile Include="Models\GIS\InspektionsRouteGISOverviewModel.cs" />
+    <Compile Include="Models\GIS\InspektionsRouteStatusverlaufModel.cs" />
+    <Compile Include="Models\GIS\InspektionsRouteStatusverlaufOverviewModel.cs" />
+    <Compile Include="Models\Common\KenngroessenFruehererJahreDetailModel.cs" />
+    <Compile Include="Models\Common\KenngroessenFruehererJahreDetailOverviewModel.cs" />
+    <Compile Include="Models\Common\KenngroessenFruehererJahreModel.cs" />
+    <Compile Include="Models\Common\KenngroessenFruehererJahreOverviewModel.cs" />
+    <Compile Include="Models\GIS\KoordinierteMassnahmeGISModel.cs" />
+    <Compile Include="Models\GIS\KoordinierteMassnahmeGISOverviewModel.cs" />
+    <Compile Include="Models\GIS\MassnahmenvorschlagTeilsystemeGISModel.cs" />
+    <Compile Include="Models\GIS\MassnahmenvorschlagTeilsystemeGISOverviewModel.cs" />
+    <Compile Include="Models\Strassennamen\RealisierteMassnahmeModel.cs" />
+    <Compile Include="Models\Common\SplitStrassenabschnittBaseModel.cs" />
+    <Compile Include="Models\GIS\SplitStrassenabschnittGISModel.cs" />
+    <Compile Include="Models\Summarisch\RealisierteMassnahmeSummarsichModel.cs" />
+    <Compile Include="Models\GIS\StrassenabschnittOverviewGISModel.cs" />
+    <Compile Include="Models\Strassennamen\StrassenabschnittOverviewModel.cs" />
+    <Compile Include="Models\Strassennamen\StrassenabschnittOverviewModelBase.cs" />
+    <Compile Include="Models\Katalogs\WiederbeschaffungswertKatalogEditModel.cs" />
+    <Compile Include="Models\Administration\ArbeitsmodusModel.cs" />
+    <Compile Include="Models\Katalogs\BelastungskategorieModel.cs" />
+    <Compile Include="Models\GIS\CheckOutsGISModel.cs" />
+    <Compile Include="Models\Administration\ErfassungsabschlussModel.cs" />
+    <Compile Include="Models\Administration\ErfassungsPeriodModel.cs" />
+    <Compile Include="Models\GIS\InspektionsRouteGISModel.cs" />
+    <Compile Include="Models\GIS\InspektionsRtStrAbschnitteModel.cs" />
+    <Compile Include="Models\Administration\LogLevelModel.cs" />
+    <Compile Include="Models\Administration\MandantModel.cs" />
+    <Compile Include="Models\Katalogs\MassnahmenvorschlagKatalogModel.cs" />
+    <Compile Include="Models\Common\MenuItemModel.cs" />
+    <Compile Include="Models\Summarisch\NetzSummarischDetailModel.cs" />
+    <Compile Include="Models\Summarisch\NetzSummarischModel.cs" />
+    <Compile Include="Models\GIS\ReferenzGruppeModel.cs" />
+    <Compile Include="Models\Common\SchadendetailModel.cs" />
+    <Compile Include="Models\Common\SchadengruppeModel.cs" />
+    <Compile Include="Models\Strassennamen\SplitStrassenabschnittModel.cs" />
+    <Compile Include="Models\GIS\StrassenabschnittGISModel.cs" />
+    <Compile Include="Models\Strassennamen\StrassenabschnittModel.cs" />
+    <Compile Include="Models\Common\StrassenabschnittModelBase.cs" />
+    <Compile Include="Models\Administration\UserInfoModel.cs" />
+    <Compile Include="Models\Katalogs\WiederbeschaffungswertKatalogModel.cs" />
+    <Compile Include="Models\Common\ZustandsabschnittdetailsModel.cs" />
+    <Compile Include="Models\Common\ZustandsabschnittdetailsTrottoirModel.cs" />
+    <Compile Include="Models\GIS\ZustandsabschnittGISModel.cs" />
+    <Compile Include="Models\Strassennamen\ZustandsabschnittImportModel.cs" />
+    <Compile Include="Infrastructure\Reporting\EmbeddedResourceReportResourceLocator.cs" />
+    <Compile Include="Infrastructure\Reporting\IReportResourceLocator.cs" />
+    <Compile Include="ReflectionMappingConfiguration\GISKopieMappingConfiguration.cs" />
+    <Compile Include="ReflectionMappingConfiguration\GISKopieMappingEngine.cs" />
+    <Compile Include="Reporting\BenchmarkauswertungParameter.cs" />
+    <Compile Include="Reporting\EmsgHeaderFooterPoProviderBase.cs" />
+    <Compile Include="Reporting\EmsgPoProviderBase.cs" />
+    <Compile Include="Reporting\FilterListBuilder.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Reporting\FilterListPo.cs" />
+    <Compile Include="Reporting\PaperType.cs" />
+    <Compile Include="Reporting\ReportSize.cs" />
+    <Compile Include="Reporting\ReportTemplatingService.cs" />
+    <Compile Include="Reporting\SourceCodeReportResourceLocator.cs" />
+    <Compile Include="Reporting\StubReportTemplatingService.cs" />
+    <Compile Include="Reports\BenchmarkauswertungInventarkennwerten\BenchmarkauswertungInventarkennwertenParameter.cs" />
+    <Compile Include="Reports\BenchmarkauswertungInventarkennwerten\BenchmarkauswertungInventarkennwertenPo.cs" />
+    <Compile Include="Reports\BenchmarkauswertungInventarkennwerten\BenchmarkauswertungInventarkennwertenPoProvider.cs" />
+    <Compile Include="Reporting\EmsgBenchmarkauswertungPoProviderBase.cs" />
+    <Compile Include="Reports\BenchmarkauswertungKennwertenRealisiertenMassnahmen\BenchmarkauswertungKennwertenRealisiertenMassnahmenParameter.cs" />
+    <Compile Include="Reports\BenchmarkauswertungKennwertenRealisiertenMassnahmen\BenchmarkauswertungKennwertenRealisiertenMassnahmenPo.cs" />
+    <Compile Include="Reports\BenchmarkauswertungKennwertenRealisiertenMassnahmen\BenchmarkauswertungKennwertenRealisiertenMassnahmenPoProvider.cs" />
+    <Compile Include="Reports\BenchmarkauswertungZustandskennwerten\BenchmarkauswertungZustandskennwertenParameter.cs" />
+    <Compile Include="Reports\BenchmarkauswertungZustandskennwerten\BenchmarkauswertungZustandskennwertenPo.cs" />
+    <Compile Include="Reports\BenchmarkauswertungZustandskennwerten\BenchmarkauswertungZustandskennwertenPoProvider.cs" />
+    <Compile Include="Reports\EineListeVonKoordiniertenMassnahmen\EineListeVonKoordiniertenMassnahmenMapParameter.cs" />
+    <Compile Include="Reports\EineListeVonKoordiniertenMassnahmen\EineListeVonKoordiniertenMassnahmenMapPoProvider.cs" />
+    <Compile Include="Reports\EineListeVonKoordiniertenMassnahmen\EineListeVonKoordiniertenMassnahmenMapProvider.cs" />
+    <Compile Include="Reports\EineListeVonKoordiniertenMassnahmen\EineListeVonKoordiniertenMassnahmenParameter.cs" />
+    <Compile Include="Reports\EineListeVonKoordiniertenMassnahmen\EineListeVonKoordiniertenMassnahmenPo.cs" />
+    <Compile Include="Reports\EineListeVonKoordiniertenMassnahmen\EineListeVonKoordiniertenMassnahmenPoProvider.cs" />
+    <Compile Include="Reports\EineListeVonMassnahmenGegliedertNachTeilsystemen\EineListeVonMassnahmenGegliedertNachTeilsystemenMapPoProvider.cs" />
+    <Compile Include="Reports\EineListeVonMassnahmenGegliedertNachTeilsystemen\EineListeVonMassnahmenGegliedertNachTeilsystemenMapParameter.cs" />
+    <Compile Include="Reports\EineListeVonMassnahmenGegliedertNachTeilsystemen\EineListeVonMassnahmenGegliedertNachTeilsystemenMapProvider.cs" />
+    <Compile Include="Reports\EineListeVonMassnahmenGegliedertNachTeilsystemen\EineListeVonMassnahmenGegliedertNachTeilsystemenParameter.cs" />
+    <Compile Include="Reports\EineListeVonMassnahmenGegliedertNachTeilsystemen\EineListeVonMassnahmenGegliedertNachTeilsystemenPo.cs" />
+    <Compile Include="Reports\EineListeVonMassnahmenGegliedertNachTeilsystemen\EineListeVonMassnahmenGegliedertNachTeilsystemenPoProvider.cs" />
+    <Compile Include="Reports\EineListeVonRealisiertenMassnahmenGeordnetNachJahren\EineListeVonRealisiertenMassnahmenGeordnetNachJahrenGISParameter.cs" />
+    <Compile Include="Reports\EineListeVonRealisiertenMassnahmenGeordnetNachJahren\EineListeVonRealisiertenMassnahmenGeordnetNachJahrenGISPo.cs" />
+    <Compile Include="Reports\EineListeVonRealisiertenMassnahmenGeordnetNachJahren\EineListeVonRealisiertenMassnahmenGeordnetNachJahrenGISPoProvider.cs" />
+    <Compile Include="Reports\EineListeVonRealisiertenMassnahmenGeordnetNachJahren\EineListeVonRealisiertenMassnahmenGeordnetNachJahrenPoBase.cs" />
+    <Compile Include="Reports\EineListeVonRealisiertenMassnahmenGeordnetNachJahren\EineListeVonRealisiertenMassnahmenGeordnetNachJahrenPoProvider.cs" />
+    <Compile Include="Reports\EineListeVonRealisiertenMassnahmenGeordnetNachJahren\EineListeVonRealisiertenMassnahmenGeordnetNachJahrenParameter.cs" />
+    <Compile Include="Reports\EineListeVonRealisiertenMassnahmenGeordnetNachJahren\EineListeVonRealisiertenMassnahmenGeordnetNachJahrenPo.cs" />
+    <Compile Include="Reports\EineListeVonRealisiertenMassnahmenGeordnetNachJahren\EineListeVonRealisiertenMassnahmenGeordnetNachJahrenSummarischParameter.cs" />
+    <Compile Include="Reports\EineListeVonRealisiertenMassnahmenGeordnetNachJahren\EineListeVonRealisiertenMassnahmenGeordnetNachJahrenSummarischPo.cs" />
+    <Compile Include="Reports\EineListeVonRealisiertenMassnahmenGeordnetNachJahren\EineListeVonRealisiertenMassnahmenGeordnetNachJahrenSummarischPoProvider.cs" />
+    <Compile Include="Reports\EineListeVonRealisiertenMassnahmenGeordnetNachJahren\IErfassungsPeriodVonBisFilter.cs" />
+    <Compile Include="Reports\EineListeVonRealisiertenMassnahmenGeordnetNachJahren\RealisiertenMassnahmenGeordnetNachJahren.cs" />
+    <Compile Include="Reports\GISExport\GISExportMapParameter.cs" />
+    <Compile Include="Reports\GISExport\GISExportMapPoProvider.cs" />
+    <Compile Include="Reports\GISExport\GISExportMapProvider.cs" />
+    <Compile Include="Reports\GISExport\GISExportParameter.cs" />
+    <Compile Include="Reports\GISExport\GISExportPo.cs" />
+    <Compile Include="Reports\GISExport\GISExportPoProvider.cs" />
+    <Compile Include="Reports\ListeDerInspektionsrouten\ListeDerInspektionsroutenMapPoProvider.cs" />
+    <Compile Include="Reports\ListeDerInspektionsrouten\ListeDerInspektionsroutenMapParameter.cs" />
+    <Compile Include="Reports\ListeDerInspektionsrouten\ListeDerInspektionsroutenMapProvider.cs" />
+    <Compile Include="Reports\ListeDerInspektionsrouten\ListeDerInspektionsroutenParameter.cs" />
+    <Compile Include="Reports\ListeDerInspektionsrouten\ListeDerInspektionsroutenPo.cs" />
+    <Compile Include="Reports\ListeDerInspektionsrouten\ListeDerInspektionsroutenPoProvider.cs" />
+    <Compile Include="Reports\MassnahmenvorschlagProZustandsabschnitt\MassnahmenvorschlagProZustandsabschnittMapPoProvider.cs" />
+    <Compile Include="Reports\MassnahmenvorschlagProZustandsabschnitt\MassnahmenvorschlagProZustandsabschnittMapParameter.cs" />
+    <Compile Include="Reports\RealisiertenMassnahmenWertverlustZustandsindexProJahrGrafische\RealisiertenMassnahmenWertverlustZustandsindexProJahrGrafischeDiagramPo.cs" />
+    <Compile Include="Reports\RealisiertenMassnahmenWertverlustZustandsindexProJahrGrafische\RealisiertenMassnahmenWertverlustZustandsindexProJahrGrafischeParameter.cs" />
+    <Compile Include="Reports\RealisiertenMassnahmenWertverlustZustandsindexProJahrGrafische\RealisiertenMassnahmenWertverlustZustandsindexProJahrGrafischeTablePo.cs" />
+    <Compile Include="Reports\RealisiertenMassnahmenWertverlustZustandsindexProJahrGrafische\RealisiertenMassnahmenWertverlustZustandsindexProJahrGrafischePoProvider.cs" />
+    <Compile Include="Reports\StrassenabschnitteListeOhneInspektionsroute\StrassenabschnitteListeOhneInspektionsrouteParameter.cs" />
+    <Compile Include="Reports\StrassenabschnitteListeOhneInspektionsroute\StrassenabschnitteListeOhneInspektionsroutePo.cs" />
+    <Compile Include="Reports\StrassenabschnitteListeOhneInspektionsroute\StrassenabschnitteListeOhneInspektionsroutePoProvider.cs" />
+    <Compile Include="Reports\StrassenabschnitteListe\StrassenabschnitteListeMapParameter.cs" />
+    <Compile Include="Reports\StrassenabschnitteListe\StrassenabschnitteListeMapPoProvider.cs" />
+    <Compile Include="Reports\TestMapProvider.cs" />
+    <Compile Include="Reports\WiederbeschaffungswertUndWertverlustProJahrGrafische\WiederbeschaffungswertUndWertverlustProJahrGrafischeDiagramPo.cs" />
+    <Compile Include="Reports\WiederbeschaffungswertUndWertverlustProJahrGrafische\WiederbeschaffungswertUndWertverlustProJahrGrafischeMainPo.cs" />
+    <Compile Include="Reports\WiederbeschaffungswertUndWertverlustProJahrGrafische\WiederbeschaffungswertUndWertverlustProJahrGrafischeParameter.cs" />
+    <Compile Include="Reports\WiederbeschaffungswertUndWertverlustProJahrGrafische\WiederbeschaffungswertUndWertverlustProJahrGrafischePoProvider.cs" />
+    <Compile Include="Reports\WiederbeschaffungswertUndWertverlustProJahrGrafische\WiederbeschaffungswertUndWertverlustProJahrGrafischeTablePo.cs" />
+    <Compile Include="Reporting\EmsgTablePoProviderBase.cs" />
+    <Compile Include="Reports\ZustandProZustandsabschnitt\ZustandProZustandsabschnittMapParameter.cs" />
+    <Compile Include="Reports\ZustandProZustandsabschnitt\ZustandProZustandsabschnittMapPoProvider.cs" />
+    <Compile Include="Reports\ZustandsspiegelProBelastungskategorieGrafische\FlaecheTyp.cs" />
+    <Compile Include="Reporting\IPercentHolder.cs" />
+    <Compile Include="Services\Benchmarking\KenngroessenFruehererJahreBenchmarkingDataService.cs" />
+    <Compile Include="Services\Benchmarking\RealTimeBenchmarkingDataService.cs" />
+    <Compile Include="Services\EntityServices\Katalogs\MassnahmenvorschlagKatalogOverviewService.cs" />
+    <Compile Include="Services\EntityServices\Strassennamen\RealisierteMassnahmeOverviewService.cs" />
+    <Compile Include="Services\EntityServices\Summarisch\RealisierteMassnahmeSummarsichOverviewService.cs" />
+    <Compile Include="Services\FilterBuilders\OrtsbezeichnungFilterBuilder.cs" />
+    <Compile Include="Services\GIS\AchsenReferenzUpdateService.cs" />
+    <Compile Include="Services\GIS\Shape\ShapeExportService.cs" />
+    <Compile Include="Services\GIS\Shape\ShapeExportType.cs" />
+    <Compile Include="Services\GIS\Shape\StrabShapeFileConstants.cs" />
+    <Compile Include="Services\GIS\Shape\ShpShxSerializeService.cs" />
+    <Compile Include="Services\GIS\Shape\TrottoirShapeFileConstants.cs" />
+    <Compile Include="Services\GIS\Shape\ZabShapeFileConstants.cs" />
+    <Compile Include="Services\Identity\IdentityMandatorShort.cs" />
+    <Compile Include="Services\Identity\IdentityServiceFake.cs" />
+    <Compile Include="Services\Identity\UserRole.cs" />
+    <Compile Include="Services\Security\IdentityRoleService.cs" />
+    <Compile Include="Services\Security\CachedIdentityRoleService.cs" />
+    <Compile Include="Services\Identity\IIdentityCacheService.cs" />
+    <Compile Include="Services\Identity\IIdentityService.cs" />
+    <Compile Include="SqlServerTypes\Loader.cs" />
+    <Compile Include="Utils\ErrorLoggingContextInfoService.cs" />
+    <Compile Include="Utils\FormatHelper.cs" />
+    <Compile Include="Reports\ZustandsspiegelProJahrGrafische\ZustandsspiegelProJahrGrafischeParameter.cs" />
+    <Compile Include="Reports\ZustandsspiegelProJahrGrafische\ZustandsspiegelProJahrGrafischeDiagramPo.cs" />
+    <Compile Include="Reports\ZustandsspiegelProJahrGrafische\ZustandsspiegelProJahrGrafischePo.cs" />
+    <Compile Include="Reports\ZustandsspiegelProJahrGrafische\ZustandsspiegelProJahrGrafischePoProvider.cs" />
+    <Compile Include="Reports\ZustandsspiegelProJahrGrafische\ZustandsspiegelProJahrGrafischeTablePo.cs" />
+    <Compile Include="Services\Administration\GlobalResourceHandlerService.cs" />
+    <Compile Include="Services\Administration\HelpSystemService.cs" />
+    <Compile Include="Services\Benchmarking\BenchmarkingGruppenService.cs" />
+    <Compile Include="Services\Common\JahresInterval.cs" />
+    <Compile Include="Services\Common\JahresIntervalService.cs" />
+    <Compile Include="Services\Common\ServerPathProvider.cs" />
+    <Compile Include="Services\Common\TestMandantLogoService.cs" />
+    <Compile Include="Services\Benchmarking\BenchmarkingDataService.cs" />
+    <Compile Include="Services\Benchmarking\BenchmarkingGruppenConfigurationService.cs" />
+    <Compile Include="Services\EntityServices\Common\EreignisLogOverviewParameter.cs" />
+    <Compile Include="Services\EntityServices\Common\EreignisLogService.cs" />
+    <Compile Include="Services\EntityServices\Common\MandantDetailsService.cs" />
+    <Compile Include="Services\EntityServices\Common\StubEreignisLogService.cs" />
+    <Compile Include="Services\EntityServices\GIS\AchsenUpdateLogService.cs" />
+    <Compile Include="Services\EntityServices\GIS\RealisierteMassnahmeGISOverviewModelService.cs" />
+    <Compile Include="Services\EntityServices\GIS\RealisierteMassnahmeGISModelService.cs" />
+    <Compile Include="Services\EntityServices\Katalogs\GemeindeKatalogService.cs" />
+    <Compile Include="Services\EntityServices\Katalogs\OeffentlicheVerkehrsmittelKatalogService.cs" />
+    <Compile Include="Services\EntityServices\Strassennamen\StrassenabschnittImportService.cs" />
+    <Compile Include="Services\EntityServices\Strassennamen\ZustandsabschnittImportService.cs" />
+    <Compile Include="Models\Strassennamen\ZustandsabschnittModel.cs" />
+    <Compile Include="Models\Common\ZustandsabschnittModelBase.cs" />
+    <Compile Include="Models\GIS\ZustandsabschnittOverviewGISModel.cs" />
+    <Compile Include="Models\Strassennamen\ZustandsabschnittOverviewModel.cs" />
+    <Compile Include="Models\Common\ZustandsabschnittOverviewModelBase.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="ReflectionMappingConfiguration\DataTransferObjectServiceMappingConfiguration.cs" />
+    <Compile Include="ReflectionMappingConfiguration\DataTransferObjectServiceMappingEngine.cs" />
+    <Compile Include="ReflectionMappingConfiguration\EntityServiceMappingEngine.cs" />
+    <Compile Include="ReflectionMappingConfiguration\EntityServiceMappingConfiguration.cs" />
+    <Compile Include="Infrastructure\MappingRules\EntityToIdMappingRule.cs" />
+    <Compile Include="Infrastructure\MappingRules\IdToEntityMappingRule.cs" />
+    <Compile Include="Infrastructure\MappingRules\IgnoreIdPropertyMappingRule.cs" />
+    <Compile Include="Infrastructure\MappingRules\IgnoreReadonlyPropertiesMappingRule.cs" />
+    <Compile Include="Infrastructure\MappingRules\NullableToNonNullableMappingRule.cs" />
+    <Compile Include="ReflectionMappingConfiguration\ReportingMappingConfiguration.cs" />
+    <Compile Include="ReflectionMappingConfiguration\ReportingMappingEngine.cs" />
+    <Compile Include="Infrastructure\Reporting\ReportDataSource.cs" />
+    <Compile Include="Infrastructure\Reporting\ServerReportParameterInfo.cs" />
+    <Compile Include="Infrastructure\Reporting\ServerReportParameterInfoCollection.cs" />
+    <Compile Include="Infrastructure\Reporting\ServerSubReportProcessingEventArgs.cs" />
+    <Compile Include="Infrastructure\Reporting\ServerSubReportProcessingEventHandler.cs" />
+    <Compile Include="Reporting\EmsgGisReportParameter.cs" />
+    <Compile Include="Reporting\EmsgTabellarischeReportParameter.cs" />
+    <Compile Include="Reporting\IPresentationObjectProcessor.cs" />
+    <Compile Include="Infrastructure\Reporting\OutputFormat.cs" />
+    <Compile Include="Infrastructure\Reporting\OutputFormatExtensions.cs" />
+    <Compile Include="Infrastructure\Reporting\Report.cs" />
+    <Compile Include="Infrastructure\Reporting\PoProviderBase.cs" />
+    <Compile Include="Reporting\EmsgPoProviderService.cs" />
+    <Compile Include="Infrastructure\Reporting\ReportParameter.cs" />
+    <Compile Include="Infrastructure\Reporting\ServerReportDataSource.cs" />
+    <Compile Include="Infrastructure\Reporting\ServerReportDataSourceCollection.cs" />
+    <Compile Include="Infrastructure\Reporting\ServerReportDataSourceFactory.cs" />
+    <Compile Include="Infrastructure\Reporting\ServerReportGenerator.cs" />
+    <Compile Include="Infrastructure\Reporting\ServerReportParameter.cs" />
+    <Compile Include="Reporting\EmsgModeDependentPoProviderBase.cs" />
+    <Compile Include="Reporting\EmsgReportParameter.cs" />
+    <Compile Include="Reporting\GridFilterDescriptor.cs" />
+    <Compile Include="Reporting\GridFilterOperator.cs" />
+    <Compile Include="Reporting\MapInfoProviderBase.cs" />
+    <Compile Include="Reports\AusgefuellteErfassungsformulareFuerOberflaechenschaeden\AusgefuellteErfassungsformulareFuerOberflaechenschaedenParameter.cs" />
+    <Compile Include="Reports\AusgefuellteErfassungsformulareFuerOberflaechenschaeden\AusgefuellteErfassungsformulareFuerOberflaechenschaedenPo.cs" />
+    <Compile Include="Reports\AusgefuellteErfassungsformulareFuerOberflaechenschaeden\AusgefuellteErfassungsformulareFuerOberflaechenschaedenPoProvider.cs" />
+    <Compile Include="Reports\ErfassungsformulareFuerOberflaechenschaeden\ErfassungsformulareFuerOberflaechenschaedenPoProvider.cs" />
+    <Compile Include="Reports\ErfassungsformulareFuerOberflaechenschaeden\ErfassungsformulareFuerOberflaechenschaedenParameter.cs" />
+    <Compile Include="Reports\MassnahmenvorschlagProZustandsabschnitt\MassnahmenvorschlagProZustandsabschnittMapProvider.cs" />
+    <Compile Include="Reports\MassnahmenvorschlagProZustandsabschnitt\MassnahmenvorschlagProZustandsabschnittParameter.cs" />
+    <Compile Include="Reports\MassnahmenvorschlagProZustandsabschnitt\MassnahmenvorschlagProZustandsabschnittPo.cs" />
+    <Compile Include="Reports\MassnahmenvorschlagProZustandsabschnitt\MassnahmenvorschlagProZustandsabschnittPoProvider.cs" />
+    <Compile Include="Reports\MengeProBelastungskategorieGrafische\MengeProBelastungskategorieGrafischeParameter.cs" />
+    <Compile Include="Reports\MengeProBelastungskategorieGrafische\MengeProBelastungskategorieGrafischePo.cs" />
+    <Compile Include="Reports\MengeProBelastungskategorieGrafische\MengeProBelastungskategorieGrafischePoProvider.cs" />
+    <Compile Include="Services\Common\MandantLogoService.cs" />
+    <Compile Include="Reports\MengeProBelastungskategorie\MengeProBelastungskategorieParameter.cs" />
+    <Compile Include="Reports\MengeProBelastungskategorie\MengeProBelastungskategoriePo.cs" />
+    <Compile Include="Reports\MengeProBelastungskategorie\MengeProBelastungskategoriePoProvider.cs" />
+    <Compile Include="Reports\NochNichtInspizierteStrassenabschnitte\NochNichtInspizierteStrassenabschnitteParameter.cs" />
+    <Compile Include="Reports\NochNichtInspizierteStrassenabschnitte\NochNichtInspizierteStrassenabschnittePo.cs" />
+    <Compile Include="Reports\NochNichtInspizierteStrassenabschnitte\NochNichtInspizierteStrassenabschnittePoProvider.cs" />
+    <Compile Include="Reporting\EmsgGisTablePoProviderBase.cs" />
+    <Compile Include="Reports\StrassenabschnitteListe\StrassenabschnitteListeParameter.cs" />
+    <Compile Include="Reports\StrassenabschnitteListe\StrassenabschnitteListePo.cs" />
+    <Compile Include="Reports\StrassenabschnitteListe\StrassenabschnitteListePoProvider.cs" />
+    <Compile Include="Reports\StrassenabschnitteListe\StrassenabschnitteListeMapProvider.cs" />
+    <Compile Include="Reports\WiederbeschaffungswertUndWertverlustGrafische\WiederbeschaffungswertUndWertverlustGrafischeParameter.cs" />
+    <Compile Include="Reports\WiederbeschaffungswertUndWertverlustGrafische\WiederbeschaffungswertUndWertverlustGrafischePo.cs" />
+    <Compile Include="Reports\WiederbeschaffungswertUndWertverlustGrafische\WiederbeschaffungswertUndWertverlustGrafischePoProvider.cs" />
+    <Compile Include="Reports\WiederbeschaffungswertUndWertverlustProBelastungskategorie\WiederbeschaffungswertUndWertverlustProBelastungskategorieParameter.cs" />
+    <Compile Include="Reports\WiederbeschaffungswertUndWertverlustProBelastungskategorie\WiederbeschaffungswertUndWertverlustProBelastungskategoriePo.cs" />
+    <Compile Include="Reports\WiederbeschaffungswertUndWertverlustProBelastungskategorie\WiederbeschaffungswertUndWertverlustProBelastungskategoriePoProvider.cs" />
+    <Compile Include="Reports\WiederbeschaffungswertUndWertverlustProStrassenabschnitt\WiederbeschaffungswertUndWertverlustProStrassenabschnittParameter.cs" />
+    <Compile Include="Reports\WiederbeschaffungswertUndWertverlustProStrassenabschnitt\WiederbeschaffungswertUndWertverlustProStrassenabschnittPo.cs" />
+    <Compile Include="Reports\WiederbeschaffungswertUndWertverlustProStrassenabschnitt\WiederbeschaffungswertUndWertverlustProStrassenabschnittPoProvider.cs" />
+    <Compile Include="Reports\ZustandProZustandsabschnitt\ZustandProZustandsabschnittMapProvider.cs" />
+    <Compile Include="Reports\ZustandProZustandsabschnitt\ZustandProZustandsabschnittParameter.cs" />
+    <Compile Include="Reports\ZustandProZustandsabschnitt\ZustandProZustandsabschnittPo.cs" />
+    <Compile Include="Reports\ZustandProZustandsabschnitt\ZustandProZustandsabschnittPoProvider.cs" />
+    <Compile Include="Reports\ZustandsspiegelProBelastungskategorieGrafische\ZustandsspiegelProBelastungskategorieGrafischePoProvider.cs" />
+    <Compile Include="Reports\ZustandsspiegelProBelastungskategorieGrafische\ZustandsspiegelProBelastungskategorieGrafischePo.cs" />
+    <Compile Include="Reports\ZustandsspiegelProBelastungskategorieGrafische\ZustandsspiegelProBelastungskategorieGrafischeParameter.cs" />
+    <Compile Include="Reports\ZustandsspiegelProBelastungskategorieGrafische\ZustandsspiegelProBelastungskategorieGrafischeDiagramPo.cs" />
+    <Compile Include="Reports\ZustandsspiegelProBelastungskategorieGrafische\ZustandsspiegelProBelastungskategorieGrafischeTablePo.cs" />
+    <Compile Include="Services\Administration\AchsenUpdateService.cs" />
+    <Compile Include="Services\DTOServices\AchsenReferenzDTOService.cs" />
+    <Compile Include="Services\DTOServices\AchsenSegmentDTOService.cs" />
+    <Compile Include="Services\DTOServices\BelastungskategorieDTOService.cs" />
+    <Compile Include="Services\DTOServices\DTOServiceBase.cs" />
+    <Compile Include="Services\DTOServices\FahrbahnZustandDTOService.cs" />
+    <Compile Include="Services\DTOServices\MassnahmenvorschlagKatalogDTOService.cs" />
+    <Compile Include="Services\DTOServices\ReferenzGruppeDTOService.cs" />
+    <Compile Include="Services\DTOServices\SchadendetailDTOService.cs" />
+    <Compile Include="Services\DTOServices\SchadengruppeDTOService.cs" />
+    <Compile Include="Services\DTOServices\StrassenabschnittGISDTOService.cs" />
+    <Compile Include="Services\DTOServices\ZustandsabschnittGISDTOService.cs" />
+    <Compile Include="Services\EntityServices\Katalogs\GlobalMassnahmenvorschlagKatalogAdminService.cs" />
+    <Compile Include="Services\EntityServices\Katalogs\GlobalWiederbeschaffungswertKatalogEditService.cs" />
+    <Compile Include="Services\FilterBuilders\AusfuehrungsanfangVonBisFilterBuilder.cs" />
+    <Compile Include="Services\FilterBuilders\InspektionsrouteInInspektionBeiFilterBuilder.cs" />
+    <Compile Include="Services\FilterBuilders\InspektionsrouteInInspektionBisVonBisFilterBuilder.cs" />
+    <Compile Include="Services\FilterBuilders\LeitendeOrganisationFilterBuilder.cs" />
+    <Compile Include="Services\FilterBuilders\TeilsystemFilterBuilder.cs" />
+    <Compile Include="Services\FilterBuilders\ProjektnameFilterBuilder.cs" />
+    <Compile Include="Services\FilterBuilders\StatusFilterBuilder.cs" />
+    <Compile Include="Services\GIS\AbschnittGisValidationService.cs" />
+    <Compile Include="Services\GIS\CheckInService.cs" />
+    <Compile Include="Services\GIS\CheckOutService.cs" />
+    <Compile Include="Services\GIS\LegendService.cs" />
+    <Compile Include="Services\GIS\GISReportService.cs" />
+    <Compile Include="Services\GIS\StubLegendService.cs" />
+    <Compile Include="Services\GIS\WMS\CreateWMSQuery.cs" />
+    <Compile Include="Services\GIS\WMS\WMSObjects\WMSParamBase.cs" />
+    <Compile Include="Services\Historization\BenchmarkingDataDetailCalculatorService.cs" />
+    <Compile Include="Services\Historization\MandantenDetailsCopyService.cs" />
+    <Compile Include="Services\Import\ImportServiceBase.cs" />
+    <Compile Include="Services\EntityServices\GIS\InspektionsRouteGISOverviewService.cs" />
+    <Compile Include="Services\EntityServices\GIS\InspektionsRouteLockingService.cs" />
+    <Compile Include="Services\EntityServices\GIS\InspektionsRouteStatusverlaufService.cs" />
+    <Compile Include="Services\Historization\KatalogCopyService.cs" />
+    <Compile Include="Services\EntityServices\Common\KenngroessenFruehererJahreDetailOverviewService.cs" />
+    <Compile Include="Services\EntityServices\Common\KenngroessenFruehererJahreDetailService.cs" />
+    <Compile Include="Services\EntityServices\Common\KenngroessenFruehererJahreOverviewService.cs" />
+    <Compile Include="Services\EntityServices\Common\KenngroessenFruehererJahreService.cs" />
+    <Compile Include="Services\EntityServices\GIS\KoordinierteMassnahmeGISModelService.cs" />
+    <Compile Include="Services\EntityServices\GIS\KoordinierteMassnahmeGISOverviewModelService.cs" />
+    <Compile Include="Services\EntityServices\Katalogs\MassnahmenvorschlagCopyService.cs" />
+    <Compile Include="Services\EntityServices\GIS\MassnahmenvorschlagTeilsystemeGISModelService.cs" />
+    <Compile Include="Services\EntityServices\GIS\MassnahmenvorschlagTeilsystemeGISOverviewModelService.cs" />
+    <Compile Include="Services\EntityServices\Katalogs\MassnahmenvorschlagKatalogAdminService.cs" />
+    <Compile Include="Services\EntityServices\Strassennamen\RealisierteMassnahmeService.cs" />
+    <Compile Include="Services\Import\StrassenabschnittXlsxImportService.cs" />
+    <Compile Include="Services\Import\ZustandsabschnittXlsxImportService.cs" />
+    <Compile Include="Services\FilterBuilders\AufnahmedatumVonBisFilterBuilder.cs" />
+    <Compile Include="Services\FilterBuilders\BelastungskategorieFilterBuilder.cs" />
+    <Compile Include="Services\FilterBuilders\CurrentMandantFilterBuilder.cs" />
+    <Compile Include="Services\FilterBuilders\DringlichkeitFilterBuilder.cs" />
+    <Compile Include="Services\FilterBuilders\EigentuemerFilterBuilder.cs" />
+    <Compile Include="Services\FilterBuilders\ErfassungsPeriodFilterBuilder.cs" />
+    <Compile Include="Services\FilterBuilders\StrasennameFilterBuilder.cs" />
+    <Compile Include="Services\FilterBuilders\InspektionsroutenameFilterBuilder.cs" />
+    <Compile Include="Services\FilterBuilders\ZustandsindexVonBisFilterBuilder.cs" />
+    <Compile Include="Services\GIS\WMS\WMSObjects\WMSRequestType.cs" />
+    <Compile Include="Services\Historization\JahresabschlussGISService.cs" />
+    <Compile Include="Services\GIS\WMS\WMSObjects\WMSParameter.cs" />
+    <Compile Include="Services\Common\ISingletonDependencyPackage.cs" />
+    <Compile Include="Services\Security\ApplicationMode.cs" />
+    <Compile Include="Services\Security\ApplicationSupporterService.cs" />
+    <Compile Include="Services\Security\SupportedUserInfo.cs" />
+    <Compile Include="Services\Common\ValidationError.cs" />
+    <Compile Include="Infrastructure\Transactioning\EnumConvention.cs" />
+    <Compile Include="Infrastructure\Transactioning\INHibernateConfigurationProvider.cs" />
+    <Compile Include="Infrastructure\Transactioning\ITransactionScope.cs" />
+    <Compile Include="Infrastructure\Transactioning\ITransactionScopeFactory.cs" />
+    <Compile Include="Infrastructure\Transactioning\ITransactionScopeProvider.cs" />
+    <Compile Include="Infrastructure\Transactioning\ITransactionScopeProviderExtensions.cs" />
+    <Compile Include="Infrastructure\Transactioning\NHibernateReadOnlyTransactionScope.cs" />
+    <Compile Include="Infrastructure\Transactioning\NHibernateReadWriteTransactionScope.cs" />
+    <Compile Include="Infrastructure\Transactioning\NHibernateTransactionScope.cs" />
+    <Compile Include="Infrastructure\Transactioning\MsSqlGeometryConvention.cs" />
+    <Compile Include="Infrastructure\Transactioning\MsSQLNHibernateConfigurationProvider.cs" />
+    <Compile Include="Infrastructure\Transactioning\TransactionScopeFactory.cs" />
+    <Compile Include="Services\Administration\ArbeitsmodusService.cs" />
+    <Compile Include="Infrastructure\Caching\CacheKey.cs" />
+    <Compile Include="Infrastructure\Caching\CacheServiceBase.cs" />
+    <Compile Include="Services\EntityServices\Common\EntityServiceBase.cs" />
+    <Compile Include="Services\EntityServices\GIS\CheckOutsGISService.cs" />
+    <Compile Include="Services\EntityServices\Summarisch\RealisierteMassnahmeSummarsichService.cs" />
+    <Compile Include="Services\EntityServices\GIS\FahrbahnZustandGISService.cs" />
+    <Compile Include="Services\EntityServices\Strassennamen\FahrbahnZustandService.cs" />
+    <Compile Include="Services\EntityServices\Common\FahrbahnZustandServiceBase.cs" />
+    <Compile Include="Services\EntityServices\GIS\InspektionsRouteGISService.cs" />
+    <Compile Include="Services\EntityServices\GIS\InspektionsRtStrAbschnitteService.cs" />
+    <Compile Include="Services\EntityServices\GIS\TrottoirZustandGISService.cs" />
+    <Compile Include="Services\EntityServices\Strassennamen\TrottoirZustandService.cs" />
+    <Compile Include="Services\EntityServices\Common\TrottoirZustandServiceBase.cs" />
+    <Compile Include="Services\EntityServices\Katalogs\WiederbeschaffungswertKatalogEditService.cs" />
+    <Compile Include="Services\EntityServices\Katalogs\WiederbeschaffungswertKatalogService.cs" />
+    <Compile Include="Services\EntityServices\GIS\ZustandsabschnittGISService.cs" />
+    <Compile Include="Services\EntityServices\Katalogs\MassnahmenvorschlagKatalogService.cs" />
+    <Compile Include="Services\GIS\GeoJSONParseService.cs" />
+    <Compile Include="Services\GIS\WMS\CreateWMSRequest.cs" />
+    <Compile Include="Services\GIS\GISService.cs" />
+    <Compile Include="Services\EntityServices\Katalogs\BelastungskategorieService.cs" />
+    <Compile Include="Services\EntityServices\Common\ErfassungsPeriodService.cs" />
+    <Compile Include="Services\EntityServices\Common\MandantenService.cs" />
+    <Compile Include="Services\EntityServices\Common\SchadendetailService.cs" />
+    <Compile Include="Services\EntityServices\Common\SchadengruppeService.cs" />
+    <Compile Include="Services\EntityServices\GIS\StrassenabschnittGISService.cs" />
+    <Compile Include="Services\EntityServices\GIS\AchsenReferenzService.cs" />
+    <Compile Include="Services\EntityServices\GIS\AchsenSegmentService.cs" />
+    <Compile Include="Services\EntityServices\GIS\ReferenzGruppeService.cs" />
+    <Compile Include="Services\GIS\WMS\WMSObjects\WMSRestParameter.cs" />
+    <Compile Include="Services\Historization\HistorizationService.cs" />
+    <Compile Include="Services\Historization\JahresabschlussService.cs" />
+    <Compile Include="Infrastructure\Caching\ICacheService.cs" />
+    <Compile Include="Infrastructure\Caching\IHttpRequestCacheService.cs" />
+    <Compile Include="Services\Common\ICookieService.cs" />
+    <Compile Include="Services\Common\IHttpRequestService.cs" />
+    <Compile Include="Services\Common\ILogHandlerService.cs" />
+    <Compile Include="Services\Common\IReportLocalizationService.cs" />
+    <Compile Include="Infrastructure\Caching\ISessionCacheService.cs" />
+    <Compile Include="Services\Common\IStoreService.cs" />
+    <Compile Include="Services\EntityServices\Common\ErfassungsPeriodDependentEntityServiceBase.cs" />
+    <Compile Include="Services\EntityServices\Common\MandantAndErfassungsPeriodDependentEntityServiceBase.cs" />
+    <Compile Include="Services\EntityServices\Common\MandantDependentEntityServiceBase.cs" />
+    <Compile Include="Services\PackageService\ExportResult.cs" />
+    <Compile Include="Services\PackageService\ImportResult.cs" />
+    <Compile Include="Services\PackageService\PackageService.cs" />
+    <Compile Include="Services\Security\IUserIdentityProvider.cs" />
+    <Compile Include="Services\Security\SecurityService.cs" />
+    <Compile Include="Services\EntityServices\Common\TestUserInfoService.cs" />
+    <Compile Include="Services\EntityServices\Strassennamen\ZustandsabschnittService.cs" />
+    <Compile Include="Services\Common\ILocalizationService.cs" />
+    <Compile Include="Services\Common\IService.cs" />
+    <Compile Include="Services\EntityServices\Summarisch\NetzSummarischService.cs" />
+    <Compile Include="Services\EntityServices\Summarisch\NetzSummarischDetailService.cs" />
+    <Compile Include="Services\EntityServices\Strassennamen\StrassenabschnittService.cs" />
+    <Compile Include="Services\Common\ISessionService.cs" />
+    <Compile Include="Services\Security\TestUserIdentityProvider.cs" />
+    <Compile Include="Services\Security\UserIdentityProvider.cs" />
+    <Compile Include="Services\Common\TimeService.cs" />
+    <Compile Include="Infrastructure\Xlsx\Cell.cs" />
+    <Compile Include="Infrastructure\Xlsx\IXlsxImportResult.cs" />
+    <Compile Include="Infrastructure\Xlsx\ModelInfo.cs" />
+    <Compile Include="Infrastructure\Xlsx\Row.cs" />
+    <Compile Include="Infrastructure\Xlsx\XlsxDoc.cs" />
+    <Compile Include="Infrastructure\Xlsx\XlsxImportResult.cs" />
+    <Compile Include="Infrastructure\Validators\AbstractValidatorBase.cs" />
+    <Compile Include="Utils\GisHistorizationTimeEstimate.cs" />
+    <Compile Include="Utils\LaengeTextTrimmer.cs" />
+    <Compile Include="Utils\Shape\DbaseMemoryStreamWriter.cs" />
+    <Compile Include="Utils\Shape\ShapeMemoryStreamDataWriter.cs" />
+    <Compile Include="Utils\Shape\ShapeMemoryStreamWriter.cs" />
+    <Compile Include="Validators\Administration\AndereBenutzerrollenEinnehmenModelValidator.cs" />
+    <Compile Include="Validators\Benchmarking\BenchmarkauswertungInventarkennwertenParameterValidator.cs" />
+    <Compile Include="Validators\Benchmarking\BenchmarkauswertungKennwertenRealisiertenMassnahmenParameterValidator.cs" />
+    <Compile Include="Validators\Benchmarking\BenchmarkauswertungZustandskennwertenParameterValidator.cs" />
+    <Compile Include="Validators\Common\KenngroessenFruehererJahreDetailModelValidator.cs" />
+    <Compile Include="Validators\Common\KenngroessenFruehererJahreModelValidator.cs" />
+    <Compile Include="Validators\Common\MandantDetailsModelValidator.cs" />
+    <Compile Include="Validators\GIS\AchsenSegmentModelValidator.cs" />
+    <Compile Include="Validators\GIS\RealisierteMassnahmeGISModelValidator.cs" />
+    <Compile Include="Validators\GIS\KoordinierteMassnahmeGISModelValidator.cs" />
+    <Compile Include="Validators\GIS\MassnahmenvorschlagTeilsystemeGISModelValidator.cs" />
+    <Compile Include="Validators\Katalogs\MassnahmenvorschlagKatalogKonstenEditModelValidator.cs" />
+    <Compile Include="Validators\Strassennamen\RealisierteMassnahmeModelValidator.cs" />
+    <Compile Include="Validators\GIS\InspektionsRouteGISModelValidator.cs" />
+    <Compile Include="Validators\Katalogs\MassnahmenvorschlagKatalogCreateModelValidator.cs" />
+    <Compile Include="Validators\Strassennamen\StrassenabschnittImportModelValidator.cs" />
+    <Compile Include="Validators\Strassennamen\StrassenabschnittSplitModelValidator.cs" />
+    <Compile Include="Validators\Summarisch\RealisierteMassnahmeSummarsichModelValidator.cs" />
+    <Compile Include="Validators\Katalogs\WiederbeschaffungswertKatalogEditModelValidator.cs" />
+    <Compile Include="Infrastructure\Validators\AutofacValidatorFactory.cs" />
+    <Compile Include="Validators\Administration\ErfassungsabschlussModelValidator.cs" />
+    <Compile Include="Validators\Administration\LogLevelModelValidator.cs" />
+    <Compile Include="Validators\Summarisch\NetzSummarischDetailModelValidator.cs" />
+    <Compile Include="Validators\Summarisch\NetzSummarischModelValidator.cs" />
+    <Compile Include="Infrastructure\Validators\RuleBuilderextensions.cs" />
+    <Compile Include="Validators\Common\SchadendetailModelValidator.cs" />
+    <Compile Include="Validators\Common\SchadengruppeModelValidator.cs" />
+    <Compile Include="Validators\Strassennamen\SplitStrassenabschnittModelValidator.cs" />
+    <Compile Include="Validators\Common\StrassenabschnittCommonModelValidator.cs" />
+    <Compile Include="Validators\GIS\StrassenabschnittGISModelValidator.cs" />
+    <Compile Include="Validators\Strassennamen\StrassenabschnittModelValidator.cs" />
+    <Compile Include="Validators\Common\ZustandsabschnittCommonModelValidator.cs" />
+    <Compile Include="Validators\Common\ZustandsabschnittdetailsModelValidator.cs" />
+    <Compile Include="Validators\Common\ZustandsabschnittdetailsTrottoirModelValidator.cs" />
+    <Compile Include="Validators\GIS\ZustandsabschnittGISDTOValidator.cs" />
+    <Compile Include="Validators\GIS\ZustandsabschnittGISModelValidator.cs" />
+    <Compile Include="Validators\Strassennamen\ZustandsabschnittImportModelValidator.cs" />
+    <Compile Include="Validators\Strassennamen\ZustandsabschnittModelValidator.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\..\Common\ASTRA.EMSG.Common\ASTRA.EMSG.Common.csproj">
+      <Project>{C54AFF3E-8BF6-4AC7-A5E4-9EF65322639D}</Project>
+      <Name>ASTRA.EMSG.Common</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\ASTRA.EMSG.Common.Master\ASTRA.EMSG.Common.Master.csproj">
+      <Project>{D452433F-4317-47F7-B4B9-4588966FA897}</Project>
+      <Name>ASTRA.EMSG.Common.Master</Name>
+    </ProjectReference>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="app.config">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="ClassDiagram1.cd" />
+    <None Include="Interlis\Parser\AutoGen\Axis.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Interlis\Parser\AutoGen\AxisOrig.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="packages.config">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Properties\DataSources\ASTRA.EMSG.Business.Reports.BenchmarkauswertungInventarkennwerten.BenchmarkauswertungInventarkennwertenPo1.datasource" />
+    <None Include="Properties\DataSources\ASTRA.EMSG.Business.Reports.BenchmarkauswertungZustandskennwerten.BenchmarkauswertungZustandskennwertenPo.datasource" />
+    <None Include="Properties\DataSources\ASTRA.EMSG.Business.Reports.BenchmarkauswertungZustandskennwerten.BenchmarkauswertungZustandskennwertenPo1.datasource" />
+    <None Include="Properties\DataSources\ASTRA.EMSG.Business.Reports.EineListeVonKoordiniertenMassnahmen.EineListeVonKoordiniertenMassnahmenPo.datasource" />
+    <None Include="Properties\DataSources\ASTRA.EMSG.Business.Reports.EineListeVonMassnahmenGegliedertNachTeilsystemen.EineListeVonMassnahmenGegliedertNachTeilsystemenPo.datasource" />
+    <None Include="Properties\DataSources\ASTRA.EMSG.Business.Reports.EineListeVonRealisiertenMassnahmenGeordnetNachJahren.EineListeVonRealisiertenMassnahmenGeordnetNachJahrenGISPo.datasource" />
+    <None Include="Properties\DataSources\ASTRA.EMSG.Business.Reports.ListeDerInspektionsrouten.ListeDerInspektionsroutenPo.datasource" />
+    <None Include="Properties\DataSources\ASTRA.EMSG.Business.Reports.MassnahmenvorschlagProZustandsabschnitt.MassnahmenvorschlagProZustandsabschnittPo.datasource" />
+    <None Include="Properties\DataSources\ASTRA.EMSG.Business.Reports.MengeProBelastungskategorie.MengeProBelastungskategoriePo.datasource" />
+    <None Include="Properties\DataSources\ASTRA.EMSG.Business.Reports.MengeProBelastungskategorieGrafische.MengeProBelastungskategorieGrafischePo.datasource" />
+    <None Include="Properties\DataSources\ASTRA.EMSG.Business.Reports.NochNichtInspizierteStrassenabschnitte.NochNichtInspizierteStrassenabschnittePo.datasource" />
+    <None Include="Properties\DataSources\ASTRA.EMSG.Business.Reports.RealisiertenMassnahmenWertverlustZustandsindexProJahrGrafische.RealisiertenMassnahmenWertverlustZustandsindexDiagramPo.datasource" />
+    <None Include="Properties\DataSources\ASTRA.EMSG.Business.Reports.RealisiertenMassnahmenWertverlustZustandsindexProJahrGrafische.RealisiertenMassnahmenWertverlustZustandsindexTablePo.datasource" />
+    <None Include="Properties\DataSources\ASTRA.EMSG.Business.Reports.StrassenabschnitteListe.StrassenabschnitteListePo.datasource" />
+    <None Include="Properties\DataSources\ASTRA.EMSG.Business.Reports.WiederbeschaffungswertUndWertverlustGrafische.WiederbeschaffungswertUndWertverlustGrafischePo.datasource" />
+    <None Include="Properties\DataSources\ASTRA.EMSG.Business.Reports.WiederbeschaffungswertUndWertverlustProJahrGrafische.WiederbeschaffungswertUndWertverlustProJahrGrafischeMainPo.datasource" />
+    <None Include="Properties\DataSources\ASTRA.EMSG.Business.Reports.WiederbeschaffungswertUndWertverlustProStrassenabschnitt.WiederbeschaffungswertUndWertverlustProStrassenabschnittPo.datasource" />
+    <None Include="Properties\DataSources\ASTRA.EMSG.Business.Reports.ZustandProZustandsabschnitt.ZustandProZustandsabschnittPo.datasource" />
+    <None Include="Properties\DataSources\ASTRA.EMSG.Business.Reports.EineListeVonRealisiertenMassnahmenGeordnetNachJahren.EineListeVonRealisiertenMassnahmenGeordnetNachJahrenPo.datasource" />
+    <None Include="Properties\DataSources\ASTRA.EMSG.Business.Reports.EineListeVonRealisiertenMassnahmenGeordnetNachJahren.EineListeVonRealisiertenMassnahmenGeordnetNachJahrenSummarischPo.datasource" />
+    <None Include="Properties\DataSources\ASTRA.EMSG.Business.Reports.BenchmarkauswertungKennwertenRealisiertenMassnahmen.BenchmarkauswertungKennwertenRealisiertenMassnahmenPo.datasource" />
+    <None Include="Properties\DataSources\ASTRA.EMSG.Business.Reports.ZustandsspiegelProBelastungskategorieGrafische.ZustandsspiegelProBelastungskategorieGrafischePo.datasource" />
+    <None Include="Properties\DataSources\ASTRA.EMSG.Business.Reports.ZustandsspiegelProJahrGrafische.ZustandsspiegelProJahrGrafischePo.datasource" />
+    <EmbeddedResource Include="Reporting\TextWrapper.helper" />
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="Reports\AusgefuellteErfassungsformulareFuerOberflaechenschaeden\AusgefuellteErfassungsformulareFuerOberflaechenschaeden.rdlc" />
+    <EmbeddedResource Include="Reports\BenchmarkauswertungInventarkennwerten\BenchmarkauswertungInventarkennwerten.rdlc" />
+    <EmbeddedResource Include="Reports\BenchmarkauswertungInventarkennwerten\BenchmarkauswertungInventarkennwertenSubReport.rdlc" />
+    <EmbeddedResource Include="Reports\BenchmarkauswertungInventarkennwerten\BenchmarkauswertungInventarkennwertenOhneGruppe.rdlc" />
+    <EmbeddedResource Include="Reports\BenchmarkauswertungKennwertenRealisiertenMassnahmen\BenchmarkauswertungKennwertenRealisiertenMassnahmenSubReport.rdlc" />
+    <EmbeddedResource Include="Reports\BenchmarkauswertungKennwertenRealisiertenMassnahmen\BenchmarkauswertungKennwertenRealisiertenMassnahmen.rdlc" />
+    <EmbeddedResource Include="Reports\BenchmarkauswertungKennwertenRealisiertenMassnahmen\BenchmarkauswertungKennwertenRealisiertenMassnahmenOhneGruppe.rdlc" />
+    <EmbeddedResource Include="Reports\BenchmarkauswertungZustandskennwerten\BenchmarkauswertungZustandskennwerten.rdlc" />
+    <EmbeddedResource Include="Reports\BenchmarkauswertungZustandskennwerten\BenchmarkauswertungZustandskennwertenSubReport.rdlc" />
+    <EmbeddedResource Include="Reports\BenchmarkauswertungZustandskennwerten\BenchmarkauswertungZustandskennwertenOhneGruppe.rdlc" />
+    <EmbeddedResource Include="Reports\CommonSubReport\HeaderFooterA3Landscape_xls.rdlc" />
+    <EmbeddedResource Include="Reports\CommonSubReport\HeaderFooterA4Landscape_xls.rdlc" />
+    <EmbeddedResource Include="Reports\CommonSubReport\HeaderFooterA4Portrait_xls.rdlc" />
+    <EmbeddedResource Include="Reports\CommonSubReport\FilterList.rdlc" />
+    <EmbeddedResource Include="Reports\CommonSubReport\HeaderFooterA3Landscape_pdf.rdlc" />
+    <EmbeddedResource Include="Reports\CommonSubReport\HeaderFooterA4Landscape_pdf.rdlc" />
+    <EmbeddedResource Include="Reports\CommonSubReport\HeaderFooterA4Portrait_pdf.rdlc" />
+    <EmbeddedResource Include="Reports\EineListeVonKoordiniertenMassnahmen\EineListeVonKoordiniertenMassnahmenMap.rdlc" />
+    <EmbeddedResource Include="Reports\EineListeVonKoordiniertenMassnahmen\EineListeVonKoordiniertenMassnahmen.rdlc" />
+    <EmbeddedResource Include="Reports\EineListeVonMassnahmenGegliedertNachTeilsystemen\EineListeVonMassnahmenGegliedertNachTeilsystemenMap.rdlc" />
+    <EmbeddedResource Include="Reports\EineListeVonMassnahmenGegliedertNachTeilsystemen\EineListeVonMassnahmenGegliedertNachTeilsystemen.rdlc" />
+    <EmbeddedResource Include="Reports\EineListeVonRealisiertenMassnahmenGeordnetNachJahren\EineListeVonRealisiertenMassnahmenGeordnetNachJahrenSummarisch.rdlc" />
+    <EmbeddedResource Include="Reports\EineListeVonRealisiertenMassnahmenGeordnetNachJahren\EineListeVonRealisiertenMassnahmenGeordnetNachJahrenGIS.rdlc" />
+    <EmbeddedResource Include="Reports\EineListeVonRealisiertenMassnahmenGeordnetNachJahren\EineListeVonRealisiertenMassnahmenGeordnetNachJahren.rdlc" />
+    <EmbeddedResource Include="Reports\ListeDerInspektionsrouten\ListeDerInspektionsroutenMap.rdlc" />
+    <EmbeddedResource Include="Reports\ListeDerInspektionsrouten\ListeDerInspektionsrouten.rdlc" />
+    <EmbeddedResource Include="Reports\MassnahmenvorschlagProZustandsabschnitt\MassnahmenvorschlagProZustandsabschnittMap.rdlc" />
+    <EmbeddedResource Include="Reports\MassnahmenvorschlagProZustandsabschnitt\MassnahmenvorschlagProZustandsabschnitt.rdlc">
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Reports\MengeProBelastungskategorieGrafische\MengeProBelastungskategorieGrafische.rdlc" />
+    <EmbeddedResource Include="Reports\MengeProBelastungskategorie\MengeProBelastungskategorie.rdlc" />
+    <EmbeddedResource Include="Reports\NochNichtInspizierteStrassenabschnitte\NochNichtInspizierteStrassenabschnitte.rdlc" />
+    <EmbeddedResource Include="Reports\RealisiertenMassnahmenWertverlustZustandsindexProJahrGrafische\RealisiertenMassnahmenWertverlustZustandsindexProJahrGrafische.rdlc" />
+    <EmbeddedResource Include="Reports\RealisiertenMassnahmenWertverlustZustandsindexProJahrGrafische\RealisiertenMassnahmenWertverlustZustandsindexProJahrGrafischeSubReport.rdlc" />
+    <EmbeddedResource Include="Reports\StrassenabschnitteListeOhneInspektionsroute\StrassenabschnitteListeOhneInspektionsroute.rdlc" />
+    <EmbeddedResource Include="Reports\StrassenabschnitteListe\StrassenabschnitteListeMap.rdlc" />
+    <EmbeddedResource Include="Reports\StrassenabschnitteListe\StrassenabschnitteListe.rdlc">
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Reports\WiederbeschaffungswertUndWertverlustGrafische\WiederbeschaffungswertUndWertverlustGrafische.rdlc" />
+    <EmbeddedResource Include="Reports\WiederbeschaffungswertUndWertverlustProBelastungskategorie\WiederbeschaffungswertUndWertverlustProBelastungskategorie.rdlc" />
+    <EmbeddedResource Include="Reports\WiederbeschaffungswertUndWertverlustProJahrGrafische\WiederbeschaffungswertUndWertverlustProJahrGrafischeSubReport.rdlc" />
+    <EmbeddedResource Include="Reports\WiederbeschaffungswertUndWertverlustProJahrGrafische\WiederbeschaffungswertUndWertverlustProJahrGrafische.rdlc" />
+    <EmbeddedResource Include="Reports\WiederbeschaffungswertUndWertverlustProStrassenabschnitt\WiederbeschaffungswertUndWertverlustProStrassenabschnitt.rdlc">
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Reports\ZustandProZustandsabschnitt\ZustandProZustandsabschnittMap.rdlc">
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Reports\ZustandProZustandsabschnitt\ZustandProZustandsabschnitt.rdlc" />
+    <EmbeddedResource Include="Reports\ZustandsspiegelProBelastungskategorieGrafische\ZustandsspiegelProBelastungskategorieGrafische.rdlc" />
+    <EmbeddedResource Include="Reports\ZustandsspiegelProBelastungskategorieGrafische\ZustandsspiegelProBelastungskategorieGrafischeSubReport.rdlc" />
+    <EmbeddedResource Include="Reports\ZustandsspiegelProJahrGrafische\ZustandsspiegelProJahrGrafischeSubReport.rdlc" />
+    <EmbeddedResource Include="Reports\ZustandsspiegelProJahrGrafische\ZustandsspiegelProJahrGrafische.rdlc" />
+  </ItemGroup>
+  <ItemGroup>
+    <WCFMetadata Include="Service References\" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="..\packages\Microsoft.SqlServer.Types.11.0.2\nativeBinaries\x64\msvcr100.dll">
+      <Link>SqlServerTypes\x64\msvcr100.dll</Link>
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="..\packages\Microsoft.SqlServer.Types.11.0.2\nativeBinaries\x64\SqlServerSpatial110.dll">
+      <Link>SqlServerTypes\x64\SqlServerSpatial110.dll</Link>
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="..\packages\Microsoft.SqlServer.Types.11.0.2\nativeBinaries\x86\msvcr100.dll">
+      <Link>SqlServerTypes\x86\msvcr100.dll</Link>
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="..\packages\Microsoft.SqlServer.Types.11.0.2\nativeBinaries\x86\SqlServerSpatial110.dll">
+      <Link>SqlServerTypes\x86\SqlServerSpatial110.dll</Link>
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Reports\BenchmarkauswertungInventarkennwerten\Note.txt" />
+    <Content Include="Reports\BenchmarkauswertungKennwertenRealisiertenMassnahmen\Note.txt" />
+    <Content Include="Reports\BenchmarkauswertungZustandskennwerten\Note.txt" />
+    <Content Include="Reports\RealisiertenMassnahmenWertverlustZustandsindexProJahrGrafische\Read_Me_VS2012_User.txt" />
+    <Content Include="SqlServerTypes\readme.htm" />
+    <EmbeddedResource Include="Reports\ZustandsspiegelProJahrGrafische\ZustandsspiegelProJahrGrafischeSizes.xml" />
+    <EmbeddedResource Include="Reports\RealisiertenMassnahmenWertverlustZustandsindexProJahrGrafische\RealisiertenMassnahmenWertverlustZustandsindexProJahrGrafischeSizes.xml" />
+    <Content Include="Reports\WiederbeschaffungswertUndWertverlustProJahrGrafische\Read_Me_VS2012_User.txt" />
+    <EmbeddedResource Include="Reports\ZustandsspiegelProBelastungskategorieGrafische\ZustandsspiegelProBelastungskategorieGrafischeSizes.xml" />
+    <EmbeddedResource Include="Reports\WiederbeschaffungswertUndWertverlustProJahrGrafische\WiederbeschaffungswertUndWertverlustProJahrGrafischeSizes.xml" />
+  </ItemGroup>
+  <ItemGroup />
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+  <PropertyGroup>
+    <PostBuildEvent>
+    </PostBuildEvent>
+  </PropertyGroup>
+  <PropertyGroup>
+    <PreBuildEvent>
+    </PreBuildEvent>
+  </PropertyGroup>
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target>
+  -->
+</Project>

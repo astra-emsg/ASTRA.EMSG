@@ -1,0 +1,43 @@
+﻿@using ASTRA.EMSG.Web.Infrastructure.HtmlHelperExtensions
+@using Resources
+@model ASTRA.EMSG.Business.Models.Katalogs.MassnahmenvorschlagKatalogEditModel
+            
+@using (Ajax.BeginForm("UpdateMassnahmenvorschlag", "Massnahmenvorschlag",
+                        new AjaxOptions
+                        {
+                            HttpMethod = "POST",
+                            UpdateTargetId = "massnahmenvorschlagWindowDiv",
+                            InsertionMode = InsertionMode.Replace,
+                        }))
+{
+    <fieldset class="popupFormFieldset">
+        @{
+    var editorTable = Html.EditorTable()
+        .WithReadOnlyFieldFor(m => m.KatalogTyp)
+        .WithReadOnlyFieldFor(m => m.Typ)
+        .WithHiddenFor(m => m.Id);
+
+    for (int i = 0; i < Model.KonstenModels.Count; i++)
+    {
+        int index = i;
+        editorTable.WithDecimalEditorFor(m => m.KonstenModels[index].DefaultKosten,
+                        customLabel: (TextLocalization.DefaultKostenBelastungskategorie + " " +
+                                    MvcHtmlString.Create(
+                                        Html.DisplayFor(m => m.KonstenModels[index].BelastungskategorieBezeichnung).ToHtmlString() +
+                                        Html.HiddenFor(m => m.KonstenModels[index].BelastungskategorieBezeichnung) +
+                                        Html.HiddenFor(m => m.KonstenModels[index].Belastungskategorie) +
+                                        Html.HiddenFor(m => m.KonstenModels[index].Id)
+                                        ).ToHtmlString() + " [CHF/m²]"
+                            ),
+                        decimalPlaces: 0
+                        );
+    }
+        }
+        @editorTable
+    
+        @Html.UnobtrusiveOkCancelPopupFormButtons()
+    </fieldset>
+    @Html.RequiredFieldLegend()
+}
+
+<div class="helpButton">@Html.HelpButtonFor("EditMassnahmenvorschlag")</div>

@@ -1,0 +1,8 @@
+﻿@using Resources
+@using Kendo.Mvc.UI
+@{
+    ViewBag.ContentDivWidth = 1200;
+}
+
+<h2>@TitleLocalization.WiederbeschaffungswertUndWertverlustProStrassenabschnittPageTitle</h2>
+@ReportViewHelpers.ReportIndexContent(Html, (IEnumerable<DropDownListItem>)ViewBag.ClosedErfassungsperiods)

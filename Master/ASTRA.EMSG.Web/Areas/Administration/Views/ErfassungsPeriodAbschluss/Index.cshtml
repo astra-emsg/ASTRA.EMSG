@@ -1,0 +1,102 @@
+﻿@using ASTRA.EMSG.Common
+@using ASTRA.EMSG.Web.Infrastructure.HtmlHelperExtensions
+@using Resources
+@using Kendo.Mvc.UI
+@using JetBrains.Annotations
+@model ASTRA.EMSG.Business.Models.Administration.ErfassungsabschlussModel
+@section JavaScript
+{
+    <script type="text/javascript" src="@Url.Content("~/Scripts/Areas/Administration/ErfassungsPeriodAbschluss/ErfassungsPeriodAbschluss.js")"></script>
+}
+<h2>@TitleLocalization.JahresAbschlussPageTitle</h2>
+
+<div id="erfassungsabschlussFormDiv" style="margin-top: 20px">
+
+    @if (!(bool) ViewBag.IsMandantenDetailsCompleted)
+    {
+        @NotificationLocalization.InCompleteMandantenDetails
+    }
+    else if ((bool) ViewBag.AreThereLockedStrassenabschnitte)
+    {
+        @NotificationLocalization.ThereAreLockedStrassenabschnitte
+    }
+    else
+    {
+        if (Model == null)
+        {
+            @string.Format(NotificationLocalization.CanNotJahresAbschluss, DateTime.Now.Year)
+
+        }
+        else
+        {
+            <span style="margin-top: 20px">@TitleLocalization.JahresAbschlussPageSubTitle</span>
+            <div style="margin-top: 20px">
+                @Html.Partial("ErfassungsPeriodAbschluss", Model)
+            </div>
+        }
+    }
+    @if (ViewBag.LastClosedErfassungsPeriod != null)
+    {
+        <div style="clear: both" id="revertFormDiv">
+            @using (Ajax.BeginForm("RevertLastErfassungsPeriod", null,
+                new AjaxOptions
+                {
+                    HttpMethod = "POST",
+                    UpdateTargetId = "erfassungsabschlussFormDiv",
+                    InsertionMode = InsertionMode.Replace,
+                }, new {id = "form", className = "k-edit-form"}))
+            {
+                <fieldset class="formFieldset k-edit-form-container" style="width: 400px">
+                    @TitleLocalization.LetztenJahresAbschluss : <b>@ViewBag.LastClosedErfassungsPeriod.Erfassungsjahr.Year</b>
+                    @{
+                        var submitComfirmationMessage = NotificationLocalization.LetztenJahresAbschlussRueckgaengingMachenWarning;
+
+                        if (ViewBag.IsLastClosedYear)
+                        {
+                            submitComfirmationMessage += "\n" + NotificationLocalization.KenngroessenFruehererJahreWarning;
+                        }
+                    }
+                    @Html.UnobtrusiveOkFormButton(ButtonLocalization.LetztenJahresAbschlussRueckgaengingMachen, submitComfirmationMessage)
+                </fieldset>
+            }
+        </div>
+    }
+</div>
+<script type="text/javascript">
+    $(document).ajaxError(function(event, jqXHR, ajaxSettings, thrownError) {
+        var timeout = "The request timed out";
+        var longRunningActions = [
+            '@Url.Action("RevertLastErfassungsPeriod")',
+            '@Url.Action("ErfassungsPeriodAbschluss")'
+        ];
+        if (longRunningActions.indexOf(ajaxSettings.url) > -1 && jqXHR.status == 500 && jqXHR.responseText.indexOf(timeout) > -1) {
+            var getReady = '@Url.Action("GetErfassungsPeriodReady", "ErfassungsPeriodChecker")';
+            var checkDone = function () {
+                setTimeout(function () {
+                    $.post(getReady, { 'erfassungsPeriodId': '@ViewBag.CurrentPeriodId' }, function (data) {
+                        if (data.ready) {
+                            unblockScreen();
+                            $(document).ajaxStart(blockScreen).ajaxStop(unblockScreen);
+                            var successMassage = '';
+                            if (ajaxSettings.url == '@Url.Action("RevertLastErfassungsPeriod")') {
+                                successMassage = '@NotificationLocalization.JahresAbschlussRueckgaengingMachenWasSuccessfull';
+                                $("#erfassungsabschlussFormDiv").html(successMassage);
+                            }
+                            if (ajaxSettings.url == '@Url.Action("ErfassungsPeriodAbschluss")') {
+                                successMassage = '@NotificationLocalization.JahresAbschlussWasSuccessfull';
+                                $("#erfassungsabschlussFormDiv").html("<b>" + successMassage + "</b>");
+                            }
+                        } else {
+                            checkDone();
+                        }
+                    });
+                }, 5000);
+            }
+            $(document).unbind('ajaxStart');
+            $(document).unbind('ajaxStop');
+
+            blockScreen();
+            checkDone();
+        }
+    });
+</script>

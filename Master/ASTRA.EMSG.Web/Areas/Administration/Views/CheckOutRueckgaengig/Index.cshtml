@@ -1,0 +1,39 @@
+﻿@using ASTRA.EMSG.Business.Models.GIS
+@using ASTRA.EMSG.Web.Infrastructure
+@using ASTRA.EMSG.Web.Infrastructure.HtmlHelperExtensions
+@using ASTRA.EMSG.Web.Infrastructure.TelerikExtensions
+@using Resources
+@using Kendo.Mvc.UI
+@model SerializableGridModel<InspektionsRouteGISOverviewModel>
+@section JavaScript
+{
+    <script type="text/javascript" src="@(Url.Content("~/Scripts/Areas/Administration/CheckOutRueckgaengig/CheckOutRueckgaengig.js"))"></script>
+}
+
+<h1>@TitleLocalization.CheckOutRueckgaengig</h1>
+
+<div class="scrollable-grid-border">
+    <div class="scrollable-grid">
+        @(Html.Kendo().Grid<InspektionsRouteGISOverviewModel>()
+              .Name("InspektionsroutenGrid")
+              .ApplyEmsgSettings(editable: false)
+              .DataSource(dataBinding => dataBinding
+                  .Ajax()
+                  .Read(c => c.Action("GetAll", "CheckOutRueckgaengig"))
+                  .Model(keys => keys.Id(m => m.Id))
+                  .PageSize(ConstantSettings.GridPageSize))
+              .HtmlAttributes(new
+              {
+                  data_confirmation_mesage = NotificationLocalization.CancellExportConfirmation,
+                  data_cancellexport_url = Url.Action("CancellExport")
+              })
+              .Columns(columns =>
+              {
+                  columns.Bound(m => m.Id).GridCommands(Html.Button(ButtonLocalization.CancellExport, "index.cancellExport('#= Id #')").ToHtmlString()).Width(165);
+                  columns.Bound(m => m.Bezeichnung).Title(GridHeaderFooterLocalization.Bezeichnung);
+                  columns.Bound(m => m.StrassenabschnittCount).Title(GridHeaderFooterLocalization.EnthalteneAbschnitte).Width(50);
+                  columns.Bound(m => m.StatusBezeichnung).Title(GridHeaderFooterLocalization.Status).Width(200);
+              })
+              .Events(c => c.DataBound("index.onRowDataBound")))
+    </div>
+</div>

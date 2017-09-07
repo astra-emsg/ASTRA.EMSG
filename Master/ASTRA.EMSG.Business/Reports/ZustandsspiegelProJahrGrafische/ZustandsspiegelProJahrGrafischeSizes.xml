@@ -1,0 +1,17 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ReportSizeCollection xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
+  <ReportSizes>
+    <ReportSize ColumnCount="01" ChartLeft="2.92" ColumnWidthCorrection="0.04" />
+    <ReportSize ColumnCount="02" ChartLeft="2.92" ColumnWidthCorrection="0.04" />
+    <ReportSize ColumnCount="03" ChartLeft="2.92" ColumnWidthCorrection="0.04" />
+    <ReportSize ColumnCount="04" ChartLeft="2.92" ColumnWidthCorrection="0.01" />
+    <ReportSize ColumnCount="05" ChartLeft="2.70" ColumnWidthCorrection="0.08" />
+    <ReportSize ColumnCount="06" ChartLeft="2.70" ColumnWidthCorrection="0.08" />
+    <ReportSize ColumnCount="07" ChartLeft="2.70" ColumnWidthCorrection="0.08" />
+    <ReportSize ColumnCount="08" ChartLeft="2.60" ColumnWidthCorrection="0.085" />
+    <ReportSize ColumnCount="09" ChartLeft="2.60" ColumnWidthCorrection="0.085" />
+    <ReportSize ColumnCount="10" ChartLeft="2.50" ColumnWidthCorrection="0.090" />
+    <ReportSize ColumnCount="11" ChartLeft="2.45" ColumnWidthCorrection="0.095" />
+    <ReportSize ColumnCount="12" ChartLeft="2.47" ColumnWidthCorrection="0.085" />
+  </ReportSizes>
+</ReportSizeCollection>

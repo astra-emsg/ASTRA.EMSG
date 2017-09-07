@@ -1,0 +1,234 @@
+﻿@using ASTRA.EMSG.Business.Models
+@using ASTRA.EMSG.Business.Models.Katalogs
+@using ASTRA.EMSG.Common
+@using ASTRA.EMSG.Common.Enums
+
+@using ASTRA.EMSG.Web.Infrastructure.HtmlHelperExtensions
+@using Kendo.Mvc.UI
+@using Resources
+@model ASTRA.EMSG.Business.Models.GIS.StrassenabschnittGISModel
+@{
+    string modelFieldBreiteFahrbahnClientId = Html.ClientIdFor(m => m.BreiteFahrbahn).ToHtmlString();
+    string modelFieldBreiteTrottoirRechtsClientId = Html.ClientIdFor(m => m.BreiteTrottoirRechts).ToHtmlString();
+    string modelFieldBreiteTrottoirLinksClientId = Html.ClientIdFor(m => m.BreiteTrottoirLinks).ToHtmlString();
+    string modelFieldBelastungskategorieClientId = Html.ClientIdFor(m => m.Belastungskategorie).ToHtmlString();
+
+    string defaultBreiteFahrbahnPropertyName = ASTRA.EMSG.Common.ExpressionHelper.GetPropertyName<BelastungskategorieModel, decimal?>(sa => sa.DefaultBreiteFahrbahn);
+    string defaultBreiteTrottoirRechtsPropertyName = ASTRA.EMSG.Common.ExpressionHelper.GetPropertyName<BelastungskategorieModel, decimal?>(sa => sa.DefaultBreiteTrottoirRechts);
+    string defaultBreiteTrottoirLinksPropertyName = ASTRA.EMSG.Common.ExpressionHelper.GetPropertyName<BelastungskategorieModel, decimal?>(sa => sa.DefaultBreiteTrottoirLinks);
+
+    string originalBelastungskategorieIdHiddenField = "OriginalBelastungskategorieId";
+    string setDefaultBreitenFunctionName = "setDefaultBreiten";
+
+    <input id="@(originalBelastungskategorieIdHiddenField)" value="@(Model.Belastungskategorie)" type="hidden"/>
+    
+    <script type="text/javascript">
+        
+        function @(setDefaultBreitenFunctionName)() {
+            var belastungskategorienDictionary = @(Html.Raw(ViewBag.BelastungskategorienDictionary));
+        
+            var breiteFahrbahnTextBox = $("#@(modelFieldBreiteFahrbahnClientId)").data("kendoNumericTextBox");
+            var breiteTrottoirRechtsTextBox = $("#@(modelFieldBreiteTrottoirRechtsClientId)").data("kendoNumericTextBox");
+            var breiteTrottoirLinksTextBox = $("#@(modelFieldBreiteTrottoirLinksClientId)").data("kendoNumericTextBox");
+        
+            var originalBelastungskategorieId = $("#@(originalBelastungskategorieIdHiddenField)").val();
+        
+            var originalBreiteFahrbahn = breiteFahrbahnTextBox.value();
+            var originalBreiteTrottoirRechts = breiteTrottoirRechtsTextBox.value();
+            var originalBreiteTrottoirLinks = breiteTrottoirLinksTextBox.value();
+        
+            var newbelastungskategorieId = $("#@(modelFieldBelastungskategorieClientId)").val();
+
+            var originalBelastungskategorie = null;
+            if(originalBelastungskategorieId != null && originalBelastungskategorieId != "" && originalBelastungskategorieId != "@(Guid.Empty)")
+                originalBelastungskategorie = belastungskategorienDictionary[originalBelastungskategorieId];
+        
+            var isNewBelastungskategorieIdNotNull = newbelastungskategorieId != null && newbelastungskategorieId != "" && newbelastungskategorieId != "@(Guid.Empty)";
+        
+            if ((originalBelastungskategorie != null ? originalBelastungskategorie.@(defaultBreiteFahrbahnPropertyName) : null) == originalBreiteFahrbahn)
+                breiteFahrbahnTextBox.value(isNewBelastungskategorieIdNotNull ? belastungskategorienDictionary[newbelastungskategorieId].@(defaultBreiteFahrbahnPropertyName) : null);
+        
+            if ((originalBelastungskategorie != null ? originalBelastungskategorie.@(defaultBreiteTrottoirRechtsPropertyName) : null) == originalBreiteTrottoirRechts) 
+                breiteTrottoirRechtsTextBox.value(isNewBelastungskategorieIdNotNull ? belastungskategorienDictionary[newbelastungskategorieId].@(defaultBreiteTrottoirRechtsPropertyName) : null);
+        
+            if ((originalBelastungskategorie != null ? originalBelastungskategorie.@(defaultBreiteTrottoirLinksPropertyName) : null) == originalBreiteTrottoirLinks) 
+                breiteTrottoirLinksTextBox.value(isNewBelastungskategorieIdNotNull ? belastungskategorienDictionary[newbelastungskategorieId].@(defaultBreiteTrottoirLinksPropertyName) : null);
+        
+            $("#@(originalBelastungskategorieIdHiddenField)").val(newbelastungskategorieId);
+
+            details.dropDownChanged();
+        }
+
+        $(function() {
+            ToogleTrottoirControls();
+        });
+
+        function OnTrottoirChange(e) {
+            details.dropDownChanged();
+            ToogleTrottoirControls();
+        }
+        
+        function ToogleTrottoirControls() {
+            var trottoir = $("#Trottoir").val();
+
+            switch (trottoir) {
+            case "@((int)TrottoirTyp.KeinTrottoir)":
+                HideLinks();
+                HideRechts();
+                break;
+            case "@((int)TrottoirTyp.NochNichtErfasst)":
+                HideLinks();
+                HideRechts();
+                break;
+            case "@((int)TrottoirTyp.Links)":
+                ShowLinks();
+                HideRechts();
+                break;
+            case "@((int)TrottoirTyp.Rechts)":
+                ShowRechts();
+                HideLinks();
+                break;
+            case "@((int)TrottoirTyp.BeideSeiten)":
+                ShowRechts();
+                ShowLinks();
+                break;
+            }
+        }
+        
+
+        function HideRechts() {
+            $('#BreiteTrottoirRechts').closest('tr').detach().appendTo("#tortoirDefaults");
+            $('#FlaecheTrottoirRechts').closest('tr').detach().appendTo("#tortoirDefaults");
+        }
+    
+        function HideLinks() {
+            $('#BreiteTrottoirLinks').closest('tr').detach().appendTo("#tortoirDefaults");
+            $('#FlaecheTrottoirLinks').closest('tr').detach().appendTo("#tortoirDefaults");
+        }
+    
+        function ShowRechts() {
+            $('#FlaecheTrottoirRechts').closest('tr').detach().insertAfter($("#Trottoir").closest('tr'));
+            $('#BreiteTrottoirRechts').closest('tr').detach().insertAfter($("#Trottoir").closest('tr'));
+        }
+    
+        function ShowLinks() {
+            $('#FlaecheTrottoirLinks').closest('tr').detach().insertAfter($("#Trottoir").closest('tr'));
+            $('#BreiteTrottoirLinks').closest('tr').detach().insertAfter($("#Trottoir").closest('tr'));
+        }
+
+        //Note: Used for Belag/Bleastungskategorie Warnings
+        var belastungskategorienDictionary = @(Html.Raw(ViewBag.BelastungskategorienDictionary));
+    </script>
+    using (Ajax.BeginForm(ViewBag.IsNew ? "Insert" : "Update", "NetzdefinitionUndStrassenabschnittGIS",
+                            new AjaxOptions
+                            {
+                                HttpMethod = "POST",
+                                UpdateTargetId = "strassenabschnittEditFormDiv",
+                                InsertionMode = InsertionMode.Replace,
+                            }, new
+                                   {
+                                       id = "strassenabschnittEditForm", 
+                                       data_inspektionsroute_notification = NotificationLocalization.StrassenabschnittIsInInspektionsroute
+                                   }))
+    {
+
+
+    @Html.HiddenFor(m => m.Id)
+    @Html.HiddenFor(m => m.BelongsToInspektionsroute)
+    @Html.HiddenFor(m => m.IsLocked)
+        <style>
+            .strassenclass {
+                /*width: calc(100% - 5px);
+            width: -moz-calc(100% - 5px);
+            width: -webkit-calc(100% - 5px);*/
+                position: relative;
+            }
+            .strassenRefreshButton {
+                width: 33px;
+                float: right;
+                height: 29px;
+                margin: 0px 2px 0px 0px;
+                padding-right: 0px;
+                position: absolute;
+            }
+
+            /*Internet Explorer 10 & 11*/
+            @@media all and (-ms-high-contrast: none), (-ms-high-contrast: active) {
+                .strassenRefreshButton {
+                    margin-top: -29px;
+                    margin-right: 0px;
+                    margin-bottom: 0px;
+                    margin-left: 200px;
+                }
+            }
+        </style>
+        <!--[if gte IE 9]>
+            <style>
+                 .strassenRefreshButton {
+                    margin-top: -29px;
+                    margin-right: 0px;
+                    margin-bottom: 0px;
+                    margin-left: 200px;
+                }
+            </style>
+        <![endif]-->
+    <input id="OriginalBelag" value="@(Model.Belag)" type="hidden"/>
+    <input id="ShouldCheckBelagChange" value="@(Model.ShouldCheckBelagChange)" type="hidden"/>
+    <input type="hidden" value="@Model.FeatureGeoJSONString" id="FeatureGeoJSONString" name="FeatureGeoJSONString"/>
+    <input type="hidden" value="@ViewData.ModelState.IsValid" id="IsValid" name="IsValid"/>
+    
+        <fieldset class="formFieldset" style="width: 420px">
+            
+            @FormViewHelpers.InspektionsrouteLockedNotification(Html, Model.IsLocked)
+
+            <legend>@(ViewBag.IsNew ? TitleLocalization.StrassenabschnittGISCreateFormTitle : TitleLocalization.StrassenabschnittGISEditFormTitle)</legend>
+            @Html.ValidationMessageFor(m => m.FeatureGeoJSONString)
+            @(Html.EditorTable(180)
+                  .WithCustomEditorFor(m => m.Strassenname, MvcHtmlString.Create(Html.TextBoxFor(m => m.Strassenname,
+                    new { stlye = "strassenclass" }).ToString() +
+                    "<button  title='" +
+                    ButtonLocalization.ReCalculate + "' class='strassenRefreshButton t-emsg-image-button k-button k-button-icon' name='refreshStrassenname' id='refreshStrassenname' value='' onclick='return details.refreshStrassenabschnittName()'><img class='k-icon-image' src='" +
+                    Url.Content("~/Content/images/Refresh.png") + "'/><span class='imageButtonText' ></span></button>"))
+                  .WithTextBoxFor(m => m.BezeichnungVon, false)
+                  .WithTextBoxFor(m => m.BezeichnungBis, false)
+                  .WithIntegerEditorFor(m => m.Abschnittsnummer, 9, false)
+                  .WithEnumEditorFor(m => m.Strasseneigentuemer, () => Model.Strasseneigentuemer, cbb => cbb.Events(events => events.Change("details.dropDownChanged")))
+                  .WithTextBoxFor(m => m.Ortsbezeichnung, false)
+                  .WithCustomEditorFor(m => m.Belastungskategorie, MvcHtmlString.Create(Html.Kendo().DropDownListFor(m => m.Belastungskategorie).BindTo((IEnumerable<DropDownListItem>)ViewBag.Belastungskategorien).Events(events => events.Change(setDefaultBreitenFunctionName)).HtmlAttributes(new { style = "width: 200px;" }).ToHtmlString()))
+                  .WithEnumEditorFor(m => m.Belag, () => Model.Belag, cbb => cbb.Events(events => events.Change("details.dropDownChanged")))
+                  .WithDecimalEditorFor(m => m.BreiteFahrbahn)
+                  .WithReadOnlyFieldFor(m => m.Laenge)
+                  .WithDisplayFor(m => m.FlaecheFahrbahn, false)
+                  .WithEnumEditorFor(m => m.Trottoir, () => Model.Trottoir, cbb => cbb.Events(events => events.Change("OnTrottoirChange")))
+                  .WithDecimalEditorFor(m => m.BreiteTrottoirLinks, 2, false)
+                  .WithDisplayFor(m => m.FlaecheTrottoirLinks, false)
+                  .WithDecimalEditorFor(m => m.BreiteTrottoirRechts, 2, false)
+                  .WithDisplayFor(m => m.FlaecheTrottoirRechts, false)
+                  .WithDisplayFor(m => m.FlaecheTrottoir, false))
+           
+            @if (Model.IsLocked)
+            {
+                <div style="margin-top: 20px; margin-right: 10px">
+                    <div>@Html.UnobtrusiveCancelButton()</div>
+                </div>
+            }
+            else
+            {
+                @FormViewHelpers.UnobtrusiveFormButtons(Html, "strassenabschnittEditFormDiv", showApply: true,
+                                                        applyAction: "Apply" + ((ViewBag.IsNew ?? false) ? "Insert" : "Update"),
+                                                        deleteAction: "Delete", showDeleteButton: !ViewBag.IsNew,
+                                                        confirmationMessage: NotificationLocalization.BelagChangeConfirmation,
+                                                        deleteConfirmationMessage: NotificationLocalization.DeleteConfirmation)
+            }
+        </fieldset>
+        <div id="notificationMessages" style="display: none" 
+            data-belag-change-confirmation="@(NotificationLocalization.BelagChangeConfirmation)"
+            data-belag-belastungskategorie-mismatch-confirmation="@(NotificationLocalization.BelagBelastungskategorieMismatchConfirmation)"></div>
+    @Html.RequiredFieldLegend()
+    }
+}
+
+
+<div id="tortoirDefaults" style="display: none">
+    
+</div>

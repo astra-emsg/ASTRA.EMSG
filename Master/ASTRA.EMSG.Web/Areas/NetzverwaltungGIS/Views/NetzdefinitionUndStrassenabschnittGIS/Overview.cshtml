@@ -1,0 +1,52 @@
+﻿@using ASTRA.EMSG.Business.Models.GIS
+@using ASTRA.EMSG.Common
+@using ASTRA.EMSG.Web.Areas.Common.GridCommands
+@using ASTRA.EMSG.Web.Infrastructure.TelerikExtensions
+@using Resources
+@using ASTRA.EMSG.Web.Infrastructure.HtmlHelperExtensions
+@using Kendo.Mvc.UI
+@model SerializableGridModel<StrassenabschnittOverviewGISModel>
+@(Html.ToGridFilterBuilder<StrassenabschnittGISGridCommand>()
+                        .WithTextFilter(f => f.StrassennameFilter, triggerOn3Char: true)
+                        .WithTextFilter(f => f.Ortsbezeichnung)
+                        .WithFilterButton(filterButtonLabel: ButtonLocalization.Search, filterFunction: "overview.refreshGrid"))
+
+<div class="scrollable-grid">
+    @(Html.Kendo().Grid<StrassenabschnittOverviewGISModel>()
+          .Name("StrassenabschnittenGrid")
+          .ApplyEmsgSettings()
+          .DataSource(dataBinding => dataBinding
+              .Ajax()
+              .Read(c => c.Action("GetAll", "NetzdefinitionUndStrassenabschnittGIS").Data("index.getFilteredData"))
+              .Destroy(c => c.Action("Delete", "NetzdefinitionUndStrassenabschnittGIS"))
+              .Model(keys => keys.Id(m => m.Id))
+              .PageSize(ASTRA.EMSG.Web.Infrastructure.ConstantSettings.GridPageSize))
+          .ToolBar(commands =>
+          {
+              commands.Template(
+              new EmsgToolbarBuilder()
+                  .AddButton("overview.create()", ButtonLocalization.AddNewStrassenabschnitt)
+                  .ToTemplate());
+          })
+          .HtmlAttributes(new
+          {
+              data_strassenabschnitt_in_inspektionsroute_warning = Html.Raw(NotificationLocalization.StrassenabschnittIsInInspektionsroute),
+              style = "display : inline-block"
+          })
+          .Columns(columns =>
+          {
+              columns.Bound(m => m.Id).GridCommands(Html.EditButton("overview.edit('#= Id #')").ToHtmlString(), 
+                  Html.GridDeleteButton().ToHtmlString()).Width(85);
+
+              columns.Bound(m => m.Abschnittsnummer).Title(GridHeaderFooterLocalization.Strassenabschnittsnummer);
+              columns.Bound(m => m.Strassenname).Title(GridHeaderFooterLocalization.Strassenname);
+              columns.Bound(m => m.BezeichnungVon).Title(GridHeaderFooterLocalization.BezeichnungVon);
+              columns.Bound(m => m.BezeichnungBis).Title(GridHeaderFooterLocalization.BezeichnungBis);
+              columns.Bound(m => m.Ortsbezeichnung).Title(GridHeaderFooterLocalization.Ortsbezeichnung);
+              columns.Bound(m => m.BelastungskategorieBezeichnung).Title(GridHeaderFooterLocalization.BelastungskategorieTyp);
+              columns.Bound(m => m.Laenge).Title(GridHeaderFooterLocalization.Laenge).Format(FormatStrings.NoDecimalFormat).AlignRight();
+              columns.Bound(m => m.FlaecheFahrbahn).Title(GridHeaderFooterLocalization.FlaecheFahrbahn).Format(FormatStrings.NoDecimalFormat).AlignRight();
+              columns.Bound(m => m.FlaecheTrottoir).Title(GridHeaderFooterLocalization.FlaecheTrottoir).Format(FormatStrings.NoDecimalFormat).AlignRight();
+              columns.Bound(m => m.ErfassungsStatusBezeichnung).Title(GridHeaderFooterLocalization.ZustandsErfassungsStatus);
+          }))
+</div>

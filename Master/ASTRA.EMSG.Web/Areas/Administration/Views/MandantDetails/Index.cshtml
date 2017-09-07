@@ -1,0 +1,31 @@
+﻿@using ASTRA.EMSG.Web.Infrastructure.HtmlHelperExtensions
+@using Resources
+@using Kendo.Mvc.UI
+@model ASTRA.EMSG.Business.Models.Administration.MandantDetailsModel
+
+@section JavaScript
+{
+    <script type="text/javascript" src="@Url.Content("~/Scripts/Areas/Administration/MandantDetails/MandantDetails.js")"></script>
+}
+
+<h2>@TitleLocalization.MandantDetailsPageTitle</h2>
+@using (Html.BeginForm("Update", "MandantDetails", FormMethod.Post, new { id = "form", className = "k-edit-form" }))
+{
+    <div id="parameters" data-cancel-url="@(Url.Action("Cancel"))" />
+
+    @Html.HiddenFor(m => m.Id)
+    <fieldset class="formFieldset">
+        @(Html.EditorTable()
+              .WithIntegerEditorFor(m => m.Einwohner,width:300)
+              .WithIntegerEditorFor(m => m.Siedlungsflaeche, width: 300)
+              .WithIntegerEditorFor(m => m.Gemeindeflaeche, width: 300)
+              .WithLookupEditorFor(m => m.Gemeindetyp, (IEnumerable<DropDownListItem>)ViewBag.GemeindetypDropDownItems, 300)
+              .WithIntegerEditorFor(m => m.MittlereHoehenlageSiedlungsgebiete, width: 300)
+              .WithIntegerEditorFor(m => m.DifferenzHoehenlageSiedlungsgebiete, width: 300)
+              .WithIntegerEditorFor(m => m.Steuerertrag, width: 300)
+              .WithLookupEditorFor(m => m.OeffentlicheVerkehrsmittel, (IEnumerable<DropDownListItem>)ViewBag.OeffentlicheVerkehrsmittelDropDownItems, 300))
+        
+        @Html.UnobtrusiveOkCancelFormButtons(ButtonLocalization.Save)
+    </fieldset>
+    @Html.RequiredFieldLegend()
+}

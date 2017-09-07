@@ -1,0 +1,105 @@
+﻿@using ASTRA.EMSG.Web.Infrastructure.HtmlHelperExtensions
+@using Resources
+
+@model List<ASTRA.EMSG.Business.Models.Strassennamen.StrassenabschnittSplitModel>
+
+@if ((Model != null))
+{
+    <input id="OriginalLaenge" type="hidden" value="@(ViewBag.OriginalLaenge)"/>
+    
+    <script type="text/javascript">
+        function closeEditWindow() {
+            $('#SplitStrassenabschnittWindow').data('kendoWindow').close();
+        }
+
+        var w = $('#SplitStrassenabschnittWindow').data('kendoWindow');
+        w.maximize();
+        $('body').removeAttr('style');
+
+        function submitSplitForm() {
+            var originalLaenge = parseFloat($("#OriginalLaenge").val());
+
+            var currentLaengeSumme = 0;
+
+            $('input[name*="Laenge"]').each(function (index, item) {
+                currentLaengeSumme += parseFloat($(item).val());
+            });
+
+            var epsilon = 0.001;
+
+            var laengeLargerConfirmation = '@Html.Raw(NotificationLocalization.SplitStrassenabschnittLaengeLargerConfirmation.EscapeJavaScriptString())'.format(DecimalToShortString((currentLaengeSumme - (originalLaenge + epsilon))));
+            var laengeSmallerConfirmation = '@Html.Raw(NotificationLocalization.SplitStrassenabschnittLaengeSmallerConfirmation.EscapeJavaScriptString())'.format(DecimalToShortString(((originalLaenge + epsilon) - currentLaengeSumme)));
+            var belagBelastungskategorieConfirmation = '@Html.Raw(NotificationLocalization.BelagBelastungskategorieMismatchSplitConfirmation.EscapeJavaScriptString())';
+            var saveConfirmation = '@Html.Raw(NotificationLocalization.SplitComfirmation.EscapeJavaScriptString())';
+
+            if (currentLaengeSumme > originalLaenge + epsilon) {
+                if (!confirm(laengeLargerConfirmation)) {
+                    return;
+                }
+            }
+
+            if (currentLaengeSumme + epsilon < originalLaenge) {
+                if (!confirm(laengeSmallerConfirmation)) {
+                    return;
+                }
+            }
+            
+            var isBelagBelastungskategorieMissmatch = false;
+            $(".emsg-strassenabschnitt-dropdown-ids").each(function (i, item) {
+                var selectedBelastungskategorie = $("#" + $(item).data("belastungskategorie-id")).val();
+                var selectedBelagsTyp = $("#" + $(item).data("belag-id")).data("kendoDropDownList").text();
+
+                if (selectedBelastungskategorie != null && selectedBelastungskategorie != "") {
+                    if (-1 >= $.inArray(selectedBelagsTyp, belastungskategorienDictionary[selectedBelastungskategorie].AllowedBelagList))
+                        isBelagBelastungskategorieMissmatch = true;
+                }
+
+            });
+
+            if (isBelagBelastungskategorieMissmatch) {
+                if (!confirm(belagBelastungskategorieConfirmation)) {
+                    return;
+                }
+            }
+
+            if(confirm(saveConfirmation)){
+                common.destroyErrorDialogs();
+                $('#splitForm').submit();
+            }
+        }
+    </script>
+    using (Ajax.BeginForm("InsertStrassenabschnitten", (string)"NetzdefinitionUndStrassenabschnitt",
+                               new AjaxOptions
+                               {
+                                   HttpMethod = "POST",
+                                   UpdateTargetId = "splitStrassenabschnittFormDiv",
+                                   InsertionMode = InsertionMode.Replace,
+                               }, new { id = "splitForm" }))
+    {
+         <fieldset class="popupFormFieldset">               
+             @for (int i = 0; i < Model.Count; i++)
+             {
+                 <div style="float: left; margin: 5px">
+                     <fieldset class="popupFormFieldset">
+                        @Html.EditorFor(m => m[i], "StrassenabschnittModel",new { strassenabschnittIndex = i })
+                     </fieldset>
+                 </div>
+             }
+             <div style="clear: both"/>
+             <div class='popupFormButtons'>
+                 @Html.CustomSubmitButton(ButtonLocalization.Save, "submitSplitForm()")
+                 @Html.CancelButton("closeEditWindow()")
+             </div>
+         </fieldset>
+        @Html.RequiredFieldLegend()
+    }
+    <div class="helpButton">@Html.HelpButtonFor("Split")</div>
+    <div id="tortoirDefaults" style="display: none">
+</div>
+}
+else
+{
+    <script type="text/javascript">
+        closeEditWindow();
+    </script>
+}

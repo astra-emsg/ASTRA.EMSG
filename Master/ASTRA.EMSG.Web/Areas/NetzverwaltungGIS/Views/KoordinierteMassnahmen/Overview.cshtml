@@ -1,0 +1,45 @@
+﻿@using ASTRA.EMSG.Business.Models.GIS
+@using ASTRA.EMSG.Common
+@using ASTRA.EMSG.Web.Areas.Common.GridCommands
+@using ASTRA.EMSG.Web.Infrastructure.HtmlHelperExtensions
+@using ASTRA.EMSG.Web.Infrastructure.TelerikExtensions
+@using Resources
+@using Kendo.Mvc.UI
+
+@model SerializableGridModel<KoordinierteMassnahmeGISOverviewModel>
+@(Html.ToGridFilterBuilder<KoordinierteMassnahmenGridCommand>()
+                        .WithTextFilter(f => f.ProjektnameFilter, triggerOn3Char: true)
+                        .WithFilterButton(useUnobtrusive: true, filterButtonLabel: ButtonLocalization.Search))
+
+<div class="scrollable-grid">
+    @(Html.Kendo().Grid<KoordinierteMassnahmeGISOverviewModel>()
+          .Name("KoordinierteMassnahmenGrid")
+          .ApplyEmsgSettings()
+          .DataSource(dataBinding => dataBinding
+              .Ajax()
+              .Read(c => c.Action("GetAll", "KoordinierteMassnahmen").Data("index.getFilteredData"))
+              .Destroy(c => c.Action("Delete", "KoordinierteMassnahmen"))
+              .Model(keys => keys.Id(m => m.Id))
+              .PageSize(ASTRA.EMSG.Web.Infrastructure.ConstantSettings.GridPageSize))
+          .ToolBar(commands =>
+          {
+              commands.Template(
+              new EmsgToolbarBuilder()
+                  .AddButton("overview.create()", ButtonLocalization.AddNewKoordinierteMassnahme)
+                  .ToTemplate());
+          })
+          .Columns(columns =>
+          {
+              columns.Bound(m => m.Id).GridCommands(Html.EditButton("overview.edit('#= Id #')").ToHtmlString(),
+                  Html.GridDeleteButton().ToHtmlString()).Width(85);
+
+              columns.Bound(m => m.Projektname).Title(GridHeaderFooterLocalization.Projektname);
+              columns.Bound(m => m.BezeichnungVon).Title(GridHeaderFooterLocalization.BezeichnungVon);
+              columns.Bound(m => m.BezeichnungBis).Title(GridHeaderFooterLocalization.BezeichnungBis);
+              columns.Bound(m => m.AusfuehrungsAnfang).Format(FormatStrings.ShortDateTimeFormat).Title(GridHeaderFooterLocalization.AusfuehrungsAnfang);
+              columns.Bound(m => m.AusfuehrungsEnde).Format(FormatStrings.ShortDateTimeFormat).Title(GridHeaderFooterLocalization.AusfuehrungsEnde);
+              columns.Bound(m => m.StatusBezeichnung).Title(GridHeaderFooterLocalization.Status);
+              columns.Bound(m => m.KostenGesamtprojekt).Title(GridHeaderFooterLocalization.KostenGesamtprojekt).Format(FormatStrings.NoDecimalFormat).AlignRight();
+              columns.Bound(m => m.LeitendeOrganisation).Title(GridHeaderFooterLocalization.LeitendeOrganisation);
+          }))
+</div>

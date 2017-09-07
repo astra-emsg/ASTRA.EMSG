@@ -1,0 +1,36 @@
+﻿@using ASTRA.EMSG.Business.Models.Katalogs
+@using ASTRA.EMSG.Web.Infrastructure
+@using ASTRA.EMSG.Web.Infrastructure.HtmlHelperExtensions
+@using Resources
+@model ASTRA.EMSG.Business.Models.Summarisch.RealisierteMassnahmeSummarsichModel
+
+@using (Ajax.BeginForm(((ViewBag.IsNew ?? false) ? "Insert" : "Update"), "RealisierteMassnahmenSummarisch",
+                        new AjaxOptions
+                        {
+                            HttpMethod = "POST",
+                            UpdateTargetId = "realisierteMassnahmeSummarsichFormDiv",
+                            InsertionMode = InsertionMode.Replace,
+                        }))
+{
+    <fieldset class="popupFormFieldset k-edit-form-container">
+        @Html.HiddenFor(m => m.Id)
+        
+        @{
+    var dropDownItemList = ((List<BelastungskategorieModel>)ViewBag.Belastungskategorien)
+        .ToDropDownItemList(tvp => LookupLocalization.ResourceManager.GetString(tvp.Typ), tvp => tvp.Id, Model.Belastungskategorie, TextLocalization.EmptyMessage);
+        }
+
+        @(Html.EditorTable()
+            .WithTextBoxFor(m => m.Projektname)
+            .WithTextAreaFor(m => m.Beschreibung, false)
+            .WithLookupEditorFor(m => m.Belastungskategorie, dropDownItemList)
+            .WithEnumEditorFor(m => m.Strasseneigentuemer, () => Model.Strasseneigentuemer)
+            .WithIntegerEditorFor(m => m.KostenFahrbahn, 9, false)
+            .WithIntegerEditorFor(m => m.Fahrbahnflaeche))
+    
+        @Html.UnobtrusiveOkCancelPopupFormButtons()
+
+    </fieldset>
+    @Html.RequiredFieldLegend()
+}
+<div class="helpButton">@Html.HelpButtonFor("EditRealisierteMassnahmeSummarsich")</div>

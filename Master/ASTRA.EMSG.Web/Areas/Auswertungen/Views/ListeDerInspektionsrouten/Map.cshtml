@@ -1,0 +1,22 @@
+﻿@using Resources
+
+<style type="text/css">
+
+{
+  display : inline;
+}
+</style>
+
+<script type="text/javascript">
+    globalMapAdjustCorrector = -20;
+    
+    
+  emsg.config.set("WMS.ARCGIS.LAYERS.INSPEKTIONSROUTE", "Inspektionsroute_StrassenabschnittLayer_Report");
+  emsg.config.set("WMS.ARCGIS.LAYERID", "Inspektionsroute_StrassenabschnittLayer_Report");
+
+  emsg.map = new Emsg.Map.Analysis(emsg);
+  emsg.map.layer_property = 'route';
+  emsg.legend.showIcon = false;
+  
+</script>
+

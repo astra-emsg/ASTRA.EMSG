@@ -1,0 +1,34 @@
+<dataStore>
+  <id>DataStoreInfoImpl--712dd8df:156b736ad9b:-7fe3</id>
+  <name>EMSGMSSQL</name>
+  <description>EMSGMSSQL</description>
+  <type>Microsoft SQL Server</type>
+  <enabled>true</enabled>
+  <workspace>
+    <id>WorkspaceInfoImpl--712dd8df:156b736ad9b:-7fe5</id>
+  </workspace>
+  <connectionParameters>
+    <entry key="Evictor run periodicity">300</entry>
+    <entry key="Force spatial index usage via hints">false</entry>
+    <entry key="fetch size">1000</entry>
+    <entry key="Expose primary keys">false</entry>
+    <entry key="validate connections">true</entry>
+    <entry key="Connection timeout">20</entry>
+    <entry key="Use native geometry serialization">false</entry>
+    <entry key="database">EMSGDEV</entry>
+    <entry key="Integrated Security">false</entry>
+    <entry key="port">1433</entry>
+    <entry key="passwd">#TODO#/</entry>
+    <entry key="min connections">1</entry>
+    <entry key="host">#TODO#/</entry>
+    <entry key="dbtype">sqlserver</entry>
+    <entry key="namespace">#TODO#/entry>
+    <entry key="max connections">10</entry>
+    <entry key="Evictor tests per run">3</entry>
+    <entry key="Test while idle">true</entry>
+    <entry key="Use Native Paging">true</entry>
+    <entry key="user">dbadmin</entry>
+    <entry key="Max connection idle time">300</entry>
+  </connectionParameters>
+  <__default>false</__default>
+</dataStore>

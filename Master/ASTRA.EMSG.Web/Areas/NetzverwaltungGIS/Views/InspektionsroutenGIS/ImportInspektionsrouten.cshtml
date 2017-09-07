@@ -1,0 +1,38 @@
+﻿@using ASTRA.EMSG.Web.Infrastructure.HtmlHelperExtensions
+@using Resources
+@using Kendo.Mvc.UI
+
+<fieldset class="popupFormFieldset k-edit-form-container">
+    <hr style="margin-bottom: 20px" />
+    @{
+        Html.Kendo().Upload()
+            .Name("importFiles")
+            .Async(async => async.Save("Upload", "InspektionsroutenGIS"))
+            .Events(events =>
+                              {
+                                  events.Success("importInspektionsrouten.onSuccess");
+                                  events.Error("importInspektionsrouten.onError");
+                                  events.Select("importInspektionsrouten.onSelect");
+                                  events.Upload("importInspektionsrouten.onUpload");
+                              })
+        .Render();
+    }
+
+    @(Html.Hidden("parameters", null, new Dictionary<string, object>
+                                        {
+                                            {"id", "parameters"},
+                                            {"data-progressText", NotificationLocalization.ImportInspektionsroutenProgressText},
+                                            {"data-errorMessage", NotificationLocalization.UploadFileLimitExceeded},
+                                            {"data-successMessage", @NotificationLocalization.ImportInspektionsroutenSuccessful},
+                                            {"data-fileExtensionErrorMessage", NotificationLocalization.UploadImportInspektionsroutenFileExtensionErrorText},
+                                        }))
+    <br />
+    <div id="result">
+    </div>
+    <hr />
+    <div class="popupFormButtons">
+        @Html.BackToOverviewButton("importInspektionsrouten.closeImportWindow()")
+    </div>
+</fieldset>
+
+<div class="helpButton">@Html.HelpButtonFor("Upload")</div>

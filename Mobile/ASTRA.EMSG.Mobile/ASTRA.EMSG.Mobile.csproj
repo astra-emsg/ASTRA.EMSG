@@ -1,0 +1,808 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="12.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">x86</Platform>
+    <ProductVersion>8.0.30703</ProductVersion>
+    <SchemaVersion>2.0</SchemaVersion>
+    <ProjectGuid>{7286CEAC-21CD-4899-A813-BEEA6170E5B0}</ProjectGuid>
+    <OutputType>WinExe</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>ASTRA.EMSG.Mobile</RootNamespace>
+    <AssemblyName>ASTRA.EMSG.Mobile</AssemblyName>
+    <TargetFrameworkVersion>v4.6.1</TargetFrameworkVersion>
+    <TargetFrameworkProfile>
+    </TargetFrameworkProfile>
+    <FileAlignment>512</FileAlignment>
+    <ProjectTypeGuids>{60dc8134-eba5-43b8-bcc9-bb4bc16c2548};{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}</ProjectTypeGuids>
+    <WarningLevel>4</WarningLevel>
+    <SccProjectName>SAK</SccProjectName>
+    <SccLocalPath>SAK</SccLocalPath>
+    <SccAuxPath>SAK</SccAuxPath>
+    <SccProvider>SAK</SccProvider>
+    <PublishUrl>publish\</PublishUrl>
+    <Install>true</Install>
+    <InstallFrom>Disk</InstallFrom>
+    <UpdateEnabled>false</UpdateEnabled>
+    <UpdateMode>Foreground</UpdateMode>
+    <UpdateInterval>7</UpdateInterval>
+    <UpdateIntervalUnits>Days</UpdateIntervalUnits>
+    <UpdatePeriodically>false</UpdatePeriodically>
+    <UpdateRequired>false</UpdateRequired>
+    <MapFileExtensions>true</MapFileExtensions>
+    <ApplicationRevision>0</ApplicationRevision>
+    <ApplicationVersion>1.0.0.%2a</ApplicationVersion>
+    <IsWebBootstrapper>false</IsWebBootstrapper>
+    <UseApplicationTrust>false</UseApplicationTrust>
+    <BootstrapperEnabled>true</BootstrapperEnabled>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|x86' ">
+    <PlatformTarget>x86</PlatformTarget>
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+    <NoWarn>
+    </NoWarn>
+    <Prefer32Bit>false</Prefer32Bit>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|x86' ">
+    <PlatformTarget>x86</PlatformTarget>
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+    <Prefer32Bit>false</Prefer32Bit>
+  </PropertyGroup>
+  <PropertyGroup>
+    <ApplicationIcon>favicon.ico</ApplicationIcon>
+  </PropertyGroup>
+  <PropertyGroup>
+    <RunPostBuildEvent>Always</RunPostBuildEvent>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="Autofac">
+      <HintPath>..\packages\Autofac.2.5.2.830\lib\NET40\Autofac.dll</HintPath>
+    </Reference>
+    <Reference Include="Autofac.Configuration">
+      <HintPath>..\packages\Autofac.2.5.2.830\lib\NET40\Autofac.Configuration.dll</HintPath>
+    </Reference>
+    <Reference Include="GeoAPI, Version=1.7.4.0, Culture=neutral, PublicKeyToken=a1a0da7def465678, processorArchitecture=MSIL">
+      <HintPath>..\packages\GeoAPI.1.7.4\lib\net40-client\GeoAPI.dll</HintPath>
+    </Reference>
+    <Reference Include="GeoJSON.NET">
+      <HintPath>..\Libs\GeoJSON.NET\GeoJSON.NET.dll</HintPath>
+    </Reference>
+    <Reference Include="HtmlAgilityPack">
+      <HintPath>..\packages\HtmlAgilityPack.1.4.6\lib\Net40\HtmlAgilityPack.dll</HintPath>
+    </Reference>
+    <Reference Include="Ionic.Zip">
+      <HintPath>..\packages\DotNetZip.1.9.1.8\lib\net20\Ionic.Zip.dll</HintPath>
+    </Reference>
+    <Reference Include="Jayrock.Json">
+      <HintPath>..\Libs\GeoJSON.NET\Jayrock.Json.dll</HintPath>
+    </Reference>
+    <Reference Include="NetTopologySuite, Version=1.14.0.0, Culture=neutral, PublicKeyToken=f580a05016ebada1, processorArchitecture=MSIL">
+      <HintPath>..\packages\NetTopologySuite.1.14\lib\net40-client\NetTopologySuite.dll</HintPath>
+    </Reference>
+    <Reference Include="NetTopologySuite.MGeometries, Version=1.0.5176.21950, Culture=neutral, processorArchitecture=x86">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\..\Master\libraries\NetTopologySuite.MGeometries\NetTopologySuite.MGeometries.dll</HintPath>
+    </Reference>
+    <Reference Include="NLog">
+      <HintPath>..\packages\NLog.2.0.0.2000\lib\net40\NLog.dll</HintPath>
+    </Reference>
+    <Reference Include="PowerCollections, Version=1.0.0.0, Culture=neutral, PublicKeyToken=2573bf8a1bdddcd5, processorArchitecture=MSIL">
+      <HintPath>..\packages\NetTopologySuite.1.14\lib\net40-client\PowerCollections.dll</HintPath>
+    </Reference>
+    <Reference Include="System" />
+    <Reference Include="System.ComponentModel.DataAnnotations" />
+    <Reference Include="System.Configuration" />
+    <Reference Include="System.Configuration.Install" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Drawing" />
+    <Reference Include="System.Management" />
+    <Reference Include="System.Runtime.Serialization" />
+    <Reference Include="System.Windows.Forms" />
+    <Reference Include="System.Xml" />
+    <Reference Include="Microsoft.CSharp" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.Xml.Linq" />
+    <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="System.Xaml">
+      <RequiredTargetFramework>4.0</RequiredTargetFramework>
+    </Reference>
+    <Reference Include="WindowsBase" />
+    <Reference Include="PresentationCore" />
+    <Reference Include="PresentationFramework" />
+    <Reference Include="WindowsFormsIntegration" />
+  </ItemGroup>
+  <ItemGroup>
+    <ApplicationDefinition Include="App.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </ApplicationDefinition>
+    <Compile Include="..\..\Common\CommonAssemblyInfo.cs">
+      <Link>Properties\CommonAssemblyInfo.cs</Link>
+    </Compile>
+    <Compile Include="BusinessExceptions\InvalidPackageVersionNewException.cs" />
+    <Compile Include="BusinessExceptions\InvalidPackageVersionOldException.cs" />
+    <Compile Include="BusinessExceptions\EmsgException.cs" />
+    <Compile Include="BusinessExceptions\IncompletePackageException.cs" />
+    <Compile Include="BusinessExceptions\InvalidOrIncompatiblePackageException.cs" />
+    <Compile Include="BusinessExceptions\InvalidPackageException.cs" />
+    <Compile Include="BusinessExceptions\NoDataImportedException.cs" />
+    <Compile Include="Container\ClientContainerLocator.cs" />
+    <Compile Include="Container\ClientContainerSetup.cs" />
+    <Compile Include="Converters\BooleanToZebraColorConverter.cs" />
+    <Compile Include="Converters\DecimalDisplayConverter.cs" />
+    <Compile Include="Converters\StringToNullableDecimalConverter.cs" />
+    <Compile Include="Converters\StringToNullableIntConverter.cs" />
+    <Compile Include="Converters\StringToVisibilityConverter.cs" />
+    <Compile Include="Converters\ValidationErrorCollectionToStringConverter.cs" />
+    <Compile Include="Events\ProgressStartEventArgs.cs" />
+    <Compile Include="Events\ProgressUpdateEventArgs.cs" />
+    <Compile Include="InstallerStep.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="InstallerStep.Designer.cs">
+      <DependentUpon>InstallerStep.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Model\LayerSelectorItem.cs" />
+    <Compile Include="Services\GeoJsonService.cs" />
+    <Compile Include="Services\ExportService.cs" />
+    <Compile Include="Services\LanguageService.cs" />
+    <Compile Include="ResourceWrapper.cs" />
+    <Compile Include="Services\FileDialogService.cs" />
+    <Compile Include="Services\HelpFileNames.cs" />
+    <Compile Include="Services\ImportService.cs" />
+    <Compile Include="Services\LoadService.cs" />
+    <Compile Include="Services\LogService.cs" />
+    <Compile Include="Services\MessageBoxService.cs" />
+    <Compile Include="Services\DTOService.cs" />
+    <Compile Include="Services\PackageService.cs" />
+    <Compile Include="Services\ClientConfigurationProvider.cs" />
+    <Compile Include="Services\ProgressService.cs" />
+    <Compile Include="Services\SaveService.cs" />
+    <Compile Include="Services\WindowService.cs" />
+    <Compile Include="Utils\DelegateCommand.cs" />
+    <Compile Include="Utils\NotifyPropertyChanged.cs" />
+    <Compile Include="ValidationRules\DecimalValidationRule.cs" />
+    <Compile Include="ViewModels\CustomValidator.cs" />
+    <Compile Include="ViewModels\DetailGroupItemViewModel.cs" />
+    <Compile Include="ViewModels\DetailItemViewModel.cs" />
+    <Compile Include="ViewModels\EditableViewModel.cs" />
+    <Compile Include="ViewModels\GrobItemViewModel.cs" />
+    <Compile Include="ViewModels\ICustomValidator.cs" />
+    <Compile Include="ViewModels\ProgressViewModel.cs" />
+    <Compile Include="ViewModels\ISaveable.cs" />
+    <Compile Include="ViewModels\IZustandsabschnittTabViewModel.cs" />
+    <Compile Include="ViewModels\LegendAllViewModel.cs" />
+    <Compile Include="ViewModels\LegendViewModel.cs" />
+    <Compile Include="ViewModels\MapViewModel.cs" />
+    <Compile Include="ViewModels\FormViewModel.cs" />
+    <Compile Include="MainViewModelLocator.cs" />
+    <Compile Include="ViewModels\MainWindowViewModel.cs" />
+    <Compile Include="ViewModels\NameValueItemViewModel.cs" />
+    <Compile Include="ViewModels\SaveEventArgs.cs" />
+    <Compile Include="ViewModels\ViewModel.cs" />
+    <Compile Include="ViewModels\ZustandFahrbahnWindowViewModel.cs" />
+    <Compile Include="ViewModels\ZustandsabschnittDetailsViewModel.cs" />
+    <Compile Include="ViewModels\ZustandsabschnittViewModel.cs" />
+    <Compile Include="ViewModels\ZustandsErfassungsmodusChooserViewModel.cs" />
+    <Compile Include="ViewModels\ZustandTrottoirViewModel.cs" />
+    <Compile Include="Views\MapView.xaml.cs">
+      <DependentUpon>MapView.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\FormView.xaml.cs">
+      <DependentUpon>FormView.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\ProgressView.xaml.cs">
+      <DependentUpon>ProgressView.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\SchadenErfassungsGridFooterView.xaml.cs">
+      <DependentUpon>SchadenErfassungsGridFooterView.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\SchadenErfassungsGridHeaderView.xaml.cs">
+      <DependentUpon>SchadenErfassungsGridHeaderView.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\Windows\LegendWindowAll.xaml.cs">
+      <DependentUpon>LegendWindowAll.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\Windows\HelpWindow.xaml.cs">
+      <DependentUpon>HelpWindow.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\Windows\LegendWindow.xaml.cs">
+      <DependentUpon>LegendWindow.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\Windows\ZustandFahrbahnWindow.xaml.cs">
+      <DependentUpon>ZustandFahrbahnWindow.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\ZustandFahrbahnView.xaml.cs">
+      <DependentUpon>ZustandFahrbahnView.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\ZustandsabschnittDetailsView.xaml.cs">
+      <DependentUpon>ZustandsabschnittDetailsView.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\ZustandsabschnittView.xaml.cs">
+      <DependentUpon>ZustandsabschnittView.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\ZustandsErfassungsmodusChooserView.xaml.cs">
+      <DependentUpon>ZustandsErfassungsmodusChooserView.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\ZustandTrottoirView.xaml.cs">
+      <DependentUpon>ZustandTrottoirView.xaml</DependentUpon>
+    </Compile>
+    <Page Include="MainWindow.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Compile Include="App.xaml.cs">
+      <DependentUpon>App.xaml</DependentUpon>
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Converters\BooleanToVisibilityConverter.cs" />
+    <Compile Include="MainWindow.xaml.cs">
+      <DependentUpon>MainWindow.xaml</DependentUpon>
+      <SubType>Code</SubType>
+    </Compile>
+    <Page Include="Views\MapView.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Views\FormView.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Views\ProgressView.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Views\SchadenErfassungsGridFooterView.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Views\SchadenErfassungsGridHeaderView.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Views\Windows\LegendWindowAll.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Views\Windows\HelpWindow.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Views\Windows\LegendWindow.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Views\Windows\ZustandFahrbahnWindow.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Views\ZustandFahrbahnView.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Views\ZustandsabschnittDetailsView.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Views\ZustandsabschnittView.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Views\ZustandsErfassungsmodusChooserView.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Views\ZustandTrottoirView.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="Properties\AssemblyInfo.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Properties\Resources.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Resources.resx</DependentUpon>
+    </Compile>
+    <Compile Include="Properties\Settings.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DependentUpon>Settings.settings</DependentUpon>
+      <DesignTimeSharedInput>True</DesignTimeSharedInput>
+    </Compile>
+    <EmbeddedResource Include="Properties\Resources.resx">
+      <Generator>ResXFileCodeGenerator</Generator>
+      <LastGenOutput>Resources.Designer.cs</LastGenOutput>
+    </EmbeddedResource>
+    <SplashScreen Include="Images\splash.png" />
+    <Content Include="Help\de\ZustandsabschnittFahrbahnZustandHelpPage.html">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Help\de\ZustandsabschnittFahrbahnZustandHelpPage_files\image001.png">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Help\de\ZustandsabschnittFahrbahnZustandHelpPage_files\image002.png">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Help\de\ZustandsabschnittFahrbahnZustandHelpPage_files\image003.png">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Help\de\ZustandsabschnittFahrbahnZustandHelpPage_files\image004.jpg">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Help\de\ZustandsabschnittFahrbahnZustandHelpPage_files\image005.png">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Help\de\ZustandsabschnittFahrbahnZustandHelpPage_files\image006.jpg">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Help\de\ZustandsabschnittFahrbahnZustandHelpPage_files\image007.jpg">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Help\de\ZustandsabschnittFahrbahnZustandHelpPage_files\image008.jpg">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Help\de\ZustandsabschnittFormHelpPage.html">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Help\de\ZustandsabschnittFormHelpPage_files\image001.jpg">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Help\de\ZustandsabschnittFormHelpPage_files\image002.jpg">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Help\de\ZustandsabschnittFormHelpPage_files\image003.jpg">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Help\de\ZustandsabschnittFormHelpPage_files\image004.jpg">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Help\de\ZustandsabschnittFormHelpPage_files\image005.png">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Help\de\ZustandsabschnittFormHelpPage_files\image006.jpg">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Help\de\ZustandsabschnittFormHelpPage_files\image007.jpg">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Help\de\ZustandsabschnittFormHelpPage_files\image008.jpg">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Help\de\ZustandsabschnittMapHelpPage.html">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Help\de\ZustandsabschnittMapHelpPage_files\colorschememapping.xml">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Help\de\ZustandsabschnittMapHelpPage_files\filelist.xml">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Help\de\ZustandsabschnittMapHelpPage_files\image001.png">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Help\de\ZustandsabschnittMapHelpPage_files\image002.png">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Help\de\ZustandsabschnittMapHelpPage_files\image003.png">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Help\de\ZustandsabschnittMapHelpPage_files\image004.png">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Help\de\ZustandsabschnittMapHelpPage_files\image005.png">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Help\de\ZustandsabschnittMapHelpPage_files\image006.png">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Help\de\ZustandsabschnittMapHelpPage_files\image007.png">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Help\de\ZustandsabschnittMapHelpPage_files\image008.png">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Help\de\ZustandsabschnittMapHelpPage_files\image009.png">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Help\de\ZustandsabschnittMapHelpPage_files\image010.png">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Help\de\ZustandsabschnittMapHelpPage_files\image011.png">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Help\de\ZustandsabschnittMapHelpPage_files\image012.png">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Help\de\ZustandsabschnittMapHelpPage_files\image013.png">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Help\de\ZustandsabschnittMapHelpPage_files\image014.png">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Help\de\ZustandsabschnittMapHelpPage_files\image015.png">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Help\de\ZustandsabschnittMapHelpPage_files\image016.png">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Help\de\ZustandsabschnittMapHelpPage_files\image017.jpg">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Help\de\ZustandsabschnittTrottoirZustandHelpPage.html">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Help\de\ZustandsabschnittTrottoirZustandHelpPage_files\colorschememapping.xml">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Help\de\ZustandsabschnittTrottoirZustandHelpPage_files\filelist.xml">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Help\de\ZustandsabschnittTrottoirZustandHelpPage_files\image001.jpg">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Help\de\ZustandsabschnittTrottoirZustandHelpPage_files\image001.png">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Help\de\ZustandsabschnittTrottoirZustandHelpPage_files\image002.jpg">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Help\de\ZustandsabschnittTrottoirZustandHelpPage_files\image002.png">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Help\de\ZustandsabschnittTrottoirZustandHelpPage_files\image003.png">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Help\de\ZustandsabschnittTrottoirZustandHelpPage_files\image004.jpg">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Help\de\ZustandsabschnittTrottoirZustandHelpPage_files\image004.png">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Help\de\ZustandsabschnittTrottoirZustandHelpPage_files\image005.png">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Help\de\ZustandsabschnittTrottoirZustandHelpPage_files\image006.png">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Help\de\ZustandsabschnittTrottoirZustandHelpPage_files\image007.png">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Help\de\ZustandsabschnittTrottoirZustandHelpPage_files\image008.jpg">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Help\de\ZustandsabschnittTrottoirZustandHelpPage_files\image009.png">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Help\de\ZustandsabschnittTrottoirZustandHelpPage_files\image010.png">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Help\de\ZustandsabschnittTrottoirZustandHelpPage_files\image011.jpg">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Help\de\ZustandsabschnittTrottoirZustandHelpPage_files\image012.png">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Help\de\ZustandsabschnittTrottoirZustandHelpPage_files\image013.jpg">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Help\de\ZustandsabschnittTrottoirZustandHelpPage_files\image014.png">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Help\de\ZustandsabschnittTrottoirZustandHelpPage_files\image015.jpg">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Help\de\ZustandsabschnittTrottoirZustandHelpPage_files\image016.png">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Help\de\ZustandsabschnittTrottoirZustandHelpPage_files\image017.jpg">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Resource Include="Images\EMSG_Mobile_Splashscreen_fr.png" />
+    <Resource Include="Images\EMSG_Mobile_Splashscreen_it.png" />
+    <Content Include="Mobile\index.htm" />
+    <Content Include="Mobile\javascript\Custom\CSharpConnector.js" />
+    <Content Include="Mobile\javascript\Custom\emsg.common.js" />
+    <Content Include="Mobile\javascript\Custom\emsg.interface.js" />
+    <Content Include="Mobile\javascript\Custom\emsg.js" />
+    <Content Include="Mobile\javascript\Custom\emsg.utils.js" />
+    <Content Include="Mobile\javascript\Custom\MapMode\ConditionIndex.js" />
+    <Content Include="Mobile\javascript\Custom\MapMode\emsg.mapmode.js" />
+    <Content Include="Mobile\javascript\Custom\Map\Edit.js" />
+    <Content Include="Mobile\javascript\Custom\Map\emsg.map.js" />
+    <Content Include="Mobile\javascript\Custom\ol.ex\Control\emsg.control.getfeatureat.js" />
+    <Content Include="Mobile\javascript\Custom\ol.ex\Control\emsg.control.segment.js" />
+    <Content Include="Mobile\javascript\Custom\ol.ex\Control\GetFeaturesAt.js" />
+    <Content Include="Mobile\javascript\Custom\ol.ex\Control\LayerSwitcher.Grouping.js" />
+    <Content Include="Mobile\javascript\Custom\ol.ex\Control\MeasureEx.js" />
+    <Content Include="Mobile\javascript\Custom\ol.ex\Control\ShowDirection.js" />
+    <Content Include="Mobile\javascript\Custom\ol.ex\Feature\emsg.feature.segment.js" />
+    <Content Include="Mobile\javascript\Custom\ol.ex\Handler\emsg.handler.segment.js" />
+    <Content Include="Mobile\javascript\Custom\ol.ex\Handler\emsg.handler.segmentpoint.js" />
+    <Content Include="Mobile\javascript\Custom\ol.ex\Layer\Grid.js" />
+    <Content Include="Mobile\javascript\Custom\ol.ex\Protocol\emsg.protocol.vector.js" />
+    <Content Include="Mobile\javascript\jquery\jquery-1.7.2.min.js" />
+    <Content Include="Mobile\javascript\jquery\jquery.json-2.2.min.js" />
+    <Content Include="Mobile\javascript\json2\json2.js" />
+    <Content Include="Mobile\javascript\OpenLayers-2.12\art\arrows.svg" />
+    <Content Include="Mobile\javascript\OpenLayers-2.12\art\layer-switcher-maximize.svg" />
+    <Content Include="Mobile\javascript\OpenLayers-2.12\art\layer-switcher-minimize.svg" />
+    <Content Include="Mobile\javascript\OpenLayers-2.12\art\marker.svg" />
+    <Content Include="Mobile\javascript\OpenLayers-2.12\art\measuring-stick-off.svg" />
+    <Content Include="Mobile\javascript\OpenLayers-2.12\art\measuring-stick-on.svg" />
+    <Content Include="Mobile\javascript\OpenLayers-2.12\art\panning-hand-off.svg" />
+    <Content Include="Mobile\javascript\OpenLayers-2.12\art\panning-hand-on.svg" />
+    <Content Include="Mobile\javascript\OpenLayers-2.12\art\slider.svg" />
+    <Content Include="Mobile\javascript\OpenLayers-2.12\art\zoom-world.svg" />
+    <Content Include="Mobile\javascript\OpenLayers-2.12\art\zoombar.svg" />
+    <Content Include="Mobile\javascript\OpenLayers-2.12\OpenLayers.debug.js" />
+    <Content Include="Mobile\javascript\OpenLayers-2.12\OpenLayers.js" />
+    <Content Include="Mobile\javascript\OpenLayers-2.12\OpenLayers.light.debug.js" />
+    <Content Include="Mobile\javascript\OpenLayers-2.12\OpenLayers.light.js" />
+    <Content Include="Mobile\javascript\OpenLayers-2.12\OpenLayers.mobile.debug.js" />
+    <Content Include="Mobile\javascript\OpenLayers-2.12\OpenLayers.mobile.js" />
+    <Content Include="Mobile\javascript\OpenLayers-2.12\OpenLayers.ori.js" />
+    <Content Include="Mobile\javascript\OpenLayers-2.12\theme\default\framedCloud.css" />
+    <Content Include="Mobile\javascript\OpenLayers-2.12\theme\default\google.css" />
+    <Content Include="Mobile\javascript\OpenLayers-2.12\theme\default\google.tidy.css" />
+    <Content Include="Mobile\javascript\OpenLayers-2.12\theme\default\ie6-style.css" />
+    <Content Include="Mobile\javascript\OpenLayers-2.12\theme\default\ie6-style.tidy.css" />
+    <Content Include="Mobile\javascript\OpenLayers-2.12\theme\default\style.css" />
+    <Content Include="Mobile\javascript\OpenLayers-2.12\theme\default\style.mobile.css" />
+    <Content Include="Mobile\javascript\OpenLayers-2.12\theme\default\style.mobile.tidy.css" />
+    <Content Include="Mobile\javascript\OpenLayers-2.12\theme\default\style.tidy.css" />
+    <Content Include="Mobile\style\default.css" />
+    <Content Include="Mobile\style\emsg.map.css" />
+    <Resource Include="Mobile\style\images\tree\dash.gif" />
+    <Resource Include="Mobile\style\images\tree\dashminus.gif" />
+    <Resource Include="Mobile\style\images\tree\dashplus.gif" />
+    <Resource Include="Mobile\style\images\tree\i.gif" />
+    <Resource Include="Mobile\style\images\tree\l.gif" />
+    <Resource Include="Mobile\style\images\tree\lminus.gif" />
+    <Resource Include="Mobile\style\images\tree\lplus.gif" />
+    <Resource Include="Mobile\style\images\tree\minus.gif" />
+    <Resource Include="Mobile\style\images\tree\noexpand.gif" />
+    <Resource Include="Mobile\style\images\tree\plus.gif" />
+    <Resource Include="Mobile\style\images\tree\r.gif" />
+    <Resource Include="Mobile\style\images\tree\rminus.gif" />
+    <Resource Include="Mobile\style\images\tree\rplus.gif" />
+    <Resource Include="Mobile\style\images\tree\t.gif" />
+    <Resource Include="Mobile\style\images\tree\tminus.gif" />
+    <Resource Include="Mobile\style\images\tree\tplus.gif" />
+    <Resource Include="Mobile\style\images\map\astra_new_point.png" />
+    <Resource Include="Mobile\style\images\map\durchsuchen.png" />
+    <Resource Include="Mobile\style\images\map\edit.png" />
+    <Resource Include="Mobile\style\images\map\EMSG-Sidewalk.png" />
+    <Resource Include="Mobile\style\images\map\EMSG-Strasse-neu.png" />
+    <Resource Include="Mobile\style\images\map\export.png" />
+    <Resource Include="Mobile\style\images\map\fe.gif" />
+    <Resource Include="Mobile\style\images\map\fe_on.gif" />
+    <Resource Include="Mobile\style\images\map\full-extend_off.gif" />
+    <Resource Include="Mobile\style\images\map\full_extent.png" />
+    <Resource Include="Mobile\style\images\map\identifyD.gif" />
+    <Resource Include="Mobile\style\images\map\identifyD_off.gif" />
+    <Resource Include="Mobile\style\images\map\identifyD_on.gif" />
+    <Resource Include="Mobile\style\images\map\identifypoint.gif" />
+    <Resource Include="Mobile\style\images\map\identifypoint_off.gif" />
+    <Resource Include="Mobile\style\images\map\identifypoint_on.gif" />
+    <Resource Include="Mobile\style\images\map\identifyPoly.gif" />
+    <Resource Include="Mobile\style\images\map\identifyPoly_off.gif" />
+    <Resource Include="Mobile\style\images\map\identifyPoly_on.gif" />
+    <Resource Include="Mobile\style\images\map\identifyRect.gif" />
+    <Resource Include="Mobile\style\images\map\identifyRect_off.gif" />
+    <Resource Include="Mobile\style\images\map\identifyRect_on.gif" />
+    <Resource Include="Mobile\style\images\map\import.png" />
+    <Resource Include="Mobile\style\images\map\info_Legende.png" />
+    <Resource Include="Mobile\style\images\map\markup.gif" />
+    <Resource Include="Mobile\style\images\map\markup_off.gif" />
+    <Resource Include="Mobile\style\images\map\markup_on.gif" />
+    <Resource Include="Mobile\style\images\map\measure.GIF" />
+    <Resource Include="Mobile\style\images\map\measureArea.GIF" />
+    <Resource Include="Mobile\style\images\map\measureArea_off.gif" />
+    <Resource Include="Mobile\style\images\map\measureArea_on.gif" />
+    <Resource Include="Mobile\style\images\map\measureLine.GIF" />
+    <Resource Include="Mobile\style\images\map\measureLine_off.gif" />
+    <Resource Include="Mobile\style\images\map\measureLine_on.gif" />
+    <Resource Include="Mobile\style\images\map\measure_off.gif" />
+    <Resource Include="Mobile\style\images\map\measure_on.gif" />
+    <Resource Include="Mobile\style\images\map\messen_Flaeche.png" />
+    <Resource Include="Mobile\style\images\map\messen_Linie.png" />
+    <Resource Include="Mobile\style\images\map\messen_LinieMitPunkten.png" />
+    <Resource Include="Mobile\style\images\map\neuanlegen.png" />
+    <Resource Include="Mobile\style\images\map\new_add.png" />
+    <Resource Include="Mobile\style\images\map\new_lin_pt.gif" />
+    <Resource Include="Mobile\style\images\map\new_lin_pt_off.gif" />
+    <Resource Include="Mobile\style\images\map\new_lin_pt_on.gif" />
+    <Resource Include="Mobile\style\images\map\next.png" />
+    <Resource Include="Mobile\style\images\map\pan.gif" />
+    <Resource Include="Mobile\style\images\map\pan.png" />
+    <Resource Include="Mobile\style\images\map\pan_off.gif" />
+    <Resource Include="Mobile\style\images\map\pan_on.gif" />
+    <Resource Include="Mobile\style\images\map\plot.gif" />
+    <Resource Include="Mobile\style\images\map\plot_off.gif" />
+    <Resource Include="Mobile\style\images\map\plot_on.gif" />
+    <Resource Include="Mobile\style\images\map\previous.png" />
+    <Resource Include="Mobile\style\images\map\refresh.gif" />
+    <Resource Include="Mobile\style\images\map\refresh_on.gif" />
+    <Resource Include="Mobile\style\images\map\rollenuebernahme_aufheben.png" />
+    <Resource Include="Mobile\style\images\map\select.png" />
+    <Resource Include="Mobile\style\images\map\selection-export.png" />
+    <Resource Include="Mobile\style\images\map\speichern.png" />
+    <Resource Include="Mobile\style\images\map\split_street.gif" />
+    <Resource Include="Mobile\style\images\map\split_street.png" />
+    <Resource Include="Mobile\style\images\map\split_street_off.gif" />
+    <Resource Include="Mobile\style\images\map\split_street_on.gif" />
+    <Resource Include="Mobile\style\images\map\zi.gif" />
+    <Resource Include="Mobile\style\images\map\zi_off.gif" />
+    <Resource Include="Mobile\style\images\map\zi_on.gif" />
+    <Resource Include="Mobile\style\images\map\zo.gif" />
+    <Resource Include="Mobile\style\images\map\zoom_current.png" />
+    <Resource Include="Mobile\style\images\map\zoom_in.png" />
+    <Resource Include="Mobile\style\images\map\zoom_out.png" />
+    <Resource Include="Mobile\style\images\map\zo_off.gif" />
+    <Resource Include="Mobile\style\images\map\zo_on.gif" />
+    <Resource Include="Mobile\style\images\map\Zustandsabschnitt.png" />
+    <Content Include="Resources\MobileLocalization.de.resx">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Resource Include="favicon.ico" />
+    <Resource Include="Images\infoerror.gif" />
+    <Resource Include="Images\EMSG-03.jpg" />
+    <Resource Include="Images\help.png" />
+    <Resource Include="Images\legende.png" />
+    <Resource Include="Images\edit.png" />
+    <Resource Include="Images\full_extent.png" />
+    <Resource Include="Images\Help_24x24.png" />
+    <Resource Include="Images\info_Legende.png" />
+    <Resource Include="Images\new_add.png" />
+    <Resource Include="Images\next.png" />
+    <Resource Include="Images\pan.png" />
+    <Resource Include="Images\previous.png" />
+    <Resource Include="Images\select.png" />
+    <Resource Include="Images\zoom_in.png" />
+    <Resource Include="Images\EMSG-03.bmp" />
+    <Resource Include="Images\export.png" />
+    <Resource Include="Images\import.png" />
+    <Content Include="Help\de\ZustandsabschnittMapHelpPage_files\themedata.thmx">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Help\de\ZustandsabschnittTrottoirZustandHelpPage_files\themedata.thmx">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <None Include="Mobile\javascript\OpenLayers-2.12\.gitignore" />
+    <None Include="Mobile\javascript\OpenLayers-2.12\readme.md" />
+    <None Include="Mobile\style\sld\testsld.sld" />
+    <None Include="Resources\zi_on.gif" />
+    <None Include="Resources\zo_on.gif" />
+    <Resource Include="Mobile\javascript\OpenLayers-2.12\authors.txt" />
+    <Resource Include="Mobile\javascript\OpenLayers-2.12\license.txt" />
+    <Resource Include="Mobile\javascript\OpenLayers-2.12\licenses\APACHE-2.0.txt" />
+    <Resource Include="Mobile\javascript\OpenLayers-2.12\licenses\BSD-LICENSE.txt" />
+    <Resource Include="Mobile\javascript\OpenLayers-2.12\licenses\MIT-LICENSE.txt" />
+    <Resource Include="Resources\zoom_in.png" />
+    <Resource Include="Resources\zoom_out.png" />
+    <Content Include="TestExportPackage\Export.emsg">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Resource Include="Images\Cancel.png" />
+    <Resource Include="Images\EMSG-Strasse.png" />
+    <Resource Include="Images\EMSG-Trottoir.png" />
+    <Resource Include="Images\formDelete.png" />
+    <Resource Include="Images\save.png" />
+    <Resource Include="Images\Submit.png" />
+    <Content Include="Help\fr\ZustandsabschnittFahrbahnZustandHelpPage.html">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Help\fr\ZustandsabschnittFormHelpPage.html">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Help\fr\ZustandsabschnittMapHelpPage.html">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Help\fr\ZustandsabschnittTrottoirZustandHelpPage.html">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Help\it\ZustandsabschnittFahrbahnZustandHelpPage.html">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Help\it\ZustandsabschnittFormHelpPage.html">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Help\it\ZustandsabschnittMapHelpPage.html">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Help\it\ZustandsabschnittTrottoirZustandHelpPage.html">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Resource Include="Images\help.gif" />
+    <Content Include="Resources\MobileLocalization.fr.resx">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Resources\MobileLocalization.it.resx">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <None Include="App.config">
+      <SubType>Designer</SubType>
+    </None>
+    <Content Include="NLog.config">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <None Include="NLog.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="packages.config" />
+    <None Include="Properties\Settings.settings">
+      <Generator>SettingsSingleFileGenerator</Generator>
+      <LastGenOutput>Settings.Designer.cs</LastGenOutput>
+    </None>
+    <AppDesigner Include="Properties\" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\..\Common\ASTRA.EMSG.Common\ASTRA.EMSG.Common.csproj">
+      <Project>{C54AFF3E-8BF6-4AC7-A5E4-9EF65322639D}</Project>
+      <Name>ASTRA.EMSG.Common</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\ASTRA.EMSG.Common.Mobile\ASTRA.EMSG.Common.Mobile.csproj">
+      <Project>{5219BB38-F13C-46CE-9CC3-70B6576CAFB8}</Project>
+      <Name>ASTRA.EMSG.Common.Mobile</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\ASTRA.EMSG.Localization\ASTRA.EMSG.Localization.csproj">
+      <Project>{918E5FD3-56AF-414C-9685-DAB26AC69564}</Project>
+      <Name>ASTRA.EMSG.Localization</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\ASTRA.EMSG.Map\ASTRA.EMSG.Map.csproj">
+      <Project>{E05567CF-0CED-49CD-91AC-3334C60351DF}</Project>
+      <Name>ASTRA.EMSG.Map</Name>
+    </ProjectReference>
+  </ItemGroup>
+  <ItemGroup>
+    <BootstrapperPackage Include=".NETFramework,Version=v4.0,Profile=Client">
+      <Visible>False</Visible>
+      <ProductName>Microsoft .NET Framework 4 Client Profile %28x86 and x64%29</ProductName>
+      <Install>true</Install>
+    </BootstrapperPackage>
+    <BootstrapperPackage Include="Microsoft.Net.Client.3.5">
+      <Visible>False</Visible>
+      <ProductName>.NET Framework 3.5 SP1 Client Profile</ProductName>
+      <Install>false</Install>
+    </BootstrapperPackage>
+    <BootstrapperPackage Include="Microsoft.Net.Framework.3.5.SP1">
+      <Visible>False</Visible>
+      <ProductName>.NET Framework 3.5 SP1</ProductName>
+      <Install>false</Install>
+    </BootstrapperPackage>
+    <BootstrapperPackage Include="Microsoft.Windows.Installer.3.1">
+      <Visible>False</Visible>
+      <ProductName>Windows Installer 3.1</ProductName>
+      <Install>true</Install>
+    </BootstrapperPackage>
+  </ItemGroup>
+  <ItemGroup>
+    <Folder Include="Mobile\images\" />
+    <Folder Include="Mobile\javascript\OpenLayers-2.12\img\" />
+    <Folder Include="Mobile\javascript\OpenLayers-2.12\theme\default\img\" />
+  </ItemGroup>
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+  <PropertyGroup>
+    <PostBuildEvent>xcopy /Q /Y /E /D "$(ProjectDir)Mobile" "$(TargetDir)Mobile\"</PostBuildEvent>
+  </PropertyGroup>
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target>
+  -->
+</Project>

@@ -1,0 +1,135 @@
+﻿@model HandleErrorInfo
+@using ASTRA.EMSG.Business.Services.Security
+@using ASTRA.EMSG.Common.Enums
+@using ASTRA.EMSG.Common.Exceptions
+@using ASTRA.EMSG.Common.Master.ConfigurationHandling
+@using ASTRA.EMSG.Common.Master.Logging
+@using ASTRA.EMSG.Web.Infrastructure
+@using ASTRA.EMSG.Web.Infrastructure.HtmlHelperExtensions
+@using Autofac
+
+@using Resources
+@{
+    Layout = null;
+    var configPorivder = new ServerConfigurationProvider();
+}
+<!DOCTYPE html>
+<html>
+<head>
+    <title>@TitleLocalization.ErrorTitle</title>
+    @*Note: For Development and Testing*@
+    @*<meta http-equiv="X-UA-Compatible" content="IE=EmulateIE8">*@
+    @*Note: For Deployed Version*@ 
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta http-equiv="pragma" content="no-cache" />
+    <meta http-equiv="cache-control" content="no-cache" />
+    <meta charset="utf-8" />
+    <link rel="shortcut icon" href="/favicon.ico" type="image/x-icon" />
+    <link href="@Url.Content("~/Content/Site.css")" rel="stylesheet" type="text/css" />
+    <script src="@Url.Content("~/Scripts/jquery-3.1.0.min.js")" type="text/javascript"></script>
+    <script src="@Url.Content("~/Scripts/jquery.blockUI.js")" type="text/javascript"></script>
+    <script src="@Url.Content("~/Scripts/Areas/Common/Common.js")" type="text/javascript"></script>
+    
+    @*<link href="@Url.Content("~/Content/kendo/2016.2.714/telerik/telerik.common.css")" rel="stylesheet" type="text/css" />
+    <link href="@Url.Content("~/Content/kendo/2016.2.714/telerik/telerik.windows7.min.css")" rel="stylesheet" type="text/css" />*@
+
+    <link href="@Url.Content("~/Content/kendo/2016.2.714/kendo.common.min.css")" rel="stylesheet" type="text/css" />
+    <link href="@Url.Content("~/Content/kendo/2016.2.714/kendo.silver.min.css")" rel="stylesheet" type="text/css" />
+
+    <script src="@Url.Content("~/Scripts/kendo/2016.2.714/kendo.all.min.js")"></script>
+
+    <link href="@Url.Content("~/Content/Site.telerik.EMSG.css")" rel="stylesheet" type="text/css" />
+</head>
+    <body>
+         <div id="wrapper" style="position: absolute; left: 0px; top: 0px; right: 0px; bottom: 0px;">
+        <div style="margin: 5px">
+            @if (!(ViewBag.DisableMenu ?? false))
+            {
+                <div class="header">
+                    <div class="logo">
+                    </div>
+                    <div class="menu">
+                        <div class="contextmenu">
+                            <div style="float: left; margin-top: 5px; margin-left: 10px">
+                                <a class="emsg-black-link" href="http://www.mistra.ch" target="_blank">@TextLocalization.MistraStartSeite</a>
+                                <span class="lsep emsg-black-link">|</span> <a class="emsg-black-link" href="http://emsg.mistra.ch " target="_blank">@TextLocalization.HelpDesk</a>
+                            </div>
+                            @Html.Partial("VersionInfo")
+                        </div>
+                        <div class="mainmenu">
+                            <div style="float: right; margin-left: 4px; margin-right: 4px; margin-top: 5px">@Html.HelpButton()</div>
+                            <div style="float: left">@Html.Action("ErrorMenu", "Header", new { area = "" })</div>
+                            <div style="float: right; margin-right: 20px">
+                            </div>
+                        </div>
+                    </div>
+                    <div class="breadcrumb">
+                        <div style="float: left">@Html.Action("ErrorBreadcrumb", "Header", new { area = "" })</div>
+                    </div>
+                    <div style="float: right; margin-right: 15px" class="emsg-user-info-item">
+                        @Html.Action("ErrorUserInfo", "Header", new { area = "" })
+                    </div>
+                </div>
+                <div style="clear: both; margin-bottom: 10px"></div>
+            }
+        </div>
+        <div style="clear: both; margin: 5px;">
+            <div id="contentdiv" style="min-width: @(ViewBag.ContentDivWidth ?? 960)px" >
+                <h2>
+            @{
+                var lastErrorTrackId = Guid.NewGuid();
+                var securityService = Autofac.Integration.Mvc.AutofacDependencyResolver.Current.ApplicationContainer.Resolve<ISecurityService>();
+                var userinfo = securityService.GetCurrentUserInfo();
+                string errorText = "";
+
+                if (userinfo != null)
+                {
+                    errorText = String.Format("CurrentUser: {0}, CurrentMandant: {1}", userinfo.CurrentUserName, userinfo.CurrentMandantName) + Environment.NewLine;
+                }
+                Loggers.ApplicationLogger.Error(errorText + string.Format("[TrackingId: {0}][{1}]", lastErrorTrackId, ErrorLoggingContextInfoStore.CurrentErrorLoggingContextInfo), Model.Exception);
+
+                string.Format(NotificationLocalization.ErrorWhileProcessingRequest, lastErrorTrackId);
+
+                var emsgException = Model.Exception as EmsgException;
+                if (emsgException != null)
+                {
+                    <hr/>
+                    @(new LocalizationService().GetLocalizedEnum(emsgException.EmsgExceptionType))
+                }
+            }
+        </h2>
+    
+        @if (configPorivder.Environment == ApplicationEnvironment.Development || configPorivder.Environment == ApplicationEnvironment.SpecFlow)
+        {
+            <hr/>
+            <span style="color: Red">
+                <h1>
+                    Nur währen Entwicklungszeit sehbare detailed Fehlerinformationen!
+                </h1>
+                <span>
+                    @Model.Exception.Message
+                    @Model.Exception.StackTrace
+                    @if (Model.Exception.InnerException != null)
+                    {
+                        @Model.Exception.InnerException.ToString()
+                    }
+                </span>
+            </span>
+        }
+        <!--
+            You have to provide at least 512 character as Html output on the Error Page to force the Browser to display it.
+            That is the reason for this comment.
+            You have to provide at least 512 character as Html output on the Error Page to force the Browser to display it.
+            That is the reason for this comment.
+            You have to provide at least 512 character as Html output on the Error Page to force the Browser to display it.
+            That is the reason for this comment.
+            You have to provide at least 512 character as Html output on the Error Page to force the Browser to display it.
+            That is the reason for this comment.
+            You have to provide at least 512 character as Html output on the Error Page to force the Browser to display it.
+            That is the reason for this comment.
+            -->
+            </div>
+        </div>
+    </div>
+    </body>
+</html>

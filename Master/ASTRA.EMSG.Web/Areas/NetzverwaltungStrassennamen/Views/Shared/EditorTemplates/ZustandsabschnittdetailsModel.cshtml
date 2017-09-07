@@ -1,0 +1,56 @@
+﻿@using ASTRA.EMSG.Common.Enums
+@using Resources
+@using ASTRA.EMSG.Web.Infrastructure.HtmlHelperExtensions
+@using Kendo.Mvc.UI
+@model ASTRA.EMSG.Business.Models.Common.ZustandsabschnittdetailsModel
+
+@functions 
+{
+    private Dictionary<string, object> GetRadioButtonHtmlAttributes(string id)
+    {
+        var radioButtonHtmlAttributes = new Dictionary<string, object> { { "id", id } };
+        if (Model.Belag == BelagsTyp.Chaussierung || Model.Belag == BelagsTyp.Pflaesterung)
+        {
+            radioButtonHtmlAttributes.Add("Disabled", "true");
+        }
+        return radioButtonHtmlAttributes;
+    }
+}
+
+<div class="popupFormFieldset">
+    @FormViewHelpers.InspektionsrouteLockedNotification(Html, Model.IsLocked)
+    <div>
+        @Html.HiddenFor(m => m.Id)
+        @Html.HiddenFor(m => m.Strassenname)
+        @Html.HiddenFor(m => m.BezeichnungVon)
+        @Html.HiddenFor(m => m.BezeichnungBis)
+        @Html.HiddenFor(m => m.BelastungskategorieTyp)
+        @Html.HiddenFor(m => m.Belag)
+        @Html.HiddenFor(m => m.IsGrobInitializiert)
+        @Html.HiddenFor(m => m.IsDetailInitializiert)
+    </div>
+    <div>
+        <b>@Html.LocalizedLabelFor(m => m.Erfassungsmodus)</b>
+        @Html.RadioButtonFor(m => m.Erfassungsmodus, ZustandsErfassungsmodus.Manuel, new { id = "Manuel" })
+        <label for="Manuel">@Html.LocalizedEnum(ZustandsErfassungsmodus.Manuel)</label>
+        @Html.RadioButtonFor(m => m.Erfassungsmodus, ZustandsErfassungsmodus.Grob, GetRadioButtonHtmlAttributes("Grob"))
+        <label for="Grob">@Html.LocalizedEnum(ZustandsErfassungsmodus.Grob)</label>
+        @Html.RadioButtonFor(m => m.Erfassungsmodus, ZustandsErfassungsmodus.Detail, GetRadioButtonHtmlAttributes("Detail"))
+        <label for="Detail">@Html.LocalizedEnum(ZustandsErfassungsmodus.Detail)</label>
+    </div>
+    <div id="erfassungFormDiv">
+        @Html.Partial("EditorTemplates/ErfassungFormEditor", Model)
+    </div>
+    <div>
+        @(Html.EditorTable(140)
+            .WithLookupEditorFor(m => m.MassnahmenvorschlagKatalog,
+                                    (IEnumerable<DropDownListItem>)ViewBag.MassnahmenvorschlagKatalogen,
+                                    requiredField: false,
+                                    customize: b => b.Events(events =>
+                                        events.Change(string.Format("edit.getMassnahmenvorschlagKosten")))
+                                        .HtmlAttributes(new { data_rechte_trottoir = @Html.ClientIdFor(m => m.Kosten) }))
+           .WithDisplayFor(m => m.Kosten, false, TextLocalization.KostenProQuadratmeter)
+           .WithEnumEditorFor(m => m.Dringlichkeit, () => Model.Dringlichkeit, null, false)
+           .WithDisplayFor(m => m.KostenFahrbahn, false, TextLocalization.GesamtKostenCurrency))
+    </div>
+</div>

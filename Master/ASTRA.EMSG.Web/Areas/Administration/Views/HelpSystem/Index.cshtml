@@ -1,0 +1,57 @@
+﻿@using ASTRA.EMSG.Web.Infrastructure.HtmlHelperExtensions
+@using Resources
+@using Kendo.Mvc.UI
+@model string
+@section JavaScript
+{
+    <script type="text/javascript" src="@(Url.Content("~/Scripts/Areas/Administration/HelpSystem/HelpSystem.js"))"></script>
+}
+<h2>@TitleLocalization.HelpSystemPageTitle</h2>
+<b>@TitleLocalization.MasterHelpSystemSubTitle</b>
+<fieldset class="popupFormFieldset k-edit-form-container">
+    @Html.ActionLinkButton(ButtonLocalization.GetMasterHelpSystem, "GetMasterHelpSystem")
+    <hr style="margin-bottom: 20px" />
+    @{
+        Html.Kendo().Upload()
+            .Name("uploadMasterHelpSystemFiles")
+            .Async(async => async.Save("UploadMasterHelpSystem", "HelpSystem"))
+            .Events(events =>
+                              {
+                                  events.Success("index.onSuccess");
+                                  events.Error("index.onError");
+                                  events.Select("index.onSelect");
+                                  events.Upload("index.onUpload");
+                              })
+            .Render();
+    }
+</fieldset>
+<b>@TitleLocalization.MobileHelpSystemSubTitle</b>
+<fieldset class="popupFormFieldset k-edit-form-container">
+    @Html.ActionLinkButton(ButtonLocalization.GetMobileHelpSystem, "GetMobileHelpSystem")
+    <hr style="margin-bottom: 20px" />
+    @{
+        Html.Kendo().Upload()
+            .Name("uploadMobileHelpSystemFiles")
+            .Async(async => async.Save("UploadMobileHelpSystem", "HelpSystem"))
+            .Events(events =>
+                              {
+                                  events.Success("index.onSuccess");
+                                  events.Error("index.onError");
+                                  events.Select("index.onSelect");
+                                  events.Upload("index.onUpload");
+                              })
+            .Render();
+    }
+</fieldset>
+@(Html.Hidden("parameters", null, new Dictionary<string, object>
+                                        {
+                                            {"id", "parameters"},
+                                            {"data-uploadResultUrl", Url.Action("GetLastUploadResult")},
+                                            {"data-progressText", NotificationLocalization.UploadHelpSystemProgressText},
+                                            {"data-errorMessage", NotificationLocalization.UploadFileLimitExceeded},
+                                            {"data-fileExtensionErrorMessage", NotificationLocalization.UploadHelpSystemFileExtensionErrorText},
+                                        }))
+<hr />
+<br />
+<div id="result">
+</div>

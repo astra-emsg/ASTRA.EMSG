@@ -1,0 +1,11 @@
+﻿@using ASTRA.EMSG.Web.Infrastructure.HtmlHelperExtensions
+@using Resources
+@model ASTRA.EMSG.Web.Areas.NetzverwaltungGIS.Controllers.ZustandsabschnittGISMonsterModel
+
+@Html.EditorFor(m => m.Fahrbahn, "ErfassungFormEditor")
+
+<div style="float: right">
+@Html.UnobtrusiveSubmitButton(ButtonLocalization.Accept, null)
+@Html.UnobtrusiveReCalculateButton("ReCalculate")
+@Html.CancelButton("monsterEditor.cancel()")
+</div>

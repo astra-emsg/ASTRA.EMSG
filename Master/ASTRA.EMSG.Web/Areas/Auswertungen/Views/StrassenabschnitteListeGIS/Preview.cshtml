@@ -1,0 +1,31 @@
+﻿@using ASTRA.EMSG.Common.Enums
+
+@using ASTRA.EMSG.Web.Areas.Auswertungen.ReportGridCommands
+@using ASTRA.EMSG.Web.Infrastructure
+@using ASTRA.EMSG.Web.Infrastructure.HtmlHelperExtensions
+@using Resources
+@using Kendo.Mvc.UI
+@model StrassenabschnitteListeGridCommand
+@{
+    ViewData.Model = new StrassenabschnitteListeGridCommand();
+}
+
+@Html.Hidden("ErfassungsPeriod", Model.ErfassungsPeriodId)
+
+<div class="emsg-filter-expand-area-bottom">
+    <div id="filterDiv">
+        <div style="display: inline-block; width: @(ViewSizeConstants.GisReportFilterBlockWidth)px">
+             @(Html.ToGridFilterBuilder<StrassenabschnitteListeGridCommand>(ViewSizeConstants.GisReportFilterFieldLabelWidth)
+                .WithIntEnumFilter<EigentuemerTyp>(m => m.Eigentuemer, filterFunction: "gisReport.form.refreshGrid")
+                .WithTextFilter(m => m.Ortsbezeichnung)
+                .WithoutFilterButton())
+        </div>
+        <div style="display: inline-block">
+             @(Html.ToGridFilterBuilder<StrassenabschnitteListeGridCommand>(ViewSizeConstants.GisReportFilterFieldLabelWidth)
+                  .WithLookupFilter(m => m.Belastungskategorie, (IEnumerable<DropDownListItem>)ViewBag.Belastungskategorien, filterFunction: "gisReport.form.refreshGrid")
+                  .WithFilterButton(true, "gisReport.form.refreshGrid"))
+        </div>
+    </div>
+</div>
+
+@Html.Partial("MapGridTabs")

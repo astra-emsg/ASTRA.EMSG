@@ -1,0 +1,12 @@
+﻿@using Resources
+@model dynamic
+<div>
+    @if ((bool)ViewBag.IsInSupportMode)
+    {
+        <a href='@(Url.Action("StopSupporting", "AndereBenutzerrollenEinnehmen", new { area = "Administration" }))' style="text-decoration: none; color: transparent">
+            <img src='@Url.Content("~/Content/images/rollenuebernahme_aufheben.png")'/>
+        </a>
+    }
+    
+    <a href="/auth/changepassword">@ModelLocalization.PasswortAndern</a><span class="lsep">|</span><a href="/auth/logout">@ModelLocalization.Ausloggen</a><span class="lsep">|</span>@(ViewBag.UserName)<span class="lsep">|</span>@(Html.ActionLink(((string)ViewBag.Mandant), "Index", "Home", new { area = "" }, new { style = "color: black", title = MenuLocalization._Home_Index }))
+</div>

@@ -1,0 +1,17 @@
+﻿<style type="text/css">
+ .legend .layer.Name_MV_ACHSENSEGMENT 
+,.legend .layer.Name_STRASSENABSCHNITTGIS
+,.legend .layer.Name_ZUSTANDSABSCHNITTGIS_IndexIsNull
+,.legend .layer.Name_ZUSTANDSABSCHNITTGIS
+,.legend .layer.Name_AchsenUpdateKonflikteGIS
+{
+  display: inline;
+}
+</style>
+
+<script type="text/javascript">
+    globalMapAdjustCorrector = -35;
+
+  emsg.config.set("WMS.ARCGIS.LAYERS.STRASSENABSCHNITTE", "StrassenabschnittLayer_SingleColor");
+  emsg.map = new Emsg.Map.Edit(emsg, Emsg.MapMode.ConditionIndex);
+</script>

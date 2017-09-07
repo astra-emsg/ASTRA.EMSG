@@ -1,0 +1,58 @@
+﻿@using ASTRA.EMSG.Common.Enums
+@using ASTRA.EMSG.Web.Infrastructure.HtmlHelperExtensions
+@using Resources
+@using Kendo.Mvc.UI
+@model IEnumerable<DropDownListItem>
+    @{
+        ViewBag.Title = TitleLocalization.AchsenEditModePageTitle;
+    }
+
+    <h2>@TitleLocalization.AchsenEditModePageTitle</h2>
+@section JavaScript
+{
+    <script type="text/javascript" src="@Url.Content("~/Scripts/Areas/Administration/AchsenEditMode/AchsenEditMode.js")"></script>
+}
+    <span>@ModelLocalization.HomeModel_MandantName</span>
+    <span style="margin-top: 3px;">
+        @(Html.Kendo().DropDownList()
+            .Name("MandantenSelector")
+            .BindTo((IEnumerable<DropDownListItem>)ViewBag.Mandanten)
+            .Events(events => events.Change("OnMandantChange"))
+            .Width(150))
+    </span>
+
+<script type="text/javascript">
+
+    function OnMandantChange(e) {
+        window.location = "@(Url.Action("Index", "AchsenEditMode", new {area = "Administration"}))" + "/?mandantId=" + this.value();
+    }
+
+</script>
+    @if (((Guid?) ViewBag.MandantId).HasValue)
+    {
+        if (ViewBag.IsAchsenEditEnabled)
+        {
+            <div style="margin-top: 10px">
+                @NotificationLocalization.AchsenEditEnabled
+            </div>
+        }
+        else
+        {
+            using (Html.BeginForm("EnableAchsenEdit", "AchsenEditMode", FormMethod.Post, new
+            {
+                id = "form",
+                className = "k-edit-form",
+                data_confirmation = NotificationLocalization.AchsenEditModeChangeConfirmation,
+            }))
+            {
+                <fieldset class="formFieldset k-edit-form-container">
+                    @NotificationLocalization.AchsenEditModeChangeWarning
+                    <div id="parameters" data-cancel-url="@(Url.Action("Cancel"))"></div>
+                    <input type="hidden" name="selectedMandantDetailsId" value="@ViewBag.MandantDetailsId"/>
+
+                    @Html.UnobtrusiveOkCancelFormButtons(ButtonLocalization.AchsenEditModeWechseln)
+                </fieldset>
+            }
+
+        }
+    }

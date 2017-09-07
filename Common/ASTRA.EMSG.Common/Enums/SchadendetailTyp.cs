@@ -1,0 +1,38 @@
+﻿namespace ASTRA.EMSG.Common.Enums
+{
+    public enum SchadendetailTyp
+    {
+        Polieren,
+        Abrieb,
+        Abblaetterung,
+        Abplatzungen,
+        KantenschaedenAbsplitterung,
+        FehlenderOderSproederFugenverguss,
+        SetzungenFrosthebungen,
+        Stufenbildung,
+        Pumpen,
+        BlowUp,
+        Risse,
+        ZerstoertePlatten,
+        Flicke,
+        Schwitzen,
+        AusmagerungAbsanden,
+        Kornausbrueche,
+        Abloesungen,
+        Schlagloecher,
+        OffeneNaehte,
+        Querrisse,
+        WildeRisse,
+        Spurrinnen,
+        Aufwoelbungen,
+        Wellblechverformungen,
+        Schubverformungen,
+        AnrisseVonSetzungen,
+        SetzungenEinsenkungen,
+        AbgedrueckteRaeder,
+        Frosthebungen,
+        Laengsrisse,
+        Netzrisse,
+        Belagsrandrisse
+    }
+}

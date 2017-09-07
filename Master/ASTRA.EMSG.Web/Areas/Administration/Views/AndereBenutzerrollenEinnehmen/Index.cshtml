@@ -1,0 +1,20 @@
+﻿@using ASTRA.EMSG.Web.Infrastructure.HtmlHelperExtensions
+@using Resources
+<h2>@TitleLocalization.AndereBenutzerrollenEinnehmenPageTitle</h2>
+@model ASTRA.EMSG.Business.Models.Administration.AndereBenutzerrollenEinnehmenModel
+
+@section JavaScript
+{
+    <script type="text/javascript" src="@Url.Content("~/Scripts/Areas/Administration/AndereBenutzerrollenEinnehmen/AndereBenutzerrollenEinnehmen.js")"></script>
+}
+
+@using (Html.BeginForm("AndereBenutzerrollenEinnehmen", "AndereBenutzerrollenEinnehmen", FormMethod.Post, new { id = "form", className = "k-edit-form" }))
+{
+    <div id="parameters" data-cancel-url="@(Url.Action("Cancel"))" />
+    <fieldset class="formFieldset k-edit-form-container">
+        @Html.EditorTable().WithTextBoxFor(m => m.UserName)
+
+        @Html.UnobtrusiveOkCancelFormButtons(ButtonLocalization.AndereBenutzerrollenEinnehmen)
+    </fieldset>
+    @Html.RequiredFieldLegend()
+}

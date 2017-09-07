@@ -1,0 +1,39 @@
+﻿@using ASTRA.EMSG.Business.Models.GIS
+@using ASTRA.EMSG.Common
+@using ASTRA.EMSG.Web.Infrastructure
+@using ASTRA.EMSG.Web.Infrastructure.HtmlHelperExtensions
+@using Kendo.Mvc.UI
+@using Resources
+
+<h2>@TitleLocalization.AchsenUpdateSuccessfulPageTitle</h2>
+<div>
+    <table style="width: 100%;">
+        <tr>
+            <td style="vertical-align: top; width: 65%">
+                <div style="min-width: 500px;">@Html.Partial("GlobalMap")</div>
+            </td>
+            <td style="vertical-align: top; width: 35%;">
+                <div style="min-width: 350px; max-width: 500px" id="FormDiv">
+                </div>
+            </td>
+        </tr>
+        <tr>
+            <td>
+                @(Html.Kendo().Grid<AchsenImportModel>()
+                    .Name("AchsenImportModelGrid")
+                    .ApplyEmsgSettings(filterable: false, editable: false)
+                    .DataSource(dataBinding => dataBinding
+                        .Ajax()
+                        .Read(c => c.Action("GetAll", "Achsenupdate"))
+                        .PageSize(ConstantSettings.GridPageSize))
+                    .Columns(columns =>
+                    {
+                        columns.Bound(m => m.ErfassungsPeriodeDateTime).Title(GridHeaderFooterLocalization.ErfassungsPeriodeDateTime).Format(FormatStrings.ShortDateTimeFormat);
+                        columns.Bound(m => m.ImportDateTime).Title(GridHeaderFooterLocalization.ImportDateTime).Format(FormatStrings.LongDateTimeFormat);
+                        columns.Bound(m => m.ImportStatistic).Title(GridHeaderFooterLocalization.ImportStatistic);
+                        columns.Bound(m => m.AchsenVersion).Title(GridHeaderFooterLocalization.AchsenVersion);
+                    }))
+            </td>
+        </tr>
+    </table>
+</div>

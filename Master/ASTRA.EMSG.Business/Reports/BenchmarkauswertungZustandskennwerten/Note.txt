@@ -1,0 +1,12 @@
+﻿If you do a change on the Benchmarkauswertung*.rdlc please do it also on the Benchmarkauswertung*OhneGruppe.rdlc!
+
+Create Benchmarkauswertung*.OhneGruppe.rdlc from Benchmarkauswertung*.rdlc:
+---------------------------------------------------------------------------
+
+1) Overwrite Benchmarkauswertung*.OhneGruppe.rdlc with Benchmarkauswertung*.rdlc
+2) Open in Designer
+3) Click on the "Eigenschaften der Gruppe" Cell. (Remember the Width of the Cell)
+4) Click on the Second Cell in the First Row
+5) Right Click on the DesignerHeader of the "Eigenschaften der Gruppe" Column (Delete Columns..)
+6) Click on the First Subreport
+7) Decrease the Width with the remembered Width

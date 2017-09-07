@@ -1,0 +1,47 @@
+﻿@using ASTRA.EMSG.Web.Infrastructure.HtmlHelperExtensions
+@using JetBrains.Annotations
+@using Resources
+@using Kendo.Mvc.UI
+@model ASTRA.EMSG.Business.Models.Administration.ErfassungsabschlussModel
+
+@if (Model != null)
+{
+    using (Ajax.BeginForm("ErfassungsPeriodAbschluss", null,
+                          new AjaxOptions
+                          {
+                              HttpMethod = "POST",
+                              UpdateTargetId = "erfassungsabschlussFormDiv",
+                              InsertionMode = InsertionMode.Replace
+                          }, new { id = "form", className = "k-edit-form" }))
+    {
+        <fieldset class="formFieldset k-edit-form-container">
+            @Html.EditorTable().WithCustomEditorFor(m => m.AbschlussDate, MvcHtmlString.Create(Html.Kendo().DropDownListFor(m => m.AbschlussDate).BindTo((IEnumerable<DropDownListItem>)ViewBag.ErfassungsabschlussModellen).HtmlAttributes(new { style = "width: 200px;" }).ToHtmlString()))
+            
+            
+            @{
+                string submitComfirmationMessage;
+                if (ViewBag.IsThereMissingZustandsabschnitte)
+                {
+                    submitComfirmationMessage = NotificationLocalization.JahresabschlussMissingZustandsabschnitteConfirmation;
+                }
+                else
+                {
+                    submitComfirmationMessage = NotificationLocalization.JahresabschlussConfirmation;
+                }
+                if (ViewBag.NetzErfassungsmodus == ASTRA.EMSG.Common.Enums.NetzErfassungsmodus.Gis && ViewBag.ApproxWaitTime>0)
+                {
+                    submitComfirmationMessage += "\n" + string.Format(NotificationLocalization.JahresAbschlussDurationWarning, ViewBag.ApproxWaitTime);
+                }
+            }
+            @Html.UnobtrusiveOkFormButton(ButtonLocalization.JahresAbschluss, submitComfirmationMessage)
+        </fieldset>
+        @Html.RequiredFieldLegend()
+    }
+    
+}
+else
+{
+    <b>
+        @NotificationLocalization.JahresAbschlussWasSuccessfull
+    </b>
+}

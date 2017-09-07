@@ -1,0 +1,18 @@
+﻿@using Resources
+@using ASTRA.EMSG.Web.Infrastructure.HtmlHelperExtensions
+<style type="text/css">
+ .legend .layer.Name_MV_ACHSENSEGMENT 
+,.legend .layer.Name_RealisierteMassnahmeGIS_Auswertung
+{
+  display: inline;
+}
+</style>
+
+<script type="text/javascript">
+    globalMapAdjustCorrector = -35;
+    emsg.config.set("TEXT.LAYER.REALISIERT", "@Html.Raw(MapLocalization.RealisierteMassnahmeGIS_Auswertung.EscapeJavaScriptString())");
+    emsg.config.set("WMS.ARCGIS.LAYERS.REALISIERT", "RealisierteMassnahmenLayer");
+    emsg.config.set("WMS.ARCGIS.LAYERID", "RealisierteMassnahmeGIS_Auswertung");
+    emsg.map = new Emsg.Map.Edit(emsg, Emsg.MapMode.RealisierteMassnahmen);
+  emsg.map.layer_property = 'realisert';
+</script>

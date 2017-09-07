@@ -1,0 +1,8 @@
+﻿<Application x:Class="ASTRA.EMSG.Mobile.Installer.App"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:Utils="clr-namespace:ASTRA.EMSG.Mobile.Installer.Utils" StartupUri="MainWindow.xaml">
+    <Application.Resources>
+        <Utils:LanguageSelector x:Key="Resx" />
+    </Application.Resources>
+</Application>

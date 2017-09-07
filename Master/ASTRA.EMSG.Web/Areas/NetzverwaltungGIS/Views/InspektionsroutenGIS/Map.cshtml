@@ -1,0 +1,21 @@
+﻿@using Resources
+@using ASTRA.EMSG.Web.Areas.NetzverwaltungGIS.Controllers.Common
+
+<style type="text/css">
+    .legend .layer.Name_STRASSENABSCHNITTGISBK
+    ,.legend .layer.Name_InspektionsrouteGIS
+    {
+        display: inline;	
+    }
+</style>
+
+
+<script type="text/javascript">
+  globalMapAdjustCorrector = -35;
+  emsg.config.set("WMS.ARCGIS.LAYERS.STRASSENABSCHNITTE", "StrassenabschnittLayer");
+  emsg.config.set("GIS.CONTROLLER.GET_STRABS_AT", '@(Url.Action("GetStrassenabschnittAt", "InspektionsroutenGIS"))');
+  emsg.config.set("GIS.CONTROLLER.GET_STRABS_BY_ROUTEID", '@(Url.Action("GetStrassenabschnitteFromInspektionsroute", "InspektionsroutenGIS"))');
+  emsg.config.set("GIS.CONTROLLER.GET_STRABS_BY_BBOX", '@(Url.Action("GetStrassenabschnittByBbox", "InspektionsroutenGIS"))');
+
+  emsg.map = new Emsg.Map.InspectionRoute(emsg);
+</script>

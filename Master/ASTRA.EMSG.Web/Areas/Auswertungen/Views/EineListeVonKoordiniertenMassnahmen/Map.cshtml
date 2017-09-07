@@ -1,0 +1,21 @@
+﻿@using Resources
+@using ASTRA.EMSG.Web.Infrastructure.HtmlHelperExtensions
+
+<style type="text/css">
+.legend .Name_KoordinierteMassnahmeGIS_Auswertung
+{
+  display : inline;
+}
+</style>
+
+<script type="text/javascript">
+    globalMapAdjustCorrector = -20;
+
+    emsg.config.set("TEXT.LAYER.MASSNAHMEN", "@Html.Raw(MapLocalization.KoordinierteMassnahmeGIS_Auswertung.EscapeJavaScriptString())");
+  emsg.config.set("WMS.ARCGIS.LAYERS.MASSNAHMEN", "KoordinierteMassnahmeGIS_Report");
+  emsg.config.set("WMS.ARCGIS.LAYERID", "KoordinierteMassnahmeGIS_Report");
+
+  emsg.map = new Emsg.Map.Analysis(emsg);
+  emsg.map.layer_property = 'koordinierte';
+</script>
+

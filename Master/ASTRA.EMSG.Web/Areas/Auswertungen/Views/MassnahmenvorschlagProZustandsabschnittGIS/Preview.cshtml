@@ -1,0 +1,38 @@
+﻿@using ASTRA.EMSG.Common.Enums
+
+@using ASTRA.EMSG.Web.Areas.Auswertungen.ReportGridCommands
+@using ASTRA.EMSG.Web.Infrastructure
+@using ASTRA.EMSG.Web.Infrastructure.HtmlHelperExtensions
+@using Resources
+@using Kendo.Mvc.UI
+@model MassnahmenvorschlagProZustandsabschnittGridCommand
+@{
+    ViewData.Model = new MassnahmenvorschlagProZustandsabschnittGridCommand();
+}
+
+@Html.Hidden("ErfassungsPeriod", Model.ErfassungsPeriodId)
+
+<div class="emsg-filter-expand-area-bottom">
+    <div id="filterDiv">
+        <div style="display: inline-block; width: @(ViewSizeConstants.GisReportFilterBlockWidth)px">
+             @(Html.ToGridFilterBuilder<MassnahmenvorschlagProZustandsabschnittGridCommand>(ViewSizeConstants.GisReportFilterFieldLabelWidth, ViewSizeConstants.GisReportFilterInputFieldWidth)
+                .WithTextFilter(m => m.Strassenname, triggerOn3Char: true)
+                .WithDecimalFilter(m => m.ZustandsindexVon, 1)
+                .WithGisReportFilterButton(filterFunction: "gisReport.form.refreshGrid"))
+        </div>
+        <div style="display: inline-block; width: @(ViewSizeConstants.GisReportFilterBlockWidth)px">
+            @(Html.ToGridFilterBuilder<MassnahmenvorschlagProZustandsabschnittGridCommand>(ViewSizeConstants.GisReportFilterFieldLabelWidth, ViewSizeConstants.GisReportFilterInputFieldWidth)
+                    .WithIntEnumFilter<EigentuemerTyp>(m => m.Eigentuemer, filterFunction: "gisReport.form.refreshGrid")
+                  .WithDecimalFilter(m => m.ZustandsindexBis, 1)
+                  .WithoutFilterButton())
+        </div>
+        <div style="display: inline-block">
+             @(Html.ToGridFilterBuilder<MassnahmenvorschlagProZustandsabschnittGridCommand>(ViewSizeConstants.GisReportFilterFieldLabelWidth, ViewSizeConstants.GisReportFilterInputFieldWidth)
+                          .WithIntEnumFilter<DringlichkeitTyp>(m => m.Dringlichkeit, filterFunction: "gisReport.form.refreshGrid")
+                          .WithTextFilter(m => m.Ortsbezeichnung)
+                          .WithoutFilterButton())
+        </div>
+    </div>
+</div>
+
+@Html.Partial("MapGridTabs")

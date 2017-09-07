@@ -1,0 +1,153 @@
+﻿@using ASTRA.EMSG.Business.Models
+@using ASTRA.EMSG.Common.Enums
+@using ASTRA.EMSG.Web.Infrastructure.HtmlHelperExtensions
+@using Resources
+@using Kendo.Mvc.UI
+@using ASTRA.EMSG.Common.Utils
+@model ASTRA.EMSG.Web.Areas.NetzverwaltungGIS.Controllers.ZustandsabschnittGISMonsterModel          
+
+<script type="text/javascript">
+    emsg.events.map.onZustandsabschnittChanged = zustandsabschnittChanged;
+    
+    @if (!ViewBag.IsNew)
+    {
+        @:zustandsabschnittChanged(emsg.map.getGeoData(), emsg.map.getGeoLength());
+    }
+        
+    function zustandsabschnittChanged(geoData, geoLength) {
+        $("#Stammdaten_FeatureGeoJSONString").val(emsg.map.getGeoData()).change();
+
+        $("#Stammdaten_LaengeDiv").html(DecimalToShortGrouppedString(emsg.map.getGeoLength()));
+        $("#Stammdaten_Laenge").val(DecimalToShortString(emsg.map.getGeoLength())).change();
+    }   
+    
+    emsg.form.executeCancel = details.closeForm;
+</script>
+@{
+    var firstErrorTabIndex = Model.SelectedTabIndex;
+    var tabs = new List<string> {"Stammdaten", "Fahrbahn", "Trottoir"};
+    var firstErrorTab = tabs
+        .FirstOrDefault(t => ViewData.ModelState.Any(k => k.Key.StartsWith(t) && k.Value.Errors.Count != 0));
+    if (firstErrorTab != null)
+    {
+        firstErrorTabIndex = tabs.IndexOf(firstErrorTab);
+    }
+
+    var model = Model.Fahrbahn;
+    string popupTitle = string.Format(TitleLocalization.ZustandsabschnittDynamicEditPopupTitle, model.Strassenname, model.BezeichnungVon, model.BezeichnungBis);
+    if (string.IsNullOrEmpty(model.BezeichnungVon) && string.IsNullOrEmpty(model.BezeichnungBis))
+    {
+        popupTitle = String.Format(TitleLocalization.ZustandsabschnittShortDynamicEditPopupTitle, model.Strassenname);
+    }
+}
+@using (Ajax.BeginForm(((ViewBag.IsNew ?? false) ? "Insert" : "Update"), null,
+                        new AjaxOptions
+                            {
+                                HttpMethod = "POST",
+                                UpdateTargetId = "zustandsabschnittEditFormDiv",
+                                InsertionMode = InsertionMode.Replace,
+                            }, new
+                                {
+                                    id = "zustandsabschnittEditForm",
+                                    data_create_window_title = TitleLocalization.ZustandsabschnittCreatePopupTitle,
+                                    data_edit_window_title = popupTitle,
+                                    data_kosten_url = Url.Action("GetMassnahmenvorschlagKosten", "ZustaendeUndMassnahmenvorschlaegeGIS"),
+                                    data_recalulate_zustandsindex_url = Url.Action("CalculateZustandIndex", "ZustaendeUndMassnahmenvorschlaegeGIS"),
+                                    data_refresh_erfassungform_url = Url.Action("RefreshErfassungform", "ZustaendeUndMassnahmenvorschlaegeGIS"),
+                                    data_get_zustandsindex_url = Url.Action("GetZustandsIndex", "ZustaendeUndMassnahmenvorschlaegeGIS"),
+                                    data_create_erfassung_form_url = Url.Action("GetCreateErfassungForm", "ZustaendeUndMassnahmenvorschlaegeGIS"),
+                                    data_get_erfassung_form_url = Url.Action("GetErfassungForm", "ZustaendeUndMassnahmenvorschlaegeGIS"),
+                                    data_erfassung_mode_id = Html.ClientIdFor(m => m.Fahrbahn.Erfassungsmodus).ToString().Replace("_", "."),
+                                    data_zustandserfassungsmodechanged_warning = NotificationLocalization.ZustandserfassungsmodeChangedWarning,
+                                    data_cancel_warning = NotificationLocalization.CancelGrobDetailZustandserfassungConfirmation,
+                                }))
+{            
+    <input type="hidden" id="SelectedTabIndex" name="SelectedTabIndex" value="@firstErrorTabIndex" />
+    <input type="hidden" value="@ViewData.ModelState.IsValid" id="IsValid" name="IsValid"/>
+    <legend>@((ViewBag.IsNew ?? false) ? TitleLocalization.ZustandsabschnittCreateFormTitle : TitleLocalization.ZustandsabschnittEditFormTitle)</legend>              
+     @FormViewHelpers.InspektionsrouteLockedNotification(Html, Model.Stammdaten.IsLocked)
+        
+    <div style="font-weight: bold; margin-top: 3px">@Model.Stammdaten.GetStrassenInfo(TextLocalization.Von, TextLocalization.Bis)</div>
+    
+    @(Html.EditorTable()
+        .WithTextBoxFor(m => m.Stammdaten.BezeichnungVon, false)
+        .WithTextBoxFor(m => m.Stammdaten.BezeichnungBis, false))  
+    @(Html.Kendo().TabStrip()
+    .Name("ZustandTabStrip")
+    .Items(tabstrip =>
+    {
+        tabstrip.Add().Text(TitleLocalization.ZustandTabTitle).Content(@<text>@Html.EditorFor(m => m.Stammdaten)</text>).AddErrorIcon(ViewData.ModelState, Url, "Stammdaten");
+        tabstrip.Add().Text(TitleLocalization.ZustandFahrbahnTabTitle).Content(@<text>@Html.EditorFor(m => m.Fahrbahn)</text>).AddErrorIcon(ViewData.ModelState, Url, "Fahrbahn");
+        if (Model.Stammdaten.HasTrottoir)
+        {
+            tabstrip.Add().Text(TitleLocalization.ZustandTrottoirTabTitle).Content((o) => Html.EditorFor(m => m.Trottoir)).AddErrorIcon(ViewData.ModelState, Url, "Trottoir");
+        }
+    })
+    .Events(c => c.Select("details.onTabSelect"))
+    .SelectedIndex(firstErrorTabIndex))
+
+    if (Model.Stammdaten.IsLocked)
+    {
+        <div class="formButtons">@Html.CancelButton("emsg.cancel()")</div>
+    }
+    else
+    {
+        @FormViewHelpers.UnobtrusiveFormButtons(Html, "zustandsabschnittEditFormDiv", showApply: true,
+                                                applyAction: "Apply" + ((ViewBag.IsNew ?? false) ? "Insert" : "Update"),
+                                                deleteAction: "Delete", showDeleteButton: !ViewBag.IsNew,
+                                                deleteConfirmationMessage: NotificationLocalization.DeleteConfirmation)
+    }
+
+    @Html.RequiredFieldLegend()    
+    
+    <div id="zustandsabschnittFahrbahnHiddenDiv" style="display: none;">
+        @Html.EditorFor(m => m.Fahrbahn, "ErfassungFormEditor")
+    </div>   
+    
+    @(Html.TelerikWindow(TitleLocalization.ZustandsabschnittFahrbahnEditPopupTitle, "ZustandsabschnittFahrbahnWindow", "zustandsabschnittFahrbahnDiv")
+    .Events(events => events.Close("details.onZustandsabschnittFahrbahnWindowClose"))
+    //.Buttons(b => b.Close())
+    .Height(600)
+    .Width(1000))
+    
+}
+
+    <script type="text/javascript">
+
+       function openZustandsabschnittFahrbahnWindow(mode, callback) {
+
+            @if (ViewBag.IsNew ?? false)
+        {
+            <text>var url = '@Url.Action("GetCreateErfassungForm")';
+            var data = {
+                zustandsErfassungsmodus: mode,
+                id: '@(Model.Stammdaten.StrassenabschnittGIS)'
+            };
+
+            </text>
+            
+        }
+        else
+        {
+            <text>var url = '@Url.Action("GetErfassungForm")';
+            var data = {
+                zustandsErfassungsmodus: mode,
+                id: '@(Model.Fahrbahn.Id)'
+            };
+            </text>
+        }
+
+           $.ajax({
+                    url: url,
+                    type: 'POST',
+                    data: data,
+                    success: function (data) {
+                        $('#zustandsabschnittFahrbahnDiv').empty().append(data);
+                        monsterEditor.init();
+                        if (callback)
+                            callback();
+                    }
+                });
+        }
+
+    </script>

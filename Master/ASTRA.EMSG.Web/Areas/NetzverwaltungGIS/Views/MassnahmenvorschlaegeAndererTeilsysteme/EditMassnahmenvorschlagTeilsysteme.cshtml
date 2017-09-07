@@ -1,0 +1,38 @@
+﻿@using ASTRA.EMSG.Common
+@using ASTRA.EMSG.Web.Infrastructure.HtmlHelperExtensions
+@using Resources
+@model ASTRA.EMSG.Business.Models.GIS.MassnahmenvorschlagTeilsystemeGISModel
+
+@using (Ajax.BeginForm((ViewBag.IsNew ?? false) ? "Insert" : "Update", "MassnahmenvorschlaegeAndererTeilsysteme",
+                        new AjaxOptions
+                        {
+                            HttpMethod = "POST",
+                            UpdateTargetId = "massnahmenvorschlagTeilsystemeEditFormDiv",
+                            InsertionMode = InsertionMode.Replace,
+                        }))
+{
+    <fieldset class="formFieldset k-edit-form-container" style="width: 354px">
+        <legend>@(ViewBag.IsNew ? TitleLocalization.MassnahmenvorschlagTeilsystemeGISCreateFormTitle : TitleLocalization.MassnahmenvorschlagTeilsystemeGISEditFormTitle)</legend>
+        @Html.ValidationMessageFor(m => m.FeatureGeoJSONString)
+        <input type="hidden" value="@Model.FeatureGeoJSONString" id="FeatureGeoJSONString" name="FeatureGeoJSONString"/>
+        <input type="hidden" value="@ViewData.ModelState.IsValid" id="IsValid" name="IsValid"/>
+        @(Html.EditorTable()
+           .WithTextBoxFor(s => s.Projektname)
+           .WithTextBoxFor(s => s.BezeichnungVon, requiredField: false)
+           .WithTextBoxFor(s => s.BezeichnungBis, requiredField: false)
+           .WithReadOnlyFieldFor(s => s.Laenge)
+           .WithEnumEditorFor(s => s.Teilsystem, () => Model.Teilsystem, emptyText: TextLocalization.EmptyMessage, customize: d => d.Events(e => e.Change("details.dropDownChanged")).HtmlAttributes(new { style = string.Format("width: 200px;") }))
+           .WithTextBoxFor(s => s.ZustaendigeOrganisation, requiredField: false)
+           .WithTextAreaFor(s => s.Beschreibung, requiredField: false)
+           .WithEnumEditorFor(s => s.Dringlichkeit, () => Model.Dringlichkeit, requiredField: false, customize: d => d.Events(e => e.Change("details.dropDownChanged")))
+           .WithDecimalEditorFor(s => s.Kosten, decimalPlaces:0, requiredField: false)
+           .WithEnumEditorFor(s => s.Status, () => Model.Status, requiredField: false, customize: d => d.Events(e => e.Change("details.dropDownChanged")))
+               )
+        @Html.HiddenFor(m => m.Id)
+        @FormViewHelpers.UnobtrusiveFormButtons(Html, "massnahmenvorschlagTeilsystemeEditFormDiv",
+                showApply: true, applyAction: "Apply" + ((ViewBag.IsNew ?? false) ? "Insert" : "Update"),                  
+                deleteAction: "Delete", showDeleteButton: !ViewBag.IsNew, 
+                deleteConfirmationMessage: NotificationLocalization.DeleteConfirmation)
+    </fieldset>
+     @Html.RequiredFieldLegend()
+}

@@ -1,0 +1,13 @@
+﻿@using ASTRA.EMSG.Common.Enums
+@using ASTRA.EMSG.Web.Infrastructure.HtmlHelperExtensions
+@model List<TeilsystemTyp>
+@{
+    //Note: We should SKIP the Strasen Enum Value (Bussines requirements)
+    foreach (TeilsystemTyp item in Enum.GetValues(typeof (TeilsystemTyp)).Cast<TeilsystemTyp>().Where(tt => tt != TeilsystemTyp.Strassen))
+    {
+        <input id="BeteiligteSysteme-@(item)" type="checkbox" class="k-checkbox" name="BeteiligteSysteme" value="@item" @(Enumerable.Contains(Model, item) ? "checked" : "") style="width: auto" />
+        <label class="k-checkbox-label" for="BeteiligteSysteme-@(item)">@Html.LocalizedEnum(item)</label>
+        <br/>
+    }
+    
+}

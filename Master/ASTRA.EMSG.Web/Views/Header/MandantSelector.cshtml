@@ -1,0 +1,33 @@
+﻿@using ASTRA.EMSG.Web.Infrastructure.HtmlHelperExtensions
+@using Kendo.Mvc.UI
+
+@model IEnumerable<DropDownListItem>
+
+<style>
+    #ddlMandanten {
+        display: none;
+    }
+</style>
+<span style="margin-top: 3px;">
+    @(Html.Kendo().DropDownList()
+           .Name("ddlMandanten")
+           .BindTo(Model)
+           .Events(events => events.Change("OnMandantChange"))
+           .Width(150))
+</span>
+
+<script type="text/javascript">
+
+function OnMandantChange(e) {
+    $.ajax({
+        url: '@Url.Action("SetMandant", "Header", new { area = "" })',
+        type: "POST",
+        data: { mandantId: this.value() },
+        success: function (data) {
+            blockScreen();
+            window.location = "@(Url.Action("Index", "Home", new { area = "" }))";
+        }
+    });
+}
+
+</script>

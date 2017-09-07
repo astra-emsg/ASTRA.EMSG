@@ -1,0 +1,19 @@
+﻿@using Resources
+@using System.Linq
+@model List<string>
+           
+@if (Model.Any())
+{
+    <span>@NotificationLocalization.ImportInspektionsroutenErrorTitle</span>
+    <br />
+    <br />
+    foreach (var error in Model)
+    {
+        <span style="color: red">@error</span><br />
+    }
+    <br />
+}
+else
+{
+    <span>@NotificationLocalization.ImportInspektionsroutenSuccessful</span>
+}

@@ -1,0 +1,69 @@
+﻿@using ASTRA.EMSG.Business.Models.Common
+@using ASTRA.EMSG.Business.Models.Katalogs
+@using ASTRA.EMSG.Common
+@using ASTRA.EMSG.Web.Infrastructure
+@using ASTRA.EMSG.Web.Infrastructure.HtmlHelperExtensions
+@using Resources
+@using ASTRA.EMSG.Web.Infrastructure.TelerikExtensions
+@using Kendo.Mvc.UI
+
+<h2>@TitleLocalization.KenngroessenFruehererJahrePageTitle</h2>
+@section JavaScript
+{
+    <script type="text/javascript" src="@(Url.Content("~/Scripts/Areas/NetzverwaltungStrassennamen/KenngroessenFruehererJahre/KenngroessenFruehererJahre.js"))"></script>
+}
+
+<br />
+<div class="scrollable-grid-border">
+    <div class="scrollable-grid">
+        @if (ViewBag.WasThereJahresabschluss ?? false)
+        {
+            Html.Kendo().Grid<KenngroessenFruehererJahreOverviewModel>()
+                .Name("KenngroessenFruehererJahreGrid")
+                .ApplyEmsgSettings()
+                .DataSource(dataBinding => dataBinding
+                    .Ajax()
+                    .Read(c => c.Action("GetAll", Context.Request.RequestContext.RouteData.GetController()))
+                    .Destroy(c => c.Action("Delete", (string)Context.Request.RequestContext.RouteData.GetController()))
+                    .Model(keys => keys.Id(m => m.Id))
+                    .PageSize(ASTRA.EMSG.Web.Infrastructure.ConstantSettings.GridPageSize))
+                .HtmlAttributes(new
+                {
+                    data_createurl = @Url.Action("Create"),
+                    data_createwindowtitle = TitleLocalization.KenngroessenFruehererJahrenCreatePopupTitle,
+                    data_editurl = @Url.Action("EditKenngroessenFruehererJahre"),
+                    data_editwindowtitle = TitleLocalization.KenngroessenFruehererJahrenEditPopupTitle
+                })
+                .ToolBar(commands =>
+                {
+                    commands.Template(
+                        new EmsgToolbarBuilder()
+                        .AddButton("index.openKenngroessenFruehererJahreCreateWindow()", ButtonLocalization.AddNewKenngroessenFruehererJahre)
+                        .ToTemplate());
+                })
+                .Columns(columns =>
+                {
+                    columns.Bound(m => m.Id).GridCommands(Html.EditButton("index.openKenngroessenFruehererJahreEditWindow('#= Id #')").ToHtmlString(),
+                        Html.GridDeleteButton().ToHtmlString()).Width(85);
+                    
+                    columns.Bound(m => m.Jahr).Title(GridHeaderFooterLocalization.Jahr);
+                    var belastungskategorien = (List<BelastungskategorieModel>)ViewBag.Belastungskategorien;
+                    for (int i = 0; i < belastungskategorien.Count; i++)
+                    {
+                        int index = i;
+                        columns.Bound(m => m.KenngroesseFruehereJahrDetailOverviewModels[index].MittlererZustand).Title(GridHeaderFooterLocalization.Zustand + " " + LookupLocalization.ResourceManager.GetString(belastungskategorien[index].Typ)).AlignRight().Filterable(false);
+                    }
+                    columns.Bound(m => m.KostenFuerWerterhaltung).Title(GridHeaderFooterLocalization.Kosten).Format(FormatStrings.NoDecimalFormat);
+                })
+                .Render();
+
+            @(Html.TelerikWindow(TitleLocalization.KenngroessenFruehererJahrenEditPopupTitle, "KenngroessenFruehererJahreWindow", "kenngroessenFruehererJahreFormDiv")
+              .Events(events => events.Close("index.onCloseKenngroessenFruehererJahreWindow")))
+        }
+        else
+        {
+            <div>@NotificationLocalization.CanNotUseKenngroessenFruehererJahre</div>
+        }
+    </div>
+</div>
+

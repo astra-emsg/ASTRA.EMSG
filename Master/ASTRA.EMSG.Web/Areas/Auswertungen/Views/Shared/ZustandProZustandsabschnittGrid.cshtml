@@ -1,0 +1,53 @@
+﻿@using ASTRA.EMSG.Business.Reports.ZustandProZustandsabschnitt
+@using ASTRA.EMSG.Common
+@using Resources
+@using Kendo.Mvc.UI
+@using ASTRA.EMSG.Web.Infrastructure.HtmlHelperExtensions
+@model string
+
+@(Html.Kendo().Grid<ZustandProZustandsabschnittPo>()
+           .Name("ZustandProZustandsabschnitt")
+           .ApplyEmsgSettings(filterable: false, editable: false)
+           .Columns(columns =>
+           {
+               columns.Bound(m => m.Strassenabschnittsnummer).Title(GridHeaderFooterLocalization.Strassenabschnittsnummer);
+
+               columns.Bound(m => m.Strassenname).Title(GridHeaderFooterLocalization.Strassenname).SumLabel();
+               columns.Bound(m => m.Ortsbezeichnung).Title(GridHeaderFooterLocalization.Ortsbezeichnung);
+
+               columns.Bound(m => m.Abschnittsnummer).Title(GridHeaderFooterLocalization.Zustandabschnittnummer);
+
+               columns.Bound(m => m.BezeichnungVon).Title(GridHeaderFooterLocalization.BezeichnungVon);
+               columns.Bound(m => m.BezeichnungBis).Title(GridHeaderFooterLocalization.BezeichnungBis);
+               columns.Bound(m => m.Bemerkung).Title(GridHeaderFooterLocalization.Bemerkung).TruncatedTextTemplate(m => m.Bemerkung, m => m.BemerkungShort);
+
+               columns.Bound(m => m.StrasseneigentuemerBezeichnung).Title(GridHeaderFooterLocalization.Strasseneigentuemer);
+
+               columns.Bound(m => m.BelastungskategorieBezeichnung).Title(GridHeaderFooterLocalization.Belastungskategorie);
+               columns.Bound(m => m.BelagBezeichnung).Title(GridHeaderFooterLocalization.BelagsArt);
+               columns.Bound(m => m.Laenge).Title(GridHeaderFooterLocalization.Laenge).Format(FormatStrings.ShortDecimalFormat);
+               columns.Bound(m => m.FlaecheFahrbahn).Title(GridHeaderFooterLocalization.FlaecheFahrbahn).Format(FormatStrings.NoDecimalFormat).Sum();
+               columns.Bound(m => m.Zustandsindex).Title(GridHeaderFooterLocalization.Zustandsindex).Format(FormatStrings.ShortDecimalFormat).AlignRight();
+
+               columns.Bound(m => m.Aufnahmedatum).Title(GridHeaderFooterLocalization.Aufnahmedatum).Format(FormatStrings.ShortDateTimeFormat);
+
+               columns.Bound(m => m.FlaceheTrottoirLinks).Title(GridHeaderFooterLocalization.FlaceheTrottoirLinks).Format(FormatStrings.NoDecimalFormat).Sum();
+               columns.Bound(m => m.ZustandsindexTrottoirLinksBezeichnung).Title(GridHeaderFooterLocalization.ZustandsindexTrottoirLinks);
+
+               columns.Bound(m => m.FlaceheTrottoirRechts).Title(GridHeaderFooterLocalization.FlaceheTrottoirRechts).Format(FormatStrings.NoDecimalFormat).Sum();
+               columns.Bound(m => m.ZustandsindexTrottoirRechtsBezeichnung).Title(GridHeaderFooterLocalization.ZustandsindexTrottoirRechts);
+           })
+           .DataSource(dataBinding => dataBinding
+                   .Ajax()
+                   .Read(c => c.Action("GetAll", Model).Data("gisReport.form.getReportParameter"))
+                   .Model(dataKey => dataKey.Id(m => m.Id))
+                   .PageSize(ASTRA.EMSG.Web.Infrastructure.ConstantSettings.GridPageSize)
+                   .Aggregates(aggregate =>
+                   {
+                       aggregate.Add(p => p.FlaecheFahrbahn).Sum();
+                       aggregate.Add(p => p.FlaceheTrottoirLinks).Sum();
+                       aggregate.Add(p => p.FlaceheTrottoirRechts).Sum();
+                   }))
+           .HtmlAttributes(new { style = "display : inline-block" })
+           .Events(c => c.DataBound("gisReport.form.onDataBound")))
+           

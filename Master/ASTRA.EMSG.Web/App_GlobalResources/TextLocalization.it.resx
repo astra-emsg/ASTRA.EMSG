@@ -1,0 +1,264 @@
+<?xml version="1.0" encoding="utf-8"?>
+<root>
+  <!-- 
+    Microsoft ResX Schema 
+    
+    Version 2.0
+    
+    The primary goals of this format is to allow a simple XML format 
+    that is mostly human readable. The generation and parsing of the 
+    various data types are done through the TypeConverter classes 
+    associated with the data types.
+    
+    Example:
+    
+    ... ado.net/XML headers & schema ...
+    <resheader name="resmimetype">text/microsoft-resx</resheader>
+    <resheader name="version">2.0</resheader>
+    <resheader name="reader">System.Resources.ResXResourceReader, System.Windows.Forms, ...</resheader>
+    <resheader name="writer">System.Resources.ResXResourceWriter, System.Windows.Forms, ...</resheader>
+    <data name="Name1"><value>this is my long string</value><comment>this is a comment</comment></data>
+    <data name="Color1" type="System.Drawing.Color, System.Drawing">Blue</data>
+    <data name="Bitmap1" mimetype="application/x-microsoft.net.object.binary.base64">
+        <value>[base64 mime encoded serialized .NET Framework object]</value>
+    </data>
+    <data name="Icon1" type="System.Drawing.Icon, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
+        <value>[base64 mime encoded string representing a byte array form of the .NET Framework object]</value>
+        <comment>This is a comment</comment>
+    </data>
+                
+    There are any number of "resheader" rows that contain simple 
+    name/value pairs.
+    
+    Each data row contains a name, and value. The row also contains a 
+    type or mimetype. Type corresponds to a .NET class that support 
+    text/value conversion through the TypeConverter architecture. 
+    Classes that don't support this are serialized and stored with the 
+    mimetype set.
+    
+    The mimetype is used for serialized objects, and tells the 
+    ResXResourceReader how to depersist the object. This is currently not 
+    extensible. For a given mimetype the value must be set accordingly:
+    
+    Note - application/x-microsoft.net.object.binary.base64 is the format 
+    that the ResXResourceWriter will generate, however the reader can 
+    read any of the formats listed below.
+    
+    mimetype: application/x-microsoft.net.object.binary.base64
+    value   : The object must be serialized with 
+            : System.Runtime.Serialization.Formatters.Binary.BinaryFormatter
+            : and then encoded with base64 encoding.
+    
+    mimetype: application/x-microsoft.net.object.soap.base64
+    value   : The object must be serialized with 
+            : System.Runtime.Serialization.Formatters.Soap.SoapFormatter
+            : and then encoded with base64 encoding.
+
+    mimetype: application/x-microsoft.net.object.bytearray.base64
+    value   : The object must be serialized into a byte array 
+            : using a System.ComponentModel.TypeConverter
+            : and then encoded with base64 encoding.
+    -->
+  <xsd:schema id="root" xmlns="" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:msdata="urn:schemas-microsoft-com:xml-msdata">
+    <xsd:import namespace="http://www.w3.org/XML/1998/namespace" />
+    <xsd:element name="root" msdata:IsDataSet="true">
+      <xsd:complexType>
+        <xsd:choice maxOccurs="unbounded">
+          <xsd:element name="metadata">
+            <xsd:complexType>
+              <xsd:sequence>
+                <xsd:element name="value" type="xsd:string" minOccurs="0" />
+              </xsd:sequence>
+              <xsd:attribute name="name" use="required" type="xsd:string" />
+              <xsd:attribute name="type" type="xsd:string" />
+              <xsd:attribute name="mimetype" type="xsd:string" />
+              <xsd:attribute ref="xml:space" />
+            </xsd:complexType>
+          </xsd:element>
+          <xsd:element name="assembly">
+            <xsd:complexType>
+              <xsd:attribute name="alias" type="xsd:string" />
+              <xsd:attribute name="name" type="xsd:string" />
+            </xsd:complexType>
+          </xsd:element>
+          <xsd:element name="data">
+            <xsd:complexType>
+              <xsd:sequence>
+                <xsd:element name="value" type="xsd:string" minOccurs="0" msdata:Ordinal="1" />
+                <xsd:element name="comment" type="xsd:string" minOccurs="0" msdata:Ordinal="2" />
+              </xsd:sequence>
+              <xsd:attribute name="name" type="xsd:string" use="required" msdata:Ordinal="1" />
+              <xsd:attribute name="type" type="xsd:string" msdata:Ordinal="3" />
+              <xsd:attribute name="mimetype" type="xsd:string" msdata:Ordinal="4" />
+              <xsd:attribute ref="xml:space" />
+            </xsd:complexType>
+          </xsd:element>
+          <xsd:element name="resheader">
+            <xsd:complexType>
+              <xsd:sequence>
+                <xsd:element name="value" type="xsd:string" minOccurs="0" msdata:Ordinal="1" />
+              </xsd:sequence>
+              <xsd:attribute name="name" type="xsd:string" use="required" />
+            </xsd:complexType>
+          </xsd:element>
+        </xsd:choice>
+      </xsd:complexType>
+    </xsd:element>
+  </xsd:schema>
+  <resheader name="resmimetype">
+    <value>text/microsoft-resx</value>
+  </resheader>
+  <resheader name="version">
+    <value>2.0</value>
+  </resheader>
+  <resheader name="reader">
+    <value>System.Resources.ResXResourceReader, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </resheader>
+  <resheader name="writer">
+    <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </resheader>
+  <data name="BelastungskategorieFilter" xml:space="preserve">
+    <value>Categoria di carico</value>
+  </data>
+  <data name="ErfassungsPeriodAbschlussFilter" xml:space="preserve">
+    <value>Bilancio annuale</value>
+  </data>
+  <data name="KostenProQuadratmeter" xml:space="preserve">
+    <value> CHF/m²</value>
+  </data>
+  <data name="Zustandserfassung" xml:space="preserve">
+    <value>Rilevamento dello stato</value>
+  </data>
+  <data name="AbschnittType" xml:space="preserve">
+    <value>Tipo di tratto</value>
+  </data>
+  <data name="StrassenabschnittErfassenModus" xml:space="preserve">
+    <value>Modo di rilevamento dei tratti di strada</value>
+  </data>
+  <data name="ZustandsabschnittErfassenModus" xml:space="preserve">
+    <value>Modo di rilevamento dei tratti di stato</value>
+  </data>
+  <data name="GesamtKostenCurrency" xml:space="preserve">
+    <value> CHF</value>
+  </data>
+  <data name="MittleresErhebungsjahrDesZustandes" xml:space="preserve">
+    <value>Data di rilevamento media dello stato:</value>
+  </data>
+  <data name="EigentuemerFilter" xml:space="preserve">
+    <value>Proprietario della strada</value>
+  </data>
+  <data name="StrassennameFilter" xml:space="preserve">
+    <value>Nome della strada</value>
+  </data>
+  <data name="ProjektnameFilter" xml:space="preserve">
+    <value>Nome progetto</value>
+  </data>
+  <data name="RequiredFieldLegend" xml:space="preserve">
+    <value>Campo obbligatorio</value>
+  </data>
+  <data name="StrassenabschnittImportTemplateFileName" xml:space="preserve">
+    <value>EMSG_Tratti Strada_Modello</value>
+  </data>
+  <data name="All" xml:space="preserve">
+    <value>Tutti</value>
+  </data>
+  <data name="CultureCode" xml:space="preserve">
+    <value>de-ch</value>
+  </data>
+  <data name="Current" xml:space="preserve">
+    <value>Anno di rilevamento attuale</value>
+  </data>
+  <data name="CurrentMandant" xml:space="preserve">
+    <value>Mandante attuale</value>
+  </data>
+  <data name="CurrentUser" xml:space="preserve">
+    <value>Utente attuale</value>
+  </data>
+  <data name="PleaseWait" xml:space="preserve">
+    <value>Prego attendere!</value>
+  </data>
+  <data name="UserInfo" xml:space="preserve">
+    <value>Informazioni utente</value>
+  </data>
+  <data name="CurrentRollen" xml:space="preserve">
+    <value>Ruoli attuali</value>
+  </data>
+  <data name="No" xml:space="preserve">
+    <value>no</value>
+  </data>
+  <data name="Yes" xml:space="preserve">
+    <value>sì</value>
+  </data>
+  <data name="DefaultKostenBelastungskategorie" xml:space="preserve">
+    <value>Costi standard della categoria di carico</value>
+  </data>
+  <data name="ZustandsabschnittImportTemplateFileName" xml:space="preserve">
+    <value>EMSG_Tratti Stato_Modello</value>
+  </data>
+  <data name="Emsg" xml:space="preserve">
+    <value>EMSG</value>
+  </data>
+  <data name="FruehererJahre" xml:space="preserve">
+    <value>Anni precedenti</value>
+  </data>
+  <data name="HomePageDescription" xml:space="preserve">
+    <value>EMSG si basa sul modello di base per la conservazione del valore (SN VSS 640 981) e descrive la tematica della conservazione del valore da 3 punti di vista. La vista dell'oggetto (valutazione dello stato ed interventi di conservazione) viene confrontata con la vista della rete (deprezzamento annuale sulla base del controvalore d'acquisto dell'inventario). Di principio la conservazione a lungo termine viene garantita, se il deprezzamento viene compensato tramite interventi di conservazione. Lo sviluppo dello stato è un indicatore dell'efficienza degli interventi di conservazione. Collegando i 3 punti di vista, gli interventi di conservazione possono essere stabiliti, guidati, coordinati in modo strategico e quindi ottimizzati.</value>
+  </data>
+  <data name="HelpDesk" xml:space="preserve">
+    <value>Help Desk</value>
+  </data>
+  <data name="MistraStartSeite" xml:space="preserve">
+    <value>Pagina iniziale MISTRA</value>
+  </data>
+  <data name="HelpPagesFound" xml:space="preserve">
+    <value>Pagine trovate</value>
+  </data>
+  <data name="HelpSearch" xml:space="preserve">
+    <value>Cerca Guida</value>
+  </data>
+  <data name="HelpSearchLink" xml:space="preserve">
+    <value>Ricerca e indice</value>
+  </data>
+  <data name="FindCount" xml:space="preserve">
+    <value>Risultato</value>
+  </data>
+  <data name="Von" xml:space="preserve">
+    <value> da </value>
+  </data>
+  <data name="Bis" xml:space="preserve">
+    <value> fino a </value>
+  </data>
+  <data name="CurrentShort" xml:space="preserve">
+    <value>Anno corr.</value>
+  </data>
+  <data name="EmptyHelpSearchResult" xml:space="preserve">
+    <value>Nessun risultato</value>
+  </data>
+  <data name="EmptyMessage" xml:space="preserve">
+    <value />
+  </data>
+  <data name="CurrentMap" xml:space="preserve">
+    <value>Anno di rilevamento attuale *</value>
+  </data>
+  <data name="Zustandsabschnitte" xml:space="preserve">
+    <value>Tratto di stato</value>
+  </data>
+  <data name="Strassenabschnitte" xml:space="preserve">
+    <value>Tratti di strada</value>
+  </data>
+  <data name="ShapeExportBotton" xml:space="preserve">
+    <value>Scaricare</value>
+  </data>
+  <data name="Trottoir" xml:space="preserve">
+    <value>Marciapiede</value>
+  </data>
+  <data name="PleaseSelect" xml:space="preserve">
+    <value>Scegliere</value>
+  </data>
+  <data name="NoMandantsEreignisLog" xml:space="preserve">
+    <value>Nessun mandante (cliente)</value>
+  </data>
+  <data name="AchsenName" xml:space="preserve">
+    <value>Denominazione asse</value>
+  </data>
+</root>

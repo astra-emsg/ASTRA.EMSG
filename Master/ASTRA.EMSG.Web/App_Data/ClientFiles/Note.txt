@@ -1,0 +1,20 @@
+﻿Content:
+--------
+
+Files are placeholders and should be updated at deployment.
+
+Mobile Client Resources:
+
+- MobileLocalization.de.resx
+- MobileLocalization.fr.resx
+- MobileLocalization.it.resx
+
+Mobile Client Help files:
+
+Help\de\*.html
+Help\fr\*.html
+Help\it\*.html
+
+Mobile Client Installer:
+
+- ASTRA.EMSG.Mobile.exe

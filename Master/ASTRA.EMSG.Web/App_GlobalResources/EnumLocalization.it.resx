@@ -1,0 +1,585 @@
+<?xml version="1.0" encoding="utf-8"?>
+<root>
+  <!-- 
+    Microsoft ResX Schema 
+    
+    Version 2.0
+    
+    The primary goals of this format is to allow a simple XML format 
+    that is mostly human readable. The generation and parsing of the 
+    various data types are done through the TypeConverter classes 
+    associated with the data types.
+    
+    Example:
+    
+    ... ado.net/XML headers & schema ...
+    <resheader name="resmimetype">text/microsoft-resx</resheader>
+    <resheader name="version">2.0</resheader>
+    <resheader name="reader">System.Resources.ResXResourceReader, System.Windows.Forms, ...</resheader>
+    <resheader name="writer">System.Resources.ResXResourceWriter, System.Windows.Forms, ...</resheader>
+    <data name="Name1"><value>this is my long string</value><comment>this is a comment</comment></data>
+    <data name="Color1" type="System.Drawing.Color, System.Drawing">Blue</data>
+    <data name="Bitmap1" mimetype="application/x-microsoft.net.object.binary.base64">
+        <value>[base64 mime encoded serialized .NET Framework object]</value>
+    </data>
+    <data name="Icon1" type="System.Drawing.Icon, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
+        <value>[base64 mime encoded string representing a byte array form of the .NET Framework object]</value>
+        <comment>This is a comment</comment>
+    </data>
+                
+    There are any number of "resheader" rows that contain simple 
+    name/value pairs.
+    
+    Each data row contains a name, and value. The row also contains a 
+    type or mimetype. Type corresponds to a .NET class that support 
+    text/value conversion through the TypeConverter architecture. 
+    Classes that don't support this are serialized and stored with the 
+    mimetype set.
+    
+    The mimetype is used for serialized objects, and tells the 
+    ResXResourceReader how to depersist the object. This is currently not 
+    extensible. For a given mimetype the value must be set accordingly:
+    
+    Note - application/x-microsoft.net.object.binary.base64 is the format 
+    that the ResXResourceWriter will generate, however the reader can 
+    read any of the formats listed below.
+    
+    mimetype: application/x-microsoft.net.object.binary.base64
+    value   : The object must be serialized with 
+            : System.Runtime.Serialization.Formatters.Binary.BinaryFormatter
+            : and then encoded with base64 encoding.
+    
+    mimetype: application/x-microsoft.net.object.soap.base64
+    value   : The object must be serialized with 
+            : System.Runtime.Serialization.Formatters.Soap.SoapFormatter
+            : and then encoded with base64 encoding.
+
+    mimetype: application/x-microsoft.net.object.bytearray.base64
+    value   : The object must be serialized into a byte array 
+            : using a System.ComponentModel.TypeConverter
+            : and then encoded with base64 encoding.
+    -->
+  <xsd:schema id="root" xmlns="" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:msdata="urn:schemas-microsoft-com:xml-msdata">
+    <xsd:import namespace="http://www.w3.org/XML/1998/namespace" />
+    <xsd:element name="root" msdata:IsDataSet="true">
+      <xsd:complexType>
+        <xsd:choice maxOccurs="unbounded">
+          <xsd:element name="metadata">
+            <xsd:complexType>
+              <xsd:sequence>
+                <xsd:element name="value" type="xsd:string" minOccurs="0" />
+              </xsd:sequence>
+              <xsd:attribute name="name" use="required" type="xsd:string" />
+              <xsd:attribute name="type" type="xsd:string" />
+              <xsd:attribute name="mimetype" type="xsd:string" />
+              <xsd:attribute ref="xml:space" />
+            </xsd:complexType>
+          </xsd:element>
+          <xsd:element name="assembly">
+            <xsd:complexType>
+              <xsd:attribute name="alias" type="xsd:string" />
+              <xsd:attribute name="name" type="xsd:string" />
+            </xsd:complexType>
+          </xsd:element>
+          <xsd:element name="data">
+            <xsd:complexType>
+              <xsd:sequence>
+                <xsd:element name="value" type="xsd:string" minOccurs="0" msdata:Ordinal="1" />
+                <xsd:element name="comment" type="xsd:string" minOccurs="0" msdata:Ordinal="2" />
+              </xsd:sequence>
+              <xsd:attribute name="name" type="xsd:string" use="required" msdata:Ordinal="1" />
+              <xsd:attribute name="type" type="xsd:string" msdata:Ordinal="3" />
+              <xsd:attribute name="mimetype" type="xsd:string" msdata:Ordinal="4" />
+              <xsd:attribute ref="xml:space" />
+            </xsd:complexType>
+          </xsd:element>
+          <xsd:element name="resheader">
+            <xsd:complexType>
+              <xsd:sequence>
+                <xsd:element name="value" type="xsd:string" minOccurs="0" msdata:Ordinal="1" />
+              </xsd:sequence>
+              <xsd:attribute name="name" type="xsd:string" use="required" />
+            </xsd:complexType>
+          </xsd:element>
+        </xsd:choice>
+      </xsd:complexType>
+    </xsd:element>
+  </xsd:schema>
+  <resheader name="resmimetype">
+    <value>text/microsoft-resx</value>
+  </resheader>
+  <resheader name="version">
+    <value>2.0</value>
+  </resheader>
+  <resheader name="reader">
+    <value>System.Resources.ResXResourceReader, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </resheader>
+  <resheader name="writer">
+    <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </resheader>
+  <data name="BelagsTyp_Asphalt" xml:space="preserve">
+    <value>Asfalto</value>
+  </data>
+  <data name="BelagsTyp_Beton" xml:space="preserve">
+    <value>Calcestruzzo</value>
+  </data>
+  <data name="DringlichkeitTyp_Dringlich" xml:space="preserve">
+    <value>A corto termine</value>
+  </data>
+  <data name="DringlichkeitTyp_Langfristig" xml:space="preserve">
+    <value>A lungo termine</value>
+  </data>
+  <data name="DringlichkeitTyp_Mittelfristig" xml:space="preserve">
+    <value>A medio termine</value>
+  </data>
+  <data name="DringlichkeitTyp_Unbekannt" xml:space="preserve">
+    <value>Senza indicazione</value>
+  </data>
+  <data name="EigentuemerTyp_Gemeinde" xml:space="preserve">
+    <value>Comune</value>
+  </data>
+  <data name="EigentuemerTyp_Kanton" xml:space="preserve">
+    <value>Cantone</value>
+  </data>
+  <data name="EigentuemerTyp_Korporation" xml:space="preserve">
+    <value>Cooperativa</value>
+  </data>
+  <data name="EigentuemerTyp_Privat" xml:space="preserve">
+    <value>Privato</value>
+  </data>
+  <data name="NetzErfassungsmodus_Gis" xml:space="preserve">
+    <value>Modo SIG</value>
+  </data>
+  <data name="NetzErfassungsmodus_Summarisch" xml:space="preserve">
+    <value>Modo sommario</value>
+  </data>
+  <data name="NetzErfassungsmodus_Tabellarisch" xml:space="preserve">
+    <value>Modo nome di strade</value>
+  </data>
+  <data name="SchadenausmassTyp_A1" xml:space="preserve">
+    <value> &lt; 10 %</value>
+  </data>
+  <data name="SchadenausmassTyp_A2" xml:space="preserve">
+    <value>10 - 50 %</value>
+  </data>
+  <data name="SchadenausmassTyp_A3" xml:space="preserve">
+    <value>&gt; 50 %</value>
+  </data>
+  <data name="SchadendetailTyp_Abblaetterung" xml:space="preserve">
+    <value>Sfaldature (degli stati di superficie)</value>
+  </data>
+  <data name="SchadendetailTyp_AbgedrueckteRaeder" xml:space="preserve">
+    <value>Bordi schiacciati</value>
+  </data>
+  <data name="SchadendetailTyp_Abloesungen" xml:space="preserve">
+    <value>Sfaldature</value>
+  </data>
+  <data name="SchadendetailTyp_Abplatzungen" xml:space="preserve">
+    <value>Distacchi</value>
+  </data>
+  <data name="SchadendetailTyp_Abrieb" xml:space="preserve">
+    <value>Usura</value>
+  </data>
+  <data name="SchadendetailTyp_AnrisseVonSetzungen" xml:space="preserve">
+    <value>Fessure di assestamento</value>
+  </data>
+  <data name="SchadendetailTyp_Aufwoelbungen" xml:space="preserve">
+    <value>Rigonfiamenti</value>
+  </data>
+  <data name="SchadendetailTyp_AusmagerungAbsanden" xml:space="preserve">
+    <value>Sgretolamento, sabbiatura</value>
+  </data>
+  <data name="SchadendetailTyp_Belagsrandrisse" xml:space="preserve">
+    <value>Fessure del bordo stradale</value>
+  </data>
+  <data name="SchadendetailTyp_BlowUp" xml:space="preserve">
+    <value>Blow-up</value>
+  </data>
+  <data name="SchadendetailTyp_FehlenderOderSproederFugenverguss" xml:space="preserve">
+    <value>Sigillat. giunti manc. o porosa</value>
+  </data>
+  <data name="SchadendetailTyp_Flicke" xml:space="preserve">
+    <value>Riparazione</value>
+  </data>
+  <data name="SchadendetailTyp_Frosthebungen" xml:space="preserve">
+    <value>Sollevamenti causati dal gelo</value>
+  </data>
+  <data name="SchadendetailTyp_KantenschaedenAbsplitterung" xml:space="preserve">
+    <value>Dannegg. bordi, scheggiat.</value>
+  </data>
+  <data name="SchadendetailTyp_Kornausbrueche" xml:space="preserve">
+    <value>Sgranamento</value>
+  </data>
+  <data name="SchadendetailTyp_Laengsrisse" xml:space="preserve">
+    <value>Fessure longitudinali</value>
+  </data>
+  <data name="SchadendetailTyp_Netzrisse" xml:space="preserve">
+    <value>Fessure retiformi</value>
+  </data>
+  <data name="SchadendetailTyp_OffeneNaehte" xml:space="preserve">
+    <value>Fessure giunti aperti</value>
+  </data>
+  <data name="SchadendetailTyp_Polieren" xml:space="preserve">
+    <value>Politura</value>
+  </data>
+  <data name="SchadendetailTyp_Pumpen" xml:space="preserve">
+    <value>Pompaggio</value>
+  </data>
+  <data name="SchadendetailTyp_Querrisse" xml:space="preserve">
+    <value>Fessure trasversali</value>
+  </data>
+  <data name="SchadendetailTyp_Risse" xml:space="preserve">
+    <value>Fessure</value>
+  </data>
+  <data name="SchadendetailTyp_Schlagloecher" xml:space="preserve">
+    <value>Buche</value>
+  </data>
+  <data name="SchadendetailTyp_Schubverformungen" xml:space="preserve">
+    <value>Deformazioni al taglio (a press.)</value>
+  </data>
+  <data name="SchadendetailTyp_Schwitzen" xml:space="preserve">
+    <value>Trasudamento</value>
+  </data>
+  <data name="SchadendetailTyp_SetzungenEinsenkungen" xml:space="preserve">
+    <value>Assestamenti, abbassamenti</value>
+  </data>
+  <data name="SchadendetailTyp_SetzungenFrosthebungen" xml:space="preserve">
+    <value>Assestam., sollevam. gelo</value>
+  </data>
+  <data name="SchadendetailTyp_Spurrinnen" xml:space="preserve">
+    <value>Ormaie</value>
+  </data>
+  <data name="SchadendetailTyp_Stufenbildung" xml:space="preserve">
+    <value>Formazione di gradini</value>
+  </data>
+  <data name="SchadendetailTyp_Wellblechverformungen" xml:space="preserve">
+    <value>Deformazioni a lamiera ondulata</value>
+  </data>
+  <data name="SchadendetailTyp_WildeRisse" xml:space="preserve">
+    <value>Fessure diverse</value>
+  </data>
+  <data name="SchadendetailTyp_ZerstoertePlatten" xml:space="preserve">
+    <value>Piastre danneggiate</value>
+  </data>
+  <data name="SchadengruppeTyp_Belagschaeden" xml:space="preserve">
+    <value>Danneggiamenti del rivestimento</value>
+  </data>
+  <data name="SchadengruppeTyp_Belagsverformungen" xml:space="preserve">
+    <value>Deformazioni del rivestimento</value>
+  </data>
+  <data name="SchadengruppeTyp_Flicke" xml:space="preserve">
+    <value>Riparazione</value>
+  </data>
+  <data name="SchadengruppeTyp_FugenUndKantenschaeden" xml:space="preserve">
+    <value>Danneggiamenti giunti e bordi</value>
+  </data>
+  <data name="SchadengruppeTyp_Materialverluste" xml:space="preserve">
+    <value>Perdita del materiale</value>
+  </data>
+  <data name="SchadengruppeTyp_Oberflaechenglaette" xml:space="preserve">
+    <value>Superficie scivolosa</value>
+  </data>
+  <data name="SchadengruppeTyp_RisseBrueche" xml:space="preserve">
+    <value>Fessure, rotture</value>
+  </data>
+  <data name="SchadengruppeTyp_StrukturelleSchaeden" xml:space="preserve">
+    <value>Danneggiamenti strutturali</value>
+  </data>
+  <data name="SchadengruppeTyp_Vertikalverschiebung" xml:space="preserve">
+    <value>Spostamento verticale</value>
+  </data>
+  <data name="SchadenschwereTyp_S1" xml:space="preserve">
+    <value>leggero</value>
+  </data>
+  <data name="SchadenschwereTyp_S2" xml:space="preserve">
+    <value>medio</value>
+  </data>
+  <data name="SchadenschwereTyp_S3" xml:space="preserve">
+    <value>grave</value>
+  </data>
+  <data name="TrottoirTyp_BeideSeiten" xml:space="preserve">
+    <value>entrambi i lati</value>
+  </data>
+  <data name="TrottoirTyp_KeinTrottoir" xml:space="preserve">
+    <value>nessun marciapiede</value>
+  </data>
+  <data name="TrottoirTyp_Links" xml:space="preserve">
+    <value>a sinistra</value>
+  </data>
+  <data name="TrottoirTyp_NochNichtErfasst" xml:space="preserve">
+    <value>non ancora rilevato</value>
+  </data>
+  <data name="TrottoirTyp_Rechts" xml:space="preserve">
+    <value>a destra</value>
+  </data>
+  <data name="WetterTyp_KeinRegen" xml:space="preserve">
+    <value>Secco</value>
+  </data>
+  <data name="WetterTyp_Feucht" xml:space="preserve">
+    <value>Umido</value>
+  </data>
+  <data name="WetterTyp_Regen" xml:space="preserve">
+    <value>Umido</value>
+  </data>
+  <data name="ZustandsErfassungsmodus_Detailliert" xml:space="preserve">
+    <value>Dettagliato</value>
+  </data>
+  <data name="ZustandsErfassungsmodus_Grob" xml:space="preserve">
+    <value>Grossolano</value>
+  </data>
+  <data name="ZustandsErfassungsmodus_Manuel" xml:space="preserve">
+    <value>Indice di stato</value>
+  </data>
+  <data name="ZustandsindexTyp_Ausreichend" xml:space="preserve">
+    <value>sufficiente</value>
+  </data>
+  <data name="ZustandsindexTyp_Gut" xml:space="preserve">
+    <value>buono</value>
+  </data>
+  <data name="ZustandsindexTyp_Kritisch" xml:space="preserve">
+    <value>critico</value>
+  </data>
+  <data name="ZustandsindexTyp_Mittel" xml:space="preserve">
+    <value>medio</value>
+  </data>
+  <data name="ZustandsindexTyp_Schlecht" xml:space="preserve">
+    <value>cattivo</value>
+  </data>
+  <data name="InspektionsRouteStatus_Aktualisiert" xml:space="preserve">
+    <value>Nuovo (aggiornamento)</value>
+  </data>
+  <data name="InspektionsRouteStatus_NeuErstellt" xml:space="preserve">
+    <value>Nuovo</value>
+  </data>
+  <data name="InspektionsRouteStatus_RouteExportiert" xml:space="preserve">
+    <value>Itinerario esportato</value>
+  </data>
+  <data name="InspektionsRouteStatus_RouteImportiert" xml:space="preserve">
+    <value>Itinerario importato</value>
+  </data>
+  <data name="TeilsystemTyp_Abwasseranlagen" xml:space="preserve">
+    <value>Impianti d'acque di scarico</value>
+  </data>
+  <data name="TeilsystemTyp_Beleuchtungsanlagen" xml:space="preserve">
+    <value>Impianti d'illuminazione</value>
+  </data>
+  <data name="TeilsystemTyp_Elektrizitaetsversorgung" xml:space="preserve">
+    <value>Approvvigionamento di elettricità</value>
+  </data>
+  <data name="TeilsystemTyp_Fernwaermeversorgung" xml:space="preserve">
+    <value>Approv. riscald. a distanza</value>
+  </data>
+  <data name="TeilsystemTyp_Gasversorgung" xml:space="preserve">
+    <value>Approvvigionamento gas</value>
+  </data>
+  <data name="TeilsystemTyp_Gruenanlagen" xml:space="preserve">
+    <value>Parchi</value>
+  </data>
+  <data name="TeilsystemTyp_Kommunikationsanlagen" xml:space="preserve">
+    <value>Impianti di comunicazione</value>
+  </data>
+  <data name="TeilsystemTyp_Kunstbauten" xml:space="preserve">
+    <value>Manufatti</value>
+  </data>
+  <data name="TeilsystemTyp_OeffentlicherVerkehr" xml:space="preserve">
+    <value>Trasporti pubblici</value>
+  </data>
+  <data name="TeilsystemTyp_Sonstige" xml:space="preserve">
+    <value>Altro</value>
+  </data>
+  <data name="TeilsystemTyp_Strassen" xml:space="preserve">
+    <value>Strade</value>
+  </data>
+  <data name="TeilsystemTyp_VerkehrslenkungLichtsignalanlagen" xml:space="preserve">
+    <value>Gest. del traffico/imp. segn. lum.</value>
+  </data>
+  <data name="TeilsystemTyp_Wasserbau" xml:space="preserve">
+    <value>Opere idrauliche</value>
+  </data>
+  <data name="TeilsystemTyp_Wasserversorgungsanlagen" xml:space="preserve">
+    <value>Impianti d’approv. d'acqua</value>
+  </data>
+  <data name="StatusTyp_Abgeschlossen" xml:space="preserve">
+    <value>Chiuso</value>
+  </data>
+  <data name="StatusTyp_InKoordination" xml:space="preserve">
+    <value>In coordinazione</value>
+  </data>
+  <data name="StatusTyp_Vorgeschlagen" xml:space="preserve">
+    <value>Proposto</value>
+  </data>
+  <data name="InspektionsRouteStatus_ExportCancelled" xml:space="preserve">
+    <value>Export interrotto</value>
+  </data>
+  <data name="EreignisTyp_Achsenupdate" xml:space="preserve">
+    <value>Aggiornamento degli assi</value>
+  </data>
+  <data name="EreignisTyp_AnmeldenimSystem" xml:space="preserve">
+    <value>Registrati nel sistema</value>
+  </data>
+  <data name="EreignisTyp_Arbeitsmoduswechsel" xml:space="preserve">
+    <value>Commuta il modo di lavoro</value>
+  </data>
+  <data name="EreignisTyp_InspektionsRoutenExport" xml:space="preserve">
+    <value>Esporta itinerari</value>
+  </data>
+  <data name="EreignisTyp_InspektionsRoutenImport" xml:space="preserve">
+    <value>Import d itinerari</value>
+  </data>
+  <data name="EreignisTyp_Jahresabschluss" xml:space="preserve">
+    <value>Bilancio annuale</value>
+  </data>
+  <data name="EreignisTyp_RolleEinnehmen" xml:space="preserve">
+    <value>Prendi altro ruolo</value>
+  </data>
+  <data name="EreignisTyp_Systemfehler" xml:space="preserve">
+    <value>Errore di sistema</value>
+  </data>
+  <data name="EreignisTyp_XmlImport" xml:space="preserve">
+    <value>Importa files-XLSX</value>
+  </data>
+  <data name="BenchmarkingGruppenTyp_EinwohnerGroesse" xml:space="preserve">
+    <value>Numero di abitanti</value>
+  </data>
+  <data name="BenchmarkingGruppenTyp_Gemeinde" xml:space="preserve">
+    <value>Tipo di comune (ad es. comune turistico)</value>
+  </data>
+  <data name="BenchmarkingGruppenTyp_MittlereHoehenlageSiedlungsgebieteGroesse" xml:space="preserve">
+    <value>Altitudine media della zona residenziale</value>
+  </data>
+  <data name="BenchmarkingGruppenTyp_NetzGroesse" xml:space="preserve">
+    <value>Dimensione della rete</value>
+  </data>
+  <data name="BenchmarkingGruppenTyp_OeffentlicheVerkehrsmittel" xml:space="preserve">
+    <value>Disponibilità di mezzi di trasporto pubblici</value>
+  </data>
+  <data name="BenchmarkingGruppenTyp_SteuerertragGroesse" xml:space="preserve">
+    <value>Ricavo delle imposte (senza tassa per la chiesa)</value>
+  </data>
+  <data name="EmsgExceptionType_UnauthorizedErfassungperiodAccess" xml:space="preserve">
+    <value>Non hai nessun accesso a questo periodo di registrazione!</value>
+  </data>
+  <data name="EmsgExceptionType_UnauthorizedMandantAccess" xml:space="preserve">
+    <value>Non hai nessun accesso su questi mandanti!</value>
+  </data>
+  <data name="EmsgExceptionType_LdapConnectionError" xml:space="preserve">
+    <value>EMSG non può accedere al LDAP!</value>
+  </data>
+  <data name="EmsgExceptionType_NoPermissions" xml:space="preserve">
+    <value>Non avete il diritto d'accesso per EMSG!</value>
+  </data>
+  <data name="EmsgExceptionType_NotInitializedMandant" xml:space="preserve">
+    <value>Il mandante non è inizializzato!</value>
+  </data>
+  <data name="Rolle_Applikationsadministrator" xml:space="preserve">
+    <value>Amministratore dell'applicazione</value>
+  </data>
+  <data name="Rolle_Applikationssupporter" xml:space="preserve">
+    <value>Support dell'applicazione</value>
+  </data>
+  <data name="Rolle_Benchmarkteilnehmer" xml:space="preserve">
+    <value>Partecipante al Benchmarking</value>
+  </data>
+  <data name="Rolle_Benutzeradministrator" xml:space="preserve">
+    <value>Amministratore utenti</value>
+  </data>
+  <data name="Rolle_DataManager" xml:space="preserve">
+    <value>Data Manager</value>
+  </data>
+  <data name="Rolle_DataReader" xml:space="preserve">
+    <value>Data Reader</value>
+  </data>
+  <data name="ApplicationMode_Application" xml:space="preserve">
+    <value>Ruolo sistema</value>
+  </data>
+  <data name="ApplicationMode_Mandant" xml:space="preserve">
+    <value>Mandante</value>
+  </data>
+  <data name="FlaecheTyp_Fahrbahn" xml:space="preserve">
+    <value>Cr</value>
+  </data>
+  <data name="FlaecheTyp_Trottoir" xml:space="preserve">
+    <value>MP</value>
+  </data>
+  <data name="BelagsTyp_Chaussierung" xml:space="preserve">
+    <value>Sterrato</value>
+  </data>
+  <data name="BelagsTyp_Pflaesterung" xml:space="preserve">
+    <value>Pavimentazione</value>
+  </data>
+  <data name="ErfassungsStatusTyp_Ja" xml:space="preserve">
+    <value>sì</value>
+  </data>
+  <data name="ErfassungsStatusTyp_Nein" xml:space="preserve">
+    <value>no</value>
+  </data>
+  <data name="ErfassungsStatusTyp_Teilweise" xml:space="preserve">
+    <value>parziale</value>
+  </data>
+  <data name="EmsgExceptionType_NoAxisToUpdate" xml:space="preserve">
+    <value>Nessun aggiornamento degli assi attualmente disponibile</value>
+  </data>
+  <data name="Short_TeilsystemTyp_Abwasseranlagen" xml:space="preserve">
+    <value>AS</value>
+  </data>
+  <data name="Short_TeilsystemTyp_Beleuchtungsanlagen" xml:space="preserve">
+    <value>Ill</value>
+  </data>
+  <data name="Short_TeilsystemTyp_Elektrizitaetsversorgung" xml:space="preserve">
+    <value>E</value>
+  </data>
+  <data name="Short_TeilsystemTyp_Fernwaermeversorgung" xml:space="preserve">
+    <value>R</value>
+  </data>
+  <data name="Short_TeilsystemTyp_Gasversorgung" xml:space="preserve">
+    <value>G</value>
+  </data>
+  <data name="Short_TeilsystemTyp_Gruenanlagen" xml:space="preserve">
+    <value>Par</value>
+  </data>
+  <data name="Short_TeilsystemTyp_Kommunikationsanlagen" xml:space="preserve">
+    <value>TC</value>
+  </data>
+  <data name="Short_TeilsystemTyp_Kunstbauten" xml:space="preserve">
+    <value>MA</value>
+  </data>
+  <data name="Short_TeilsystemTyp_OeffentlicherVerkehr" xml:space="preserve">
+    <value>TP</value>
+  </data>
+  <data name="Short_TeilsystemTyp_Sonstige" xml:space="preserve">
+    <value>Alt</value>
+  </data>
+  <data name="Short_TeilsystemTyp_Strassen" xml:space="preserve">
+    <value>Str</value>
+  </data>
+  <data name="Short_TeilsystemTyp_VerkehrslenkungLichtsignalanlagen" xml:space="preserve">
+    <value>Sig</value>
+  </data>
+  <data name="Short_TeilsystemTyp_Wasserbau" xml:space="preserve">
+    <value>OI</value>
+  </data>
+  <data name="Short_TeilsystemTyp_Wasserversorgungsanlagen" xml:space="preserve">
+    <value>A</value>
+  </data>
+  <data name="SchadenausmassTyp_A0" xml:space="preserve">
+    <value>0 %</value>
+  </data>
+  <data name="ZustandsindexTyp_Unbekannt" xml:space="preserve">
+    <value />
+  </data>
+  <data name="MassnahmenvorschlagKatalogTyp_Fahrbahn" xml:space="preserve">
+    <value>Carreggiata</value>
+  </data>
+  <data name="MassnahmenvorschlagKatalogTyp_Trottoir" xml:space="preserve">
+    <value>Marciapiede</value>
+  </data>
+  <data name="Short_BelagsTyp_Asphalt" xml:space="preserve">
+    <value>Asfalto</value>
+  </data>
+  <data name="EmsgExceptionType_WMSConnectionError" xml:space="preserve">
+    <value>Das Service WMS der swisstopo ist momentan nicht verfügbar.  Bitte probieren Sie es später wieder.</value>
+  </data>
+  <data name="EmsgExceptionType_UpdateAbschnittLocked" xml:space="preserve">
+    <value>L’aggiornamento degli assi non può essere effettuato perché un tratto interessato è bloccato. Assicurate che nessun itinerario d’ispezione sia stato esportato e riprovate.</value>
+  </data>
+</root>

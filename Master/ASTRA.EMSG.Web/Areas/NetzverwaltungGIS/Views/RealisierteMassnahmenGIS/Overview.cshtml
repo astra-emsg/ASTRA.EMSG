@@ -1,0 +1,51 @@
+﻿@using ASTRA.EMSG.Business.Models.GIS
+@using ASTRA.EMSG.Common
+@using ASTRA.EMSG.Web.Areas.Common.GridCommands
+@using ASTRA.EMSG.Web.Infrastructure.HtmlHelperExtensions
+@using ASTRA.EMSG.Web.Infrastructure.TelerikExtensions
+@using Resources
+@using Kendo.Mvc.UI
+
+@model SerializableGridModel<RealisierteMassnahmeGISOverviewModel>
+@(Html.ToGridFilterBuilder<RealisierteMassnahmenGISGridCommand>()
+                        .WithTextFilter(f => f.ProjektnameFilter, triggerOn3Char: true)
+                        .WithFilterButton(useUnobtrusive: true, filterButtonLabel: ButtonLocalization.Search))
+
+<div class="scrollable-grid">
+    @(Html.Kendo().Grid<RealisierteMassnahmeGISOverviewModel>()
+          .Name("RealisierteMassnahmenGrid")
+          .ApplyEmsgSettings()
+          .DataSource(dataBinding => dataBinding
+              .Ajax()
+              .Read(c => c.Action("GetAll", "RealisierteMassnahmenGIS").Data("index.getFilteredData"))
+              .Destroy(c => c.Action("Delete", "RealisierteMassnahmenGIS"))
+              .Model(keys => keys.Id(m => m.Id))
+              .PageSize(ASTRA.EMSG.Web.Infrastructure.ConstantSettings.GridPageSize))
+          .ToolBar(commands =>
+          {
+              commands.Template(
+              new EmsgToolbarBuilder()
+                  .AddButton("overview.create()", ButtonLocalization.AddNewRealisierteMassnahme)
+                  .ToTemplate());
+          })
+          .HtmlAttributes(new
+          {
+              style = "display : inline-block"
+          })
+          .Columns(columns =>
+          {
+              columns.Bound(m => m.Id).GridCommands(Html.EditButton("overview.edit('#= Id #')").ToHtmlString(),
+                  Html.GridDeleteButton().ToHtmlString()).Width(85);
+
+              columns.Bound(m => m.Projektname).Title(GridHeaderFooterLocalization.Projektname);
+              columns.Bound(m => m.BezeichnungVon).Title(GridHeaderFooterLocalization.BezeichnungVon);
+              columns.Bound(m => m.BezeichnungBis).Title(GridHeaderFooterLocalization.BezeichnungBis);
+              columns.Bound(m => m.Beschreibung).Title(GridHeaderFooterLocalization.Beschreibung).Width("20%");
+              columns.Bound(m => m.FlaecheFahrbahn).Title(GridHeaderFooterLocalization.FlaecheFahrbahn).Format(FormatStrings.NoDecimalFormat).AlignRight();
+              columns.Bound(m => m.FlaecheTrottoirLinks).Title(GridHeaderFooterLocalization.FlaceheTrottoirLinks).Format(FormatStrings.NoDecimalFormat).AlignRight();
+              columns.Bound(m => m.FlaecheTrottoirRechts).Title(GridHeaderFooterLocalization.FlaceheTrottoirRechts).Format(FormatStrings.NoDecimalFormat).AlignRight();
+              columns.Bound(m => m.KostenFahrbahn).Title(GridHeaderFooterLocalization.KostenFahrbahn).Format(FormatStrings.NoDecimalFormat).AlignRight();
+              columns.Bound(m => m.KostenTrottoirLinks).Title(GridHeaderFooterLocalization.KostenTrottoirLinks).Format(FormatStrings.NoDecimalFormat).AlignRight();
+              columns.Bound(m => m.KostenTrottoirRechts).Title(GridHeaderFooterLocalization.KostenTrottoirRechts).Format(FormatStrings.NoDecimalFormat).AlignRight();
+          }))
+</div>

@@ -1,0 +1,70 @@
+﻿@using ASTRA.EMSG.Business.Reports.WiederbeschaffungswertUndWertverlustProBelastungskategorie
+@using ASTRA.EMSG.Common
+@using ASTRA.EMSG.Common.Enums
+
+@using ASTRA.EMSG.Common.Utils
+@using ASTRA.EMSG.Web.Areas.Auswertungen.ReportGridCommands
+@using ASTRA.EMSG.Web.Infrastructure
+@using Resources
+@using Kendo.Mvc.UI
+@using ASTRA.EMSG.Web.Infrastructure.HtmlHelperExtensions
+
+@{ var netzErfassungsmodus = (NetzErfassungsmodus)ViewBag.NetzErfassungsmodus; }
+
+@if (netzErfassungsmodus != NetzErfassungsmodus.Summarisch)
+{
+    @(Html.ToGridFilterBuilder<WiederbeschaffungswertUndWertverlustProBelastungskategorieGridCommand>()
+                        .WithEnumFilter<EigentuemerTyp?, EigentuemerTyp>(f => f.Eigentuemer))    
+}
+
+@ReportViewHelpers.TabellarischReportButtons(Html, "WiederbeschaffungswertUndWertverlustProBelastungskategorie", "WiederbeschaffungswertUndWertverlustProBelastungskategorie")
+
+<div class="scrollable-grid-border">
+    <div class="scrollable-grid">
+        @(Html.Kendo().Grid<WiederbeschaffungswertUndWertverlustProBelastungskategoriePo>()
+              .Name("WiederbeschaffungswertUndWertverlustProBelastungskategorie")
+              .ApplyEmsgSettings(editable: false)
+              .Columns(columns =>
+              {
+                  columns.Bound(m => m.BelastungskategorieBezeichnung).Title(GridHeaderFooterLocalization.Belastungskategorie).SumLabel();
+                  columns.Bound(m => m.FlaecheFahrbahn).Hidden(netzErfassungsmodus.IsSummarischeMode()).Title(GridHeaderFooterLocalization.FlaecheFahrbahn).Format(FormatStrings.NoDecimalFormat).Sum();
+                  columns.Bound(m => m.FlaecheTrottoir).Hidden(netzErfassungsmodus.IsSummarischeMode()).Title(GridHeaderFooterLocalization.FlaecheErfasstesTrottoir).Format(FormatStrings.NoDecimalFormat).Sum();
+
+                  columns.Bound(m => m.GesamtFlaeche).Hidden(netzErfassungsmodus.IsStrasseMode()).Title(GridHeaderFooterLocalization.GesamtFlaeche).AlignRight();
+                  columns.Bound(m => m.MittlererZustandindex).Title(GridHeaderFooterLocalization.MittlererZustand).AlignRight();
+
+                  columns.Bound(m => m.Wiederbeschaffungswert).Title(GridHeaderFooterLocalization.Wiederbeschaffungswert).Format(FormatStrings.NoDecimalFormat).Sum();
+                  columns.Bound(m => m.AlterungsbeiwertI).Title(GridHeaderFooterLocalization.WiederbeschaffungswertAlterungsbeiwertI).Format(FormatStrings.ShortDecimalFormat).AlignRight();
+                  columns.Bound(m => m.WertlustI).Title(GridHeaderFooterLocalization.WertlustI).Format(FormatStrings.NoDecimalFormat).Sum();
+                  columns.Bound(m => m.AlterungsbeiwertII).Title(GridHeaderFooterLocalization.WiederbeschaffungswertAlterungsbeiwertII).Format(FormatStrings.ShortDecimalFormat).AlignRight();
+                  columns.Bound(m => m.WertlustII).Title(GridHeaderFooterLocalization.WertlustII).Format(FormatStrings.NoDecimalFormat).Sum();
+              })
+              .DataSource(dataBinding => dataBinding
+                    .Ajax()
+                    .Read(c => c.Action("GetAll", "WiederbeschaffungswertUndWertverlustProBelastungskategorie").Data("BuildParameter"))
+                    .PageSize(ConstantSettings.GridPageSize)
+                    .Aggregates(aggregate =>
+                    {
+                        aggregate.Add(p => p.FlaecheFahrbahn).Sum();
+                        aggregate.Add(p => p.FlaecheTrottoir).Sum();
+
+                        aggregate.Add(p => p.Wiederbeschaffungswert).Sum();
+                        aggregate.Add(p => p.WertlustI).Sum();
+                        aggregate.Add(p => p.WertlustII).Sum();
+                    }))
+              )
+    </div>
+</div>
+
+<script type="text/javascript">
+
+    function RefreshGrid() {
+        common.refreshGrid('#WiederbeschaffungswertUndWertverlustProBelastungskategorie');
+    }
+
+    function GetReportParameter() {
+        return {
+            Eigentuemer: $("#Eigentuemer").val()
+        };
+    }
+</script>

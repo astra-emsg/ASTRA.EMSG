@@ -1,0 +1,58 @@
+﻿@using ASTRA.EMSG.Business.Models.GIS
+@using ASTRA.EMSG.Web.Areas.Common.GridCommands
+@using ASTRA.EMSG.Web.Infrastructure
+@using ASTRA.EMSG.Web.Infrastructure.TelerikExtensions
+@using Resources
+@using ASTRA.EMSG.Web.Infrastructure.HtmlHelperExtensions
+@using Kendo.Mvc.UI
+@model SerializableGridModel<ZustandsabschnittOverviewGISModel>
+@(Html.ToGridFilterBuilder<ZustandsabschnittGISGridCommand>()
+                        .WithTextFilter(f => f.StrassennameFilter, triggerOn3Char: true)
+                        .WithFilterButton(filterButtonLabel: ButtonLocalization.Search, filterFunction: "overview.refreshGrid"))
+
+<div class="scrollable-grid">
+    @(Html.Kendo().Grid<ZustandsabschnittOverviewGISModel>()
+          .Name("ZustandsabschnittenGrid")
+          .ApplyEmsgSettings()
+          .DataSource(dataBinding => dataBinding
+              .Ajax()
+              .Read(c => c.Action("GetAll", "ZustaendeUndMassnahmenvorschlaegeGIS").Data("index.getFilteredData"))
+              .Destroy(c => c.Action("Delete", "ZustaendeUndMassnahmenvorschlaegeGIS"))
+              .Model(keys => keys.Id(m => m.Id))
+              .PageSize(ConstantSettings.GridPageSize)
+              )
+          .ToolBar(commands =>
+          {
+              commands.Template(
+              new EmsgToolbarBuilder()
+                  .AddButton("overview.create()", ButtonLocalization.AddNewZustandsabschnitt)
+                  .ToTemplate());
+          })
+          .HtmlAttributes(new
+          {
+              data_inspektionsroute_locked_warning = Html.Raw(NotificationLocalization.InspektionsrouteLockedNotification),
+              style = "display : inline-block"
+          })
+          .Columns(columns =>
+          {
+              columns.Bound(m => m.Id).GridCommands(
+                  Html.EditButton("overview.edit('#= Id #')", "~/Content/images/page_edit.png", "emsg-zustandsabschnitt-edit-button").ToHtmlString()
+                  +
+                  Html.EditButton("overview.edit('#= Id #')", "~/Content/images/page_white_edit.png", "emsg-zustandsabschnitt-white-edit-button").ToHtmlString(),
+                  Html.GridDeleteButton().ToHtmlString()).Width(85);
+
+              columns.Bound(m => m.Sreassenabschnittsnummer).Title(GridHeaderFooterLocalization.Strassenabschnittsnummer);
+              columns.Bound(m => m.Strassenname).Title(GridHeaderFooterLocalization.Strassenname);
+              columns.Bound(m => m.StrasseOrtsbezeichnung).Title(GridHeaderFooterLocalization.Ortsbezeichnung);
+              columns.Bound(m => m.Abschnittsnummer).Title(GridHeaderFooterLocalization.Zustandabschnittnummer);
+              columns.Bound(m => m.BezeichnungVon).Title(GridHeaderFooterLocalization.BezeichnungVon);
+              columns.Bound(m => m.BezeichnungBis).Title(GridHeaderFooterLocalization.BezeichnungBis);
+              columns.Bound(m => m.Bemerkung).Title(GridHeaderFooterLocalization.Bemerkung).TruncatedTextTemplate(m => m.Bemerkung, m => m.BemerkungShort);
+              columns.Bound(m => m.Zustandsindex).Title(GridHeaderFooterLocalization.Zustandsindex).AlignRight();
+              columns.Bound(m => m.Laenge).Title(GridHeaderFooterLocalization.Laenge);
+              columns.Bound(m => m.FlaecheFahrbahn).Title(GridHeaderFooterLocalization.FlaecheFahrbahn).AlignRight();
+              columns.Bound(m => m.FlaceheTrottoirLinks).Title(GridHeaderFooterLocalization.FlaceheTrottoirLinks).AlignRight();
+              columns.Bound(m => m.FlaceheTrottoirRechts).Title(GridHeaderFooterLocalization.FlaceheTrottoirRechts).AlignRight();
+          })
+          .Events(events => events.DataBound("overview.onRowDataBound")))
+</div>

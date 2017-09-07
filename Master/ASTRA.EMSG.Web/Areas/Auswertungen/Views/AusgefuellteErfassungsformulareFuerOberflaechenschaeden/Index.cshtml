@@ -1,0 +1,10 @@
+﻿@using Resources
+@using Kendo.Mvc.UI
+
+@section JavaScript
+{
+    <script type="text/javascript" src="@(Url.Content("~/Scripts/Areas/Auswertungen/AusgefuellteErfassungsformulareFuerOberflaechenschaeden/AusgefuellteErfassungsformulareFuerOberflaechenschaeden.js"))"></script>
+}
+
+<h1>@TitleLocalization.AusgefuellteErfassungsformulareFuerOberflaechenschaedenPageTitle</h1>
+@ReportViewHelpers.ReportIndexContent(Html, (IEnumerable<DropDownListItem>)ViewBag.ClosedErfassungsperiods)

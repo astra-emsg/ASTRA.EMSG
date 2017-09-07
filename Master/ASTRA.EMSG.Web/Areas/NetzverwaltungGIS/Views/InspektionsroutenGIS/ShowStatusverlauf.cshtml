@@ -1,0 +1,26 @@
+﻿@using ASTRA.EMSG.Business.Models
+@using ASTRA.EMSG.Business.Models.GIS
+@using ASTRA.EMSG.Common
+@using ASTRA.EMSG.Web.Infrastructure.HtmlHelperExtensions
+@using Resources
+@using Kendo.Mvc.UI
+@model ASTRA.EMSG.Business.Models.GIS.InspektionsRouteStatusverlaufOverviewModel
+
+<fieldset class="popupFormFieldset" style="width: 600px">
+    @(Html.EditorTable().WithDisplayFor(m => m.Bezeichnung, false))
+
+    @(Html.Kendo().Grid<InspektionsRouteStatusverlaufModel>()
+        .Name("InspektionsRouteStatusverlauf")
+        .ApplyEmsgSettings(pageable: false, filterable: false, editable: false, scrollable: true, sortable: false)
+        .BindTo(Model.InspektionsRouteStatusverlaufModels)
+        .Columns(columns =>
+                {
+                columns.Bound(m => m.Datum)
+                .Format(FormatStrings.ShortDateTimeFormat)
+                .Title(GridHeaderFooterLocalization.Datum).Width(150);
+                columns.Bound(m => m.StatusBezeichnung)
+                .Title(GridHeaderFooterLocalization.Status).Width(300);
+                })
+        .Events(events => events.DataBinding("showStatusverlauf.onDataBinding")))
+        @Html.HiddenFor(m => m.Id)
+</fieldset>

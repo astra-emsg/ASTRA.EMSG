@@ -1,0 +1,48 @@
+﻿@using ASTRA.EMSG.Business.Models.Common
+@using ASTRA.EMSG.Web.Areas.Common.GridCommands
+@using ASTRA.EMSG.Web.Infrastructure.HtmlHelperExtensions
+@using Kendo.Mvc.UI
+@using Resources
+
+@{
+    ViewBag.DisableMenu = true;
+}
+
+@section JavaScript
+{
+    <script type="text/javascript" src="@(Url.Content("~/Scripts/Areas/Home/HilfeSuche/HilfeSuche.js"))"></script>         
+}
+           
+
+<table>
+    <tr>
+        <td>
+            @(Html.ToGridFilterBuilder<HilfeSucheGridCommand>()
+                  .WithTextFilter(f => f.HilfeFilter)
+                  .WithUnobstrusiveFilterButton(filterButtonLabel: ButtonLocalization.Search))
+        </td>
+        <td>
+            <div id="CountDiv">
+                <span id="ResultCount" style="margin-right: 4px"></span>@TextLocalization.HelpPagesFound
+            </div>
+        </td>
+    </tr>
+</table>
+
+@{
+    Html.Kendo().Grid<HilfeSucheModel>()
+        .Name("HilfeSucheGrid")
+        .ApplyEmsgSettings(isHilfeSuche: true, pageable: false, filterable: false, sortable: false, editable: false)
+        .DataSource(dataBinding => dataBinding
+            .Ajax()
+            .Read(c => c.Action("GetAll", "HilfeSuche", new { area = "" }).Data("index.getFilteredData"))
+            .Model(keys => keys.Id(m => m.InhaltLink)))
+        .Columns(columns =>
+            {
+                columns.Bound(m => m.InhaltText).Title("").ClientTemplate("<a class='emsg-hilfe-suche-link' href=\"#= InhaltLink #\">#= InhaltText #</a>");
+                columns.Bound(m => m.MatchCountText).Title("");
+            })
+        .Events(events => events
+            .DataBound("index.onDataBound"))
+        .Render();
+}

@@ -1,0 +1,21 @@
+﻿@using ASTRA.EMSG.Business.Models
+@using ASTRA.EMSG.Business.Models.Common
+@using Kendo.Mvc.UI
+
+@model List<ASTRA.EMSG.Business.Models.Common.MenuItemModel>
+
+@(Html.Kendo().Menu()
+      .Name("Menu")
+      .Orientation(Kendo.Mvc.UI.MenuOrientation.Horizontal)
+      .HighlightPath(true)
+      .BindTo(Model, mappings => mappings
+                                     .For<MenuItemModel>(binding => binding.ItemDataBound((item, m) =>
+                                         {
+                                             item.Text = m.Text;
+                                             item.Url = m.IsPlaceHolder ? "javascript:function(){}" : Url.Action(m.Action, m.Controller, new {area = m.Area});
+                                         })
+                                                                           .Children(itemModel => itemModel.NotEmptySubMenuItemModels)))
+      )
+
+        @*.Animation(p => p.Close(e => e.Duration(100).Fade(FadeDirection.Out)))
+        .Animation(p => p.Open(e => e.Duration(0).SlideIn(SlideDirection.Down)))*@

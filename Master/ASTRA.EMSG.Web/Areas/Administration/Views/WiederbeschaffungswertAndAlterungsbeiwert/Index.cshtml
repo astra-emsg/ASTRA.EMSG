@@ -1,0 +1,70 @@
+﻿@using ASTRA.EMSG.Business.Models.Katalogs
+@using ASTRA.EMSG.Web.Infrastructure.HtmlHelperExtensions
+@using ASTRA.EMSG.Web.Infrastructure.TelerikExtensions
+@using Resources
+@using Kendo.Mvc.UI
+
+@{
+    ViewBag.ContentDivWidth = 1400;
+}
+
+@section JavaScript
+{
+    <script type="text/javascript" src="@(Url.Content("~/Scripts/Areas/Administration/WiederbeschaffungswertAndAlterungsbeiwert/WiederbeschaffungswertAndAlterungsbeiwert.js"))"></script>
+}
+
+@{ bool isNotForApplicationLevel = !(ViewBag.IsForApplicationLevel ?? false); }
+
+
+<h2>@(TitleLocalization.WiederbeschaffungswertAndAlterungsbeiwertPageTitle)</h2>
+<div class="scrollable-grid-border">
+    <div class="scrollable-grid">
+        @(Html.Kendo().Grid<WiederbeschaffungswertKatalogEditModel>()
+              .Name("WiederbeschaffungswertAndAlterungsbeiwertGrid")
+              .ApplyEmsgSettings(editable: isNotForApplicationLevel)
+              .DataSource(dataBinding => dataBinding
+                  .Ajax()
+                  .Read(c => c.Action("GetAll", "WiederbeschaffungswertAndAlterungsbeiwert"))
+                  .Destroy(c => c.Action("Delete", "WiederbeschaffungswertAndAlterungsbeiwert"))
+                  .PageSize(11)
+                  .Model(keys => keys.Id(m => m.Id)))
+              .ToolBar(commands =>
+              {
+                  if (isNotForApplicationLevel)
+                      commands.Template(
+                          new EmsgToolbarBuilder()
+                              .AddButton("index.openÇreateWiederbeschaffungswertAndAlterungsbeiwertWindow()", ButtonLocalization.AddNewWiederbeschaffungswertUndAlterungsbeiwert)
+                              .ToTemplate());
+              })
+              .HtmlAttributes(new
+              {
+                  data_edit_url = Url.Action("EditWiederbeschaffungswertAndAlterungsbeiwert"),
+                  data_create_url = Url.Action("Create"),
+                  data_load_default_url = Url.Action("LoadDefaultWiederbeschaffungswert"),
+                  data_edit_window_title = TitleLocalization.WiederbeschaffungswertAndAlterungsbeiwertEditPopupTitle,
+                  data_create_window_title = TitleLocalization.WiederbeschaffungswertAndAlterungsbeiwertCreatePopupTitle,
+              })
+              .Columns(columns =>
+              {
+                  var actions = new string[0];
+
+                  if (isNotForApplicationLevel)
+                      actions = new[] { Html.GridDeleteButton().ToHtmlString() };
+
+                  columns.Bound(m => m.Id).GridCommands(Html.EditButton("index.openWiederbeschaffungswertAndAlterungsbeiwertWindow('#= Id #')")
+                      .ToHtmlString(), actions).Width(isNotForApplicationLevel ? 85 : 41);
+
+                  columns.Bound(m => m.BelastungskategorieBezeichnung).Title(GridHeaderFooterLocalization.Belastungskategorie);
+
+                  columns.Bound(m => m.FlaecheFahrbahn).Title(GridHeaderFooterLocalization.WiederbeschaffungswertFlaecheFahrbahn).AlignRight();
+                  columns.Bound(m => m.FlaecheTrottoir).Title(GridHeaderFooterLocalization.WiederbeschaffungswertFlaecheTrottoir).AlignRight();
+                  columns.Bound(m => m.GesamtflaecheFahrbahn).Title(GridHeaderFooterLocalization.WiederbeschaffungswertGesamtflaecheFahrbahn).AlignRight();
+
+                  columns.Bound(m => m.AlterungsbeiwertI).Title(GridHeaderFooterLocalization.WiederbeschaffungswertAlterungsbeiwertI).AlignRight();
+                  columns.Bound(m => m.AlterungsbeiwertII).Title(GridHeaderFooterLocalization.WiederbeschaffungswertAlterungsbeiwertII).AlignRight();
+              }))
+    </div>
+</div>
+
+@(Html.TelerikWindow(TitleLocalization.WiederbeschaffungswertAndAlterungsbeiwertEditPopupTitle, "WiederbeschaffungswertAndAlterungsbeiwertWindow", "wiederbeschaffungswertAndAlterungsbeiwertWindowDiv")
+      .Events(events => events.Close("edit.onClose")))

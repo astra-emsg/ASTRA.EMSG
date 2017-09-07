@@ -1,0 +1,420 @@
+<?xml version="1.0" encoding="utf-8"?>
+<root>
+  <!-- 
+    Microsoft ResX Schema 
+    
+    Version 2.0
+    
+    The primary goals of this format is to allow a simple XML format 
+    that is mostly human readable. The generation and parsing of the 
+    various data types are done through the TypeConverter classes 
+    associated with the data types.
+    
+    Example:
+    
+    ... ado.net/XML headers & schema ...
+    <resheader name="resmimetype">text/microsoft-resx</resheader>
+    <resheader name="version">2.0</resheader>
+    <resheader name="reader">System.Resources.ResXResourceReader, System.Windows.Forms, ...</resheader>
+    <resheader name="writer">System.Resources.ResXResourceWriter, System.Windows.Forms, ...</resheader>
+    <data name="Name1"><value>this is my long string</value><comment>this is a comment</comment></data>
+    <data name="Color1" type="System.Drawing.Color, System.Drawing">Blue</data>
+    <data name="Bitmap1" mimetype="application/x-microsoft.net.object.binary.base64">
+        <value>[base64 mime encoded serialized .NET Framework object]</value>
+    </data>
+    <data name="Icon1" type="System.Drawing.Icon, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
+        <value>[base64 mime encoded string representing a byte array form of the .NET Framework object]</value>
+        <comment>This is a comment</comment>
+    </data>
+                
+    There are any number of "resheader" rows that contain simple 
+    name/value pairs.
+    
+    Each data row contains a name, and value. The row also contains a 
+    type or mimetype. Type corresponds to a .NET class that support 
+    text/value conversion through the TypeConverter architecture. 
+    Classes that don't support this are serialized and stored with the 
+    mimetype set.
+    
+    The mimetype is used for serialized objects, and tells the 
+    ResXResourceReader how to depersist the object. This is currently not 
+    extensible. For a given mimetype the value must be set accordingly:
+    
+    Note - application/x-microsoft.net.object.binary.base64 is the format 
+    that the ResXResourceWriter will generate, however the reader can 
+    read any of the formats listed below.
+    
+    mimetype: application/x-microsoft.net.object.binary.base64
+    value   : The object must be serialized with 
+            : System.Runtime.Serialization.Formatters.Binary.BinaryFormatter
+            : and then encoded with base64 encoding.
+    
+    mimetype: application/x-microsoft.net.object.soap.base64
+    value   : The object must be serialized with 
+            : System.Runtime.Serialization.Formatters.Soap.SoapFormatter
+            : and then encoded with base64 encoding.
+
+    mimetype: application/x-microsoft.net.object.bytearray.base64
+    value   : The object must be serialized into a byte array 
+            : using a System.ComponentModel.TypeConverter
+            : and then encoded with base64 encoding.
+    -->
+  <xsd:schema id="root" xmlns="" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:msdata="urn:schemas-microsoft-com:xml-msdata">
+    <xsd:import namespace="http://www.w3.org/XML/1998/namespace" />
+    <xsd:element name="root" msdata:IsDataSet="true">
+      <xsd:complexType>
+        <xsd:choice maxOccurs="unbounded">
+          <xsd:element name="metadata">
+            <xsd:complexType>
+              <xsd:sequence>
+                <xsd:element name="value" type="xsd:string" minOccurs="0" />
+              </xsd:sequence>
+              <xsd:attribute name="name" use="required" type="xsd:string" />
+              <xsd:attribute name="type" type="xsd:string" />
+              <xsd:attribute name="mimetype" type="xsd:string" />
+              <xsd:attribute ref="xml:space" />
+            </xsd:complexType>
+          </xsd:element>
+          <xsd:element name="assembly">
+            <xsd:complexType>
+              <xsd:attribute name="alias" type="xsd:string" />
+              <xsd:attribute name="name" type="xsd:string" />
+            </xsd:complexType>
+          </xsd:element>
+          <xsd:element name="data">
+            <xsd:complexType>
+              <xsd:sequence>
+                <xsd:element name="value" type="xsd:string" minOccurs="0" msdata:Ordinal="1" />
+                <xsd:element name="comment" type="xsd:string" minOccurs="0" msdata:Ordinal="2" />
+              </xsd:sequence>
+              <xsd:attribute name="name" type="xsd:string" use="required" msdata:Ordinal="1" />
+              <xsd:attribute name="type" type="xsd:string" msdata:Ordinal="3" />
+              <xsd:attribute name="mimetype" type="xsd:string" msdata:Ordinal="4" />
+              <xsd:attribute ref="xml:space" />
+            </xsd:complexType>
+          </xsd:element>
+          <xsd:element name="resheader">
+            <xsd:complexType>
+              <xsd:sequence>
+                <xsd:element name="value" type="xsd:string" minOccurs="0" msdata:Ordinal="1" />
+              </xsd:sequence>
+              <xsd:attribute name="name" type="xsd:string" use="required" />
+            </xsd:complexType>
+          </xsd:element>
+        </xsd:choice>
+      </xsd:complexType>
+    </xsd:element>
+  </xsd:schema>
+  <resheader name="resmimetype">
+    <value>text/microsoft-resx</value>
+  </resheader>
+  <resheader name="version">
+    <value>2.0</value>
+  </resheader>
+  <resheader name="reader">
+    <value>System.Resources.ResXResourceReader, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </resheader>
+  <resheader name="writer">
+    <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </resheader>
+  <data name="AnteilJeBelastungskategorie" xml:space="preserve">
+    <value>Anteil je
+Belastungskategorie</value>
+  </data>
+  <data name="AnzahlGemeinden" xml:space="preserve">
+    <value>Anzahl
+Gemeinden</value>
+  </data>
+  <data name="AusgefuellteErfassungsformulareFuerOberflaechenschaedenReportFileName" xml:space="preserve">
+    <value>Ausgefülle Formulare für Oberflächenschäden pro Strassenabschnitt</value>
+  </data>
+  <data name="Beschreibung" xml:space="preserve">
+    <value>Beschreibung</value>
+  </data>
+  <data name="Bezugsgrösse" xml:space="preserve">
+    <value>Bezugsgrösse</value>
+  </data>
+  <data name="EigenschaftenAllerGeimeinde" xml:space="preserve">
+    <value>Eigenschaften aller Gemeinden</value>
+  </data>
+  <data name="EigenschaftenDerGruppe" xml:space="preserve">
+    <value>Eigenschaften der Gruppe</value>
+  </data>
+  <data name="EineListeVonKoordiniertenMassnahmenMapReportFileName" xml:space="preserve">
+    <value>Koordinierte Massnahmen_Karte</value>
+  </data>
+  <data name="EineListeVonKoordiniertenMassnahmenReportFileName" xml:space="preserve">
+    <value>Koordinierte Massnahmen_Tabelle</value>
+  </data>
+  <data name="EineListeVonRealisiertenMassnahmenGeordnetNachJahrenGISReportFileName" xml:space="preserve">
+    <value>Realisierte Massnahmen_Tabelle</value>
+  </data>
+  <data name="Einheit" xml:space="preserve">
+    <value>Einheit</value>
+  </data>
+  <data name="EinheitDatum" xml:space="preserve">
+    <value>Datum</value>
+  </data>
+  <data name="EinheitFlaecheProEinwohner" xml:space="preserve">
+    <value>m²/E</value>
+  </data>
+  <data name="EinheitFlaecheProFlaeche" xml:space="preserve">
+    <value>m²/ha</value>
+  </data>
+  <data name="EinheitKostenProEinwohner" xml:space="preserve">
+    <value>CHF/E</value>
+  </data>
+  <data name="EinheitKostenProFlaeche" xml:space="preserve">
+    <value>CHF/m²</value>
+  </data>
+  <data name="EinheitLaengeProEinwohner" xml:space="preserve">
+    <value>m/E</value>
+  </data>
+  <data name="EinheitLaengeProFlaeche" xml:space="preserve">
+    <value>km/ha</value>
+  </data>
+  <data name="EinheitNichts" xml:space="preserve">
+    <value>-</value>
+  </data>
+  <data name="EinheitProzent" xml:space="preserve">
+    <value>%</value>
+  </data>
+  <data name="Einwohner" xml:space="preserve">
+    <value>Einwohner</value>
+  </data>
+  <data name="ErfassungsformulareFuerOberflaechenschaedenBetonbelagReportFileName" xml:space="preserve">
+    <value>Formular für Oberflächenschäden</value>
+  </data>
+  <data name="ErfassungsformulareFuerOberflaechenschaedenAsphaltbelagReportFileName" xml:space="preserve">
+    <value>Formular für Oberflächenschäden</value>
+  </data>
+  <data name="RealisierteFlaeche" xml:space="preserve">
+    <value>Realisierte Fläche</value>
+  </data>
+  <data name="Fahrbahnflaeche" xml:space="preserve">
+    <value>Gesamtfläche der Fahrbahnen [m²]</value>
+  </data>
+  <data name="FahrbahnflaecheInklusiveTrottoir" xml:space="preserve">
+    <value>Gesamtfläche der Fahrbahnen und Trottoir [m²]</value>
+  </data>
+  <data name="FahrbahnflaecheSimple" xml:space="preserve">
+    <value>Fahrbahnfläche</value>
+  </data>
+  <data name="Fahrbahnlaenge" xml:space="preserve">
+    <value>Gesamtlänge [m]</value>
+  </data>
+  <data name="FlaecheAxis" xml:space="preserve">
+    <value>Gesamtfläche der Fahrbahnen [1000m²]</value>
+  </data>
+  <data name="FlaecheFahrbahn" xml:space="preserve">
+    <value>Fläche Fahrbahn</value>
+  </data>
+  <data name="FlaecheTrottoir" xml:space="preserve">
+    <value>Fläche Trottoir</value>
+  </data>
+  <data name="FlaecheTrottoirLinks" xml:space="preserve">
+    <value>Fläche Trottoir Links</value>
+  </data>
+  <data name="FlaecheTrottoirRechts" xml:space="preserve">
+    <value>Fläche Trottoir Rechts</value>
+  </data>
+  <data name="GesamtFlaeche" xml:space="preserve">
+    <value>Gesamtfläche [1000 m²]</value>
+  </data>
+  <data name="GesamtlaengeDesStrassennetzes" xml:space="preserve">
+    <value>Gesamtlänge des
+Strassennetzes</value>
+  </data>
+  <data name="Gesamtstrassenflaeche" xml:space="preserve">
+    <value>Gesamtstrassen-
+fläche</value>
+  </data>
+  <data name="GleitendesMittelDerLetztenFuenfJahr" xml:space="preserve">
+    <value>gleitendes Mittel
+der letzten 5 Jahre</value>
+  </data>
+  <data name="GleitendesMittelDerLetztenFuenfJahre" xml:space="preserve">
+    <value>gleitendes Mittel 
+der letzten 5 Jahre</value>
+  </data>
+  <data name="Kosten" xml:space="preserve">
+    <value>Kosten [kCHF]</value>
+  </data>
+  <data name="ListeDerInspektionsroutenMapReportFileName" xml:space="preserve">
+    <value>Inspektionsrouten_Karte</value>
+  </data>
+  <data name="ListeDerInspektionsroutenReportFileName" xml:space="preserve">
+    <value>Inspektionsrouten_Tabelle</value>
+  </data>
+  <data name="MassnahmenvorschlagProZustandsabschnittMapReportFileName" xml:space="preserve">
+    <value>Massnahmenvorschlaege Fahrbahn_Karte</value>
+  </data>
+  <data name="MassnahmenvorschlagProZustandsabschnittReportFileName" xml:space="preserve">
+    <value>Massnahmenvorschlaege Fahrbahn_Tabelle</value>
+  </data>
+  <data name="Maximalwert" xml:space="preserve">
+    <value>Maximal-
+wert</value>
+  </data>
+  <data name="MengeProBelastungskategorieGrafischeReportFileName" xml:space="preserve">
+    <value>Strassenflaechen Verteilung nach Belastungskategorie_Grafik</value>
+  </data>
+  <data name="MengeProBelastungskategorieReportFileName" xml:space="preserve">
+    <value>Strassenflaechen Verteilung nach Belastungskategorie_Tabelle</value>
+  </data>
+  <data name="Minimalwert" xml:space="preserve">
+    <value>Minimal-
+wert</value>
+  </data>
+  <data name="Mittelwert" xml:space="preserve">
+    <value>Mittelwert</value>
+  </data>
+  <data name="MittelwertBezugsjahr" xml:space="preserve">
+    <value>Mittelwert
+Bezugsjahr</value>
+  </data>
+  <data name="MittlererZustandsindex" xml:space="preserve">
+    <value>Mittlerer Zustandsindex</value>
+  </data>
+  <data name="MittleresAlterDerZustandsaufnahmen" xml:space="preserve">
+    <value>Mittleres Alter der Zustandsaufnahmen</value>
+  </data>
+  <data name="MittleresAlterDerZustandsaufnahmenNetz" xml:space="preserve">
+    <value>Mittleres Alter der Zustandsaufnahmen Netz</value>
+  </data>
+  <data name="MittleresBezugsjahr" xml:space="preserve">
+    <value>Mittelwert
+Bezugsjahr</value>
+  </data>
+  <data name="NetzAnteil" xml:space="preserve">
+    <value>Prozentueller Anteil des erfassten Netzes</value>
+  </data>
+  <data name="NochNichtInspizierteStrassenabschnitteReportFileName" xml:space="preserve">
+    <value>Noch nicht inspizierte Strassenabschnitte_Tabelle</value>
+  </data>
+  <data name="NoDataForThisBelastungskategorie" xml:space="preserve">
+    <value>Es stehen keine Daten für diese Belastungskategorie zur Verfügung!</value>
+  </data>
+  <data name="Organisation" xml:space="preserve">
+    <value>Organisation</value>
+  </data>
+  <data name="RealisierteMassnahmen" xml:space="preserve">
+    <value>Realisierte
+Massnahmen</value>
+  </data>
+  <data name="RealisierteMassnahmenPerWBW" xml:space="preserve">
+    <value>Realisierte
+Massnahmen / WBW</value>
+  </data>
+  <data name="RealisierteMassnahmenPerWBWJeBelastungskategorie" xml:space="preserve">
+    <value>Realisierte
+Massnahmen /
+WBW je
+Belastungskategorie</value>
+  </data>
+  <data name="RealisierteMassnahmenPerWertverlustNetz" xml:space="preserve">
+    <value>Realisierte
+Massnahmen /
+Wertverlust Netz</value>
+  </data>
+  <data name="RealisiertenMassnahmen" xml:space="preserve">
+    <value>Realisierten Massnahmen [kCHF]</value>
+  </data>
+  <data name="RealisiertenMassnahmenWertverlustZustandsindexProJahrGrafischeReportFileName" xml:space="preserve">
+    <value>Realisierte Massnahmen Wertverlust und mittlerer Zustandsindex_Grafik</value>
+  </data>
+  <data name="Siedlungsflaeche" xml:space="preserve">
+    <value>Siedlungsfläche</value>
+  </data>
+  <data name="TausendQuadratMeter" xml:space="preserve">
+    <value>[1000 m²]</value>
+  </data>
+  <data name="Trottoirflaeche" xml:space="preserve">
+    <value>Gesamtfläche erfasste Trottoirs [m²]</value>
+  </data>
+  <data name="WBW" xml:space="preserve">
+    <value>WBW [Mio. CHF]</value>
+  </data>
+  <data name="WBWAxis" xml:space="preserve">
+    <value>WBW [Mio. CHF] / WV II [kCHF]</value>
+  </data>
+  <data name="Wertverlust" xml:space="preserve">
+    <value>Wertverlust</value>
+  </data>
+  <data name="WertverlustsI" xml:space="preserve">
+    <value>Wertverlust I\n(mit Berücksichtigung\nbaulicher Reparaturen)</value>
+  </data>
+  <data name="WertverlustsII" xml:space="preserve">
+    <value>Wertverlust II\n(ohne Berücksichtigung\nbaulicher Reparaturen)</value>
+  </data>
+  <data name="Wiederbeschaffungswert" xml:space="preserve">
+    <value>Wiederbeschaffungswert</value>
+  </data>
+  <data name="WiederbeschaffungswertSimple" xml:space="preserve">
+    <value>Wiederbe-
+schaffungswert</value>
+  </data>
+  <data name="WiederbeschaffungswertUndWertverlustGrafischeReportFileName" xml:space="preserve">
+    <value>Wiederbeschaffungswert und Wertverlust Verteilung nach Belastungskategorie_Grafik</value>
+  </data>
+  <data name="WiederbeschaffungswertUndWertverlustProBelastungskategorieReportFileName" xml:space="preserve">
+    <value>Wiederbeschaffungswert und Wertverlust Verteilung nach Belastungskategorie_Tabelle</value>
+  </data>
+  <data name="WiederbeschaffungswertUndWertverlustProJahrGrafischeReportFileName" xml:space="preserve">
+    <value>Wiederbeschaffungswert und Wertverlust ueber saemtliche Inspektionen_Grafik</value>
+  </data>
+  <data name="WiederbeschaffungswertUndWertverlustProStrassenabschnittReportFileName" xml:space="preserve">
+    <value>Wiederbeschaffungswert und Wertverlust pro Strassenabschnitt_Tabelle</value>
+  </data>
+  <data name="WV" xml:space="preserve">
+    <value>Wertverlust II [kCHF]</value>
+  </data>
+  <data name="ZustandProZustandsabschnittMapReportFileName" xml:space="preserve">
+    <value>Zustandsabschnitte_Karte</value>
+  </data>
+  <data name="ZustandProZustandsabschnittReportFileName" xml:space="preserve">
+    <value>Zustandsabschnitte_Tabelle</value>
+  </data>
+  <data name="ZustandsindexJeBelastungskategorie" xml:space="preserve">
+    <value>Zustandsindex je Belastungskategorie</value>
+  </data>
+  <data name="ZustandsindexNetz" xml:space="preserve">
+    <value>Zustandsindex Netz</value>
+  </data>
+  <data name="ZustandsspiegelProBelastungskategorieGrafischeReportFileName" xml:space="preserve">
+    <value>Zustandsspiegel pro Belastungskategorie_Grafik</value>
+  </data>
+  <data name="ZustandsspiegelProJahrGrafischeReportFileName" xml:space="preserve">
+    <value>Zustandsspiegel ueber saemtliche Inspektionen_Grafik</value>
+  </data>
+  <data name="StrassenabschnitteListeMapReportFileName" xml:space="preserve">
+    <value>Strassenabschnitte_Karte</value>
+  </data>
+  <data name="StrassenabschnitteListeOhneInspektionsrouteReportFileName" xml:space="preserve">
+    <value>Strassenabschnitte die keiner Inspektionsroute zugeordnet sind</value>
+  </data>
+  <data name="StrassenabschnitteListeReportFileName" xml:space="preserve">
+    <value>Strassenabschnitte_Tabelle</value>
+  </data>
+  <data name="MapReportFooterText" xml:space="preserve">
+    <value>Kartenmaterial © Swisstopo / Amtliche Vermessung Schweiz/FL</value>
+  </data>
+  <data name="EineListeVonMassnahmenGegliedertNachTeilsystemenMapReportFileName" xml:space="preserve">
+    <value>Massnahmen der Teilsysteme_Karte</value>
+  </data>
+  <data name="EineListeVonMassnahmenGegliedertNachTeilsystemenReportFileName" xml:space="preserve">
+    <value>Massnahmen der Teilsysteme_Tabelle</value>
+  </data>
+  <data name="EineListeVonRealisiertenMassnahmenGeordnetNachJahrenReportFileName" xml:space="preserve">
+    <value>Realisierte Massnahmen_Tabelle</value>
+  </data>
+  <data name="EineListeVonRealisiertenMassnahmenGeordnetNachJahrenSummarischReportFileName" xml:space="preserve">
+    <value>Realisierte Massnahmen_Tabelle</value>
+  </data>
+  <data name="Abschnittsnummer" xml:space="preserve">
+    <value>Abschnittsnr.</value>
+  </data>
+  <data name="Fahrbahn" xml:space="preserve">
+    <value>Fahrbahn</value>
+  </data>
+</root>

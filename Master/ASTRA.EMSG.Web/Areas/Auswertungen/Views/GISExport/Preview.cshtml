@@ -1,0 +1,12 @@
+﻿@using System.Web.Mvc.Html
+@using ASTRA.EMSG.Business.Services.GIS.Shape
+@using ASTRA.EMSG.Web.Areas.Auswertungen.ReportGridCommands
+@using ASTRA.EMSG.Web.Infrastructure
+@using ASTRA.EMSG.Web.Infrastructure.HtmlHelperExtensions
+@using Resources
+@model GISExportGridCommand
+@{
+    ViewData.Model = new GISExportGridCommand();
+}
+
+@Html.Hidden("ErfassungsPeriod", Model.ErfassungsPeriodId)

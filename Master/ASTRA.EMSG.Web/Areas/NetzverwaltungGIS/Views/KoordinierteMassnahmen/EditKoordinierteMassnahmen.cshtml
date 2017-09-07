@@ -1,0 +1,57 @@
+﻿@using ASTRA.EMSG.Business.Models
+@using ASTRA.EMSG.Common
+@using ASTRA.EMSG.Web.Infrastructure.HtmlHelperExtensions
+@using ASTRA.EMSG.Web.Infrastructure.TelerikExtensions
+@using Resources
+@using Kendo.Mvc.UI
+@model ASTRA.EMSG.Business.Models.GIS.KoordinierteMassnahmeGISModel
+@using (Ajax.BeginForm((ViewBag.IsNew ?? false) ? "Insert" : "Update", "KoordinierteMassnahmen",
+                        new AjaxOptions
+                        {
+                            HttpMethod = "POST",
+                            UpdateTargetId = "koordinierteMassnahmeEditFormDiv",
+                            InsertionMode = InsertionMode.Replace,
+                        }))
+{
+    <fieldset class="formFieldset" style="width: 440px">
+        <legend>@(ViewBag.IsNew ? TitleLocalization.KoordinierteMassnahmeGISCreateFormTitle : TitleLocalization.KoordinierteMassnahmeGISEditFormTitle)</legend>
+        @Html.ValidationMessageFor(m => m.FeatureGeoJSONString)
+        <input type="hidden" value="@Model.FeatureGeoJSONString" id="FeatureGeoJSONString" name="FeatureGeoJSONString"/>
+        <input type="hidden" value="@ViewData.ModelState.IsValid" id="IsValid" name="IsValid"/>
+        @(Html.EditorTable(fieldEditorWidth: 220)
+           .WithTextBoxFor(s => s.Projektname)
+           .WithTextBoxFor(s => s.BezeichnungVon, requiredField: false)
+           .WithTextBoxFor(s => s.BezeichnungBis, requiredField: false)
+           .WithReadOnlyFieldFor(s => s.Laenge)
+           .WithDecimalEditorFor(s => s.BreiteFahrbahn, decimalPlaces: 2)
+           .WithDecimalEditorFor(s => s.BreiteTrottoirLinks, decimalPlaces: 2, requiredField: false)
+           .WithDecimalEditorFor(s => s.BreiteTrottoirRechts, decimalPlaces: 2, requiredField: false)
+           .WithDisplayFor(m => m.FlaecheFahrbahn, requiredField: false)
+           .WithDisplayFor(m => m.FlaecheTrottoirLinks, requiredField: false)
+           .WithDisplayFor(m => m.FlaecheTrottoirRechts, requiredField: false)
+           .WithCustomEditorFor(m => m.MassnahmenvorschlagFahrbahn, MvcHtmlString.Create(Html.Kendo().DropDownListFor(m => m.MassnahmenvorschlagFahrbahn)
+                .Name(Html.ClientIdFor(m => m.MassnahmenvorschlagFahrbahn).ToString()).Width(200)
+                .Events(e => e.Change("details.dropDownChanged"))
+                .BindTo((IEnumerable<DropDownListItem>)ViewBag.MassnahmenbeschreibungFahrbahnen).ToHtmlString()),
+                requiredField: false
+            )
+
+            .WithCustomEditorFor(s => s.BeteiligteSysteme, Html.EditorFor(s => s.BeteiligteSysteme, "BeteiligteSysteme"))
+            .WithDecimalEditorFor(s => s.KostenGesamtprojekt, decimalPlaces: 0, requiredField: false)
+            .WithDecimalEditorFor(s => s.KostenFahrbahn, decimalPlaces: 0, requiredField: false)
+            .WithDecimalEditorFor(s => s.KostenTrottoirLinks, decimalPlaces: 0, requiredField: false)
+            .WithDecimalEditorFor(s => s.KostenTrottoirRechts, decimalPlaces: 0, requiredField: false)
+            .WithTextAreaFor(s => s.Beschreibung, requiredField: false)
+            .WithDateTimeEditorFor(s => s.AusfuehrungsAnfang, requiredField: false)
+            .WithDateTimeEditorFor(s => s.AusfuehrungsEnde, requiredField: false)
+            .WithTextBoxFor(s => s.LeitendeOrganisation, requiredField: false)
+            .WithEnumEditorFor(s => s.Status, () => Model.Status, requiredField: false, customize: b => b.Events(e => e.Change("details.dropDownChanged")))
+            )
+            @Html.HiddenFor(m => m.Id)
+            @FormViewHelpers.UnobtrusiveFormButtons(Html, "koordinierteMassnahmeEditFormDiv",
+            showApply: true, applyAction: "Apply" + ((ViewBag.IsNew ?? false) ? "Insert" : "Update"),
+            deleteAction: "Delete", showDeleteButton: !ViewBag.IsNew,
+            deleteConfirmationMessage: NotificationLocalization.DeleteConfirmation)
+</fieldset>
+    @Html.RequiredFieldLegend()
+}

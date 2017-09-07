@@ -1,0 +1,301 @@
+﻿#LegendWindow
+{
+    top: 240px;
+}
+
+#map input
+{
+  border: none !important;
+  background: none !important;
+  vertical-align: -1px !important;
+}
+
+ul.olxSelectFeature
+{
+  padding-left: 15px;
+}
+
+  
+ .olControlLayerSwitcher .layersDiv
+,.olControlLayerSwitcher div span
+{
+  background-color: #7083a0 !important;
+  opacity: 1 !important;
+  filter: alpha(opacity = 100) !important;
+ }
+
+ .olControlLayerSwitcher
+{
+  font-size: 10pt !important;
+}
+ .olControlLayerSwitcher .labelSpan
+{
+  font-weight: normal !important;
+}
+
+ .olControlLayerSwitcher .dataLbl
+,.olControlLayerSwitcher .baseLbl
+{
+  color: #f1f5fb;
+  font-weight: bolder;
+}
+
+.olControlLayerSwitcher .legendIconSpan
+{
+  width: 18px;
+  height: 18px;
+  display: inline-block;
+  vertical-align: bottom;
+  background-repeat: no-repeat;
+  background-position: 50% 50%;
+  background-image: url(./images/map/info_Legende.png);
+}
+
+div.olControlScaleLine
+{
+  bottom: 0;
+}
+
+.olControlScaleLine > div+div
+{
+  display: none;
+}
+
+.olControlLayerSwitcher .layersDiv .group
+{
+  margin-left: -10px;
+}
+
+.olControlLayerSwitcher .layersDiv .group .groupLbl
+{
+  margin-left: -13px;
+  padding-left: 17px;
+  cursor: pointer;
+  background-image: url(./images/tree/minus.gif);
+  background-position: left center;
+  background-repeat: no-repeat;
+}
+
+.olControlLayerSwitcher .layersDiv .group.closed .groupLayersDiv
+{
+  display: none;
+}
+
+.olControlLayerSwitcher .layersDiv .group.closed .groupLbl
+{
+  background-image: url(./images/tree/plus.gif);
+}
+
+
+.olControlLayerSwitcher
+{
+  max-height: 90%;
+}
+
+.olControlLayerSwitcher .layersDiv
+{
+  width: auto !important;
+  padding-right: 16px !important;
+  overflow: hidden;
+}
+
+  .MeasureLine
+, .MeasureArea
+{
+  left: 274px;
+  top: 45px;
+  padding: 3px;
+  border: 1px solid lightGrey;
+  background-color: white;
+}
+
+  .panelTopLeft
+, .emsgControlEditingToolbar
+, .olControlScaleLine 
+, .olControlMousePosition 
+{
+  background-color: white;
+  padding: 3px;
+  border: 1px solid lightGrey;
+}
+
+.panelTopLeft
+{
+  float: left;
+  left: 80px;
+}
+
+.emsgControlEditingToolbar
+{
+  float: right;
+  right: 50px;
+}
+
+  .panelTopLeft div
+, .emsgControlEditingToolbar div
+{
+  float: left;
+  display: block;
+  width: 24px;
+  height: 24px;
+  background-repeat: no-repeat;
+  background-position: 50% 50%;
+  border: 1px solid blue;
+  margin: 2px;
+}
+
+.emsgControlEditingToolbar div
+{
+  
+}
+
+ .panelTopLeft .DummyPanItemActive
+,.panelTopLeft .DummyPanItemInactive
+{
+  background-image: url(./images/map/pan.png);
+}
+ .panelTopLeft .olControlZoomBoxItemActive
+,.panelTopLeft .olControlZoomBoxItemInactive
+{
+  background-image: url(./images/map/zoom_in.png);
+}
+
+.panelTopLeft .olControlZoomOutItemInactive
+{
+  background-image: url(./images/map/zoom_out.png);
+}
+
+.panelTopLeft .FullExtentItemInactive
+{
+  background-image: url(./images/map/full_extent.png);
+}
+
+.panelTopLeft .LegendItemInactive
+{
+  background-image: url(./images/map/info_Legende.png);
+}
+
+.panelTopLeft .PdfDownloadItemInactive
+{
+  background-image: url(./images/page_white_acrobat.png);
+}
+
+
+ .panelTopLeft .PrevItemActive
+,.panelTopLeft .PrevItemInactive
+{
+  background-image: url(./images/map/previous.png);
+}
+
+ .panelTopLeft .NextItemActive
+,.panelTopLeft .NextItemInactive
+{
+  background-image: url(./images/map/next.png);
+}
+
+ .panelTopLeft .CurrentItemActive
+,.panelTopLeft .CurrentItemInactive
+{
+  background-image: url(./images/map/zoom_current.png);
+}
+
+ .panelTopLeft .MeasureLineItemActive
+,.panelTopLeft .MeasureLineItemInactive
+{
+  background-image: url(./images/map/messen_LinieMitPunkten.png);
+}
+
+ .panelTopLeft .MeasureAreaItemActive
+,.panelTopLeft .MeasureAreaItemInactive
+{
+  background-image: url(./images/map/messen_Flaeche.png);
+}
+
+ .panelTopLeft .LegendItemInactive
+,.panelTopLeft .PdfDownloadItemInactive
+,.panelTopLeft .MeasureLineItemActive
+,.panelTopLeft .MeasureLineItemInactive
+{
+    margin-left: 10px;
+}
+
+
+
+
+/* tool icons */
+ .emsgControlEditingToolbar .emsgControlNewItemActive
+,.emsgControlEditingToolbar .emsgControlNewItemInactive
+{
+  background-image: url(./images/map/new_add.png);
+}
+
+/**
+ * Tool Icons: Split
+ */
+ .emsgControlEditingToolbar .emsgControlSplitItemActive
+,.emsgControlEditingToolbar .emsgControlSplitItemInactive
+{
+  background-image: url(./images/map/split_street.png);
+}
+
+ .emsgControlEditingToolbar .emsgControlInspSelectExportItemActive
+,.emsgControlEditingToolbar .emsgControlInspSelectExportItemInactive
+{
+  background-image: url(./images/map/selection-export.png);
+}
+
+ .emsgControlEditingToolbar .emsgControlInspExportItemActive
+,.emsgControlEditingToolbar .emsgControlInspExportItemInactive
+{
+  background-image: url(./images/map/export.png);
+}
+
+ .emsgControlEditingToolbar .emsgControlEditItemActive
+,.emsgControlEditingToolbar .emsgControlEditItemInactive
+{
+  background-image: url(./images/map/edit.png);
+}
+
+ .emsgControlEditingToolbar .emsgControlSelectItemActive
+,.emsgControlEditingToolbar .emsgControlSelectItemInactive
+{
+  background-image: url(./images/map/select.png);
+}
+
+/* tool active border */
+  .emsgControlEditingToolbar .emsgControlNewItemActive
+, .emsgControlEditingToolbar .emsgControlEditItemActive
+, .emsgControlEditingToolbar .emsgControlSelectItemActive
+, .emsgControlEditingToolbar .emsgControlSplitItemActive
+, .emsgControlEditingToolbar .emsgControlInspSelectExportItemActive
+, .panelTopLeft .DummyPanItemActive
+, .panelTopLeft .olControlZoomBoxItemActive
+, .panelTopLeft .MeasureLineItemActive
+, .panelTopLeft .MeasureAreaItemActive
+{
+  border: 1px solid red;
+  box-shadow: 0 1px 2px rgba(0, 0, 0, 0.3) inset;
+  background-color: #ffd7a8;
+}
+
+/* tool disabled opacity */
+  .emsgControlNewDisabled .emsgControlNewItemActive
+, .emsgControlNewDisabled .emsgControlNewItemInactive
+, .emsgControlEditDisabled .emsgControlEditItemActive
+, .emsgControlEditDisabled .emsgControlEditItemInactive
+, .emsgControlSelectDisabled .emsgControlSelectItemActive
+, .emsgControlSelectDisabled .emsgControlSelectItemInactive
+, .emsgControlSplitDisabled .emsgControlSplitItemActive
+, .emsgControlSplitDisabled .emsgControlSplitItemInactive
+, .DummyPanDisabled .DummyPanItemActive
+, .DummyPanDisabled .DummyPanItemInactive
+, .olControlZoomBoxDisabled .olControlZoomBoxItemActive
+, .olControlZoomBoxDisabled .olControlZoomBoxItemInactive
+, .panelTopLeft .PrevItemInactive
+, .panelTopLeft .NextItemInactive
+, .panelTopLeft .CurrentItemInactive
+{
+  border: 1px solid lightGrey;
+  opacity: 0.5;
+  filter: alpha(opacity=50); /* For IE8 and earlier */
+}

@@ -1,0 +1,236 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Report xmlns="http://schemas.microsoft.com/sqlserver/reporting/2008/01/reportdefinition" xmlns:rd="http://schemas.microsoft.com/SQLServer/reporting/reportdesigner">
+  <Body>
+    <ReportItems>
+      <Image Name="MapImageBox">
+        <Source>External</Source>
+        <Value>=Parameters!MapImage.Value</Value>
+        <MIMEType>image/png</MIMEType>
+        <Sizing>FitProportional</Sizing>
+        <Height>23cm</Height>
+        <Width>40cm</Width>
+        <Style>
+          <Border>
+            <Style>None</Style>
+          </Border>
+        </Style>
+      </Image>
+      <Textbox Name="CurrentErfassungsPeriodNotification">
+        <CanGrow>true</CanGrow>
+        <KeepTogether>true</KeepTogether>
+        <Paragraphs>
+          <Paragraph>
+            <TextRuns>
+              <TextRun>
+                <Value rd:LocID="NotificationLocalization.UncompletDataInCurrentErfassungsperiodNotificationMap">UncompletDataInCurrentErfassungsperiodNotificationMap</Value>
+                <Style>
+                  <FontWeight>Bold</FontWeight>
+                </Style>
+              </TextRun>
+            </TextRuns>
+            <Style />
+          </Paragraph>
+        </Paragraphs>
+        <Top>23cm</Top>
+        <Height>0.6cm</Height>
+        <Width>18.63016cm</Width>
+        <ZIndex>1</ZIndex>
+        <Visibility>
+          <Hidden>=Parameters!IsForClosedErfassungsPeriod.Value</Hidden>
+        </Visibility>
+        <Style>
+          <Border>
+            <Style>None</Style>
+          </Border>
+          <PaddingLeft>2pt</PaddingLeft>
+          <PaddingRight>2pt</PaddingRight>
+          <PaddingTop>2pt</PaddingTop>
+          <PaddingBottom>2pt</PaddingBottom>
+        </Style>
+      </Textbox>
+    </ReportItems>
+    <Height>23.6cm</Height>
+    <Style />
+  </Body>
+  <Width>40cm</Width>
+  <Page>
+    <PageHeight>29.7cm</PageHeight>
+    <PageWidth>42cm</PageWidth>
+    <LeftMargin>1cm</LeftMargin>
+    <RightMargin>1cm</RightMargin>
+    <TopMargin>1cm</TopMargin>
+    <BottomMargin>1cm</BottomMargin>
+    <ColumnSpacing>1.27cm</ColumnSpacing>
+    <Style />
+  </Page>
+  <AutoRefresh>0</AutoRefresh>
+  <DataSources>
+    <DataSource Name="ASTRAEMSGBusinessReportsMassnahmenvorschlagProZustandsabschnitt">
+      <ConnectionProperties>
+        <DataProvider>System.Data.DataSet</DataProvider>
+        <ConnectString>/* Local Connection */</ConnectString>
+      </ConnectionProperties>
+      <rd:DataSourceID>02384f90-638c-4823-a19f-d9d4ba0d1945</rd:DataSourceID>
+    </DataSource>
+  </DataSources>
+  <DataSets>
+    <DataSet Name="MassnahmenvorschlagProZustandsabschnitt">
+      <Query>
+        <DataSourceName>ASTRAEMSGBusinessReportsMassnahmenvorschlagProZustandsabschnitt</DataSourceName>
+        <CommandText>/* Local Query */</CommandText>
+      </Query>
+      <Fields>
+        <Field Name="Abschnittsnummer">
+          <DataField>Abschnittsnummer</DataField>
+          <rd:TypeName>System.Nullable`1[[System.Int32, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089]]</rd:TypeName>
+        </Field>
+        <Field Name="BezeichnungBis">
+          <DataField>BezeichnungBis</DataField>
+          <rd:TypeName>System.String</rd:TypeName>
+        </Field>
+        <Field Name="BezeichnungVon">
+          <DataField>BezeichnungVon</DataField>
+          <rd:TypeName>System.String</rd:TypeName>
+        </Field>
+        <Field Name="DringlichkeitFahrbahn">
+          <DataField>DringlichkeitFahrbahn</DataField>
+          <rd:TypeName>ASTRA.EMSG.Common.Master.Enums.DringlichkeitTyp</rd:TypeName>
+        </Field>
+        <Field Name="DringlichkeitFahrbahnBezeichnung">
+          <DataField>DringlichkeitFahrbahnBezeichnung</DataField>
+          <rd:TypeName>System.String</rd:TypeName>
+        </Field>
+        <Field Name="DringlichkeitTrottoirLinks">
+          <DataField>DringlichkeitTrottoirLinks</DataField>
+          <rd:TypeName>ASTRA.EMSG.Common.Master.Enums.DringlichkeitTyp</rd:TypeName>
+        </Field>
+        <Field Name="DringlichkeitTrottoirLinksBezeichnung">
+          <DataField>DringlichkeitTrottoirLinksBezeichnung</DataField>
+          <rd:TypeName>System.String</rd:TypeName>
+        </Field>
+        <Field Name="DringlichkeitTrottoirRechts">
+          <DataField>DringlichkeitTrottoirRechts</DataField>
+          <rd:TypeName>ASTRA.EMSG.Common.Master.Enums.DringlichkeitTyp</rd:TypeName>
+        </Field>
+        <Field Name="DringlichkeitTrottoirRechtsBezeichnung">
+          <DataField>DringlichkeitTrottoirRechtsBezeichnung</DataField>
+          <rd:TypeName>System.String</rd:TypeName>
+        </Field>
+        <Field Name="Id">
+          <DataField>Id</DataField>
+          <rd:TypeName>System.Guid</rd:TypeName>
+        </Field>
+        <Field Name="KostenFahrbahn">
+          <DataField>KostenFahrbahn</DataField>
+          <rd:TypeName>System.Decimal</rd:TypeName>
+        </Field>
+        <Field Name="KostenTrottoirLinks">
+          <DataField>KostenTrottoirLinks</DataField>
+          <rd:TypeName>System.Decimal</rd:TypeName>
+        </Field>
+        <Field Name="KostenTrottoirRechts">
+          <DataField>KostenTrottoirRechts</DataField>
+          <rd:TypeName>System.Decimal</rd:TypeName>
+        </Field>
+        <Field Name="MassnahmenvorschlagKatalogTypFahrbahn">
+          <DataField>MassnahmenvorschlagKatalogTypFahrbahn</DataField>
+          <rd:TypeName>System.String</rd:TypeName>
+        </Field>
+        <Field Name="MassnahmenvorschlagKatalogTypFahrbahnBezeichnung">
+          <DataField>MassnahmenvorschlagKatalogTypFahrbahnBezeichnung</DataField>
+          <rd:TypeName>System.String</rd:TypeName>
+        </Field>
+        <Field Name="MassnahmenvorschlagKatalogTypTrottoirLinks">
+          <DataField>MassnahmenvorschlagKatalogTypTrottoirLinks</DataField>
+          <rd:TypeName>System.String</rd:TypeName>
+        </Field>
+        <Field Name="MassnahmenvorschlagKatalogTypTrottoirLinksBezeichnung">
+          <DataField>MassnahmenvorschlagKatalogTypTrottoirLinksBezeichnung</DataField>
+          <rd:TypeName>System.String</rd:TypeName>
+        </Field>
+        <Field Name="MassnahmenvorschlagKatalogTypTrottoirRechts">
+          <DataField>MassnahmenvorschlagKatalogTypTrottoirRechts</DataField>
+          <rd:TypeName>System.String</rd:TypeName>
+        </Field>
+        <Field Name="MassnahmenvorschlagKatalogTypTrottoirRechtsBezeichnung">
+          <DataField>MassnahmenvorschlagKatalogTypTrottoirRechtsBezeichnung</DataField>
+          <rd:TypeName>System.String</rd:TypeName>
+        </Field>
+        <Field Name="Strasseneigentuemer">
+          <DataField>Strasseneigentuemer</DataField>
+          <rd:TypeName>ASTRA.EMSG.Common.Master.Enums.EigentuemerTyp</rd:TypeName>
+        </Field>
+        <Field Name="StrasseneigentuemerBezeichnung">
+          <DataField>StrasseneigentuemerBezeichnung</DataField>
+          <rd:TypeName>System.String</rd:TypeName>
+        </Field>
+        <Field Name="Strassenname">
+          <DataField>Strassenname</DataField>
+          <rd:TypeName>System.String</rd:TypeName>
+        </Field>
+        <Field Name="Zustandsindex">
+          <DataField>Zustandsindex</DataField>
+          <rd:TypeName>System.Nullable`1[[System.Decimal, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089]]</rd:TypeName>
+        </Field>
+        <Field Name="ZustandsindexTrottoirLinks">
+          <DataField>ZustandsindexTrottoirLinks</DataField>
+          <rd:TypeName>ASTRA.EMSG.Common.Master.Enums.ZustandsindexTyp</rd:TypeName>
+        </Field>
+        <Field Name="ZustandsindexTrottoirLinksBezeichnung">
+          <DataField>ZustandsindexTrottoirLinksBezeichnung</DataField>
+          <rd:TypeName>System.String</rd:TypeName>
+        </Field>
+        <Field Name="ZustandsindexTrottoirRechts">
+          <DataField>ZustandsindexTrottoirRechts</DataField>
+          <rd:TypeName>ASTRA.EMSG.Common.Master.Enums.ZustandsindexTyp</rd:TypeName>
+        </Field>
+        <Field Name="ZustandsindexTrottoirRechtsBezeichnung">
+          <DataField>ZustandsindexTrottoirRechtsBezeichnung</DataField>
+          <rd:TypeName>System.String</rd:TypeName>
+        </Field>
+      </Fields>
+      <rd:DataSetInfo>
+        <rd:DataSetName>ASTRA.EMSG.Business.Reports.MassnahmenvorschlagProZustandsabschnitt</rd:DataSetName>
+        <rd:TableName>MassnahmenvorschlagProZustandsabschnittPo</rd:TableName>
+        <rd:ObjectDataSourceType>ASTRA.EMSG.Business.Reports.MassnahmenvorschlagProZustandsabschnitt.MassnahmenvorschlagProZustandsabschnittPo, ASTRA.EMSG.Business, Version=1.0.4494.21387, Culture=neutral, PublicKeyToken=null</rd:ObjectDataSourceType>
+      </rd:DataSetInfo>
+    </DataSet>
+  </DataSets>
+  <ReportParameters>
+    <ReportParameter Name="CultureCode">
+      <DataType>String</DataType>
+      <Prompt>ReportParameter1</Prompt>
+    </ReportParameter>
+    <ReportParameter Name="MandantImage">
+      <DataType>String</DataType>
+      <Prompt>ReportParameter1</Prompt>
+    </ReportParameter>
+    <ReportParameter Name="IsPreview">
+      <DataType>Boolean</DataType>
+      <Prompt>ReportParameter1</Prompt>
+    </ReportParameter>
+    <ReportParameter Name="ReportNoDecimalFormat">
+      <DataType>String</DataType>
+      <Prompt>ReportParameter1</Prompt>
+    </ReportParameter>
+    <ReportParameter Name="ReportLongDecimalFormat">
+      <DataType>String</DataType>
+      <Prompt>ReportParameter1</Prompt>
+    </ReportParameter>
+    <ReportParameter Name="ReportShortDecimalFormat">
+      <DataType>String</DataType>
+      <Prompt>ReportParameter1</Prompt>
+    </ReportParameter>
+    <ReportParameter Name="MapImage">
+      <DataType>String</DataType>
+      <Prompt>ReportParameter1</Prompt>
+    </ReportParameter>
+    <ReportParameter Name="IsForClosedErfassungsPeriod">
+      <DataType>Boolean</DataType>
+      <Prompt>ReportParameter1</Prompt>
+    </ReportParameter>
+  </ReportParameters>
+  <Language>=Parameters!CultureCode.Value</Language>
+  <rd:ReportUnitType>Cm</rd:ReportUnitType>
+  <rd:ReportID>07e1af79-0bca-428f-b4b4-4f15a0316985</rd:ReportID>
+</Report>

@@ -1,0 +1,18 @@
+﻿@using ASTRA.EMSG.Common.Enums
+@using ASTRA.EMSG.Web.Areas.Auswertungen.ReportGridCommands
+@model ListeDerInspektionsroutenGridCommand  
+@ReportViewHelpers.GisReportButtons(Html, (NetzErfassungsmodus)ViewBag.NetzErfassungsmodus)
+@ReportViewHelpers.UndockButton(Html, (NetzErfassungsmodus)ViewBag.NetzErfassungsmodus, (ViewBag.IsInPopup ?? false))
+
+@if (ViewBag.IsInPopup ?? false)
+{   
+    @Html.Partial("ListeDerInspektionsroutenGrid", "ListeDerInspektionsrouten")
+}
+else
+{
+    <div style="overflow: auto;">
+        <div class="scrollable-grid">
+            @Html.Partial("ListeDerInspektionsroutenGrid", "ListeDerInspektionsrouten")
+        </div>
+    </div>
+}

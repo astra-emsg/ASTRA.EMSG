@@ -1,0 +1,92 @@
+﻿@using ASTRA.EMSG.Common
+@using ASTRA.EMSG.Common.Enums
+@using Resources
+@using ASTRA.EMSG.Web.Infrastructure.HtmlHelperExtensions
+@using Kendo.Mvc.UI
+@model ASTRA.EMSG.Business.Models.Common.ZustandsabschnittdetailsModel
+@functions 
+{
+    private Dictionary<string, object> GetRadioButtonHtmlAttributes(string id)
+    {
+        var radioButtonHtmlAttributes = new Dictionary<string, object> { { "id", id } };
+        if (Model.Belag == BelagsTyp.Chaussierung || Model.Belag == BelagsTyp.Pflaesterung)
+        {
+            radioButtonHtmlAttributes.Add("Disabled", "true");
+        }
+        return radioButtonHtmlAttributes;
+    }
+}
+<div class="popupFormFieldset k-edit-form-container">
+    <div>
+        @Html.HiddenFor(m => m.Id)
+        @Html.HiddenFor(m => m.Strassenname)
+        @Html.HiddenFor(m => m.BezeichnungVon)
+        @Html.HiddenFor(m => m.BezeichnungBis)
+        @Html.HiddenFor(m => m.BelastungskategorieTyp)
+        @Html.HiddenFor(m => m.Belag)
+        <input type="hidden" id="CurrentZustandGISsErfassungsmodus" value="@Model.Erfassungsmodus"/>
+    </div>
+
+    <b>@Html.LocalizedLabelFor(m => m.Erfassungsmodus)</b><br />
+
+    <table>
+        <tr style="height: 35px">
+            <td colspan="2">
+                @Html.RadioButtonFor(m => m.Erfassungsmodus, ZustandsErfassungsmodus.Manuel, new { id = "Manuel" })
+                <label for="Manuel">@Html.LocalizedEnum(ZustandsErfassungsmodus.Manuel)</label>
+            </td>
+            <td>
+                <div style="@(Model.Erfassungsmodus == ZustandsErfassungsmodus.Manuel ? "display: inline-block;" : "display: none;")" id="ManuelButton">
+                    @(Html.EditorTable(0,0).WithDecimalEditorFor(m => m.Zustandsindex, 1, true, null, true, " ", 192))
+                </div>
+            </td>
+        </tr>
+       <tr style="height: 35px">
+           <td style="width: 120px; padding: 0">
+               @Html.RadioButtonFor(m => m.Erfassungsmodus, ZustandsErfassungsmodus.Grob, GetRadioButtonHtmlAttributes("Grob"))
+               <label for="Grob">@Html.LocalizedEnum(ZustandsErfassungsmodus.Grob)</label>
+           </td>
+           <td style="width: 20px; padding: 0">
+               <div style="@(Model.Erfassungsmodus == ZustandsErfassungsmodus.Grob ? "display: inline-block" : "display: none;" )" id="GrobValue">
+                   <span class="GrobZustandsindexCalculated">@(Model.IsGrobInitializiert ? string.Format("{0}", string.Format(FormatStrings.ShortDecimalFormat, Model.ZustandsindexCalculated)) : string.Empty)</span>
+               </div>
+               
+           </td>
+            <td>
+                <div style="@(Model.Erfassungsmodus == ZustandsErfassungsmodus.Grob ? "display: inline-block;" : "display: none;")" id="GrobButton">
+                    @Html.ZustandFahrbahnButton(string.Format("openFullScreenWindowWithoutData('ZustandsabschnittFahrbahnWindow', 'zustandsabschnittFahrbahnDiv', null, details.hookOnClose)"), true)
+                </div>
+            </td>
+        </tr>
+        <tr style="height: 35px">
+            <td style="width: 120px; padding: 0">
+                @Html.RadioButtonFor(m => m.Erfassungsmodus, ZustandsErfassungsmodus.Detail, GetRadioButtonHtmlAttributes("Detail"))
+                <label for="Detail">@Html.LocalizedEnum(ZustandsErfassungsmodus.Detail)</label>
+            </td>
+            <td>
+                <div style="@(Model.Erfassungsmodus == ZustandsErfassungsmodus.Detail ? "display: inline-block" : "display: none;")" id="DetailValue">
+                    <span class="DetailZustandsindexCalculated"> @(Model.IsDetailInitializiert ? string.Format("{0}", string.Format(FormatStrings.ShortDecimalFormat, Model.ZustandsindexCalculated)) : string.Empty) </span>
+                </div>
+            </td>
+            <td>
+                <div style="@(Model.Erfassungsmodus == ZustandsErfassungsmodus.Detail ? "display: inline-block;" : "display: none;")" id="DetailButton">
+                    @Html.ZustandFahrbahnButton(string.Format("openFullScreenWindowWithoutData('ZustandsabschnittFahrbahnWindow', 'zustandsabschnittFahrbahnDiv', null, details.hookOnClose)"), true)
+                </div>
+            </td>
+        </tr>
+    </table>
+
+    <div>
+        @(Html.EditorTable(140)
+            .WithLookupEditorFor(m => m.MassnahmenvorschlagKatalog,
+                                    (IEnumerable<DropDownListItem>)ViewBag.MassnahmenvorschlagKatalogen,
+                                    requiredField: false,
+                                    customize: b => b.Events(events =>
+                                        events.Change(string.Format("details.getMassnahmenvorschlagKosten")))
+                                        .HtmlAttributes(new { data_rechte_trottoir = @Html.ClientIdFor(m => m.Kosten) }))
+           .WithDisplayFor(m => m.Kosten, false, TextLocalization.KostenProQuadratmeter)
+           .WithEnumEditorFor(m => m.Dringlichkeit, () => Model.Dringlichkeit, null, false, customize: d => d.Events(events =>
+                                        events.Change(string.Format("details.dropDownChanged"))))
+           .WithDisplayFor(m => m.KostenFahrbahn, false, TextLocalization.GesamtKostenCurrency))
+    </div>
+</div>

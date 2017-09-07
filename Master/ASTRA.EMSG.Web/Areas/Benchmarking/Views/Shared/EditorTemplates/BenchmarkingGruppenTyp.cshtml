@@ -1,0 +1,12 @@
+﻿@using ASTRA.EMSG.Common.Enums
+@using ASTRA.EMSG.Web.Infrastructure.HtmlHelperExtensions
+@model List<BenchmarkingGruppenTyp>
+@{
+    foreach (BenchmarkingGruppenTyp item in Enum.GetValues(typeof(BenchmarkingGruppenTyp)))
+    {
+        <input id="BenchmarkingGruppenTyp-@(item)" type="checkbox" class="k-checkbox typCheckbox" name="BenchmarkingGruppenTypList" value="@item" @(Enumerable.Contains(Model, item) ? "checked" : "") style="width: auto" />
+        <label class="k-checkbox-label" for="BenchmarkingGruppenTyp-@(item)">@Html.LocalizedEnum(item)</label>
+        <br/>
+    }
+
+}

@@ -1,0 +1,27 @@
+﻿@using Resources
+@using ASTRA.EMSG.Web.Infrastructure.HtmlHelperExtensions
+<h2>@TitleLocalization.AchsenUpdatePageTitle</h2>
+
+<b>
+    @NotificationLocalization.AchsenUpdateInformation
+</b>
+<br/>
+
+@Html.ActionLink(ButtonLocalization.Achsenupdate, "StartAxisUpdate", "Achsenupdate", null, new { @class = "k-button", @onclick = "if (confirm('" + @NotificationLocalization.AchsenUpdateConfirmation + "')){ $.blockUI({message: '<h1></h1><img src=\\'" + @Url.Content("~/Content/gifs/MechanicBusy.gif") + "\\' /><h1>" + @TextLocalization.PleaseWait + "</h1>'});return true;} else {return false}" })
+<div>
+    <table style="width: 100%;">
+    <tr>
+        <td style="vertical-align: top; width: 100%">
+        <div style="min-width: 500px;">@Html.Partial("GlobalMap")</div>
+        </td>
+        <!--
+        #5862: Kartenbreite beim Achsenupdate:
+               removed width:35% of td, min-width:350px from div#FormDiv.
+        -->
+        <td style="vertical-align: top;">
+        <div style="max-width: 500px" id="FormDiv"></div>
+        </td>
+        
+    </tr>
+    </table>
+</div>

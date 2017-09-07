@@ -1,0 +1,475 @@
+﻿@using Resources
+@using System.Configuration
+@using ASTRA.EMSG.Common.Master.ConfigurationHandling
+@using ASTRA.EMSG.Web.Infrastructure.HtmlHelperExtensions
+
+
+<script src="@Url.Content("~/Scripts/Custom/ol.ex/Control/ShowDirection.js")" type="text/javascript"></script>
+<script src="@Url.Content("~/Scripts/Custom/ol.ex/Control/MeasureEx.js")" type="text/javascript"></script>
+<script src="@Url.Content("~/Scripts/Custom/ol.ex/Control/BoxSelect.js")" type="text/javascript"></script>
+<script src="@Url.Content("~/Scripts/Custom/emsg.control.getfeatureat.js")" type="text/javascript"></script>
+<script src="@Url.Content("~/Scripts/Custom/ol.ex/Control/GetFeaturesAt.js")" type="text/javascript"></script>
+<script src="@Url.Content("~/Scripts/Custom/emsg.common.js")" type="text/javascript"></script>
+<script src="@Url.Content("~/Scripts/Custom/emsg.utils.js")" type="text/javascript"></script>
+<script src="@Url.Content("~/Scripts/Custom/emsg.handler.segment.js")" type="text/javascript"></script>
+<script src="@Url.Content("~/Scripts/Custom/emsg.handler.segmentpoint.js")" type="text/javascript"></script>
+<script src="@Url.Content("~/Scripts/Custom/emsg.feature.segment.js")" type="text/javascript"></script>
+<script src="@Url.Content("~/Scripts/Custom/emsg.control.segment.js")" type="text/javascript"></script>
+<script src="@Url.Content("~/Scripts/Custom/ol.ex/Control/LayerSwitcher.Grouping.js")" type="text/javascript"></script>
+<script src="@Url.Content("~/Scripts/Custom/ol.ex/Control/DrawAchsFeature.js")" type="text/javascript"></script>
+<script src="@Url.Content("~/Scripts/Custom/ol.ex/Control/ModifyAchsFeature.js")" type="text/javascript"></script>
+<script src="@Url.Content("~/Scripts/Custom/ol.ex/Control/SwitchDirection.js")" type="text/javascript"></script>
+<script src="@Url.Content("~/Scripts/Custom/ol.ex/Handler/SnappingPath.js")" type="text/javascript"></script>
+<script src="@Url.Content("~/Scripts/Custom/emsg.control.split.js")" type="text/javascript"></script>
+<script src="@Url.Content("~/Scripts/Custom/emsg.legend.js")" type="text/javascript"></script>
+<script src="@Url.Content("~/Scripts/Custom/emsg.map.js")" type="text/javascript"></script>
+<script src="@Url.Content("~/Scripts/Custom/Map/Edit.js")" type="text/javascript"></script>
+<script src="@Url.Content("~/Scripts/Custom/Map/Analysis.js")" type="text/javascript"></script>
+<script src="@Url.Content("~/Scripts/Custom/Map/InspectionRoute.js")" type="text/javascript"></script>
+<script src="@Url.Content("~/Scripts/Custom/Map/AchsenUpdate.js")" type="text/javascript"></script>
+<script src="@Url.Content("~/Scripts/Custom/emsg.mapmode.js")" type="text/javascript"></script>
+<script src="@Url.Content("~/Scripts/Custom/MapMode/StreetSection.js")" type="text/javascript"></script>
+<script src="@Url.Content("~/Scripts/Custom/MapMode/ConditionIndex.js")" type="text/javascript"></script>
+<script src="@Url.Content("~/Scripts/Custom/MapMode/Measure.js")" type="text/javascript"></script>
+<script src="@Url.Content("~/Scripts/Custom/MapMode/Suggestion.js")" type="text/javascript"></script>
+<script src="@Url.Content("~/Scripts/Custom/MapMode/RealisierteMassnahmen.js")" type="text/javascript"></script>
+<script src="@Url.Content("~/Scripts/Custom/MapMode/Achsen.js")" type="text/javascript"></script>
+<script src="@Url.Content("~/Scripts/Custom/emsg.test.js")" type="text/javascript"></script>
+<script src="@Url.Content("~/Scripts/Custom/ol.ex/WMTS.js")" type="text/javascript"></script>
+
+
+<div id="map" style="width:100%; " ></div>
+
+<script type="text/javascript">
+
+    if ( !Date.prototype.toISOString ) {
+        (function() {
+            function pad(number) {
+                var r = String(number);
+                if ( r.length === 1 ) {
+                    r = '0' + r;
+                }
+                return r;
+            }
+            Date.prototype.toISOString = function() {
+                return this.getUTCFullYear()
+                    + '-' + pad( this.getUTCMonth() + 1 )
+                    + '-' + pad( this.getUTCDate() )
+                    + 'T' + pad( this.getUTCHours() )
+                    + ':' + pad( this.getUTCMinutes() )
+                    + ':' + pad( this.getUTCSeconds() )
+                    + '.' + String( (this.getUTCMilliseconds()/1000).toFixed(3) ).slice( 2, 5 )
+                    + 'Z';
+            };
+        }() );
+    }
+
+  OpenLayers.Lang.setCode('en');
+  // remove if we set correct language code
+  var dict = OpenLayers.Lang[OpenLayers.Lang.getCode()];
+  dict["Base Layer"] = "@Html.Raw(MapLocalization.BaseLayer.EscapeJavaScriptString())";
+  dict["Overlays"] = "@Html.Raw(MapLocalization.Overlays.EscapeJavaScriptString())";
+
+  emsg.config.set("TEXT.MOUSE_POS.FORMAT", "@Html.Raw(MapLocalization.MousePos_Format.EscapeJavaScriptString())");
+
+  emsg.config.set("TEXT.LABEL.TRANSPARENCY", "@Html.Raw(MapLocalization.MapTransparency.EscapeJavaScriptString())");
+
+  emsg.config.set("TEXT.TOOLTIP.TOOL_PAN", "@Html.Raw(MapLocalization.PanToolText.EscapeJavaScriptString())");
+  emsg.config.set("TEXT.TOOLTIP.TOOL_ZOOM", "@Html.Raw(MapLocalization.ZoomToolText.EscapeJavaScriptString())");
+  emsg.config.set("TEXT.TOOLTIP.TOOL_STRABS_EDIT", "@Html.Raw(MapLocalization.StrassenabschnittEditToolText.EscapeJavaScriptString())");
+  emsg.config.set("TEXT.TOOLTIP.TOOL_STRABS_SELECT", "@Html.Raw(MapLocalization.StrassenabschnittSelectToolText.EscapeJavaScriptString())");
+  emsg.config.set("TEXT.TOOLTIP.TOOL_STRABS_NEW", "@Html.Raw(MapLocalization.StrassenabschnittNewToolText.EscapeJavaScriptString())");
+  emsg.config.set("TEXT.TOOLTIP.TOOL_STRABS_SPLIT", "@Html.Raw(MapLocalization.StrassenabschnittTeilenToolText.EscapeJavaScriptString())");
+  emsg.config.set("TEXT.TOOLTIP.TOOL_ZABS_EDIT", "@Html.Raw(MapLocalization.ZustandsabschnittEditToolText.EscapeJavaScriptString())");
+  emsg.config.set("TEXT.TOOLTIP.TOOL_ZABS_SELECT", "@Html.Raw(MapLocalization.ZustandsabschnittSelectToolText.EscapeJavaScriptString())");
+  emsg.config.set("TEXT.TOOLTIP.TOOL_ZABS_NEW", "@Html.Raw(MapLocalization.ZustandsabschnittNewToolText.EscapeJavaScriptString())");
+  emsg.config.set("TEXT.TOOLTIP.TOOL_MASS_EDIT", "@Html.Raw(MapLocalization.MassnahmeEditToolText.EscapeJavaScriptString())");
+  emsg.config.set("TEXT.TOOLTIP.TOOL_MASS_SELECT", "@Html.Raw(MapLocalization.MassnahmeSelectToolText.EscapeJavaScriptString())");
+  emsg.config.set("TEXT.TOOLTIP.TOOL_MASS_NEW", "@Html.Raw(MapLocalization.MassnahmeNewToolText.EscapeJavaScriptString())");
+  emsg.config.set("TEXT.TOOLTIP.TOOL_SUGG_EDIT", "@Html.Raw(MapLocalization.MassnahmenVorschlagTeilsystemeEditToolText.EscapeJavaScriptString())");
+  emsg.config.set("TEXT.TOOLTIP.TOOL_SUGG_SELECT", "@Html.Raw(MapLocalization.MassnahmenVorschlagTeilsystemeSelectToolText.EscapeJavaScriptString())");
+  emsg.config.set("TEXT.TOOLTIP.TOOL_SUGG_NEW", "@Html.Raw(MapLocalization.MassnahmenVorschlagTeilsystemeNewToolText.EscapeJavaScriptString())");
+  emsg.config.set("TEXT.TOOLTIP.TOOL_REAL_EDIT", "@Html.Raw(MapLocalization.RealisierteMassnahmenEditToolText.EscapeJavaScriptString())");
+  emsg.config.set("TEXT.TOOLTIP.TOOL_REAL_SELECT", "@Html.Raw(MapLocalization.RealisierteMassnahmenSelectToolText.EscapeJavaScriptString())");
+  emsg.config.set("TEXT.TOOLTIP.TOOL_REAL_NEW", "@Html.Raw(MapLocalization.RealisierteMassnahmenNewToolText.EscapeJavaScriptString())");
+  emsg.config.set("TEXT.TOOLTIP.TOOL_ROUTE_SELECT", "@Html.Raw(MapLocalization.InspektionsrouteSelectToolText.EscapeJavaScriptString())");
+  emsg.config.set("TEXT.TOOLTIP.TOOL_ROUTE_EDIT", "@Html.Raw(MapLocalization.InspektionsrouteEditToolText.EscapeJavaScriptString())");
+  emsg.config.set("TEXT.TOOLTIP.TOOL_ROUTE_NEW", "@Html.Raw(MapLocalization.InspektionsrouteNewToolText.EscapeJavaScriptString())");
+  emsg.config.set("TEXT.TOOLTIP.TOOL_ROUTE_EXPORT", "@Html.Raw(MapLocalization.InspektionsrouteExportToolText.EscapeJavaScriptString())");
+  emsg.config.set("TEXT.TOOLTIP.TOOL_BOXSELECT", "@Html.Raw(MapLocalization.BoxSelectToolText.EscapeJavaScriptString())");
+  emsg.config.set("TEXT.TOOLTIP.TOOL_ROUTE_SELECT_EXPORT", "@Html.Raw(MapLocalization.InspektionsrouteSelectExportToolText.EscapeJavaScriptString())");
+  emsg.config.set("TEXT.TOOLTIP.TOOL_ZOOM_TO_FULL_EXTENT", "@Html.Raw(MapLocalization.ZoomToFullExtentToolText.EscapeJavaScriptString())");
+  emsg.config.set("TEXT.TOOLTIP.TOOL_ZOOM_TO_CURRENT", "@Html.Raw(MapLocalization.ZoomToCurrentToolText.EscapeJavaScriptString())");
+  emsg.config.set("TEXT.TOOLTIP.TOOL_LEGEND", "@Html.Raw(MapLocalization.Legende.EscapeJavaScriptString())");
+  emsg.config.set("TEXT.TOOLTIP.TOOL_PDF_DOWNLOAD", "@Html.Raw(ButtonLocalization.DownloadReportPdf.EscapeJavaScriptString())");
+  emsg.config.set("TEXT.TOOLTIP.TOOL_PDF_PREVIEW", "@Html.Raw(ButtonLocalization.PreviewReportPdf.EscapeJavaScriptString())");
+  emsg.config.set("TEXT.TOOLTIP.TOOL_MEASURE_LINE", "@Html.Raw(MapLocalization.MeasureLineToolText.EscapeJavaScriptString())");
+  emsg.config.set("TEXT.TOOLTIP.TOOL_MEASURE_AREA", "@Html.Raw(MapLocalization.MeasureAreaToolText.EscapeJavaScriptString())");
+  emsg.config.set("TEXT.TOOLTIP.TOOL_NEXT_EXTENT", "@Html.Raw(MapLocalization.NextExtentToolText.EscapeJavaScriptString())");
+  emsg.config.set("TEXT.TOOLTIP.TOOL_PREVIOUS_EXTENT", "@Html.Raw(MapLocalization.PreviousExtentToolText.EscapeJavaScriptString())");
+
+  emsg.config.set("TEXT.TOOLTIP.TOOL_ACHSEN_EDIT", "@Html.Raw(MapLocalization.AchsenEditToolText.EscapeJavaScriptString())");
+  emsg.config.set("TEXT.TOOLTIP.TOOL_ACHSEN_SELECT", "@Html.Raw(MapLocalization.AchsenSelectToolText.EscapeJavaScriptString())");
+  emsg.config.set("TEXT.TOOLTIP.TOOL_ACHSEN_NEW", "@Html.Raw(MapLocalization.AchsenNewToolText.EscapeJavaScriptString())");
+  emsg.config.set("TEXT.TOOLTIP.TOOL_ACHSEN_REVERSE", "@Html.Raw(MapLocalization.AchsenReverseToolText.EscapeJavaScriptString())");
+
+  emsg.config.set("TEXT.WARNING.SPLIT_CONTAINS_ZABS", "@Html.Raw(MapLocalization.WarningSplitContainsZabs.EscapeJavaScriptString())");
+
+  emsg.config.set("TEXT.ERROR", "@Html.Raw(MapLocalization.Error.EscapeJavaScriptString())");
+  emsg.config.set("TEXT.ERROR.CODE", "@Html.Raw(MapLocalization.ErrorCode.EscapeJavaScriptString())");
+  emsg.config.set("TEXT.ERROR.GETTING_LEGEND", "@Html.Raw(MapLocalization.ErrorGettingLegend.EscapeJavaScriptString())");
+  emsg.config.set("TEXT.ERROR.NO_REPORTLAYER", "@Html.Raw(MapLocalization.ErrorNoReportLayerSelected.EscapeJavaScriptString())");
+
+  emsg.config.set("TEXT.AV_LAYERGROUP", "@Html.Raw(MapLocalization.AVLayerGroup.EscapeJavaScriptString())");
+  emsg.config.set("TEXT.LAYER.NO_BACKGROUND", "@Html.Raw(MapLocalization.LayerNoBackground.EscapeJavaScriptString())");
+  emsg.config.set("TEXT.LAYER.BACKGROUND", "@Html.Raw(MapLocalization.LayerBackground.EscapeJavaScriptString())");
+  emsg.config.set("TEXT.LAYER.swissimage", "@Html.Raw(MapLocalization.LayerBackground_swissimage.EscapeJavaScriptString())");
+  emsg.config.set("TEXT.LAYER.ch.swisstopo.swissimage", "@Html.Raw(MapLocalization.LayerBackground_swissimage.EscapeJavaScriptString())");
+  emsg.config.set("TEXT.LAYER.ch.swisstopo.pixelkarte-farbe", "@Html.Raw(MapLocalization.LayerBackground_Pixelmap_color.EscapeJavaScriptString())");
+  emsg.config.set("TEXT.LAYER.ch.swisstopo.pixelkarte-grau", "@Html.Raw(MapLocalization.LayerBackground_Pixelmap_gray.EscapeJavaScriptString())");
+  emsg.config.set("TEXT.LAYER.Pixelmap_gray", "@Html.Raw(MapLocalization.LayerBackground_Pixelmap_gray.EscapeJavaScriptString())");
+  emsg.config.set("TEXT.LAYER.Pixelmap_color", "@Html.Raw(MapLocalization.LayerBackground_Pixelmap_color.EscapeJavaScriptString())");
+  emsg.config.set("TEXT.LAYER.rimini_relief", "@Html.Raw(MapLocalization.LayerBackground_rimini_relief.EscapeJavaScriptString())");
+  emsg.config.set("TEXT.LAYER.v25_pri", "@Html.Raw(MapLocalization.LayerBackground_v25_pri.EscapeJavaScriptString())");
+  emsg.config.set("TEXT.LAYER.ch.swisstopo.swissboundaries3d-gemeinde-flaeche", "@Html.Raw(MapLocalization.LayerBackground_gg25_fill.EscapeJavaScriptString())");
+  emsg.config.set("TEXT.LAYER.ch.bfs.gebaeude_wohnungs_register", "@Html.Raw(MapLocalization.LayerBackground_gebaeude_wohnungs_register_label.EscapeJavaScriptString())");
+
+  emsg.config.set("TEXT.LAYER.ACHSENSEGMENTE", "@Html.Raw(MapLocalization.LayerAchsensegmente.EscapeJavaScriptString())");
+  emsg.config.set("TEXT.LAYER.STRASSENABSCHNITTE", "@Html.Raw(MapLocalization.LayerStrassenabschnitte.EscapeJavaScriptString())");
+  emsg.config.set("TEXT.LAYER.ZUSTANDSABSCHNITTE", "@Html.Raw(MapLocalization.LayerZustandsabschnitte.EscapeJavaScriptString())");
+  emsg.config.set("TEXT.LAYER.ZUSTANDSABSCHNITTETROTTOIR", "@Html.Raw(MapLocalization.LayerZustandsabschnitteTrottoir.EscapeJavaScriptString())");
+  emsg.config.set("TEXT.LAYER.INSPEKTIONSROUTE", "@Html.Raw(MapLocalization.LayerInspektionsroute.EscapeJavaScriptString())");
+  emsg.config.set("TEXT.LAYER.MASSNAHMEN", "@Html.Raw(MapLocalization.LayerKoordinierteMassnahmen.EscapeJavaScriptString())");
+  emsg.config.set("TEXT.LAYER.VORSCHLAG", "@Html.Raw(MapLocalization.LayerMassnahmenVorschlagTeilsysteme.EscapeJavaScriptString())");
+  emsg.config.set("TEXT.LAYER.ACHSEN_UPDATE_KONFLIKTE", "@Html.Raw(MapLocalization.LayerAchsenUpdateKonflikte.EscapeJavaScriptString())");
+  emsg.config.set("TEXT.LAYER.REALISIERT", "@Html.Raw(MapLocalization.LayerRealisierteMassnahmen.EscapeJavaScriptString())");
+  emsg.config.set("TEXT.LAYER.VORSCHLAEGE", "@Html.Raw(MapLocalization.LayerZustandabschnittMassnahmeTyp.EscapeJavaScriptString())");
+  emsg.config.set("TEXT.LAYER.VORSCHLAEGETROTTOIR", "@Html.Raw(MapLocalization.LayerZustandabschnittMassnahmeTypTrottoir.EscapeJavaScriptString())");
+
+
+  emsg.config.set("TEXT.LAYER.ch.kantone.cadastralwebmap-farbe", "@Html.Raw(MapLocalization.LayerBackground_AV_WMS.EscapeJavaScriptString())");
+  emsg.config.set("TEXT.LAYER.LCSFC,LOCPOS,LNNA,RESF,OSNR", "@Html.Raw(MapLocalization.LayerBackground_AV_WMS.EscapeJavaScriptString())");
+
+  emsg.config.set("TEXT.LAYER.ch.bav.kataster-belasteter-standorte-oev", "@Html.Raw(MapLocalization.LayerBackground_kataster_belasteter_standorte_oev.EscapeJavaScriptString())");
+  emsg.config.set("TEXT.LAYER.ch.swisstopo.geologie-hydrogeologische_karte-grundwasservulnerabilitaet", "@Html.Raw(MapLocalization.LayerOverlay_grundwasservulnerabilitaet.EscapeJavaScriptString())");
+  emsg.config.set("TEXT.LAYER.ch.swisstopo.geologie-hydrogeologische_karte-grundwasservorkommen", "@Html.Raw(MapLocalization.LayerOverlay_grundwasservorkommen.EscapeJavaScriptString())");
+  emsg.config.set("TEXT.LAYER.ch.bafu.laerm-bahnlaerm_nacht", "@Html.Raw(MapLocalization.LayerBackground_bahnlaerm_nacht.EscapeJavaScriptString())");
+  emsg.config.set("TEXT.LAYER.ch.bafu.laerm-bahnlaerm_tag", "@Html.Raw(MapLocalization.LayerBackground_bahnlaerm_tag.EscapeJavaScriptString())");
+  emsg.config.set("TEXT.LAYER.ch.bafu.laerm-strassenlaerm_nacht", "@Html.Raw(MapLocalization.LayerBackground_strassenlaerm_nacht.EscapeJavaScriptString())");
+  emsg.config.set("TEXT.LAYER.ch.bafu.laerm-strassenlaerm_tag", "@Html.Raw(MapLocalization.LayerBackground_strassenlaerm_tag.EscapeJavaScriptString())");
+
+  var urls = '@(new ServerConfigurationProvider().CdnUrls)'.split(";");
+  var wms_url = '@(Url.Action("GetMap", "WMS", new { area = "NetzverwaltungGIS" }))';
+  var wmts_url = '@(Url.Action("GetWmts", "WMS", new { area = "NetzverwaltungGIS" }))';
+  var wms_av_url = '@(Url.Action("GetAV", "WMS", new { area = "NetzverwaltungGIS" }))';
+  var wms_avc_url = '@(Url.Action("GetAVC", "WMS", new { area = "NetzverwaltungGIS" }))';
+  var wms = [], wmtsc = [], wms_av = [], wms_avc = [];
+  for(var i = 0, iMax = urls.length; i < iMax; i++)
+  {
+    wms.push(urls[i] + wms_url);
+    wmtsc.push(urls[i] + wmts_url);
+    wms_av.push(urls[i] + wms_av_url);
+    wms_avc.push(urls[i] + wms_avc_url);
+  };
+
+  var layers = {
+    TILES: {
+      TYPE: '@(new ServerConfigurationProvider().LandeskarteType)'
+     ,PARAMS: @Html.Raw(new ServerConfigurationProvider().LandeskarteParameters)
+     ,URL: '@(new ServerConfigurationProvider().LandeskarteUrls)'.split(';')
+     ,LAYERS: '@(new ServerConfigurationProvider().LandeskarteLayers)'.split(';')
+     ,PRINT_MAPPING: '@(new ServerConfigurationProvider().LandeskartePrintMapping)'.split(';')
+    }
+
+   ,BACKGROUND: {
+      TYPE: '@(new ServerConfigurationProvider().OrthophotoType)'
+     ,PARAMS: @Html.Raw(new ServerConfigurationProvider().OrthophotoParameters)
+     ,URL: '@(new ServerConfigurationProvider().OrthophotoUrls)'.split(';')
+     ,LAYERS: '@(new ServerConfigurationProvider().OrthophotoLayers)'.split(';')
+     ,PRINT_MAPPING: '@(new ServerConfigurationProvider().OrthophotoPrintMapping)'.split(';')
+    }
+
+   ,BACKGROUND_AV: {
+      TYPE: '@(new ServerConfigurationProvider().AvHintergrundType)'
+     ,PARAMS: @Html.Raw(new ServerConfigurationProvider().AvHintergrundParameters)
+     ,URL: '@(new ServerConfigurationProvider().AvHintergrundUrls)'.split(';')
+     ,LAYERS: '@(new ServerConfigurationProvider().AvHintergrundLayers)'.split(';')
+     ,PRINT_MAPPING: '@(new ServerConfigurationProvider().AvHintergrundMapping)'.split(';')
+    }
+
+   ,BACKGROUND_AVC: {
+      TYPE  : '@(new ServerConfigurationProvider().AvcHintergrundType)'
+     ,PARAMS:  @Html.Raw(new ServerConfigurationProvider().AvcHintergrundParameters)
+     ,URL   : '@(new ServerConfigurationProvider().AvcHintergrundUrls)'.split(';')
+     ,LAYERS: '@(new ServerConfigurationProvider().AvcHintergrundLayers)'.split(';')
+    }
+
+   ,BACKGROUND2: {
+      TYPE: '@(new ServerConfigurationProvider().GrenzfalecheType)'
+     ,PARAMS:  @Html.Raw(new ServerConfigurationProvider().GrenzfalecheParameters)
+     ,URL: '@(new ServerConfigurationProvider().GrenzfalecheUrls)'.split(';')
+     ,LAYERS: '@(new ServerConfigurationProvider().GrenzfalecheLayers)'.split(';')
+    }
+
+   ,OVERLAY: {
+      TYPE: '@(new ServerConfigurationProvider().AvUeberlagerndType)'
+     ,PARAMS:  @Html.Raw(new ServerConfigurationProvider().AvUeberlagerndParameters)
+     ,URL: '@(new ServerConfigurationProvider().AvUeberlagerndUrls)'.split(';')
+     ,LAYERS: '@(new ServerConfigurationProvider().AvUeberlagerndLayers)'.split(';')
+    }
+
+   ,OVERLAY_AV: {
+      TYPE: '@(new ServerConfigurationProvider().ZusatzinformationenType)'
+     ,PARAMS:  @Html.Raw(new ServerConfigurationProvider().ZusatzinformationenParameters)
+     ,URL: '@(new ServerConfigurationProvider().ZusatzinformationenUrls)'.split(';')
+     ,LAYERS: '@(new ServerConfigurationProvider().ZusatzinformationenLayers)'.split(';')
+    }
+    ,OVERLAY_AV_GWVK: {
+      TYPE: '@(new ServerConfigurationProvider().ZusatzinformationenGWVKType)'
+     ,PARAMS:  @Html.Raw(new ServerConfigurationProvider().ZusatzinformationenGWVKParameters)
+     ,URL: '@(new ServerConfigurationProvider().ZusatzinformationenGWVKUrls)'.split(';')
+     ,LAYERS: '@(new ServerConfigurationProvider().ZusatzinformationenGWVKLayers)'.split(';')
+    }
+    ,OVERLAY_AV_GWVUL: {
+      TYPE: '@(new ServerConfigurationProvider().ZusatzinformationenGWVULType)'
+     ,PARAMS: @Html.Raw(new ServerConfigurationProvider().ZusatzinformationenGWVULParameters)
+     ,URL: '@(new ServerConfigurationProvider().ZusatzinformationenGWVULUrls)'.split(';')
+     ,LAYERS: '@(new ServerConfigurationProvider().ZusatzinformationenGWVULLayers)'.split(';')
+    }
+    ,OVERLAY_AV_KBS: {
+      TYPE: '@(new ServerConfigurationProvider().ZusatzinformationenKBSType)'
+     ,PARAMS:  @Html.Raw(new ServerConfigurationProvider().ZusatzinformationenKBSParameters)
+     ,URL: '@(new ServerConfigurationProvider().ZusatzinformationenKBSUrls)'.split(';')
+     ,LAYERS: '@(new ServerConfigurationProvider().ZusatzinformationenKBSLayers)'.split(';')
+    }
+  };
+  var use_controller = false;
+ @if (new ServerConfigurationProvider().WMTSUseControler)
+  {
+      @:use_controller = true;
+  }
+  if( use_controller )
+  {
+    layers.TILES.urls = wmtsc;
+    layers.BACKGROUND_AV.urls = wmtsc;
+  }
+
+  for( var l in layers )
+  {
+    var data = layers[l];
+    for( var p in data )
+    {
+      var key = "WMS." + l + "." + p;
+      emsg.config.set( key, data[p] );
+    }
+  }
+
+  emsg.config.set("WMS.ARCGIS.URL", '@(Url.Action("Export", "WMS", new { area = "NetzverwaltungGIS" }))');
+  emsg.config.set("WMS.ARCGIS.LAYERS.ACHSENSEGMENTE", "AchsenSegmentLayer");
+  emsg.config.set("WMS.ARCGIS.LAYERS.STRASSENABSCHNITTE", "StrassenabschnittLayer");
+  emsg.config.set("WMS.ARCGIS.LAYERS.ZUSTANDSABSCHNITTE", "ZustandsabschnittLayer");
+  emsg.config.set("WMS.ARCGIS.LAYERS.ZUSTANDSABSCHNITTETROTTOIR", "ZustandsabschnittLayer_Trottoir");
+  emsg.config.set("WMS.ARCGIS.LAYERS.MASSNAHMEN", "KoordinierteMassnahmenLayer");
+  emsg.config.set("WMS.ARCGIS.LAYERS.VORSCHLAG", "MassnahmenVorschlagTeilsystemeLayer");
+  emsg.config.set("WMS.ARCGIS.LAYERS.ACHSEN_UPDATE_KONFLIKTE", "AchsenUpdateKonflikteLayer");
+  emsg.config.set("WMS.ARCGIS.LAYERS.REALISIERT", "RealisierteMassnahmenLayer");
+  emsg.config.set("WMS.ARCGIS.LAYERS.INSPEKTIONSROUTE", "InspektionsroutenLayer");
+  emsg.config.set("WMS.ARCGIS.LAYERS.VORSCHLAEGE", "ZustandabschnittLayer_MassnahmeTyp");
+  emsg.config.set("WMS.ARCGIS.LAYERS.VORSCHLAEGETROTTOIR", "ZustandabschnittLayer_Trottoir_MassnahmeTyp");
+
+
+  emsg.config.set("GIS.PROJECTION", "EPSG:21781");
+  emsg.config.set("GIS.SCALES", '@(new ServerConfigurationProvider().GisScales)');
+  emsg.config.set("GIS.CONTROLLER.GET_AXIS_COLLECTION", '@(Url.Action("GetAxisCollection", "NetzdefinitionUndStrassenabschnittGIS"))');
+  emsg.config.set("GIS.CONTROLLER.GET_AXIS_AT", '@(Url.Action("GetAxisAt", "NetzdefinitionUndStrassenabschnittGIS"))');
+  emsg.config.set("GIS.CONTROLLER.GET_STRABS_AT", '@(Url.Action("GetStrassenabschnittAt", "NetzdefinitionUndStrassenabschnittGIS"))');
+  emsg.config.set("GIS.CONTROLLER.GET_STRABS_BY_ID", '@(Url.Action("GetStrassenabschnittByID", "NetzdefinitionUndStrassenabschnittGIS"))');
+  emsg.config.set("GIS.CONTROLLER.SPLIT_STRABS_AT", '@(Url.Action("SplitStrassenabschnittAt", "NetzdefinitionUndStrassenabschnittGIS"))');
+  emsg.config.set("GIS.CONTROLLER.GET_ZABS_AT", '@(Url.Action("GetZustandsabschnittAt", "ZustaendeUndMassnahmenvorschlaegeGIS"))');
+  emsg.config.set("GIS.CONTROLLER.GET_ZABS_BY_ID", '@(Url.Action("GetZustandsabschnittByID", "ZustaendeUndMassnahmenvorschlaegeGIS"))');
+  emsg.config.set("GIS.CONTROLLER.GET_MASS_AT", '@(Url.Action("GetAllKoordinierteMassnahmenAt", "KoordinierteMassnahmen"))');
+  emsg.config.set("GIS.CONTROLLER.GET_MASS_BY_ID", '@(Url.Action("GetKoordinierteMassnahmeByID", "KoordinierteMassnahmen"))');
+  emsg.config.set("GIS.CONTROLLER.GET_SUGG_AT", '@(Url.Action("GetAllMassnahmenvorschlagTeilsystemeGISAt", "MassnahmenvorschlaegeAndererTeilsysteme"))');
+  emsg.config.set("GIS.CONTROLLER.GET_SUGG_BY_ID", '@(Url.Action("GetMassnahmenvorschlagTeilsystemeGISByID", "MassnahmenvorschlaegeAndererTeilsysteme"))');
+  emsg.config.set("GIS.CONTROLLER.GET_REAL_AT", '@(Url.Action("GetRealisierteMassnahmeAt", "RealisierteMassnahmenGIS"))');
+  emsg.config.set("GIS.CONTROLLER.GET_REAL_BY_ID", '@(Url.Action("GetRealisierteMassnahmeByID", "RealisierteMassnahmenGIS"))');
+  emsg.config.set("GIS.CONTROLLER.GET_ROUTE_AT", '@(Url.Action("GetInspektionsRouteGISAt", "InspektionsroutenGIS"))');
+  emsg.config.set("GIS.CONTROLLER.EXPORT", '@(Url.Action("Export", "InspektionsroutenGIS"))');
+  emsg.config.set("GIS.CONTROLLER.LAST_EXPORT", '@(Url.Action("GetLastExport", "InspektionsroutenGIS"))');
+  emsg.config.set("GIS.CONTROLLER.GET_ACHSEN_AT", '@(Url.Action("GetAchseAt", "Achsen"))');
+  emsg.config.set("GIS.CONTROLLER.GET_ACHSEN_BY_ID", '@(Url.Action("GetAchseById", "Achsen"))');
+  emsg.config.set("GIS.CONTROLLER.GET_ACHSEN_BY_BBOX", '@(Url.Action("GetAchseByBbox", "Achsen"))');
+
+
+  /**
+   Titel und ggf Untertitel für die Legende
+   layernamen kommen dabei direkt aus ArcGis und heissen wie sie im Arcgis Heissen
+  */
+  var layerNames = {
+      "AchsenSegmentLayer": "@Html.Raw(MapLocalization.LayerAchsensegmente.EscapeJavaScriptString())"
+   , "StrassenabschnittLayer": { title: "@Html.Raw(MapLocalization.LayerStrassenabschnitte.EscapeJavaScriptString())", subtitle: "@Html.Raw(ModelLocalization.StrassenabschnittGISModel_BelastungskategorieTyp.EscapeJavaScriptString())" }
+   , "StrassenabschnittLayer_SingleColor": "@Html.Raw(MapLocalization.LayerStrassenabschnitte.EscapeJavaScriptString())"
+   , "ZustandsabschnittLayer": { title: "@Html.Raw(MapLocalization.LayerZustandsabschnitte.EscapeJavaScriptString())", subtitle: "@Html.Raw(ModelLocalization.ZustandsabschnittGISModel_Zustandsindex.EscapeJavaScriptString())" }
+   , "StrassenabschnittLayer_Report": { title: "@Html.Raw(MapLocalization.LayerStrassenabschnitte.EscapeJavaScriptString())", subtitle: "@Html.Raw(ModelLocalization.StrassenabschnittGISModel_BelastungskategorieTyp.EscapeJavaScriptString())" }
+   , "StrassenabschnittLayer_Report_Grey": "@Html.Raw(MapLocalization.LayerStrassenabschnitte.EscapeJavaScriptString())"
+   , "InspektionsroutenLayer": "@Html.Raw(MapLocalization.LayerInspektionsroute.EscapeJavaScriptString())"
+   , "KoordinierteMassnahmenLayer": "@Html.Raw(MapLocalization.LayerKoordinierteMassnahmen.EscapeJavaScriptString())"
+   , "MassnahmenVorschlagTeilsystemeLayer": "@(Html.Raw(MapLocalization.LayerMassnahmenVorschlagTeilsysteme.EscapeJavaScriptString()))"
+   , "RealisierteMassnahmenLayer": "@Html.Raw(MapLocalization.RealisierteMassnahmeGIS_Auswertung.EscapeJavaScriptString())"
+   , "AchsenUpdateKonflikteLayer": "@Html.Raw(MapLocalization.LayerAchsenUpdateKonflikte.EscapeJavaScriptString())"
+   , "ZustandabschnittLayer_MassnahmeTyp": "@Html.Raw(MapLocalization.LayerZustandabschnittMassnahmeTyp.EscapeJavaScriptString())"
+   , "ZustandabschnittLayer_Index": { title: "@Html.Raw(MapLocalization.LayerZustandsabschnitte)", subtitle: "@Html.Raw(ModelLocalization.ZustandsabschnittGISModel_Zustandsindex.EscapeJavaScriptString())" }
+   , "Inspektionsroute_StrassenabschnittLayer_Report": "@Html.Raw(MapLocalization.InspektionsrouteStrassenabschnittGISAuswertung.EscapeJavaScriptString())"
+   , "MassnahmenvorschlagTeilsystemeGIS_Report": "@Html.Raw(MapLocalization.LayerMassnahmenVorschlagTeilsysteme.EscapeJavaScriptString())"
+   , "KoordinierteMassnahmeGIS_Report": "@Html.Raw(MapLocalization.KoordinierteMassnahmeGIS_Auswertung.EscapeJavaScriptString())"
+   ,"ZustandabschnittLayer_Trottoir_MassnahmeTyp":"@Html.Raw(MapLocalization.LayerZustandabschnittMassnahmeTypTrottoir.EscapeJavaScriptString())"
+   //,"ZUSTANDSABSCHNITTGIS_MASSNAHMETYP_TROTTOIR_AUSWERTUNG_RIGHT":"@Html.Raw(MapLocalization.LayerZustandabschnittMassnahmeTypTrottoir.EscapeJavaScriptString())"
+   ,"ZustandabschnittLayer_Trottoir_Index": "@Html.Raw(MapLocalization.LayerZustandsabschnitteTrottoir.EscapeJavaScriptString())"
+   //,"ZUSTANDSABSCHNITTGIS_TROTTOIR_AUSWERTUNG_RIGHT": "@Html.Raw(MapLocalization.LayerZustandsabschnitteTrottoir.EscapeJavaScriptString())"
+   ,"ZustandsabschnittLayer_Trottoir": "@Html.Raw(MapLocalization.LayerZustandsabschnitteTrottoir.EscapeJavaScriptString())"
+   //,"ZUSTANDTROTTOIRRIGHT": "@Html.Raw(MapLocalization.LayerZustandsabschnitteTrottoir.EscapeJavaScriptString())"
+   };
+
+  emsg.legend = new Emsg.Legend(emsg, '@(Url.Action("Legend", "WMS", new { area = "NetzverwaltungGIS" }))', layerNames);
+  emsg.legend.showIcon = true;
+</script>
+
+@Html.Partial("Map")
+
+<script type="text/javascript">
+    @if (new ServerConfigurationProvider().EnableJsDebugMode)    
+    {
+        @:emsg.debug = true;
+    }
+
+    // Map-Cookie processing
+    var mapCookieCenterContent = null;
+    var mapCookieLayerContent = null;
+    var mapCookieMandantContent = null;
+    var mapTransparency = null;
+    var emsgCurrentMandant = ""; // has to be set.
+
+    $(function() {
+        if (document.cookie)
+        {
+            var cookieCrumbs = document.cookie.split(";");
+            
+            for(crumb in cookieCrumbs)
+            {
+                keyval = cookieCrumbs[crumb].split("=");
+                keyval[0] = keyval[0].replace(" ", ""); // trim leading space in key
+                if (keyval[0] == "MapCenter")
+                {
+                    mapCookieCenterContent = keyval[1].split(" ");
+                }
+                else if (keyval[0] == "MapLayers")
+                {
+                    mapCookieLayerContent = keyval[1].split(",");
+                }
+                else if (keyval[0] == "MapMandant")
+                {
+                    mapCookieMandantContent = keyval[1];
+                }
+                else if (keyval[0] == "SelectedMandantId")
+                {
+                    emsgCurrentMandant = keyval[1];
+                }
+                else if (keyval[0] == "MapTransparency")
+                {
+                    mapTransparency = keyval[1];
+                }
+            }
+
+            // check: if current used mandant is the same as stored in the cookie. This cannot be solved globally while changing the mandant because the cookies stored in gis mode are out of range.
+            if (emsgCurrentMandant != null && mapCookieMandantContent != null)
+            {
+                // if both cookies are not equal delete the map settings
+                if (emsgCurrentMandant != mapCookieMandantContent)
+                {
+                    var expDate = new Date();
+                    expDate = new Date(expDate.getTime());
+                    document.cookie = "MapLayers=empty;expires=" + expDate.toGMTString() + ";";
+                    document.cookie = "MapCenter=empty;expires=" + expDate.toGMTString() + ";";
+                    mapCookieCenterContent = null;
+                    mapCookieLayerContent = null;
+                }
+            }
+        }
+    });
+
+    $(function () {
+        var has_map = true; // todo read from whateverland
+        if( has_map ) {
+            emsg.legend.redraw();
+            emsg.map.init();
+            adjustMapHeight();
+            //emsg.map.updateSize();
+            emsg.map.readExtentWithoutZoom('@(Url.Action("GetMandantAxisEnvelope", "WMS", new { area = "NetzverwaltungGIS" }))');
+            if (mapCookieCenterContent != null && mapCookieCenterContent !== "" && !emsg.map.overrideMapCookie)
+            {
+                    // mapCookieCenterContent = 3 Values: lon, lat, zoom.
+                    emsg.map.map.setCenter([mapCookieCenterContent[0], mapCookieCenterContent[1]], mapCookieCenterContent[2], false, false);                
+                    emsg.map.history.restore(emsg.map.history.getState());
+            }
+            else // no Map-Cookie present, zoom to default extent.
+            {
+                emsg.map.readExtent('@(Url.Action("GetMandantAxisEnvelope", "WMS", new { area = "NetzverwaltungGIS" }))');
+            }
+
+            if (mapCookieLayerContent != null && mapCookieLayerContent !== "")
+            {
+                // reset layer settings.
+                for(layerIdx in mapCookieLayerContent)
+                {
+                    if (mapCookieLayerContent[layerIdx] == "") continue;
+                    keyval = mapCookieLayerContent[layerIdx].split(":");
+                    layers = emsg.map.map.getLayersByName(keyval[0]);
+                    if (layers.length > 0)
+                    {
+                        if (layers[0].isBaseLayer)
+                        {
+                            if (keyval[1] == "true") // deactivated baselayers have to be ignored.
+                                emsg.map.map.setBaseLayer(layers[0]);
+                        }
+                        else
+                        {
+                            layers[0].setVisibility(keyval[1] == "true");
+                        }
+                    }
+                }
+            }
+
+            // Register Events for Map Center, Zoom and Layers
+            emsg.map.map.events.register("moveend", emsg.map, function(sender)
+            {
+                var expDate = new Date();
+                expDate = new Date(expDate.getTime() +1000*60*60*24*365);
+                center = sender.object.center.lon + " " + sender.object.center.lat;
+                document.cookie = "MapCenter=" + center + " " + sender.object.zoom + ";expires="+expDate.toGMTString()+";";
+                document.cookie = "MapMandant=" + emsgCurrentMandant + ";expires=" + expDate.toGMTString() + ";";
+            });
+            emsg.map.map.events.register("changelayer", emsg.map, function(sender)
+            {
+                var expDate = new Date();
+                expDate = new Date(expDate.getTime() +1000*60*60*24*365);
+                layers = "";
+                for(layerIdx in sender.object.layers)
+                {
+                    layer = sender.object.layers[layerIdx];
+                    if (layer.CLASS_NAME.indexOf("ArcGIS") > -1) continue; // do NOT change visibility of instance data layers.
+                    layers += layer.name + ":" + layer.visibility + ",";
+                }
+                document.cookie = "MapLayers=" + layers + ";expires=" + expDate.toGMTString() + ";";
+                document.cookie = "MapMandant=" + emsgCurrentMandant + ";expires=" + expDate.toGMTString() + ";";
+            });
+            emsg.map.map.events.register("changetransparency", emsg.map, function(sender, evt){
+                var expDate = new Date();
+                expDate = new Date(expDate.getTime() +1000*60*60*24*365);
+                document.cookie = "MapTransparency="+sender.value;
+            });
+        };
+    });
+
+
+  if (emsg.debug) Emsg.Test.runAll();
+</script>

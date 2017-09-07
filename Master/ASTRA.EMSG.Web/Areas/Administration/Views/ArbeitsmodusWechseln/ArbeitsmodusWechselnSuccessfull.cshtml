@@ -1,0 +1,20 @@
+﻿@using ASTRA.EMSG.Common.Enums
+@{
+    var isAchsenEditEnabled = ((bool?) ViewBag.IsAchsenEditEnabled) ?? false;
+}
+@using Resources
+<h2>@TitleLocalization.ArbeitsmodusWechselnPageTitle</h2>
+@model ASTRA.EMSG.Business.Models.Administration.ArbeitsmodusModel
+<b>
+    @NotificationLocalization.ArbeitsmodusWechselnWasSuccessfull
+</b>
+@if (Model.NetzErfassungsmodus == NetzErfassungsmodus.Gis && !isAchsenEditEnabled)
+{
+    <br/>
+    <b>
+        @NotificationLocalization.DoAchsenUpdateWarning
+    </b>
+    <br/>
+    <br/>
+    @Html.ActionLink(ButtonLocalization.Achsenupdate, "Index", "Achsenupdate")
+}

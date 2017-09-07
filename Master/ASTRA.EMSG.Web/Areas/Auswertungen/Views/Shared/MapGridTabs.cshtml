@@ -1,0 +1,16 @@
+﻿@using Resources
+@using Kendo.Mvc.UI
+@(Html.Kendo().TabStrip()
+    .Name("TabStrip")
+    .Items(tabstrip =>
+    {
+        tabstrip.Add().Text(TitleLocalization.DetailsTabTitle).Content(@<text><div>
+    @Html.Partial("GlobalMap")
+</div></text>);
+        tabstrip.Add().Text(TitleLocalization.OverviewTabTitle).Content(
+            @<text><div id="formDiv" data-undock-url="@(Url.Action("Undock"))" data-dock-url="@(Url.Action("Dock"))">
+                       @Html.Partial("Form")
+                   </div>
+            </text>);
+    })
+    .SelectedIndex(0))

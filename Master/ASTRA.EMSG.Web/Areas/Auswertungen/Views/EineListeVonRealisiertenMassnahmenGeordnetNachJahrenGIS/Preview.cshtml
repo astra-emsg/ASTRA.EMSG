@@ -1,0 +1,115 @@
+﻿@using ASTRA.EMSG.Business.Reports.EineListeVonRealisiertenMassnahmenGeordnetNachJahren
+@using ASTRA.EMSG.Common
+@using ASTRA.EMSG.Web.Areas.Auswertungen.ReportGridCommands
+@using Resources
+@using ASTRA.EMSG.Web.Infrastructure.HtmlHelperExtensions
+@using Kendo.Mvc.UI
+
+@{
+    var dropDownItems = (IEnumerable<DropDownListItem>)ViewBag.ClosedErfassungsperiods;
+}
+@(Html.ToGridFilterBuilder<EineListeVonRealisiertenMassnahmenGeordnetNachJahrenGISGridCommand>()
+      .WithLookupFilter(f => f.ErfassungsPeriodIdVon, dropDownItems, width: 250)
+      .WithLookupFilter(f => f.ErfassungsPeriodIdBis, dropDownItems, width: 250)
+      .WithTextFilter(f => f.Projektname, triggerOn3Char: true, width: 248)
+      .WithTextFilter(f => f.LeitendeOrganisation, triggerOn3Char: true, width: 248)
+      .WithFilterButton())
+
+<table>
+    <tr>
+        <td colspan="2">
+            <div id="currentErfassungsperiodNotification">
+                <hr />
+                <span>
+                    @NotificationLocalization.UncompletDataInCurrentErfassungsperiodNotification
+                </span>
+            </div>
+        </td>
+    </tr>
+    <tr>
+        <td colspan="2">
+            <hr />
+        </td>
+    </tr>
+</table>
+
+<div id="grid">
+
+    @ReportViewHelpers.TabellarischReportButtons(Html, "EineListeVonRealisiertenMassnahmenGeordnetNachJahrenGIS", "EineListeVonRealisiertenMassnahmenGeordnetNachJahren")
+    <div class="scrollable-grid-border">
+        <div class="scrollable-grid">
+            @(Html.Kendo().Grid<EineListeVonRealisiertenMassnahmenGeordnetNachJahrenGISPo>()
+                  .Name("EineListeVonRealisiertenMassnahmenGeordnetNachJahren")
+                  .ApplyEmsgSettings(editable: false)
+                  .Columns(columns =>
+                  {
+                      columns.Bound(m => m.Projektname).Title(GridHeaderFooterLocalization.Projektname).SumLabel();
+                      columns.Bound(m => m.BezeichnungVon).Title(GridHeaderFooterLocalization.BezeichnungVon);
+                      columns.Bound(m => m.BezeichnungBis).Title(GridHeaderFooterLocalization.BezeichnungBis);
+                      columns.Bound(m => m.MassnahmenbeschreibungFahrbahnTyp).Title(GridHeaderFooterLocalization.MassnahmenvorschlagFahrbahn);
+                      columns.Bound(m => m.FlaecheFahrbahn).Title(GridHeaderFooterLocalization.FlaecheFahrbahn).Format(FormatStrings.NoDecimalFormat).Sum();
+                      columns.Bound(m => m.FlaecheTrottoirLinks).Title(GridHeaderFooterLocalization.FlaceheTrottoirLinks).Format(FormatStrings.NoDecimalFormat).Sum();
+                      columns.Bound(m => m.FlaecheTrottoirRechts).Title(GridHeaderFooterLocalization.FlaceheTrottoirRechts).Format(FormatStrings.NoDecimalFormat).Sum();
+                      columns.Bound(m => m.Beschreibung).Title(GridHeaderFooterLocalization.Beschreibung);
+                      columns.Bound(m => m.BeteiligteSystemeListe).Title(GridHeaderFooterLocalization.BeteiligteSysteme);
+                      columns.Bound(m => m.LeitendeOrganisation).Title(GridHeaderFooterLocalization.LeitendeOrganisation);
+                      columns.Bound(m => m.KostenFahrbahn).Title(GridHeaderFooterLocalization.KostenFahrbahnAndTrottoir).Format(FormatStrings.NoDecimalFormat).Sum();
+                      columns.Bound(m => m.KostenGesamtprojekt).Title(GridHeaderFooterLocalization.KostenGesamtprojekt).Format(FormatStrings.NoDecimalFormat).Sum();
+                      columns.Bound(m => m.AusfuehrungsEnde).Title(GridHeaderFooterLocalization.Ausfuehrungsjahr).AlignRight().Format("{0:yyyy}");
+                  })
+                  .DataSource(dataBinding => dataBinding
+                        .Ajax()
+                        .Read(c => c.Action("GetAll", "EineListeVonRealisiertenMassnahmenGeordnetNachJahrenGIS").Data("BuildParameter"))
+                        .Model(dataKey => dataKey.Id(m => m.Id))
+                        .PageSize(ASTRA.EMSG.Web.Infrastructure.ConstantSettings.GridPageSize)
+                        .Aggregates(aggregate =>
+                        {
+                            aggregate.Add(p => p.FlaecheFahrbahn).Sum();
+                            aggregate.Add(p => p.FlaecheTrottoirLinks).Sum();
+                            aggregate.Add(p => p.FlaecheTrottoirRechts).Sum();
+                            aggregate.Add(p => p.KostenFahrbahn).Sum();
+                            aggregate.Add(p => p.KostenGesamtprojekt).Sum();
+                        }))
+                  .Events(c => c.DataBound("OnDataBound"))
+                 )
+        </div>
+    </div>
+</div>
+
+<div id="nodata" style="display: none">
+    <br />
+    <b>
+        @NotificationLocalization.NoDataForTheSelectedFilters
+    </b>
+</div>
+
+<script type="text/javascript">
+
+    function RefreshGrid() {
+        common.refreshGrid('#EineListeVonRealisiertenMassnahmenGeordnetNachJahren');
+        toggleCurrentErfassungsperiodNotification();
+    }
+
+    function OnDataBoundInternal(e) {
+        var grid = $('#EineListeVonRealisiertenMassnahmenGeordnetNachJahren').data('kendoGrid');
+        var hasData = grid.dataSource.total() != undefined && grid.dataSource.total() != 0;
+        $("#nodata").toggle(!hasData);
+        $("#grid").toggle(hasData);
+    }
+
+    function toggleCurrentErfassungsperiodNotification() {
+        var current = '@(dropDownItems.Single(ddi => ddi.Text == TextLocalization.Current).Value)';
+        $("#currentErfassungsperiodNotification").toggle($("#ErfassungsPeriodIdBis").val() == current);
+    }
+
+    function GetReportParameter() {
+        var reportParameter = {};
+
+        reportParameter.Projektname = $("#Projektname").val();
+        reportParameter.LeitendeOrganisation = $("#LeitendeOrganisation").val();
+        reportParameter.ErfassungsPeriodIdVon = $("#ErfassungsPeriodIdVon").val();
+        reportParameter.ErfassungsPeriodIdBis = $("#ErfassungsPeriodIdBis").val();
+
+        return reportParameter;
+    }
+</script>

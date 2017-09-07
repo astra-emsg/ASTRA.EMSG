@@ -1,0 +1,91 @@
+﻿@using ASTRA.EMSG.Common
+@using ASTRA.EMSG.Web.Infrastructure.HtmlHelperExtensions
+@using Kendo.Mvc.UI
+@using Resources
+@model ASTRA.EMSG.Web.Areas.NetzverwaltungStrassennamen.Controllers.ZustandsabschnittMonsterModel
+@{
+
+    var firstErrorTabIndex = Model.SelectedTabIndex;
+    var tabs = new List<string> {"Stammdaten", "Fahrbahn", "Trottoir"};
+    var firstErrorTab = tabs
+        .FirstOrDefault(t => ViewData.ModelState.Any(k => k.Key.StartsWith(t) && k.Value.Errors.Count != 0));
+    if (firstErrorTab != null)
+    {
+        firstErrorTabIndex = tabs.IndexOf(firstErrorTab);
+    }
+
+    var model = Model.Fahrbahn;
+    string popupTitle = string.Format(TitleLocalization.ZustandsabschnittDynamicEditPopupTitle, model.Strassenname, model.BezeichnungVon, model.BezeichnungBis);
+    if (string.IsNullOrEmpty(model.BezeichnungVon) && string.IsNullOrEmpty(model.BezeichnungBis))
+    {
+        popupTitle = String.Format(TitleLocalization.ZustandsabschnittShortDynamicEditPopupTitle, model.Strassenname);
+    }
+}
+@using (Ajax.BeginForm(((ViewBag.IsNew ?? false) ? "Insert" : "Update"), null,
+                        new AjaxOptions
+                            {
+                                HttpMethod = "POST",
+                                UpdateTargetId = "zustandsabschnittEditFormDiv",
+                                InsertionMode = InsertionMode.Replace,
+                            }, new
+                                {
+                                    id = "zustandsabschnittEditForm",
+                                    data_create_window_title = TitleLocalization.ZustandsabschnittCreatePopupTitle,
+                                    data_edit_window_title = popupTitle,
+                                    data_kosten_url = Url.Action("GetMassnahmenvorschlagKosten", "Zustandsabschnitt"),
+                                    data_create_erfassung_form_url = Url.Action("GetCreateErfassungForm", "Zustandsabschnitt"),
+                                    data_get_erfassung_form_url =  Url.Action("GetErfassungForm", "Zustandsabschnitt"),
+                                    data_erfassung_mode_id = Html.ClientIdFor(m => m.Fahrbahn.Erfassungsmodus).ToString().Replace("_", "."),
+                                    data_zustandserfassungsmodechanged_warning = NotificationLocalization.ZustandserfassungsmodeChangedWarning,
+                                    data_cancel_confirmation = NotificationLocalization.CancelConfirmation,
+                                    data_is_new = ViewBag.IsNew  ?? false
+                                }))
+{
+               
+    <input type="hidden" id="SelectedTabIndex" name="SelectedTabIndex" value="@firstErrorTabIndex" /> 
+    <div>
+        <div>
+            @Html.HiddenFor(m => m.Stammdaten.Strassenname)
+            @Html.HiddenFor(m => m.Stammdaten.StrasseBezeichnungBis)
+            @Html.HiddenFor(m => m.Stammdaten.StrasseBezeichnungVon)
+            @Html.HiddenFor(m => m.Stammdaten.Sreassenabschnittsnummer)
+            @Html.HiddenFor(m => m.Stammdaten.StrasseLaenge)
+            <span style="font-weight: bold; margin-bottom: 3px; margin-left: 2px">
+                @Model.Stammdaten.GetStrassenInfo(TextLocalization.Von, TextLocalization.Bis)            
+            </span>
+            <span style="font-weight: bold; margin-bottom: 3px; margin-left: 4px">
+                @(ModelLocalization.Laenge + ": " + Model.Stammdaten.StrasseLaenge.ToString(FormatStrings.ReportShortDecimalFormat))
+            </span>
+            <span style="font-weight: bold; margin-bottom: 3px; margin-left: 4px">
+                @if (Model.Stammdaten.Sreassenabschnittsnummer.HasValue)
+                {
+                    @(ModelLocalization.StrassenabschnittModel_Abschnittsnummer + ": " + Model.Stammdaten.Sreassenabschnittsnummer)
+                }
+            </span>
+        </div>
+        <div style="display: inline-block">
+            @(Html.EditorTable(createErrorDialogs: false)
+                  .WithTextBoxFor(m => m.Stammdaten.BezeichnungVon, false))
+        </div>
+        <div style="display: inline-block">
+            @(Html.EditorTable(createErrorDialogs: false)
+                  .WithTextBoxFor(m => m.Stammdaten.BezeichnungBis, false))
+        </div>
+    </div>    
+    <div class="helpButton" style="margin-right: 5px; margin-top: 3px">@Html.HelpButtonFor("EditZustandsabschnitt")</div>
+    @(Html.Kendo().TabStrip()
+    .Name("TabStrip")
+    .Items(tabstrip =>
+    {
+        tabstrip.Add().Text(TitleLocalization.ZustandTabTitle).Content(@<text>@Html.EditorFor(m => m.Stammdaten)</text>).AddErrorIcon(ViewData.ModelState, Url, "Stammdaten");
+        tabstrip.Add().Text(TitleLocalization.ZustandFahrbahnTabTitle).Content(@<text>@Html.EditorFor(m => m.Fahrbahn)</text>).AddErrorIcon(ViewData.ModelState, Url, "Fahrbahn");
+        if (Model.Stammdaten.HasTrottoir)
+        {
+            tabstrip.Add().Text(TitleLocalization.ZustandTrottoirTabTitle).Content((o) => Html.EditorFor(m => m.Trottoir)).AddErrorIcon(ViewData.ModelState, Url, "Trottoir");
+        }
+    })
+    .Events(c => c.Select("index.onTabSelect"))
+    .SelectedIndex(firstErrorTabIndex))
+    @Html.RequiredFieldLegend()           
+    @Html.UnobtrusiveOkCancelApplyPopupFormButtons("Apply" + ((ViewBag.IsNew ?? false) ? "Insert" : "Update"), "zustandsabschnittEditFormDiv")
+}

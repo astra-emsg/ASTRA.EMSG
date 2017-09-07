@@ -1,0 +1,803 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<root>
+  <!-- 
+    Microsoft ResX Schema 
+    
+    Version 2.0
+    
+    The primary goals of this format is to allow a simple XML format 
+    that is mostly human readable. The generation and parsing of the 
+    various data types are done through the TypeConverter classes 
+    associated with the data types.
+    
+    Example:
+    
+    ... ado.net/XML headers & schema ...
+    <resheader name="resmimetype">text/microsoft-resx</resheader>
+    <resheader name="version">2.0</resheader>
+    <resheader name="reader">System.Resources.ResXResourceReader, System.Windows.Forms, ...</resheader>
+    <resheader name="writer">System.Resources.ResXResourceWriter, System.Windows.Forms, ...</resheader>
+    <data name="Name1"><value>this is my long string</value><comment>this is a comment</comment></data>
+    <data name="Color1" type="System.Drawing.Color, System.Drawing">Blue</data>
+    <data name="Bitmap1" mimetype="application/x-microsoft.net.object.binary.base64">
+        <value>[base64 mime encoded serialized .NET Framework object]</value>
+    </data>
+    <data name="Icon1" type="System.Drawing.Icon, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
+        <value>[base64 mime encoded string representing a byte array form of the .NET Framework object]</value>
+        <comment>This is a comment</comment>
+    </data>
+                
+    There are any number of "resheader" rows that contain simple 
+    name/value pairs.
+    
+    Each data row contains a name, and value. The row also contains a 
+    type or mimetype. Type corresponds to a .NET class that support 
+    text/value conversion through the TypeConverter architecture. 
+    Classes that don't support this are serialized and stored with the 
+    mimetype set.
+    
+    The mimetype is used for serialized objects, and tells the 
+    ResXResourceReader how to depersist the object. This is currently not 
+    extensible. For a given mimetype the value must be set accordingly:
+    
+    Note - application/x-microsoft.net.object.binary.base64 is the format 
+    that the ResXResourceWriter will generate, however the reader can 
+    read any of the formats listed below.
+    
+    mimetype: application/x-microsoft.net.object.binary.base64
+    value   : The object must be serialized with 
+            : System.Runtime.Serialization.Formatters.Binary.BinaryFormatter
+            : and then encoded with base64 encoding.
+    
+    mimetype: application/x-microsoft.net.object.soap.base64
+    value   : The object must be serialized with 
+            : System.Runtime.Serialization.Formatters.Soap.SoapFormatter
+            : and then encoded with base64 encoding.
+
+    mimetype: application/x-microsoft.net.object.bytearray.base64
+    value   : The object must be serialized into a byte array 
+            : using a System.ComponentModel.TypeConverter
+            : and then encoded with base64 encoding.
+    -->
+  <xsd:schema id="root" xmlns="" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:msdata="urn:schemas-microsoft-com:xml-msdata">
+    <xsd:import namespace="http://www.w3.org/XML/1998/namespace" />
+    <xsd:element name="root" msdata:IsDataSet="true">
+      <xsd:complexType>
+        <xsd:choice maxOccurs="unbounded">
+          <xsd:element name="metadata">
+            <xsd:complexType>
+              <xsd:sequence>
+                <xsd:element name="value" type="xsd:string" minOccurs="0" />
+              </xsd:sequence>
+              <xsd:attribute name="name" use="required" type="xsd:string" />
+              <xsd:attribute name="type" type="xsd:string" />
+              <xsd:attribute name="mimetype" type="xsd:string" />
+              <xsd:attribute ref="xml:space" />
+            </xsd:complexType>
+          </xsd:element>
+          <xsd:element name="assembly">
+            <xsd:complexType>
+              <xsd:attribute name="alias" type="xsd:string" />
+              <xsd:attribute name="name" type="xsd:string" />
+            </xsd:complexType>
+          </xsd:element>
+          <xsd:element name="data">
+            <xsd:complexType>
+              <xsd:sequence>
+                <xsd:element name="value" type="xsd:string" minOccurs="0" msdata:Ordinal="1" />
+                <xsd:element name="comment" type="xsd:string" minOccurs="0" msdata:Ordinal="2" />
+              </xsd:sequence>
+              <xsd:attribute name="name" type="xsd:string" use="required" msdata:Ordinal="1" />
+              <xsd:attribute name="type" type="xsd:string" msdata:Ordinal="3" />
+              <xsd:attribute name="mimetype" type="xsd:string" msdata:Ordinal="4" />
+              <xsd:attribute ref="xml:space" />
+            </xsd:complexType>
+          </xsd:element>
+          <xsd:element name="resheader">
+            <xsd:complexType>
+              <xsd:sequence>
+                <xsd:element name="value" type="xsd:string" minOccurs="0" msdata:Ordinal="1" />
+              </xsd:sequence>
+              <xsd:attribute name="name" type="xsd:string" use="required" />
+            </xsd:complexType>
+          </xsd:element>
+        </xsd:choice>
+      </xsd:complexType>
+    </xsd:element>
+  </xsd:schema>
+  <resheader name="resmimetype">
+    <value>text/microsoft-resx</value>
+  </resheader>
+  <resheader name="version">
+    <value>2.0</value>
+  </resheader>
+  <resheader name="reader">
+    <value>System.Resources.ResXResourceReader, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </resheader>
+  <resheader name="writer">
+    <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </resheader>
+  <data name="MainWindowTitle" xml:space="preserve">
+    <value>EMSG Mobile</value>
+  </data>
+  <data name="HelpWindowTitle" xml:space="preserve">
+    <value>Aiuto EMSG</value>
+  </data>
+  <data name="ZustandFahrbahnWindowTitle" xml:space="preserve">
+    <value>Carreggiata {0} {1} - {2}</value>
+  </data>
+  <data name="ZustandFahrbahnShortWindowTitle" xml:space="preserve">
+    <value>Carreggiata {0}</value>
+  </data>
+  <data name="ZustandTrottoirtWindowTitle" xml:space="preserve">
+    <value>Marciapiede {0} {1} - {2}</value>
+  </data>
+  <data name="ZustandTrottoirShortWindowTitle" xml:space="preserve">
+    <value>Marciapiede {0}</value>
+  </data>
+  <data name="ZustandTrottoirLinksFormTitle" xml:space="preserve">
+    <value>Stato del marciapiede sinistro</value>
+  </data>
+  <data name="ZustandTrottoirRechtsFormTitle" xml:space="preserve">
+    <value>Stato del marciapiede destro</value>
+  </data>
+  <data name="MassnahmenTrottoirLinksFormTitle" xml:space="preserve">
+    <value>Interventi marciapiede sinistro</value>
+  </data>
+  <data name="MassnahmenTrottoirRechtsFormTitle" xml:space="preserve">
+    <value>Interventi marciapiede destro</value>
+  </data>
+  <data name="Schadenschwere" xml:space="preserve">
+    <value>Grado dei dannegg.</value>
+  </data>
+  <data name="Schadenausmass" xml:space="preserve">
+    <value>Estensione dei danneggiamenti</value>
+  </data>
+  <data name="SchadensummeGridFooter" xml:space="preserve">
+    <value>Somma dei danneggiamenti:</value>
+  </data>
+  <data name="ZustandsindexGridFooter" xml:space="preserve">
+    <value>Indice di stato:</value>
+  </data>
+  <data name="Matrix" xml:space="preserve">
+    <value>Matrice</value>
+  </data>
+  <data name="Gewicht" xml:space="preserve">
+    <value>Ponderaz.</value>
+  </data>
+  <data name="Bewertung" xml:space="preserve">
+    <value>Valutazione</value>
+  </data>
+  <data name="InspektionsRoutenLabel" xml:space="preserve">
+    <value>Itinerario d'ispezione:</value>
+  </data>
+  <data name="LayerLabel" xml:space="preserve">
+    <value>Strato</value>
+  </data>
+  <data name="Legend" xml:space="preserve">
+    <value>Legenda</value>
+  </data>
+  <data name="Edit" xml:space="preserve">
+    <value>Modifica</value>
+  </data>
+  <data name="Create" xml:space="preserve">
+    <value>Registra</value>
+  </data>
+  <data name="Save" xml:space="preserve">
+    <value>Salva e chiudi</value>
+  </data>
+  <data name="Apply" xml:space="preserve">
+    <value>Salva</value>
+  </data>
+  <data name="Update" xml:space="preserve">
+    <value>Aggiorna</value>
+  </data>
+  <data name="Cancel" xml:space="preserve">
+    <value>Annulla</value>
+  </data>
+  <data name="Delete" xml:space="preserve">
+    <value>Elimina</value>
+  </data>
+  <data name="MapHelp" xml:space="preserve">
+    <value>Aiuto per la mappa</value>
+  </data>
+  <data name="FormHelp" xml:space="preserve">
+    <value>Aiuto per il formulario</value>
+  </data>
+  <data name="Help" xml:space="preserve">
+    <value>Aiuto</value>
+  </data>
+  <data name="ZustandFahrbahn" xml:space="preserve">
+    <value>Stato carreggiata</value>
+  </data>
+  <data name="ZustandTrottoir" xml:space="preserve">
+    <value>Stato marciap.</value>
+  </data>
+  <data name="selectZustandsabschnitt" xml:space="preserve">
+    <value>Seleziona tratto di stato</value>
+  </data>
+  <data name="EditZustandsabschnitt" xml:space="preserve">
+    <value>Modifica il tratto di stato</value>
+  </data>
+  <data name="CreateZustandsabschnitt" xml:space="preserve">
+    <value>Nuovo tratto di stato</value>
+  </data>
+  <data name="ZoomIn" xml:space="preserve">
+    <value>Zoom In</value>
+  </data>
+  <data name="ZoomOut" xml:space="preserve">
+    <value>Zoom Out</value>
+  </data>
+  <data name="FullExtent" xml:space="preserve">
+    <value>Zoom su tutti gli itinerari d'ispezione</value>
+  </data>
+  <data name="Pan" xml:space="preserve">
+    <value>Sposta</value>
+  </data>
+  <data name="SuccessfullImport" xml:space="preserve">
+    <value>Import effettuato con successo!</value>
+  </data>
+  <data name="SuccessfullExport" xml:space="preserve">
+    <value>Export effettuato con successo!</value>
+  </data>
+  <data name="ImportError" xml:space="preserve">
+    <value>Errore durante l'import</value>
+  </data>
+  <data name="ExportError" xml:space="preserve">
+    <value>Errore durante l'export</value>
+  </data>
+  <data name="NoPackageImportedError" xml:space="preserve">
+    <value>Non è stato importato niente!</value>
+  </data>
+  <data name="HelpNotExistsWarning" xml:space="preserve">
+    <value>L'aiuto non è disponibile!</value>
+  </data>
+  <data name="ErfassungsmodusChangedConfirmation" xml:space="preserve">
+    <value>Se non avete ancora salvato le vostre immissioni, queste andranno perdute durante la modifica del rilevamento dello stato. Siete sicuri di voler modificare il tipo di rilevamento dello stato?</value>
+  </data>
+  <data name="PleaseWait" xml:space="preserve">
+    <value>Prego aspetta, EMSG - Mobile viene caricato!</value>
+  </data>
+  <data name="RequiredValidationError" xml:space="preserve">
+    <value>Il campo è obbligatorio</value>
+  </data>
+  <data name="LengthValidationError" xml:space="preserve">
+    <value>Il valore non puo' essere piu' lungo di {0}!</value>
+  </data>
+  <data name="RangeValidationError" xml:space="preserve">
+    <value>Il valore deve essere tra {0} e {1} !</value>
+  </data>
+  <data name="GeometryShouldBeNotNull" xml:space="preserve">
+    <value>Devi selezionare una geometria!</value>
+  </data>
+  <data name="InvalidNumberValidationError" xml:space="preserve">
+    <value>Il formato del numero non è valido!</value>
+  </data>
+  <data name="InvalidDecimalPlacesValidationError" xml:space="preserve">
+    <value>Numero di posti dopo la virgola non è ammesso! Ammessi: {0}</value>
+  </data>
+  <data name="WetterTypKeinRegen" xml:space="preserve">
+    <value>Secco</value>
+  </data>
+  <data name="WetterTypRegen" xml:space="preserve">
+    <value>Umido</value>
+  </data>
+  <data name="ZustandsindexTrottoirTypUnbekannt" xml:space="preserve">
+    <value>Sconosciuto</value>
+  </data>
+  <data name="ZustandsindexTrottoirTypGut" xml:space="preserve">
+    <value>0.0-0.9 - buono</value>
+  </data>
+  <data name="ZustandsindexTrottoirTypMittel" xml:space="preserve">
+    <value>1.0-1.9 - medio</value>
+  </data>
+  <data name="ZustandsindexTrottoirTypAusreichend" xml:space="preserve">
+    <value>2.0-2.9 - sufficiente</value>
+  </data>
+  <data name="ZustandsindexTrottoirTypKritisch" xml:space="preserve">
+    <value>3.0-3.9 - critico</value>
+  </data>
+  <data name="ZustandsindexTrottoirTypSchlecht" xml:space="preserve">
+    <value>4.0-5.0 - cattivo</value>
+  </data>
+  <data name="DringlichkeitTypUnbekannt" xml:space="preserve">
+    <value>Senza indicazione</value>
+  </data>
+  <data name="DringlichkeitTypDringlich" xml:space="preserve">
+    <value>A corto termine</value>
+  </data>
+  <data name="DringlichkeitTypMittelfristig" xml:space="preserve">
+    <value>A medio termine</value>
+  </data>
+  <data name="DringlichkeitTypLangfristig" xml:space="preserve">
+    <value>A lungo termine</value>
+  </data>
+  <data name="ZustandsErfassungsmodusManuel" xml:space="preserve">
+    <value>Indice di stato</value>
+  </data>
+  <data name="ZustandsErfassungsmodusGrob" xml:space="preserve">
+    <value>Grossolano</value>
+  </data>
+  <data name="ZustandsErfassungsmodusDetail" xml:space="preserve">
+    <value>Dettaglio</value>
+  </data>
+  <data name="SchadenschwereTypS1" xml:space="preserve">
+    <value>leggero</value>
+  </data>
+  <data name="SchadenschwereTypS2" xml:space="preserve">
+    <value>medio</value>
+  </data>
+  <data name="SchadenschwereTypS3" xml:space="preserve">
+    <value>grave</value>
+  </data>
+  <data name="SchadenausmassTypA1" xml:space="preserve">
+    <value>&lt; 10 %</value>
+  </data>
+  <data name="SchadenausmassTypA2" xml:space="preserve">
+    <value>10 - 50 %</value>
+  </data>
+  <data name="SchadenausmassTypA3" xml:space="preserve">
+    <value>&gt; 50 %</value>
+  </data>
+  <data name="SchadendetailTypAbblaetterung" xml:space="preserve">
+    <value>Sfaldature (degli stati di superficie)</value>
+  </data>
+  <data name="SchadendetailTypAbgedrueckteRaeder" xml:space="preserve">
+    <value>Bordi schiacciati</value>
+  </data>
+  <data name="SchadendetailTypAbloesungen" xml:space="preserve">
+    <value>Sfaldature</value>
+  </data>
+  <data name="SchadendetailTypAbplatzungen" xml:space="preserve">
+    <value>Distacchi</value>
+  </data>
+  <data name="SchadendetailTypAbrieb" xml:space="preserve">
+    <value>Usura</value>
+  </data>
+  <data name="SchadendetailTypAnrisseVonSetzungen" xml:space="preserve">
+    <value>Fessure di assestamento</value>
+  </data>
+  <data name="SchadendetailTypAufwoelbungen" xml:space="preserve">
+    <value>Rigonfiamenti</value>
+  </data>
+  <data name="SchadendetailTypAusmagerungAbsanden" xml:space="preserve">
+    <value>Sgretolamento, sabbiatura</value>
+  </data>
+  <data name="SchadendetailTypBelagsrandrisse" xml:space="preserve">
+    <value>Fessure del bordo stradale</value>
+  </data>
+  <data name="SchadendetailTypBlowUp" xml:space="preserve">
+    <value>Blow-up</value>
+  </data>
+  <data name="SchadendetailTypFehlenderOderSproederFugenverguss" xml:space="preserve">
+    <value>Sigillat. giunti manc. o porosa</value>
+  </data>
+  <data name="SchadendetailTypFlicke" xml:space="preserve">
+    <value>Riparazione</value>
+  </data>
+  <data name="SchadendetailTypFrosthebungen" xml:space="preserve">
+    <value>Sollevamenti causati dal gelo</value>
+  </data>
+  <data name="SchadendetailTypKantenschaedenAbsplitterung" xml:space="preserve">
+    <value>Dannegg. bordi, scheggiat.</value>
+  </data>
+  <data name="SchadendetailTypKornausbrueche" xml:space="preserve">
+    <value>Sgranamento</value>
+  </data>
+  <data name="SchadendetailTypLaengsrisse" xml:space="preserve">
+    <value>Fessure longitudinali</value>
+  </data>
+  <data name="SchadendetailTypNetzrisse" xml:space="preserve">
+    <value>Fessure retiformi</value>
+  </data>
+  <data name="SchadendetailTypOffeneNaehte" xml:space="preserve">
+    <value>Fessure giunti aperti</value>
+  </data>
+  <data name="SchadendetailTypPolieren" xml:space="preserve">
+    <value>Politura</value>
+  </data>
+  <data name="SchadendetailTypPumpen" xml:space="preserve">
+    <value>Pompaggio</value>
+  </data>
+  <data name="SchadendetailTypQuerrisse" xml:space="preserve">
+    <value>Fessure trasversali</value>
+  </data>
+  <data name="SchadendetailTypRisse" xml:space="preserve">
+    <value>Fessure</value>
+  </data>
+  <data name="SchadendetailTypSchlagloecher" xml:space="preserve">
+    <value>Buche</value>
+  </data>
+  <data name="SchadendetailTypSchubverformungen" xml:space="preserve">
+    <value>Deformazioni al taglio (a press.)</value>
+  </data>
+  <data name="SchadendetailTypSchwitzen" xml:space="preserve">
+    <value>Trasudamento</value>
+  </data>
+  <data name="SchadendetailTypSetzungenEinsenkungen" xml:space="preserve">
+    <value>Assestamenti, abbassamenti</value>
+  </data>
+  <data name="SchadendetailTypSetzungenFrosthebungen" xml:space="preserve">
+    <value>Assestam., sollevam. gelo</value>
+  </data>
+  <data name="SchadendetailTypSpurrinnen" xml:space="preserve">
+    <value>Ormaie</value>
+  </data>
+  <data name="SchadendetailTypStufenbildung" xml:space="preserve">
+    <value>Formazione di gradini</value>
+  </data>
+  <data name="SchadendetailTypWellblechverformungen" xml:space="preserve">
+    <value>Deformazioni a lamiera ondulata</value>
+  </data>
+  <data name="SchadendetailTypWildeRisse" xml:space="preserve">
+    <value>Fessure diverse</value>
+  </data>
+  <data name="SchadendetailTypZerstoertePlatten" xml:space="preserve">
+    <value>Piastre danneggiate</value>
+  </data>
+  <data name="SchadengruppeTypBelagschaeden" xml:space="preserve">
+    <value>Danneggiamenti del rivestimento</value>
+  </data>
+  <data name="SchadengruppeTypBelagsverformungen" xml:space="preserve">
+    <value>Deformazioni del rivestimento</value>
+  </data>
+  <data name="SchadengruppeTypFlicke" xml:space="preserve">
+    <value>Riparazione</value>
+  </data>
+  <data name="SchadengruppeTypFugenUndKantenschaeden" xml:space="preserve">
+    <value>Danneggiamenti giunti e bordi</value>
+  </data>
+  <data name="SchadengruppeTypMaterialverluste" xml:space="preserve">
+    <value>Perdita del materiale</value>
+  </data>
+  <data name="SchadengruppeTypOberflaechenglaette" xml:space="preserve">
+    <value>Superficie scivolosa</value>
+  </data>
+  <data name="SchadengruppeTypRisseBrueche" xml:space="preserve">
+    <value>Fessure, rotture</value>
+  </data>
+  <data name="SchadengruppeTypStrukturelleSchaeden" xml:space="preserve">
+    <value>Danneggiamenti strutturali</value>
+  </data>
+  <data name="SchadengruppeTypVertikalverschiebung" xml:space="preserve">
+    <value>Spostamento verticale</value>
+  </data>
+  <data name="Belastungskategorie" xml:space="preserve">
+    <value>Categoria di carico</value>
+  </data>
+  <data name="Strassenname" xml:space="preserve">
+    <value>Nome della strada</value>
+  </data>
+  <data name="BezeichnungVon" xml:space="preserve">
+    <value>Denominaz. da</value>
+  </data>
+  <data name="BezeichnungBis" xml:space="preserve">
+    <value>Denominaz. a</value>
+  </data>
+  <data name="Laenge" xml:space="preserve">
+    <value>Lunghezza [m]</value>
+  </data>
+  <data name="Aufnahmedatum" xml:space="preserve">
+    <value>Data della registrazione</value>
+  </data>
+  <data name="Aufnahmeteam" xml:space="preserve">
+    <value>Team di registrazione</value>
+  </data>
+  <data name="Wetter" xml:space="preserve">
+    <value>Tempo</value>
+  </data>
+  <data name="Bemerkung" xml:space="preserve">
+    <value>Osservazione</value>
+  </data>
+  <data name="FlaecheFahrbahn" xml:space="preserve">
+    <value>Superficie carreggiata [m²]</value>
+  </data>
+  <data name="FlaecheTrottoirLinks" xml:space="preserve">
+    <value>Superf. marc. sinistro [m²]</value>
+  </data>
+  <data name="FlaecheTrottoirRechts" xml:space="preserve">
+    <value>Superf. marc. destro [m²]</value>
+  </data>
+  <data name="Pflichtfeld" xml:space="preserve">
+    <value>Campo obbligatorio</value>
+  </data>
+  <data name="Massnahmenvorschlag" xml:space="preserve">
+    <value>Intervento consigliato</value>
+  </data>
+  <data name="Kosten" xml:space="preserve">
+    <value>Costi [CHF/m²]</value>
+  </data>
+  <data name="Dringlichkeit" xml:space="preserve">
+    <value>Urgenza</value>
+  </data>
+  <data name="Gesamtkosten" xml:space="preserve">
+    <value>Costi totali [CHF]</value>
+  </data>
+  <data name="Zustandsindex" xml:space="preserve">
+    <value>Indice dello stato</value>
+  </data>
+  <data name="Zustandserfassung" xml:space="preserve">
+    <value>Rilevamento dello stato</value>
+  </data>
+  <data name="Inspektionsroute" xml:space="preserve">
+    <value>Itinerario d'ispezione</value>
+  </data>
+  <data name="File" xml:space="preserve">
+    <value>File</value>
+  </data>
+  <data name="Import" xml:space="preserve">
+    <value>Importa</value>
+  </data>
+  <data name="Export" xml:space="preserve">
+    <value>Esporta</value>
+  </data>
+  <data name="ExportAll" xml:space="preserve">
+    <value>Esporta tutti gli itenerari d'ispezione</value>
+  </data>
+  <data name="SaveExportPackage" xml:space="preserve">
+    <value>Salva intermedio</value>
+  </data>
+  <data name="ExportLog" xml:space="preserve">
+    <value>Esporta il log</value>
+  </data>
+  <data name="Exit" xml:space="preserve">
+    <value>Chiudi</value>
+  </data>
+  <data name="EsriLicenseNotLicensed" xml:space="preserve">
+    <value>Non disponi della licenza per utilizzare questo prodotto</value>
+  </data>
+  <data name="EsriLicenseUnavailable" xml:space="preserve">
+    <value>Le licenze necessarie sono in uso al momento</value>
+  </data>
+  <data name="EsriLicenseFailure" xml:space="preserve">
+    <value>Insuccesso durante la registrazione della licenza</value>
+  </data>
+  <data name="EsriLicenseAlreadyInitialized" xml:space="preserve">
+    <value>Già inizializzato (l'inizializzazione si puo' fare solo una volta)</value>
+  </data>
+  <data name="EsriLicenseFailureDefault" xml:space="preserve">
+    <value>Lo stato della licenza non è supportato</value>
+  </data>
+  <data name="NoZustandsabschnittSelected" xml:space="preserve">
+    <value>Nessun stato di tratto selezionato</value>
+  </data>
+  <data name="EmptyGeometry" xml:space="preserve">
+    <value>Impossibile salvare una geometri vuota.</value>
+  </data>
+  <data name="ReselectZustandsabschnitt" xml:space="preserve">
+    <value>Devi selezionare di nuovo un tratto di stato!</value>
+  </data>
+  <data name="ReselectStrassenabschnitt" xml:space="preserve">
+    <value>Devi selezionare di nuovo un tratto stradale!</value>
+  </data>
+  <data name="GeometriesMustNotOverlap" xml:space="preserve">
+    <value>Le geometrie non possono sovrapporsi!</value>
+  </data>
+  <data name="UnableToCreateZustandsabschnitt" xml:space="preserve">
+    <value>Impossibile creare un tratto di stato!</value>
+  </data>
+  <data name="DiscardChanges" xml:space="preserve">
+    <value>Alcune modifiche non sono state risprese. Vuoi continuare lo stesso?</value>
+  </data>
+  <data name="ImportWarning" xml:space="preserve">
+    <value>Alcune modifiche non sono state esportate. Se esegui un nuovo import le modifiche saranno perse. Sei sicuro che vuoi eseguire un nuovo import?</value>
+  </data>
+  <data name="DisplayLayerName_gg25_fill" xml:space="preserve">
+    <value>Superfici limite</value>
+  </data>
+  <data name="DisplayLayerName_Pixelmap_color" xml:space="preserve">
+    <value>Carta (colorata)</value>
+  </data>
+  <data name="DisplayLayerName_Pixelmap_gray" xml:space="preserve">
+    <value>Carta (bianco/nero)</value>
+  </data>
+  <data name="DisplayLayerName_rimini_relief" xml:space="preserve">
+    <value>Rilievo</value>
+  </data>
+  <data name="DisplayLayerName_swissimage" xml:space="preserve">
+    <value>Orthofoto</value>
+  </data>
+  <data name="DisplayLayerName_v25_geb" xml:space="preserve">
+    <value>Edificio</value>
+  </data>
+  <data name="DisplayLayerName_v25_str" xml:space="preserve">
+    <value>Strade</value>
+  </data>
+  <data name="DisplayLayerName_v25_pri" xml:space="preserve">
+    <value>Standard</value>
+  </data>
+  <data name="DisplayLayerName_MV_ACHSENSEGMENT" xml:space="preserve">
+    <value>Assi</value>
+  </data>
+  <data name="DisplayLayerName_STRASSENABSCHNITTGIS" xml:space="preserve">
+    <value>Tratti di strada</value>
+  </data>
+  <data name="DisplayLayerName_ZUSTANDSABSCHNITTGIS" xml:space="preserve">
+    <value>Tratti di stato</value>
+  </data>
+  <data name="DisplayLayerName_ZUSTANDSABSCHNITTGIS_IndexIsNull" xml:space="preserve">
+    <value>Tratti di stato senza indice</value>
+  </data>
+  <data name="IncompletePackageExceptionMessage" xml:space="preserve">
+    <value>Il pacchetto è incompleto</value>
+  </data>
+  <data name="InvalidPackageExceptionMessage" xml:space="preserve">
+    <value>Il pacchetto non è valido</value>
+  </data>
+  <data name="InvalidPackageVersionExceptionMessage" xml:space="preserve">
+    <value>La versione del pacchetto non è supportata</value>
+  </data>
+  <data name="NoDataImportedPackageExceptionMessage" xml:space="preserve">
+    <value>Non sono stati importati i dati</value>
+  </data>
+  <data name="LabelBaseLayer" xml:space="preserve">
+    <value>Carta di sfondo</value>
+  </data>
+  <data name="LabelOverlays" xml:space="preserve">
+    <value>Carte sovrapposte</value>
+  </data>
+  <data name="Label_ZeroToOne" xml:space="preserve">
+    <value>0 - 0.99</value>
+  </data>
+  <data name="Label_OneToTwo" xml:space="preserve">
+    <value>1 - 1.99</value>
+  </data>
+  <data name="Label_TwoToThree" xml:space="preserve">
+    <value>2 - 2.99</value>
+  </data>
+  <data name="Label_ThreeToFour" xml:space="preserve">
+    <value>3 - 3.99</value>
+  </data>
+  <data name="Label_FourToFive" xml:space="preserve">
+    <value>4 -  5</value>
+  </data>
+  <data name="Label_UnknownIndex" xml:space="preserve">
+    <value>Nessun indice</value>
+  </data>
+  <data name="MassnahmenvorschlagKatalog_Oberflaechenverbesserung" xml:space="preserve">
+    <value>Miglioramento della superficie</value>
+  </data>
+  <data name="MassnahmenvorschlagKatalog_Deckbelagserneuerung" xml:space="preserve">
+    <value>Rinnovo dello strato di rivestimento</value>
+  </data>
+  <data name="MassnahmenvorschlagKatalog_Belagserneuerung" xml:space="preserve">
+    <value>Rinnovo del rivestimento</value>
+  </data>
+  <data name="MassnahmenvorschlagKatalog_ErneuerungOberbau" xml:space="preserve">
+    <value>Rinnovo della sovrastruttura</value>
+  </data>
+  <data name="MassnahmenvorschlagKatalog_KeineErneuerung" xml:space="preserve">
+    <value>Nessun rinnovamento</value>
+  </data>
+  <data name="MassnahmenvorschlagKatalog_Erneuerung" xml:space="preserve">
+    <value>Rinnovo</value>
+  </data>
+  <data name="AbschnittTabTitle" xml:space="preserve">
+    <value>Tratto</value>
+  </data>
+  <data name="FahrbahnTabTitle" xml:space="preserve">
+    <value>Carreggiata</value>
+  </data>
+  <data name="TrottoirTabTitle" xml:space="preserve">
+    <value>Marciapiede</value>
+  </data>
+  <data name="Ok" xml:space="preserve">
+    <value>OK</value>
+  </data>
+  <data name="ShowLegend" xml:space="preserve">
+    <value>Legenda</value>
+  </data>
+  <data name="PreviousExtent" xml:space="preserve">
+    <value>Extent precedente</value>
+  </data>
+  <data name="NextExtent" xml:space="preserve">
+    <value>Prossimo Extent</value>
+  </data>
+  <data name="ZoomToActiveElement" xml:space="preserve">
+    <value>Zoom sull'elemento attivo!</value>
+  </data>
+  <data name="DisplayLayerName_grundwasservorkommen" xml:space="preserve">
+    <value>Giacim. acq. sotter.</value>
+  </data>
+  <data name="DisplayLayerName_grundwasservulnerabilitaet" xml:space="preserve">
+    <value>Vulner. acq. sotter.</value>
+  </data>
+  <data name="DisplayLayerName_katasterBelasteterBtandorteOEv" xml:space="preserve">
+    <value>Catasto collocazioni affette</value>
+  </data>
+  <data name="DisplayLayerName_gebaeudeWohnungsRegisterLabel" xml:space="preserve">
+    <value>N° civico</value>
+  </data>
+  <data name="DisplayLayerName_bahnlaermNacht" xml:space="preserve">
+    <value>Rumore ferr. nott.</value>
+  </data>
+  <data name="DisplayLayerName_bahnlaermTag" xml:space="preserve">
+    <value>Rumore ferr. diur.</value>
+  </data>
+  <data name="DisplayLayerName_strassenlaermNacht" xml:space="preserve">
+    <value>Rumore str. diurno</value>
+  </data>
+  <data name="DisplayLayerName_strassenlaermTag" xml:space="preserve">
+    <value>Rumore str. diurno</value>
+  </data>
+  <data name="DisplayLayerName_compositeav" xml:space="preserve">
+    <value>Dati MU</value>
+  </data>
+  <data name="InvalidOrIncompatiblePackageExceptionMessage" xml:space="preserve">
+    <value>Il pacchettoè incompatibile o non valido</value>
+  </data>
+  <data name="InvalidPackageVersionNewExceptionMessage" xml:space="preserve">
+    <value>Il pacchetto non è compatibile! Devi attualizzare EMSG-Mobile</value>
+  </data>
+  <data name="InvalidPackageVersionOldExceptionMessage" xml:space="preserve">
+    <value>Il pacchetto non è compatibile! Il pacchetto è obsoleto</value>
+  </data>
+  <data name="LabelAdditionalInformation" xml:space="preserve">
+    <value>Info aggiuntive</value>
+  </data>
+  <data name="From" xml:space="preserve">
+    <value>da</value>
+  </data>
+  <data name="To" xml:space="preserve">
+    <value>a</value>
+  </data>
+  <data name="SchadenausmassTypA0" xml:space="preserve">
+    <value>0 %</value>
+  </data>
+  <data name="StrassenabschnittZustandsabschnittLaengeError" xml:space="preserve">
+    <value>La somma della lunghezze dei tratti di stato non può essere maggiore della lunghezza del tratto di strada ({0} m).</value>
+    <comment>{0}:Strassenabschnitt Länge</comment>
+  </data>
+  <data name="DetailFormIsNotinitialized" xml:space="preserve">
+    <value>Nessun danno ancora rilevato.</value>
+  </data>
+  <data name="GrobFormIsNotinitialized" xml:space="preserve">
+    <value>Nessun danno ancora rilevato.</value>
+  </data>
+  <data name="DeleteConfirmation" xml:space="preserve">
+    <value>Siete sicuro di voler cancellare l'immissione?</value>
+  </data>
+  <data name="ForeignStrassenabschnitt" xml:space="preserve">
+    <value>Non puoi registrare dei stati di tratto su un altro tratto di strada!</value>
+  </data>
+  <data name="Label_Achsen" xml:space="preserve">
+    <value>Assi</value>
+  </data>
+  <data name="Label_Strassenabschnitte" xml:space="preserve">
+    <value>Tratti di strada</value>
+  </data>
+  <data name="SplashScreenPath" xml:space="preserve">
+    <value>/ASTRA.EMSG.Mobile;component/Images/EMSG_Mobile_Splashscreen_it.png</value>
+    <comment>do not translate</comment>
+  </data>
+  <data name="MeasureAreaToolText" xml:space="preserve">
+    <value>Misura superficie</value>
+  </data>
+  <data name="MeasureLineToolText" xml:space="preserve">
+    <value>Misura distanza</value>
+  </data>
+  <data name="MousePos_Format" xml:space="preserve">
+    <value>X: ${lon}, Y: ${lat}</value>
+  </data>
+  <data name="ZoomToolText" xml:space="preserve">
+    <value>Zoom</value>
+  </data>
+  <data name="CreateMapCache" xml:space="preserve">
+    <value>Erstelle Karten-Cache</value>
+  </data>
+  <data name="StartImport" xml:space="preserve">
+    <value>Starte Import</value>
+  </data>
+  <data name="UnzipPackage" xml:space="preserve">
+    <value>Entpacke Paket</value>
+  </data>
+  <data name="DeleteLocalData" xml:space="preserve">
+    <value>Sollen von der Anwendung lokal gespeicherte Daten gelöscht werden?</value>
+  </data>
+  <data name="Abschnittsnummer" xml:space="preserve">
+    <value>Numero del tratto</value>
+  </data>
+  <data name="DisplayLayerName_ZUSTANDTROTTOIRLEFT" xml:space="preserve">
+    <value>Zustandsabschnitte Trottoir</value>
+  </data>
+</root>

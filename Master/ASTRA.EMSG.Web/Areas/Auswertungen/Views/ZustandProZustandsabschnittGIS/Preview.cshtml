@@ -1,0 +1,33 @@
+﻿@using ASTRA.EMSG.Common.Enums
+
+@using ASTRA.EMSG.Web.Areas.Auswertungen.ReportGridCommands
+@using ASTRA.EMSG.Web.Infrastructure
+@using ASTRA.EMSG.Web.Infrastructure.HtmlHelperExtensions
+@using Resources
+@using Kendo.Mvc.UI
+@model ZustandProZustandsabschnittGridCommand
+@{
+    ViewData.Model = new ZustandProZustandsabschnittGridCommand { ZustandsindexVon = 0 , ZustandsindexBis = 5 };
+}
+
+@Html.Hidden("ErfassungsPeriod", Model.ErfassungsPeriodId)
+
+<div class="emsg-filter-expand-area-bottom">
+    <div id="filterDiv">
+        <div style="display: inline-block; width: @(ViewSizeConstants.GisReportFilterBlockWidth)px">
+            @(Html.ToGridFilterBuilder<ZustandProZustandsabschnittGridCommand>(ViewSizeConstants.GisReportFilterFieldLabelWidth, ViewSizeConstants.GisReportFilterInputFieldWidth)
+                  .WithTextFilter(m => m.Strassenname, triggerOn3Char: true)
+                  .WithDecimalFilter(m => m.ZustandsindexVon, 1)
+                  .WithTextFilter(m => m.Ortsbezeichnung)
+                  .WithGisReportFilterButton("gisReport.form.refreshGrid"))
+        </div>
+        <div style="display: inline-block;">
+            @(Html.ToGridFilterBuilder<ZustandProZustandsabschnittGridCommand>(ViewSizeConstants.GisReportFilterFieldLabelWidth)
+                  .WithIntEnumFilter<EigentuemerTyp>(m => m.Eigentuemer, filterFunction: "gisReport.form.refreshGrid")
+                  .WithDecimalFilter(m => m.ZustandsindexBis, 1)
+                  .WithoutFilterButton())
+        </div>
+    </div>
+</div>
+
+@Html.Partial("MapGridTabs")

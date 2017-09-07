@@ -1,0 +1,65 @@
+﻿@using ASTRA.EMSG.Web.Infrastructure.HtmlHelperExtensions
+@using Resources
+@using Kendo.Mvc.UI
+@model ASTRA.EMSG.Business.Models.Katalogs.MassnahmenvorschlagKatalogAdminModel 
+
+@{ bool isForApplicationLevel = (ViewBag.IsForApplicationLevel ?? false); }
+
+@using (Ajax.BeginForm(isForApplicationLevel ? "InsertMassnahmenvorschlag" : "CustomizeMassnahmenvorschlag", "Massnahmenvorschlag",
+                        new AjaxOptions
+                            {
+                                HttpMethod = "POST",
+                                UpdateTargetId = "massnahmenvorschlagWindowDiv",
+                                InsertionMode = InsertionMode.Replace,
+                            }))
+{
+    <fieldset class="popupFormFieldset">
+        @{
+            var editorTable = Html.EditorTable();
+
+            if (isForApplicationLevel)
+            {
+                editorTable
+                    .WithEnumEditorFor(m => m.KatalogTyp, () => Model.KatalogTyp)
+                    .WithTextBoxFor(m => m.Typ);
+            }
+            else
+            {
+                var possibleMassnahmenvorschlagen = (IEnumerable<DropDownListItem>)ViewBag.PossibleMassnahmenvorschlagen;
+                editorTable
+                    .WithCustomEditorFor(m => m.Typ,
+                        MvcHtmlString.Create(
+                                Html.Kendo().DropDownListFor(m => m.Typ)
+                                .BindTo(possibleMassnahmenvorschlagen)
+                                .Events(events => events.Change("edit.onChange"))
+                                .HtmlAttributes(new { style = "width: 400px;" })
+                                .ToHtmlString()
+                            )
+                        );
+            }
+
+            for (int i = 0; i < Model.KonstenModels.Count; i++)
+            {
+                int index = i;
+                editorTable.WithDecimalEditorFor(m => m.KonstenModels[index].DefaultKosten,
+                                customLabel: (TextLocalization.DefaultKostenBelastungskategorie + " " +
+                                            MvcHtmlString.Create(
+                                                Html.DisplayFor(m => m.KonstenModels[index].BelastungskategorieBezeichnung).ToHtmlString() +
+                                                Html.HiddenFor(m => m.KonstenModels[index].BelastungskategorieBezeichnung) +
+                                                Html.HiddenFor(m => m.KonstenModels[index].Belastungskategorie) +
+                                                Html.HiddenFor(m => m.KonstenModels[index].Id)
+                                                ).ToHtmlString() + " [CHF/m²]"
+                                    ),
+                                decimalPlaces: 0,
+                                width: 400
+                                );
+            }
+        }
+        @editorTable
+    
+        @Html.UnobtrusiveOkCancelPopupFormButtons()
+    </fieldset>
+    @Html.RequiredFieldLegend()
+}
+
+<div class="helpButton">@Html.HelpButtonFor("CreateMassnahmenvorschlag")</div>

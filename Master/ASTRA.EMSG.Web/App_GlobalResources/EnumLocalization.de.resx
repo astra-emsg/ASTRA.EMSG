@@ -1,0 +1,585 @@
+<?xml version="1.0" encoding="utf-8"?>
+<root>
+  <!-- 
+    Microsoft ResX Schema 
+    
+    Version 2.0
+    
+    The primary goals of this format is to allow a simple XML format 
+    that is mostly human readable. The generation and parsing of the 
+    various data types are done through the TypeConverter classes 
+    associated with the data types.
+    
+    Example:
+    
+    ... ado.net/XML headers & schema ...
+    <resheader name="resmimetype">text/microsoft-resx</resheader>
+    <resheader name="version">2.0</resheader>
+    <resheader name="reader">System.Resources.ResXResourceReader, System.Windows.Forms, ...</resheader>
+    <resheader name="writer">System.Resources.ResXResourceWriter, System.Windows.Forms, ...</resheader>
+    <data name="Name1"><value>this is my long string</value><comment>this is a comment</comment></data>
+    <data name="Color1" type="System.Drawing.Color, System.Drawing">Blue</data>
+    <data name="Bitmap1" mimetype="application/x-microsoft.net.object.binary.base64">
+        <value>[base64 mime encoded serialized .NET Framework object]</value>
+    </data>
+    <data name="Icon1" type="System.Drawing.Icon, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
+        <value>[base64 mime encoded string representing a byte array form of the .NET Framework object]</value>
+        <comment>This is a comment</comment>
+    </data>
+                
+    There are any number of "resheader" rows that contain simple 
+    name/value pairs.
+    
+    Each data row contains a name, and value. The row also contains a 
+    type or mimetype. Type corresponds to a .NET class that support 
+    text/value conversion through the TypeConverter architecture. 
+    Classes that don't support this are serialized and stored with the 
+    mimetype set.
+    
+    The mimetype is used for serialized objects, and tells the 
+    ResXResourceReader how to depersist the object. This is currently not 
+    extensible. For a given mimetype the value must be set accordingly:
+    
+    Note - application/x-microsoft.net.object.binary.base64 is the format 
+    that the ResXResourceWriter will generate, however the reader can 
+    read any of the formats listed below.
+    
+    mimetype: application/x-microsoft.net.object.binary.base64
+    value   : The object must be serialized with 
+            : System.Runtime.Serialization.Formatters.Binary.BinaryFormatter
+            : and then encoded with base64 encoding.
+    
+    mimetype: application/x-microsoft.net.object.soap.base64
+    value   : The object must be serialized with 
+            : System.Runtime.Serialization.Formatters.Soap.SoapFormatter
+            : and then encoded with base64 encoding.
+
+    mimetype: application/x-microsoft.net.object.bytearray.base64
+    value   : The object must be serialized into a byte array 
+            : using a System.ComponentModel.TypeConverter
+            : and then encoded with base64 encoding.
+    -->
+  <xsd:schema id="root" xmlns="" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:msdata="urn:schemas-microsoft-com:xml-msdata">
+    <xsd:import namespace="http://www.w3.org/XML/1998/namespace" />
+    <xsd:element name="root" msdata:IsDataSet="true">
+      <xsd:complexType>
+        <xsd:choice maxOccurs="unbounded">
+          <xsd:element name="metadata">
+            <xsd:complexType>
+              <xsd:sequence>
+                <xsd:element name="value" type="xsd:string" minOccurs="0" />
+              </xsd:sequence>
+              <xsd:attribute name="name" use="required" type="xsd:string" />
+              <xsd:attribute name="type" type="xsd:string" />
+              <xsd:attribute name="mimetype" type="xsd:string" />
+              <xsd:attribute ref="xml:space" />
+            </xsd:complexType>
+          </xsd:element>
+          <xsd:element name="assembly">
+            <xsd:complexType>
+              <xsd:attribute name="alias" type="xsd:string" />
+              <xsd:attribute name="name" type="xsd:string" />
+            </xsd:complexType>
+          </xsd:element>
+          <xsd:element name="data">
+            <xsd:complexType>
+              <xsd:sequence>
+                <xsd:element name="value" type="xsd:string" minOccurs="0" msdata:Ordinal="1" />
+                <xsd:element name="comment" type="xsd:string" minOccurs="0" msdata:Ordinal="2" />
+              </xsd:sequence>
+              <xsd:attribute name="name" type="xsd:string" use="required" msdata:Ordinal="1" />
+              <xsd:attribute name="type" type="xsd:string" msdata:Ordinal="3" />
+              <xsd:attribute name="mimetype" type="xsd:string" msdata:Ordinal="4" />
+              <xsd:attribute ref="xml:space" />
+            </xsd:complexType>
+          </xsd:element>
+          <xsd:element name="resheader">
+            <xsd:complexType>
+              <xsd:sequence>
+                <xsd:element name="value" type="xsd:string" minOccurs="0" msdata:Ordinal="1" />
+              </xsd:sequence>
+              <xsd:attribute name="name" type="xsd:string" use="required" />
+            </xsd:complexType>
+          </xsd:element>
+        </xsd:choice>
+      </xsd:complexType>
+    </xsd:element>
+  </xsd:schema>
+  <resheader name="resmimetype">
+    <value>text/microsoft-resx</value>
+  </resheader>
+  <resheader name="version">
+    <value>2.0</value>
+  </resheader>
+  <resheader name="reader">
+    <value>System.Resources.ResXResourceReader, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </resheader>
+  <resheader name="writer">
+    <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </resheader>
+  <data name="ApplicationMode_Application" xml:space="preserve">
+    <value>Systemrolle</value>
+  </data>
+  <data name="ApplicationMode_Mandant" xml:space="preserve">
+    <value>Mandant</value>
+  </data>
+  <data name="BelagsTyp_Asphalt" xml:space="preserve">
+    <value>Asphalt</value>
+  </data>
+  <data name="BelagsTyp_Beton" xml:space="preserve">
+    <value>Beton</value>
+  </data>
+  <data name="BelagsTyp_Chaussierung" xml:space="preserve">
+    <value>Chaussierung</value>
+  </data>
+  <data name="BelagsTyp_Pflaesterung" xml:space="preserve">
+    <value>Pflasterung</value>
+  </data>
+  <data name="BenchmarkingGruppenTyp_EinwohnerGroesse" xml:space="preserve">
+    <value>Einwohnerzahl</value>
+  </data>
+  <data name="BenchmarkingGruppenTyp_Gemeinde" xml:space="preserve">
+    <value>Gemeindetyp (z.B. Touristische Gemeinde)</value>
+  </data>
+  <data name="BenchmarkingGruppenTyp_MittlereHoehenlageSiedlungsgebieteGroesse" xml:space="preserve">
+    <value>Mittlere Höhenlage des Siedlungsgebiets [m]</value>
+  </data>
+  <data name="BenchmarkingGruppenTyp_NetzGroesse" xml:space="preserve">
+    <value>Netzgrösse</value>
+  </data>
+  <data name="BenchmarkingGruppenTyp_OeffentlicheVerkehrsmittel" xml:space="preserve">
+    <value>Verfügbarkeit öffentliche Verkehrsmittel</value>
+  </data>
+  <data name="BenchmarkingGruppenTyp_SteuerertragGroesse" xml:space="preserve">
+    <value>Steuerertrag (ohne Kirchensteuer)</value>
+  </data>
+  <data name="DringlichkeitTyp_Dringlich" xml:space="preserve">
+    <value>Kurzfristig</value>
+  </data>
+  <data name="DringlichkeitTyp_Langfristig" xml:space="preserve">
+    <value>Langfristig</value>
+  </data>
+  <data name="DringlichkeitTyp_Mittelfristig" xml:space="preserve">
+    <value>Mittelfristig</value>
+  </data>
+  <data name="DringlichkeitTyp_Unbekannt" xml:space="preserve">
+    <value>Ohne Angabe</value>
+  </data>
+  <data name="EigentuemerTyp_Gemeinde" xml:space="preserve">
+    <value>Gemeinde</value>
+  </data>
+  <data name="EigentuemerTyp_Kanton" xml:space="preserve">
+    <value>Kanton</value>
+  </data>
+  <data name="EigentuemerTyp_Korporation" xml:space="preserve">
+    <value>Korporation</value>
+  </data>
+  <data name="EigentuemerTyp_Privat" xml:space="preserve">
+    <value>Privat</value>
+  </data>
+  <data name="EmsgExceptionType_LdapConnectionError" xml:space="preserve">
+    <value>EMSG kann nicht auf LDAP zugreifen!</value>
+  </data>
+  <data name="EmsgExceptionType_NoAxisToUpdate" xml:space="preserve">
+    <value>Es stehen zurzeit keine neueren Achsen zur Verfügung</value>
+  </data>
+  <data name="EmsgExceptionType_NoPermissions" xml:space="preserve">
+    <value>Sie haben keine Berechtigung für EMSG!</value>
+  </data>
+  <data name="EmsgExceptionType_NotInitializedMandant" xml:space="preserve">
+    <value>Der Mandant ist nicht initialisiert!</value>
+  </data>
+  <data name="EmsgExceptionType_UnauthorizedErfassungperiodAccess" xml:space="preserve">
+    <value>Sie haben keinen Zugriff auf diese Erfassungsperiode!</value>
+  </data>
+  <data name="EmsgExceptionType_UnauthorizedMandantAccess" xml:space="preserve">
+    <value>Sie haben keinen Zugriff auf diesen Mandanten!</value>
+  </data>
+  <data name="EmsgExceptionType_UpdateAbschnittLocked" xml:space="preserve">
+    <value>Das Achsen-Update kann nicht durchgeführt werden, da ein betroffener Abschnitt gesperrt ist. Stellen Sie sicher, dass keine Inspektionsroute exportiert ist und versuchen Sie es erneut.</value>
+  </data>
+  <data name="EmsgExceptionType_WMSConnectionError" xml:space="preserve">
+    <value>Das Service WMS der swisstopo ist momentan nicht verfügbar.  Bitte probieren Sie es später wieder.</value>
+  </data>
+  <data name="EreignisTyp_Achsenupdate" xml:space="preserve">
+    <value>Achsenupdate</value>
+  </data>
+  <data name="EreignisTyp_AnmeldenimSystem" xml:space="preserve">
+    <value>Anmelden im System</value>
+  </data>
+  <data name="EreignisTyp_Arbeitsmoduswechsel" xml:space="preserve">
+    <value>Arbeitsmoduswechsel</value>
+  </data>
+  <data name="EreignisTyp_InspektionsRoutenExport" xml:space="preserve">
+    <value>Export von Routen</value>
+  </data>
+  <data name="EreignisTyp_InspektionsRoutenImport" xml:space="preserve">
+    <value>Import von Routen</value>
+  </data>
+  <data name="EreignisTyp_Jahresabschluss" xml:space="preserve">
+    <value>Jahresabschluss</value>
+  </data>
+  <data name="EreignisTyp_RolleEinnehmen" xml:space="preserve">
+    <value>Einnehmen einer anderen Rolle</value>
+  </data>
+  <data name="EreignisTyp_Systemfehler" xml:space="preserve">
+    <value>Systemfehler</value>
+  </data>
+  <data name="EreignisTyp_XmlImport" xml:space="preserve">
+    <value>Import von XLSX-Dateien</value>
+  </data>
+  <data name="ErfassungsStatusTyp_Ja" xml:space="preserve">
+    <value>ja</value>
+  </data>
+  <data name="ErfassungsStatusTyp_Nein" xml:space="preserve">
+    <value>nein</value>
+  </data>
+  <data name="ErfassungsStatusTyp_Teilweise" xml:space="preserve">
+    <value>teilweise</value>
+  </data>
+  <data name="FlaecheTyp_Fahrbahn" xml:space="preserve">
+    <value>Fb</value>
+  </data>
+  <data name="FlaecheTyp_Trottoir" xml:space="preserve">
+    <value>Tr</value>
+  </data>
+  <data name="InspektionsRouteStatus_Aktualisiert" xml:space="preserve">
+    <value>Neu erstellt (Aktualisierung)</value>
+  </data>
+  <data name="InspektionsRouteStatus_ExportCancelled" xml:space="preserve">
+    <value>Export abgebrochen</value>
+  </data>
+  <data name="InspektionsRouteStatus_NeuErstellt" xml:space="preserve">
+    <value>Neu erstellt</value>
+  </data>
+  <data name="InspektionsRouteStatus_RouteExportiert" xml:space="preserve">
+    <value>Route exportiert</value>
+  </data>
+  <data name="InspektionsRouteStatus_RouteImportiert" xml:space="preserve">
+    <value>Route importiert</value>
+  </data>
+  <data name="MassnahmenvorschlagKatalogTyp_Fahrbahn" xml:space="preserve">
+    <value>Fahrbahn</value>
+  </data>
+  <data name="MassnahmenvorschlagKatalogTyp_Trottoir" xml:space="preserve">
+    <value>Trottoir</value>
+  </data>
+  <data name="NetzErfassungsmodus_Gis" xml:space="preserve">
+    <value>GIS-Modus</value>
+  </data>
+  <data name="NetzErfassungsmodus_Summarisch" xml:space="preserve">
+    <value>Summarischer Modus</value>
+  </data>
+  <data name="NetzErfassungsmodus_Tabellarisch" xml:space="preserve">
+    <value>Strassennamenmodus</value>
+  </data>
+  <data name="Rolle_Applikationsadministrator" xml:space="preserve">
+    <value>Applikationsadministrator</value>
+  </data>
+  <data name="Rolle_Applikationssupporter" xml:space="preserve">
+    <value>Applikationssupporter</value>
+  </data>
+  <data name="Rolle_Benchmarkteilnehmer" xml:space="preserve">
+    <value>Benchmarkteilnehmer</value>
+  </data>
+  <data name="Rolle_Benutzeradministrator" xml:space="preserve">
+    <value>Benutzeradministrator</value>
+  </data>
+  <data name="Rolle_DataManager" xml:space="preserve">
+    <value>Data Manager</value>
+  </data>
+  <data name="Rolle_DataReader" xml:space="preserve">
+    <value>Data Reader</value>
+  </data>
+  <data name="SchadenausmassTyp_A0" xml:space="preserve">
+    <value>0 %</value>
+  </data>
+  <data name="SchadenausmassTyp_A1" xml:space="preserve">
+    <value> &lt; 10 %</value>
+  </data>
+  <data name="SchadenausmassTyp_A2" xml:space="preserve">
+    <value>10 - 50 %</value>
+  </data>
+  <data name="SchadenausmassTyp_A3" xml:space="preserve">
+    <value>&gt; 50 %</value>
+  </data>
+  <data name="SchadendetailTyp_Abblaetterung" xml:space="preserve">
+    <value>Abblätterung</value>
+  </data>
+  <data name="SchadendetailTyp_AbgedrueckteRaeder" xml:space="preserve">
+    <value>Abgedrückte Ränder</value>
+  </data>
+  <data name="SchadendetailTyp_Abloesungen" xml:space="preserve">
+    <value>Ablösungen</value>
+  </data>
+  <data name="SchadendetailTyp_Abplatzungen" xml:space="preserve">
+    <value>Abplatzungen</value>
+  </data>
+  <data name="SchadendetailTyp_Abrieb" xml:space="preserve">
+    <value>Abrieb</value>
+  </data>
+  <data name="SchadendetailTyp_AnrisseVonSetzungen" xml:space="preserve">
+    <value>Anrisse von Setzungen</value>
+  </data>
+  <data name="SchadendetailTyp_Aufwoelbungen" xml:space="preserve">
+    <value>Aufwölbungen</value>
+  </data>
+  <data name="SchadendetailTyp_AusmagerungAbsanden" xml:space="preserve">
+    <value>Ausmagerung, Absanden</value>
+  </data>
+  <data name="SchadendetailTyp_Belagsrandrisse" xml:space="preserve">
+    <value>Belagsrandrisse</value>
+  </data>
+  <data name="SchadendetailTyp_BlowUp" xml:space="preserve">
+    <value>Blow-up</value>
+  </data>
+  <data name="SchadendetailTyp_FehlenderOderSproederFugenverguss" xml:space="preserve">
+    <value>Fehlender oder spröder Fugenverguss</value>
+  </data>
+  <data name="SchadendetailTyp_Flicke" xml:space="preserve">
+    <value>Flicke</value>
+  </data>
+  <data name="SchadendetailTyp_Frosthebungen" xml:space="preserve">
+    <value>Frosthebungen</value>
+  </data>
+  <data name="SchadendetailTyp_KantenschaedenAbsplitterung" xml:space="preserve">
+    <value>Kantenschäden, Absplitterung</value>
+  </data>
+  <data name="SchadendetailTyp_Kornausbrueche" xml:space="preserve">
+    <value>Kornausbrüche</value>
+  </data>
+  <data name="SchadendetailTyp_Laengsrisse" xml:space="preserve">
+    <value>Längsrisse</value>
+  </data>
+  <data name="SchadendetailTyp_Netzrisse" xml:space="preserve">
+    <value>Netzrisse</value>
+  </data>
+  <data name="SchadendetailTyp_OffeneNaehte" xml:space="preserve">
+    <value>Offene Nähte</value>
+  </data>
+  <data name="SchadendetailTyp_Polieren" xml:space="preserve">
+    <value>Polieren</value>
+  </data>
+  <data name="SchadendetailTyp_Pumpen" xml:space="preserve">
+    <value>Pumpen</value>
+  </data>
+  <data name="SchadendetailTyp_Querrisse" xml:space="preserve">
+    <value>Querrisse</value>
+  </data>
+  <data name="SchadendetailTyp_Risse" xml:space="preserve">
+    <value>Risse</value>
+  </data>
+  <data name="SchadendetailTyp_Schlagloecher" xml:space="preserve">
+    <value>Schlaglöcher</value>
+  </data>
+  <data name="SchadendetailTyp_Schubverformungen" xml:space="preserve">
+    <value>Schubverformungen</value>
+  </data>
+  <data name="SchadendetailTyp_Schwitzen" xml:space="preserve">
+    <value>Schwitzen</value>
+  </data>
+  <data name="SchadendetailTyp_SetzungenEinsenkungen" xml:space="preserve">
+    <value>Setzungen, Einsenkungen</value>
+  </data>
+  <data name="SchadendetailTyp_SetzungenFrosthebungen" xml:space="preserve">
+    <value>Setzungen, Frosthebungen</value>
+  </data>
+  <data name="SchadendetailTyp_Spurrinnen" xml:space="preserve">
+    <value>Spurrinnen</value>
+  </data>
+  <data name="SchadendetailTyp_Stufenbildung" xml:space="preserve">
+    <value>Stufenbildung</value>
+  </data>
+  <data name="SchadendetailTyp_Wellblechverformungen" xml:space="preserve">
+    <value>Wellblechverformungen</value>
+  </data>
+  <data name="SchadendetailTyp_WildeRisse" xml:space="preserve">
+    <value>Wilde Risse</value>
+  </data>
+  <data name="SchadendetailTyp_ZerstoertePlatten" xml:space="preserve">
+    <value>Zerstörte Platten</value>
+  </data>
+  <data name="SchadengruppeTyp_Belagschaeden" xml:space="preserve">
+    <value>Belagsschäden</value>
+  </data>
+  <data name="SchadengruppeTyp_Belagsverformungen" xml:space="preserve">
+    <value>Belagsverformungen</value>
+  </data>
+  <data name="SchadengruppeTyp_Flicke" xml:space="preserve">
+    <value>Flicke</value>
+  </data>
+  <data name="SchadengruppeTyp_FugenUndKantenschaeden" xml:space="preserve">
+    <value>Fugen und Kantenschäden</value>
+  </data>
+  <data name="SchadengruppeTyp_Materialverluste" xml:space="preserve">
+    <value>Materialverluste</value>
+  </data>
+  <data name="SchadengruppeTyp_Oberflaechenglaette" xml:space="preserve">
+    <value>Oberflächenglätte</value>
+  </data>
+  <data name="SchadengruppeTyp_RisseBrueche" xml:space="preserve">
+    <value>Risse, Brüche</value>
+  </data>
+  <data name="SchadengruppeTyp_StrukturelleSchaeden" xml:space="preserve">
+    <value>Strukturelle Schäden</value>
+  </data>
+  <data name="SchadengruppeTyp_Vertikalverschiebung" xml:space="preserve">
+    <value>Vertikalverschiebung</value>
+  </data>
+  <data name="SchadenschwereTyp_S1" xml:space="preserve">
+    <value>leicht</value>
+  </data>
+  <data name="SchadenschwereTyp_S2" xml:space="preserve">
+    <value>mittel</value>
+  </data>
+  <data name="SchadenschwereTyp_S3" xml:space="preserve">
+    <value>schwer</value>
+  </data>
+  <data name="Short_BelagsTyp_Asphalt" xml:space="preserve">
+    <value>Asphalt</value>
+  </data>
+  <data name="Short_TeilsystemTyp_Abwasseranlagen" xml:space="preserve">
+    <value>AW</value>
+  </data>
+  <data name="Short_TeilsystemTyp_Beleuchtungsanlagen" xml:space="preserve">
+    <value>Bel</value>
+  </data>
+  <data name="Short_TeilsystemTyp_Elektrizitaetsversorgung" xml:space="preserve">
+    <value>E</value>
+  </data>
+  <data name="Short_TeilsystemTyp_Fernwaermeversorgung" xml:space="preserve">
+    <value>F</value>
+  </data>
+  <data name="Short_TeilsystemTyp_Gasversorgung" xml:space="preserve">
+    <value>G</value>
+  </data>
+  <data name="Short_TeilsystemTyp_Gruenanlagen" xml:space="preserve">
+    <value>GrA</value>
+  </data>
+  <data name="Short_TeilsystemTyp_Kommunikationsanlagen" xml:space="preserve">
+    <value>TK</value>
+  </data>
+  <data name="Short_TeilsystemTyp_Kunstbauten" xml:space="preserve">
+    <value>KU</value>
+  </data>
+  <data name="Short_TeilsystemTyp_OeffentlicherVerkehr" xml:space="preserve">
+    <value>Öv</value>
+  </data>
+  <data name="Short_TeilsystemTyp_Sonstige" xml:space="preserve">
+    <value>Son</value>
+  </data>
+  <data name="Short_TeilsystemTyp_Strassen" xml:space="preserve">
+    <value>Str</value>
+  </data>
+  <data name="Short_TeilsystemTyp_VerkehrslenkungLichtsignalanlagen" xml:space="preserve">
+    <value>LSA</value>
+  </data>
+  <data name="Short_TeilsystemTyp_Wasserbau" xml:space="preserve">
+    <value>WB</value>
+  </data>
+  <data name="Short_TeilsystemTyp_Wasserversorgungsanlagen" xml:space="preserve">
+    <value>W</value>
+  </data>
+  <data name="StatusTyp_Abgeschlossen" xml:space="preserve">
+    <value>Abgeschlossen</value>
+  </data>
+  <data name="StatusTyp_InKoordination" xml:space="preserve">
+    <value>In Koordination</value>
+  </data>
+  <data name="StatusTyp_Vorgeschlagen" xml:space="preserve">
+    <value>Vorgeschlagen</value>
+  </data>
+  <data name="TeilsystemTyp_Abwasseranlagen" xml:space="preserve">
+    <value>Abwasseranlagen</value>
+  </data>
+  <data name="TeilsystemTyp_Beleuchtungsanlagen" xml:space="preserve">
+    <value>Beleuchtungsanlagen</value>
+  </data>
+  <data name="TeilsystemTyp_Elektrizitaetsversorgung" xml:space="preserve">
+    <value>Elektrizitätsversorgung</value>
+  </data>
+  <data name="TeilsystemTyp_Fernwaermeversorgung" xml:space="preserve">
+    <value>Fernwärmeversorgung</value>
+  </data>
+  <data name="TeilsystemTyp_Gasversorgung" xml:space="preserve">
+    <value>Gasversorgung</value>
+  </data>
+  <data name="TeilsystemTyp_Gruenanlagen" xml:space="preserve">
+    <value>Grünanlagen</value>
+  </data>
+  <data name="TeilsystemTyp_Kommunikationsanlagen" xml:space="preserve">
+    <value>Kommunikationsanlagen</value>
+  </data>
+  <data name="TeilsystemTyp_Kunstbauten" xml:space="preserve">
+    <value>Kunstbauten</value>
+  </data>
+  <data name="TeilsystemTyp_OeffentlicherVerkehr" xml:space="preserve">
+    <value>Öffentlicher Verkehr</value>
+  </data>
+  <data name="TeilsystemTyp_Sonstige" xml:space="preserve">
+    <value>Sonstige</value>
+  </data>
+  <data name="TeilsystemTyp_Strassen" xml:space="preserve">
+    <value>Strassen</value>
+  </data>
+  <data name="TeilsystemTyp_VerkehrslenkungLichtsignalanlagen" xml:space="preserve">
+    <value>Verkehrslenkung/Lichtsignalanl.</value>
+  </data>
+  <data name="TeilsystemTyp_Wasserbau" xml:space="preserve">
+    <value>Wasserbau</value>
+  </data>
+  <data name="TeilsystemTyp_Wasserversorgungsanlagen" xml:space="preserve">
+    <value>Wasserversorgungsanlagen</value>
+  </data>
+  <data name="TrottoirTyp_BeideSeiten" xml:space="preserve">
+    <value>beide Seiten</value>
+  </data>
+  <data name="TrottoirTyp_KeinTrottoir" xml:space="preserve">
+    <value>kein Trottoir</value>
+  </data>
+  <data name="TrottoirTyp_Links" xml:space="preserve">
+    <value>links</value>
+  </data>
+  <data name="TrottoirTyp_NochNichtErfasst" xml:space="preserve">
+    <value>noch nicht erfasst</value>
+  </data>
+  <data name="TrottoirTyp_Rechts" xml:space="preserve">
+    <value>rechts</value>
+  </data>
+  <data name="WetterTyp_Feucht" xml:space="preserve">
+    <value>Feucht</value>
+  </data>
+  <data name="WetterTyp_KeinRegen" xml:space="preserve">
+    <value>Trocken</value>
+  </data>
+  <data name="WetterTyp_Regen" xml:space="preserve">
+    <value>Nass</value>
+  </data>
+  <data name="ZustandsErfassungsmodus_Detailliert" xml:space="preserve">
+    <value>Detailliert</value>
+  </data>
+  <data name="ZustandsErfassungsmodus_Grob" xml:space="preserve">
+    <value>Grob</value>
+  </data>
+  <data name="ZustandsErfassungsmodus_Manuel" xml:space="preserve">
+    <value>Zustandsindex</value>
+  </data>
+  <data name="ZustandsindexTyp_Ausreichend" xml:space="preserve">
+    <value>ausreichend</value>
+  </data>
+  <data name="ZustandsindexTyp_Gut" xml:space="preserve">
+    <value>gut</value>
+  </data>
+  <data name="ZustandsindexTyp_Kritisch" xml:space="preserve">
+    <value>kritisch</value>
+  </data>
+  <data name="ZustandsindexTyp_Mittel" xml:space="preserve">
+    <value>mittel</value>
+  </data>
+  <data name="ZustandsindexTyp_Schlecht" xml:space="preserve">
+    <value>schlecht</value>
+  </data>
+  <data name="ZustandsindexTyp_Unbekannt" xml:space="preserve">
+    <value />
+  </data>
+</root>

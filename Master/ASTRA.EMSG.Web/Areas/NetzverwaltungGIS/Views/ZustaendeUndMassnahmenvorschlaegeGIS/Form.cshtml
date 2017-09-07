@@ -1,0 +1,8 @@
+﻿@using ASTRA.EMSG.Web.Infrastructure.HtmlHelperExtensions
+@using Resources
+<div id="zustandsabschnittEditFormDiv" style="min-width: 426px"
+    data-create-action="@Url.Action("CreateZustandsabschnitt", "ZustaendeUndMassnahmenvorschlaegeGIS")" 
+     data-edit-action="@Url.Action("EditZustandsabschnitt", "ZustaendeUndMassnahmenvorschlaegeGIS")"
+    data-cancel-confirmation = "@Html.Raw(NotificationLocalization.CancelConfirmation)"
+    >
+</div>

@@ -1,0 +1,329 @@
+<?xml version="1.0" encoding="utf-8"?>
+<root>
+  <!-- 
+    Microsoft ResX Schema 
+    
+    Version 2.0
+    
+    The primary goals of this format is to allow a simple XML format 
+    that is mostly human readable. The generation and parsing of the 
+    various data types are done through the TypeConverter classes 
+    associated with the data types.
+    
+    Example:
+    
+    ... ado.net/XML headers & schema ...
+    <resheader name="resmimetype">text/microsoft-resx</resheader>
+    <resheader name="version">2.0</resheader>
+    <resheader name="reader">System.Resources.ResXResourceReader, System.Windows.Forms, ...</resheader>
+    <resheader name="writer">System.Resources.ResXResourceWriter, System.Windows.Forms, ...</resheader>
+    <data name="Name1"><value>this is my long string</value><comment>this is a comment</comment></data>
+    <data name="Color1" type="System.Drawing.Color, System.Drawing">Blue</data>
+    <data name="Bitmap1" mimetype="application/x-microsoft.net.object.binary.base64">
+        <value>[base64 mime encoded serialized .NET Framework object]</value>
+    </data>
+    <data name="Icon1" type="System.Drawing.Icon, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
+        <value>[base64 mime encoded string representing a byte array form of the .NET Framework object]</value>
+        <comment>This is a comment</comment>
+    </data>
+                
+    There are any number of "resheader" rows that contain simple 
+    name/value pairs.
+    
+    Each data row contains a name, and value. The row also contains a 
+    type or mimetype. Type corresponds to a .NET class that support 
+    text/value conversion through the TypeConverter architecture. 
+    Classes that don't support this are serialized and stored with the 
+    mimetype set.
+    
+    The mimetype is used for serialized objects, and tells the 
+    ResXResourceReader how to depersist the object. This is currently not 
+    extensible. For a given mimetype the value must be set accordingly:
+    
+    Note - application/x-microsoft.net.object.binary.base64 is the format 
+    that the ResXResourceWriter will generate, however the reader can 
+    read any of the formats listed below.
+    
+    mimetype: application/x-microsoft.net.object.binary.base64
+    value   : The object must be serialized with 
+            : System.Runtime.Serialization.Formatters.Binary.BinaryFormatter
+            : and then encoded with base64 encoding.
+    
+    mimetype: application/x-microsoft.net.object.soap.base64
+    value   : The object must be serialized with 
+            : System.Runtime.Serialization.Formatters.Soap.SoapFormatter
+            : and then encoded with base64 encoding.
+
+    mimetype: application/x-microsoft.net.object.bytearray.base64
+    value   : The object must be serialized into a byte array 
+            : using a System.ComponentModel.TypeConverter
+            : and then encoded with base64 encoding.
+    -->
+  <xsd:schema id="root" xmlns="" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:msdata="urn:schemas-microsoft-com:xml-msdata">
+    <xsd:import namespace="http://www.w3.org/XML/1998/namespace" />
+    <xsd:element name="root" msdata:IsDataSet="true">
+      <xsd:complexType>
+        <xsd:choice maxOccurs="unbounded">
+          <xsd:element name="metadata">
+            <xsd:complexType>
+              <xsd:sequence>
+                <xsd:element name="value" type="xsd:string" minOccurs="0" />
+              </xsd:sequence>
+              <xsd:attribute name="name" use="required" type="xsd:string" />
+              <xsd:attribute name="type" type="xsd:string" />
+              <xsd:attribute name="mimetype" type="xsd:string" />
+              <xsd:attribute ref="xml:space" />
+            </xsd:complexType>
+          </xsd:element>
+          <xsd:element name="assembly">
+            <xsd:complexType>
+              <xsd:attribute name="alias" type="xsd:string" />
+              <xsd:attribute name="name" type="xsd:string" />
+            </xsd:complexType>
+          </xsd:element>
+          <xsd:element name="data">
+            <xsd:complexType>
+              <xsd:sequence>
+                <xsd:element name="value" type="xsd:string" minOccurs="0" msdata:Ordinal="1" />
+                <xsd:element name="comment" type="xsd:string" minOccurs="0" msdata:Ordinal="2" />
+              </xsd:sequence>
+              <xsd:attribute name="name" type="xsd:string" use="required" msdata:Ordinal="1" />
+              <xsd:attribute name="type" type="xsd:string" msdata:Ordinal="3" />
+              <xsd:attribute name="mimetype" type="xsd:string" msdata:Ordinal="4" />
+              <xsd:attribute ref="xml:space" />
+            </xsd:complexType>
+          </xsd:element>
+          <xsd:element name="resheader">
+            <xsd:complexType>
+              <xsd:sequence>
+                <xsd:element name="value" type="xsd:string" minOccurs="0" msdata:Ordinal="1" />
+              </xsd:sequence>
+              <xsd:attribute name="name" type="xsd:string" use="required" />
+            </xsd:complexType>
+          </xsd:element>
+        </xsd:choice>
+      </xsd:complexType>
+    </xsd:element>
+  </xsd:schema>
+  <resheader name="resmimetype">
+    <value>text/microsoft-resx</value>
+  </resheader>
+  <resheader name="version">
+    <value>2.0</value>
+  </resheader>
+  <resheader name="reader">
+    <value>System.Resources.ResXResourceReader, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </resheader>
+  <resheader name="writer">
+    <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </resheader>
+  <data name="AllowedDecimalPlaces" xml:space="preserve">
+    <value>Seulement {0} décimale(s) autorisée(s) !</value>
+    <comment>{0} : compteur de décimales</comment>
+  </data>
+  <data name="email_error" xml:space="preserve">
+    <value>« {PropertyName} » n'est pas une adresse de courriel valide.</value>
+  </data>
+  <data name="equal_error" xml:space="preserve">
+    <value>« {PropertyName} » doit être équivalent à '{PropertyValue}'.</value>
+  </data>
+  <data name="exact_length_error" xml:space="preserve">
+    <value>« {PropertyName} » doit avoir exactement {MaxLength} caractères. {TotalLength} caractères ont été saisis.</value>
+  </data>
+  <data name="exclusivebetween_error" xml:space="preserve">
+    <value>« {PropertyName} » doit avoir entre {From} et {To} caractères. {Value} caractères ont été saisis.</value>
+  </data>
+  <data name="greaterthanorequal_error" xml:space="preserve">
+    <value>La valeur de « {PropertyName} » doit être supérieure ou égale à '{ComparisonValue}'.</value>
+  </data>
+  <data name="greaterthan_error" xml:space="preserve">
+    <value>La valeur de « {PropertyName} » doit être supérieure à '{ComparisonValue}'.</value>
+  </data>
+  <data name="inclusivebetween_error" xml:space="preserve">
+    <value>« {PropertyName} » doit avoir une valeur entre {From} et {To}. Une valeur de {Value} a été saisie.</value>
+  </data>
+  <data name="IncorrectHeaderText" xml:space="preserve">
+    <value>Le titre de la colonne {0} est invalide !</value>
+    <comment>{0} : Identifiant de colonne</comment>
+  </data>
+  <data name="IncorrectNumberOfColumns" xml:space="preserve">
+    <value>Le nombre de colonnes n'est pas correct !</value>
+  </data>
+  <data name="InvalidLogLevel" xml:space="preserve">
+    <value>Niveau de log invalide !</value>
+  </data>
+  <data name="LaengeShouldBeLessThanTheSumOfTheKorrekturen" xml:space="preserve">
+    <value>La somme des deux réductions de la longueur doit être inférieure/égale à la longueur !</value>
+  </data>
+  <data name="length_error" xml:space="preserve">
+    <value>La longueur de « {PropertyName} » doit avoir entre {MinLength} et {MaxLength} caractères. {TotalLength} caractères ont été saisis.</value>
+  </data>
+  <data name="lessthanorequal_error" xml:space="preserve">
+    <value>La valeur de « {PropertyName} » doit être inférieure ou égale à '{ComparisonValue}'.</value>
+  </data>
+  <data name="lessthan_error" xml:space="preserve">
+    <value>La valeur de « {PropertyName} » doit être inférieure à '{ComparisonValue}'.</value>
+  </data>
+  <data name="MissignHeader" xml:space="preserve">
+    <value>Titre de la colonne manquant !</value>
+  </data>
+  <data name="notempty_error" xml:space="preserve">
+    <value>« {PropertyName} » ne doit pas être vide.</value>
+  </data>
+  <data name="notequal_error" xml:space="preserve">
+    <value>« {PropertyName} » ne doit pas être équivalent à '{PropertyValue}'.</value>
+  </data>
+  <data name="notnull_error" xml:space="preserve">
+    <value>« {PropertyName} » ne doit pas être vide.</value>
+  </data>
+  <data name="predicate_error" xml:space="preserve">
+    <value>La valeur de « {PropertyName} » ne correspond pas à la condition fixée.</value>
+  </data>
+  <data name="regex_error" xml:space="preserve">
+    <value>« {PropertyName} » présente un format invalide.</value>
+  </data>
+  <data name="RowN" xml:space="preserve">
+    <value> (Ligne {0})</value>
+    <comment>{0}: Nombre de ligne</comment>
+  </data>
+  <data name="WrongDataFormat" xml:space="preserve">
+    <value>Saisie invalide dans la cellule {0} !</value>
+    <comment>{0}: Identifiant de cellule</comment>
+  </data>
+  <data name="WrongFileFormat" xml:space="preserve">
+    <value>Format de fichier invalide !</value>
+  </data>
+  <data name="GeometryOverlaps" xml:space="preserve">
+    <value>Le tronçon sélectionné chevauche d'autres tronçons !</value>
+  </data>
+  <data name="ZustandAbschnittNotWithin" xml:space="preserve">
+    <value>Le tronçon d'état ne se trouve pas complètement à l'intérieur du tronçon de route !</value>
+  </data>
+  <data name="ShouldNotBeNegative" xml:space="preserve">
+    <value>La valeur ne doit pas être négative !</value>
+  </data>
+  <data name="InvalidUserName" xml:space="preserve">
+    <value>Nom d'utilisateur invalide !</value>
+  </data>
+  <data name="ShouldBeUnique" xml:space="preserve">
+    <value>La valeur doit être non équivoque !</value>
+  </data>
+  <data name="GeometryNull" xml:space="preserve">
+    <value>Aucune géométrie n'a été sélectionnée pour le tronçon. Veuillez sélectionner un tronçon sur la carte.</value>
+    <comment>Message d'erreur général pour la géométrie == nul (Aucune sélection sur la carte)</comment>
+  </data>
+  <data name="HasNotJustUniqueStraasenabschnittenInspektionsRouteGIS" xml:space="preserve">
+    <value>Chaque tronçon de route peut que être attribué à un seul itinéraire d'inspection !</value>
+  </data>
+  <data name="StrassenabschnittZustandsabschnittLaengeError" xml:space="preserve">
+    <value>La somme des longueurs des tronçons d'état ne doit pas dépasser la longueur du tronçon de la route ({0:#,0} m).</value>
+    <comment>{0}:Longueur du tronçon de route</comment>
+  </data>
+  <data name="KostenGesamtprojektGraterThanSum" xml:space="preserve">
+    <value>Les coûts totaux du projet intégral doivent être supérieurs/égaux aux coûts pour la chaussée + coûts du trottoir gauche + coûts du trottoir droite</value>
+  </data>
+  <data name="GeometryNotOnAchsenSegment" xml:space="preserve">
+    <value>La géométrie sélectionnée ne se trouve pas complètement sur l'axe correspondant</value>
+  </data>
+  <data name="InvalidKenngroessenFuehererJahre" xml:space="preserve">
+    <value>L'année doit être antérieure au premier bilan annuel ({0}) !</value>
+    <comment>{0} année du premier bilan annuel</comment>
+  </data>
+  <data name="BeteiligteSystemeEmpty" xml:space="preserve">
+    <value>Vous devez sélectionner au moins un système participant.</value>
+  </data>
+  <data name="AusfuehrungsAnfangAusfuehrungsEndeError" xml:space="preserve">
+    <value>Le début de l'exécution doit être antérieur ou égal à la fin de l'exécution !</value>
+  </data>
+  <data name="StrassenabschnittDoesNotExistsError" xml:space="preserve">
+    <value>Il n'y a aucun tronçon de route portant le nom de route "{0}", la désignation de "{1}" et la désignation jusqu'à "{2}" dans la ligne {3} !</value>
+    <comment>{0}: Nom de la route, {1}: DésignationDe, {2}: DésignationJusqu'à, {3}:NombreDeLignes</comment>
+  </data>
+  <data name="TooBigFile" xml:space="preserve">
+    <value>Le fichier chargé est trop gros !</value>
+  </data>
+  <data name="ShouldBeEmpty" xml:space="preserve">
+    <value>« {0} » doit être vide.</value>
+    <comment>{0}: Nom du champ</comment>
+  </data>
+  <data name="ImportError" xml:space="preserve">
+    <value>Erreur pendant l'import !</value>
+  </data>
+  <data name="InspektionsRouteNotExported" xml:space="preserve">
+    <value>L'itinéraire d'inspection n'a pas pu être importé, puisqu'il n'aparait pas sous les itinéraires exportés</value>
+  </data>
+  <data name="InspektionsRouteNotFound" xml:space="preserve">
+    <value>L'itinéraire d'inspection n'a pas pu être importé, puisqu'il n'aparait pas sous les itinéraires exportés</value>
+  </data>
+  <data name="InvalidPackage" xml:space="preserve">
+    <value>Le package importé est invalide</value>
+  </data>
+  <data name="PackageVersionNotSupported" xml:space="preserve">
+    <value>La version du package importé n'est pas compatible</value>
+  </data>
+  <data name="InvalidResourceFileName" xml:space="preserve">
+    <value>Nom de fichier invalide !</value>
+  </data>
+  <data name="InvalidResourceFileFormat" xml:space="preserve">
+    <value>Format de fichier invalide !</value>
+  </data>
+  <data name="InvalidResourceFileKeyCount" xml:space="preserve">
+    <value>Clés insuffisantes dans le fichier !</value>
+  </data>
+  <data name="ShouldNotBeEmpty" xml:space="preserve">
+    <value>« {0} » ne doit pas être vide.</value>
+    <comment>{0}: Nom du champ</comment>
+  </data>
+  <data name="HtmlTagsNotAllowed" xml:space="preserve">
+    <value>« {PropertyName} » présente un format invalide.</value>
+  </data>
+  <data name="MaximumEigenschaften" xml:space="preserve">
+    <value>Vous pouvez sélectionner au maximum 3 paramètres de comparaison !</value>
+  </data>
+  <data name="HelpFileMappingMissing" xml:space="preserve">
+    <value>{0} manque !</value>
+    <comment>{0}: HelpFileMapping file name</comment>
+  </data>
+  <data name="JahresAbschlussStrassenabschnittLocked" xml:space="preserve">
+    <value>Quelques tronçons de route sont fermés par un itinéraire d'inspection exporté</value>
+  </data>
+  <data name="BelagBelastungskategorieMissmatch" xml:space="preserve">
+    <value>Notez que pour un tronçon de route au moins, la combinaison revêtement et catégorie de charges est discutable.</value>
+  </data>
+  <data name="SessionTimeOut" xml:space="preserve">
+    <value>Attente trop longue entre l'import et la confirmation ! Recommencez l'import !</value>
+  </data>
+  <data name="UnexpectedAchsenUpdateError" xml:space="preserve">
+    <value>Erreur imprévue durant la mise à jour !</value>
+  </data>
+  <data name="UpdateRunning" xml:space="preserve">
+    <value>Mise à jour pour le mandant {0} en cours! Départ: {1}</value>
+  </data>
+  <data name="DetailFormIsNotInitialized" xml:space="preserve">
+    <value>Aucune dégradation encore saisie !</value>
+  </data>
+  <data name="GrobFormIsNotInitialized" xml:space="preserve">
+    <value>Aucune dégradation encore saisie !</value>
+  </data>
+  <data name="InvalidGeometry" xml:space="preserve">
+    <value>La géometrie choisie n'est pas valable</value>
+  </data>
+  <data name="HelpFileMissing" xml:space="preserve">
+    <value>{0} manque !</value>
+  </data>
+  <data name="InvalidFileStructure" xml:space="preserve">
+    <value>Contenu fichier incorrect</value>
+  </data>
+  <data name="NoGISDataForExportError" xml:space="preserve">
+    <value>Pas de données disponibles pour l’export SIG.</value>
+  </data>
+  <data name="GeometryNotSimple" xml:space="preserve">
+    <value>Les axes ne doivent ps se couper!</value>
+  </data>
+  <data name="RealisierteMassnahmeBreiteEmpty" xml:space="preserve">
+    <value>Vous devez spécifier une largeur.</value>
+  </data>
+  <data name="NewPasswordShouldBeSame" xml:space="preserve">
+    <value>La confirmation du mot de passe, doit correspondre au mot de passe</value>
+  </data>
+</root>

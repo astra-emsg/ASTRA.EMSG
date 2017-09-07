@@ -1,0 +1,16 @@
+﻿@using System.Globalization
+@using ASTRA.EMSG.Common.Enums
+@model ASTRA.EMSG.Business.Models.Common.ZustandsabschnittdetailsModel
+@switch (Model.Erfassungsmodus)
+{
+    case ZustandsErfassungsmodus.Grob:
+    @Html.Partial("GrobZustandsErfassungForm", Model)
+        break;
+    case ZustandsErfassungsmodus.Detail:
+    @Html.Partial("DetailZustandsErfassungForm", Model)
+        break;
+    case ZustandsErfassungsmodus.Manuel:
+    @Html.Partial("ManuelZustandsErfassungForm", Model)
+        break;
+}
+<input type="hidden" id="Fahrbahn_ZustandsindexCalculated" value="@Model.ZustandsindexCalculated.ToString(CultureInfo.InvariantCulture)"/>

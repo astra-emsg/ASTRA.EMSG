@@ -1,0 +1,669 @@
+
+
+header, footer, nav, section
+{
+    display: block;
+}
+
+/* Styles based on the MISTRA GUI Guidelines
+-----------------------------------------------------------*/
+body
+{
+    /*font-size: .85em;*/
+    font-size: 10pt;
+    font-family: Arial, Helvetica, Sans-Serif;
+    color: #333333;
+    background-color: #fff;
+}
+
+h1
+{
+    font-size: 14pt;
+}
+
+h2
+{
+    font-size: 12pt;
+}
+
+a
+{
+    color: #006699;
+}
+
+
+/* Styles for basic forms
+-----------------------------------------------------------*/
+
+fieldset
+{
+    border: 1px solid #ddd;
+    padding: 0 1.4em 1.4em 1.4em;
+    margin: 0 0 1px 0;
+}
+
+legend
+{
+    font-size: 1.2em;
+    font-weight: bold;
+}
+
+textarea
+{
+    min-height: 80px;
+}
+
+.editor-label
+{
+    margin: 1em 0 0 0;
+}
+
+.editor-field
+{
+    margin: 0.5em 0 0 0;
+}
+
+select
+{
+    font-family: Arial, Helvetica, Sans-Serif;
+    font-size: 10pt;
+}
+
+input
+{
+    font-family: Arial, Helvetica, Sans-Serif;
+    font-size: 10pt;
+}
+
+textarea
+{
+    font-family: Arial, Helvetica, Sans-Serif;
+    font-size: 10pt;
+}
+
+
+/* Styles for validation helpers
+-----------------------------------------------------------*/
+.field-validation-error
+{
+    color: #ff0000;
+    border: 1px;
+    border-color: #ff0000;
+}
+
+.field-validation-valid
+{
+    display: none;
+}
+
+/*
+.input-validation-error
+{
+    border: 1px solid #ff0000;
+    background-color: #ffff99;
+}
+*/
+
+.validation-summary-errors
+{
+    font-weight: bold;
+    color: #ff0000;
+    background-color: #ffff99;
+    border: 1px solid #ff0000;
+}
+
+.validation-summary-valid
+{
+    display: none;
+}
+
+.field-label
+{
+    color: #525252;
+    min-height: 25px;
+    white-space: nowrap;
+    vertical-align: central;
+}
+
+.field-required
+{
+    color: #4987c5;
+}
+
+.field-input input
+{
+    display: inherit;
+    background: white;
+    width: 198px;
+    margin: 0;
+    height:1.65em;
+    line-height:1.65em;
+    padding:.177em 0;
+    text-indent:.33em;
+}
+
+.field-input textarea
+{
+    background: white;
+    width: 198px;
+    margin: 0;
+    height:1.65em;
+    line-height:1.65em;
+    padding:.177em 0;
+    text-indent:.33em;
+}
+
+.field-input
+{
+    min-width: 150px;
+    color: #333333;
+}
+
+/* Styles for basic layout/structure
+-----------------------------------------------------------*/
+
+.header
+{
+    /*width:100%;*/
+    vertical-align: top;
+    margin-bottom: 10px;
+}
+
+.logo
+{
+    background-image: url('images/EMSG_Icon_mitRahmen_62x65.gif');
+    background-repeat: no-repeat;
+    float: left;
+    width: 62px;
+    height: 65px;
+    margin-top: -10px;
+}
+
+.Menu
+{
+    padding-top: 60px;
+    margin-left: 110px;
+    width: 100%;
+}
+
+.MenuServiceNavigation
+{
+    padding-left: 15px;
+    padding-top: 7px;
+    background: #eeeeee;
+    height: 22px;
+    font-size: 10px;
+    color: #A5B3C5;
+}
+
+.MainMenu
+{
+}
+
+.emsg-qicklink-image-div
+{
+    background: #F1F5FB;
+    padding: 10px;
+    /*margin-right: 5px;*/
+}
+
+.emsg-qicklink-td
+{
+    background: #F1F5FB;
+    border-color: white;
+    border-right-style: solid;
+    vertical-align: top;
+    border-right-width: 10px;
+}
+
+.emsg-quicklink-linkarea
+{
+    background: #F1F5FB;
+    margin-right: 5px;
+}
+
+.emsg-quicklink-title
+{
+    width: 215px;
+    background: #F1F5FB;
+    color: #6B80DA;
+    padding-left: 15px;
+    padding-top: 5px;
+}
+
+.emsg-quicklink-linklist
+{
+    width: 235px;
+    font-size: 10pt;
+    color: #6B80DA;
+    background: #F1F5FB;
+}
+
+.emsg-system-info-td
+{
+    background: #F4F4F4;
+    vertical-align: top;
+}
+
+/*Telerik style refinements*/
+input
+{
+    border-style: solid;
+    border-width: 1px;
+    background-color: #FCFCFC;
+    border-color: #C4C4C4;
+    padding: 2px 1px 3px;
+}
+
+    input[type="radio"]
+    {
+        border-color: #FFFFFF;
+    }
+
+    input[type="checkbox"]
+    {
+        border-color: #FFFFFF;
+    }
+
+.olMap 
+{
+    z-index: 0;
+}
+
+.olMapViewport
+{
+    z-index: 0;
+}
+
+.menu
+{
+    margin-top: 13px;
+    margin-bottom: 10px;
+}
+
+.contextmenu
+{
+    background-color: #EDEDED;
+    height: 30px;
+    vertical-align: middle;
+}
+
+.breadcrumb
+{
+    clear: both;
+}
+
+.mainmenu
+{
+    background-color: #7083a0;
+    height: 25px;
+}
+
+.k-icon-image
+{
+    vertical-align: middle;
+}
+
+.filterLabel
+{
+}
+
+.helpButton
+{
+    float: right;
+    margin-left: 5px;
+}
+
+.k-window-content .helpButton
+{
+    position: absolute;
+    margin-left: 5px;
+    top: 10px;
+    right: 10px;
+}
+
+.popupFormButtons
+{
+    float: right;
+    margin-top: 20px;
+    margin-right: 5px;
+}
+
+.formButtons
+{
+    float: right;
+    margin-top: 20px;
+    margin-right: 5px;
+}
+
+.formFieldset
+{
+    float: left;
+    padding-top: 20px;
+}
+
+.popupFormFieldset
+{
+    padding-top: 20px;
+}
+
+.requiredFieldLegend
+{
+    float: left;
+    clear: both;
+    min-height: 25px;
+    color: #4987c5;
+}
+
+.error-message-div
+{
+    color: #ff0000;
+    background-color: #ffff99;
+    border: 1px solid #ff0000;
+    padding: 2px;
+}
+
+div.ui-dialog-titlebar
+{
+    display: none;
+}
+
+img.error-image
+{
+    vertical-align: middle;
+    margin-left: 4px;
+}
+
+.emsg-passive-bredcrumb-link-item
+{
+    font-size: 10pt;
+    font-weight: normal;
+    font-family: Arial, Helvetica, Sans-Serif;
+    color: #999999;
+}
+
+.emsg-active-bredcrumb-link-item
+{
+    font-size: 10pt;
+    font-weight: normal;
+    font-family: Arial, Helvetica, Sans-Serif;
+    color: #333333;
+}
+
+.emsg-passive-bredcrumb-text-item
+{
+    font-size: 10pt;
+    font-weight: normal;
+    font-family: Arial, Helvetica, Sans-Serif;
+    color: #999999;
+}
+
+.emsg-passive-language-link-item
+{
+    font-size: 10pt;
+    font-weight: normal;
+    font-family: Arial, Helvetica, Sans-Serif;
+    text-decoration: none;
+    color: #333333;
+}
+
+.emsg-black-link
+{
+    font-size: 9pt;
+    font-weight: normal;
+    font-family: Arial, Helvetica, Sans-Serif;
+    text-decoration: none;
+    color: #333333;
+}
+
+.emsg-active-language-link-item
+{
+    font-size: 10pt;
+    font-weight: bold;
+    font-family: Arial, Helvetica, Sans-Serif;
+    text-decoration: none;
+    color: #333333;
+}
+
+.emsg-user-info-item
+{
+    font-size: 10pt;
+    font-weight: normal;
+    font-family: Arial, Helvetica, Sans-Serif;
+    color: #333333;
+}
+
+.emsg-gray-label
+{
+    color: #999999;
+}
+
+.lsep
+{
+    margin-right: 3px;
+    margin-left: 3px;
+}
+
+.t-emsg-help-button
+{
+    height: 20px;
+    width: 20px;
+}
+
+.emsg-selected-cell
+{
+    background: #7382A5;
+}
+
+.emsg-zebra-row
+{
+    /*background: #F7F7FF;*/
+    background: #F1F5FB;
+}
+
+.emsg-radio-button-matrix input[type='radio']
+{
+    background-color: transparent;
+    border-width: 0;
+    border-style: none;
+    border-color: transparent;
+    padding: 0px;
+}
+
+.emsg-filter-expand-area-top
+{
+    border-top-width: 1px;
+    border-top-color: #A5B3C5;
+    border-top-style: solid;
+    border-left-width: 1px;
+    border-left-color: #A5B3C5;
+    border-left-style: solid;
+    border-right-width: 1px;
+    border-right-color: #A5B3C5;
+    border-right-style: solid;
+}
+
+.emsg-filter-expand-area-middle
+{
+    border-left-width: 1px;
+    border-left-color: #A5B3C5;
+    border-left-style: solid;
+    border-right-width: 1px;
+    border-right-color: #A5B3C5;
+    border-right-style: solid;
+}
+
+.emsg-filter-expand-area-bottom
+{
+    border-left-width: 1px;
+    border-left-color: #A5B3C5;
+    border-left-style: solid;
+    border-right-width: 1px;
+    border-right-color: #A5B3C5;
+    border-right-style: solid;
+    border-bottom-width: 1px;
+    border-bottom-color: #A5B3C5;
+    border-bottom-style: solid;
+}
+
+.emsg-strassenabschnitt-dropdown-ids
+{
+}
+
+/*table styles*/
+.k-grid td .zustandserfassungs-table-cell
+{
+    border-bottom-width: 1px;
+}
+
+/*Marker classes*/
+.emsg-row-selector
+{
+}
+
+.emsg-statusverlauf-button
+{
+}
+
+.emsg-popup-close-button
+{
+}
+
+.emsg-submit-button
+{
+}
+
+.emsg-apply-button
+{
+}
+
+.emsg-cancel-button
+{
+}
+
+.emsg-filter-button
+{
+}
+
+.emsg-excel-report-button
+{
+}
+
+.emsg-pdf-report-button
+{
+}
+
+.emsg-zustandsabschnitt-white-edit-button
+{
+}
+
+.emsg-zustandsabschnitt-edit-button
+{
+}
+
+.emsg-just-map-report
+{
+}
+
+.emsg-just-table-report
+{
+}
+
+.emsg-edit-button
+{
+}
+
+.emsg-commit-import-button
+{
+}
+
+.emsg-cancel-import-button
+{
+}
+
+.emsg-filter-expander-button
+{
+}
+
+.emsg-recalculate-button
+{
+}
+
+.emsg-gis-report-filter-button
+{
+    width: 80px;
+}
+
+a.emsg-filter-expander-button
+{
+    text-decoration: none;
+    color: #333333;
+    cursor: pointer;
+}
+
+a.emsg-filter-expander-button div
+{
+    cursor: pointer;
+    background: rgb(226, 234, 244);
+}
+
+a.emsg-filter-expander-button img
+{
+    border-style: none;
+}
+
+a.emsg-filter-expander-button div div
+{
+    vertical-align: top;
+    display: inline-block;
+    margin-top: 3px;
+    margin-top: 3px;
+}
+
+div #filterDiv div
+{
+    vertical-align: top;
+}
+
+.emsg-expand-image
+{
+}
+
+.emsg-collapse-image
+{
+}
+
+a.emsg-hilfe-suche-link
+{
+    text-decoration: none;
+}
+
+a.emsg-hilfe-suche-link:hover
+{
+    text-decoration: underline;
+}
+
+input.ExportDialogButton
+{
+    margin : 5px;
+    float: right;
+}
+
+.scrollable-grid {
+    overflow: auto;
+    margin: 10px; 
+}
+
+.scrollable-grid-border {
+    border: 1px solid #426682
+}
+
+.emsg-grid-action {
+    width: 20px;
+    height: 20px;
+}
+
+.emsg-no-records-text {
+    padding: 10px;
+    text-align: left;
+}

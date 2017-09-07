@@ -1,0 +1,115 @@
+﻿<UserControl x:Class="ASTRA.EMSG.Mobile.Views.ZustandsabschnittDetailsView"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+             xmlns:ViewModels="clr-namespace:ASTRA.EMSG.Mobile.ViewModels"
+             xmlns:ValidationRules="clr-namespace:ASTRA.EMSG.Mobile.ValidationRules" mc:Ignorable="d" 
+d:DataContext="{d:DesignInstance ViewModels:ZustandsabschnittDetailsViewModel, IsDesignTimeCreatable=False}">
+        <Grid VerticalAlignment="Stretch">
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="150"/>
+                <ColumnDefinition Width="*"/>
+                <ColumnDefinition Width="25"/>
+            </Grid.ColumnDefinitions>
+            <Grid.RowDefinitions>
+                <RowDefinition Height="25"/>
+                <RowDefinition Height="auto"/>
+                <RowDefinition Height="auto"/>
+                <RowDefinition Height="auto"/>
+                <RowDefinition Height="30"/>
+                <RowDefinition Height="25"/>
+                <RowDefinition Height="25"/>
+                <RowDefinition Height="25"/>
+                <RowDefinition Height="auto"/>
+                <RowDefinition Height="25"/>
+                <RowDefinition Height="25"/>
+                <RowDefinition Height="25"/>
+                <RowDefinition Height="auto"/>
+                <RowDefinition Height="auto"/>
+            </Grid.RowDefinitions>
+        <TextBlock Grid.Column="0" Grid.Row="0" Style="{StaticResource RequiredFieldLabel}" Text="{Binding Source={StaticResource Resx}, Path=MobileLocalization.Laenge}" />
+            <TextBox Grid.Column="1" Grid.Row="0" Text="{Binding Laenge, NotifyOnValidationError=True, ValidatesOnDataErrors=True, StringFormat='#,#.0'}" IsReadOnly="True" Background="LightGray"/>
+            <Image Grid.Column="2" Grid.Row="0" Source="/Images/infoerror.gif" Height="20" VerticalAlignment="Center" HorizontalAlignment="Center"
+                       Visibility="{Binding Path=ValidationErrorStrings[Laenge], Converter={StaticResource StringToVisibilityConverter}}">
+                <Image.ToolTip>
+                    <ToolTip Style="{StaticResource ErrorTooltip}">
+                        <Binding Path="ValidationErrorStrings[Laenge]" />
+                    </ToolTip>
+                </Image.ToolTip>
+            </Image>
+
+            <TextBlock Grid.Column="0" Grid.Row="1" Style="{StaticResource FieldLabel}" Text="{Binding Source={StaticResource Resx}, Path=MobileLocalization.FlaecheFahrbahn}" />
+            <TextBlock Grid.Column="1" Grid.Row="1" Text="{Binding FlaecheFahrbahn, StringFormat='#,#.##'}" />
+
+            <TextBlock Grid.Column="0" Grid.Row="2" Style="{StaticResource FieldLabel}" Text="{Binding Source={StaticResource Resx}, Path=MobileLocalization.FlaecheTrottoirLinks}" />
+            <TextBlock Grid.Column="1" Grid.Row="2" Text="{Binding FlaecheTrottoirLinks, StringFormat='#,#.##'}" />
+
+            <TextBlock Grid.Column="0" Grid.Row="3" Style="{StaticResource FieldLabel}" Text="{Binding Source={StaticResource Resx}, Path=MobileLocalization.FlaecheTrottoirRechts}" />
+            <TextBlock Grid.Column="1" Grid.Row="3" Text="{Binding FlaecheTrottoirRechts, StringFormat='#,#.##'}" />
+
+            <TextBlock Grid.Column="0" Grid.Row="4" Style="{StaticResource RequiredFieldLabel}" Text="{Binding Source={StaticResource Resx}, Path=MobileLocalization.Aufnahmedatum}" />
+            <DatePicker Grid.Column="1" Grid.Row="4" SelectedDate="{Binding Aufnahmedatum, UpdateSourceTrigger=PropertyChanged, NotifyOnValidationError=True, ValidatesOnDataErrors=True}" />
+            <Image Grid.Column="2" Grid.Row="4" Source="/Images/infoerror.gif" Height="20" VerticalAlignment="Center" HorizontalAlignment="Center"
+                       Visibility="{Binding Path=ValidationErrorStrings[Aufnahmedatum], Converter={StaticResource StringToVisibilityConverter}}">
+                <Image.ToolTip>
+                    <ToolTip Style="{StaticResource ErrorTooltip}">
+                        <Binding Path="ValidationErrorStrings[Aufnahmedatum]" />
+                    </ToolTip>
+                </Image.ToolTip>
+            </Image>
+
+        <TextBlock Grid.Column="0" Grid.Row="5" Style="{StaticResource FieldLabel}" Text="{Binding Source={StaticResource Resx}, Path=MobileLocalization.Abschnittsnummer}" />
+        <TextBox Grid.Column="1" Grid.Row="5">
+            <TextBox.Text>
+                <Binding Path="Abschnittsnummer" UpdateSourceTrigger="PropertyChanged"
+                                     NotifyOnValidationError="True" ValidatesOnDataErrors="True"
+                                     Converter="{StaticResource StringToNullableIntConverter}">
+                    <Binding.ValidationRules>
+                        <ValidationRules:IntValidationRule />
+                        <DataErrorValidationRule ValidatesOnTargetUpdated="True"/>
+                    </Binding.ValidationRules>
+                </Binding>
+            </TextBox.Text>
+        </TextBox>
+        <Image Grid.Column="2" Grid.Row="5" Source="/Images/infoerror.gif" Height="20" VerticalAlignment="Center" HorizontalAlignment="Center"
+                       Visibility="{Binding Path=ValidationErrorStrings[Abschnittsnummer], Converter={StaticResource StringToVisibilityConverter}}">
+            <Image.ToolTip>
+                <ToolTip Style="{StaticResource ErrorTooltip}">
+                    <Binding Path="ValidationErrorStrings[Abschnittsnummer]" />
+                </ToolTip>
+            </Image.ToolTip>
+        </Image>
+
+        <TextBlock Grid.Column="0" Grid.Row="6" Style="{StaticResource FieldLabel}" Text="{Binding Source={StaticResource Resx}, Path=MobileLocalization.Aufnahmeteam}" />
+            <TextBox Grid.Column="1" Grid.Row="6" Text="{Binding Aufnahmeteam, UpdateSourceTrigger=PropertyChanged, NotifyOnValidationError=True, ValidatesOnDataErrors=True}" />
+            <Image Grid.Column="2" Grid.Row="6" Source="/Images/infoerror.gif" Height="20" VerticalAlignment="Center" HorizontalAlignment="Center"
+                       Visibility="{Binding Path=ValidationErrorStrings[Aufnahmeteam], Converter={StaticResource StringToVisibilityConverter}}">
+                <Image.ToolTip>
+                    <ToolTip Style="{StaticResource ErrorTooltip}">
+                        <Binding Path="ValidationErrorStrings[Aufnahmeteam]" />
+                    </ToolTip>
+                </Image.ToolTip>
+            </Image>
+
+            <TextBlock Grid.Column="0" Grid.Row="7" Style="{StaticResource FieldLabel}" Text="{Binding Source={StaticResource Resx}, Path=MobileLocalization.Wetter}" />
+            <ComboBox Grid.Column="1" Grid.Row="7" 
+                  ItemsSource="{Binding WetterList}"
+                  DisplayMemberPath="Name"
+                  SelectedValue="{Binding Wetter}"
+                  SelectedValuePath="Value"/>
+
+            <TextBlock Grid.Column="0" Grid.Row="8" Style="{StaticResource FieldLabel}" Text="{Binding Source={StaticResource Resx}, Path=MobileLocalization.Bemerkung}" />
+            <TextBox Grid.Column="1" Grid.Row="8" 
+                     Text="{Binding Bemerkung, UpdateSourceTrigger=PropertyChanged, NotifyOnValidationError=True, ValidatesOnDataErrors=True}" 
+                     AcceptsReturn="true" Height="100" TextWrapping="Wrap"/>
+            <Image Grid.Column="2" Grid.Row="8" Source="/Images/infoerror.gif" Height="20" VerticalAlignment="Center" HorizontalAlignment="Center"
+                       Visibility="{Binding Path=ValidationErrorStrings[Bemerkung], Converter={StaticResource StringToVisibilityConverter}}">
+                <Image.ToolTip>
+                    <ToolTip Style="{StaticResource ErrorTooltip}">
+                        <Binding Path="ValidationErrorStrings[Bemerkung]" />
+                    </ToolTip>
+                </Image.ToolTip>
+            </Image>
+        </Grid>
+</UserControl>

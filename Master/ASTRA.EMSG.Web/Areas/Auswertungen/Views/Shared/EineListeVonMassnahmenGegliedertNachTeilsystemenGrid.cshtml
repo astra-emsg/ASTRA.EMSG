@@ -1,0 +1,36 @@
+﻿@using ASTRA.EMSG.Business.Reports.EineListeVonMassnahmenGegliedertNachTeilsystemen
+@using ASTRA.EMSG.Common
+@using Resources
+@using Kendo.Mvc.UI
+@using ASTRA.EMSG.Web.Infrastructure
+@using ASTRA.EMSG.Web.Infrastructure.HtmlHelperExtensions
+
+@model string   
+
+ @(Html.Kendo().Grid<EineListeVonMassnahmenGegliedertNachTeilsystemenPo>()
+           .Name("EineListeVonMassnahmenGegliedertNachTeilsystemen")
+           .ApplyEmsgSettings(filterable: false, editable: false)
+           .Columns(columns =>
+           {
+                columns.Bound(m => m.Projektname).Title(GridHeaderFooterLocalization.Projektname).SumLabel();
+                columns.Bound(m => m.BezeichnungVon).Title(GridHeaderFooterLocalization.BezeichnungVon);
+                columns.Bound(m => m.BezeichnungBis).Title(GridHeaderFooterLocalization.BezeichnungBis);
+                columns.Bound(m => m.ZustaendigeOrganisation).Title(GridHeaderFooterLocalization.LeitendeOrganisation);
+                columns.Bound(m => m.TeilsystemBezeichnung).Title(GridHeaderFooterLocalization.Teilsystem);
+                columns.Bound(m => m.Beschreibung).Title(GridHeaderFooterLocalization.Beschreibung);
+                columns.Bound(m => m.DringlichkeitBezeichnung).Title(GridHeaderFooterLocalization.Dringlichkeit);
+                columns.Bound(m => m.Kosten).Format(FormatStrings.NoDecimalFormat).Title(GridHeaderFooterLocalization.Kosten).Sum();
+                columns.Bound(m => m.Laenge).Title(GridHeaderFooterLocalization.Laenge).Format(FormatStrings.NoDecimalFormat).AlignRight().Sum();
+                columns.Bound(m => m.StatusBezeichnung).Title(GridHeaderFooterLocalization.Status);
+           })
+           .DataSource(dataBinding => dataBinding
+                .Ajax()
+                .Read(c => c.Action("GetAll", "EineListeVonMassnahmenGegliedertNachTeilsystemen").Data("gisReport.form.getReportParameter"))
+                .Model(dataKey => dataKey.Id(m => m.Id))
+                .PageSize(ConstantSettings.GridPageSize)
+                .Aggregates(aggregate =>
+                {
+                    aggregate.Add(p => p.Kosten).Sum();
+                    aggregate.Add(p => p.Laenge).Sum();
+                }))
+           .Events(c => c.DataBound("gisReport.form.onDataBound")))

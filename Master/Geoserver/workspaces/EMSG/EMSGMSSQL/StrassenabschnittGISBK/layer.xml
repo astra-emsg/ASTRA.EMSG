@@ -1,0 +1,15 @@
+<layer>
+  <name>StrassenabschnittGISBK</name>
+  <id>LayerInfoImpl--712dd8df:156b736ad9b:-7dc2</id>
+  <type>VECTOR</type>
+  <defaultStyle>
+    <id>StyleInfoImpl--712dd8df:156b736ad9b:-7cc5</id>
+  </defaultStyle>
+  <resource class="featureType">
+    <id>FeatureTypeInfoImpl--712dd8df:156b736ad9b:-7dc3</id>
+  </resource>
+  <attribution>
+    <logoWidth>0</logoWidth>
+    <logoHeight>0</logoHeight>
+  </attribution>
+</layer>

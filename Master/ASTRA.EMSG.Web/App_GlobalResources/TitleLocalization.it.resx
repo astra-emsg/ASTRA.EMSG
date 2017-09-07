@@ -1,0 +1,657 @@
+<?xml version="1.0" encoding="utf-8"?>
+<root>
+  <!-- 
+    Microsoft ResX Schema 
+    
+    Version 2.0
+    
+    The primary goals of this format is to allow a simple XML format 
+    that is mostly human readable. The generation and parsing of the 
+    various data types are done through the TypeConverter classes 
+    associated with the data types.
+    
+    Example:
+    
+    ... ado.net/XML headers & schema ...
+    <resheader name="resmimetype">text/microsoft-resx</resheader>
+    <resheader name="version">2.0</resheader>
+    <resheader name="reader">System.Resources.ResXResourceReader, System.Windows.Forms, ...</resheader>
+    <resheader name="writer">System.Resources.ResXResourceWriter, System.Windows.Forms, ...</resheader>
+    <data name="Name1"><value>this is my long string</value><comment>this is a comment</comment></data>
+    <data name="Color1" type="System.Drawing.Color, System.Drawing">Blue</data>
+    <data name="Bitmap1" mimetype="application/x-microsoft.net.object.binary.base64">
+        <value>[base64 mime encoded serialized .NET Framework object]</value>
+    </data>
+    <data name="Icon1" type="System.Drawing.Icon, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
+        <value>[base64 mime encoded string representing a byte array form of the .NET Framework object]</value>
+        <comment>This is a comment</comment>
+    </data>
+                
+    There are any number of "resheader" rows that contain simple 
+    name/value pairs.
+    
+    Each data row contains a name, and value. The row also contains a 
+    type or mimetype. Type corresponds to a .NET class that support 
+    text/value conversion through the TypeConverter architecture. 
+    Classes that don't support this are serialized and stored with the 
+    mimetype set.
+    
+    The mimetype is used for serialized objects, and tells the 
+    ResXResourceReader how to depersist the object. This is currently not 
+    extensible. For a given mimetype the value must be set accordingly:
+    
+    Note - application/x-microsoft.net.object.binary.base64 is the format 
+    that the ResXResourceWriter will generate, however the reader can 
+    read any of the formats listed below.
+    
+    mimetype: application/x-microsoft.net.object.binary.base64
+    value   : The object must be serialized with 
+            : System.Runtime.Serialization.Formatters.Binary.BinaryFormatter
+            : and then encoded with base64 encoding.
+    
+    mimetype: application/x-microsoft.net.object.soap.base64
+    value   : The object must be serialized with 
+            : System.Runtime.Serialization.Formatters.Soap.SoapFormatter
+            : and then encoded with base64 encoding.
+
+    mimetype: application/x-microsoft.net.object.bytearray.base64
+    value   : The object must be serialized into a byte array 
+            : using a System.ComponentModel.TypeConverter
+            : and then encoded with base64 encoding.
+    -->
+  <xsd:schema id="root" xmlns="" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:msdata="urn:schemas-microsoft-com:xml-msdata">
+    <xsd:import namespace="http://www.w3.org/XML/1998/namespace" />
+    <xsd:element name="root" msdata:IsDataSet="true">
+      <xsd:complexType>
+        <xsd:choice maxOccurs="unbounded">
+          <xsd:element name="metadata">
+            <xsd:complexType>
+              <xsd:sequence>
+                <xsd:element name="value" type="xsd:string" minOccurs="0" />
+              </xsd:sequence>
+              <xsd:attribute name="name" use="required" type="xsd:string" />
+              <xsd:attribute name="type" type="xsd:string" />
+              <xsd:attribute name="mimetype" type="xsd:string" />
+              <xsd:attribute ref="xml:space" />
+            </xsd:complexType>
+          </xsd:element>
+          <xsd:element name="assembly">
+            <xsd:complexType>
+              <xsd:attribute name="alias" type="xsd:string" />
+              <xsd:attribute name="name" type="xsd:string" />
+            </xsd:complexType>
+          </xsd:element>
+          <xsd:element name="data">
+            <xsd:complexType>
+              <xsd:sequence>
+                <xsd:element name="value" type="xsd:string" minOccurs="0" msdata:Ordinal="1" />
+                <xsd:element name="comment" type="xsd:string" minOccurs="0" msdata:Ordinal="2" />
+              </xsd:sequence>
+              <xsd:attribute name="name" type="xsd:string" use="required" msdata:Ordinal="1" />
+              <xsd:attribute name="type" type="xsd:string" msdata:Ordinal="3" />
+              <xsd:attribute name="mimetype" type="xsd:string" msdata:Ordinal="4" />
+              <xsd:attribute ref="xml:space" />
+            </xsd:complexType>
+          </xsd:element>
+          <xsd:element name="resheader">
+            <xsd:complexType>
+              <xsd:sequence>
+                <xsd:element name="value" type="xsd:string" minOccurs="0" msdata:Ordinal="1" />
+              </xsd:sequence>
+              <xsd:attribute name="name" type="xsd:string" use="required" />
+            </xsd:complexType>
+          </xsd:element>
+        </xsd:choice>
+      </xsd:complexType>
+    </xsd:element>
+  </xsd:schema>
+  <resheader name="resmimetype">
+    <value>text/microsoft-resx</value>
+  </resheader>
+  <resheader name="version">
+    <value>2.0</value>
+  </resheader>
+  <resheader name="reader">
+    <value>System.Resources.ResXResourceReader, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </resheader>
+  <resheader name="writer">
+    <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </resheader>
+  <data name="CopyZustandsabschnittPopupTitle" xml:space="preserve">
+    <value>Copia i tratti di stato</value>
+  </data>
+  <data name="ImportStrassennetzPopupTitle" xml:space="preserve">
+    <value>Importa rete stradale (.xlsx)</value>
+  </data>
+  <data name="JahresAbschlussFormTitle" xml:space="preserve">
+    <value>Bilancio annuale</value>
+  </data>
+  <data name="JahresAbschlussPageTitle" xml:space="preserve">
+    <value>Bilancio annuale</value>
+  </data>
+  <data name="MassnahmenTrottoirLinksFormPartTitle" xml:space="preserve">
+    <value>Interventi marciapiede sinistro</value>
+  </data>
+  <data name="MassnahmenTrottoirRechtsFormPartTitle" xml:space="preserve">
+    <value>Interventi marciapiede destro</value>
+  </data>
+  <data name="MengeProBelastungskategoriePageTitle" xml:space="preserve">
+    <value>Suddivisione superfici stradali secondo la categoria di carico</value>
+  </data>
+  <data name="MittleresErhebungsjahrEditFormSubTitle" xml:space="preserve">
+    <value>Indicare la data media del rilevamento dello stato, sulla cui si basano i valori dell'attuale anno d'ispezione.</value>
+  </data>
+  <data name="MittleresErhebungsjahrEditFormTitle" xml:space="preserve">
+    <value>Rilevamento data rilevamento media</value>
+  </data>
+  <data name="MittleresErhebungsjahrEditPopupTitle" xml:space="preserve">
+    <value>Rilevamento data rilevamento media</value>
+  </data>
+  <data name="StrassenabschnittCreateFormTitle" xml:space="preserve">
+    <value>Rilevamento del tratto di strada</value>
+  </data>
+  <data name="StrassenabschnittCreatePopupTitle" xml:space="preserve">
+    <value>Rilevamento del tratto di strada</value>
+  </data>
+  <data name="StrassenabschnittEditFormTitle" xml:space="preserve">
+    <value>Modifica il tratto di strada</value>
+  </data>
+  <data name="StrassenabschnittEditPopupTitle" xml:space="preserve">
+    <value>Modifica il tratto di strada</value>
+  </data>
+  <data name="StrassenabschnittPageTitle" xml:space="preserve">
+    <value>Definizione della rete</value>
+  </data>
+  <data name="StrassenmengeUndZustandEditFormTitle" xml:space="preserve">
+    <value>Modifica le quantità di strada e stato</value>
+  </data>
+  <data name="StrassenmengeUndZustandPageTitle" xml:space="preserve">
+    <value>Quantità e stato della strada</value>
+  </data>
+  <data name="ZustandsabschnittCreateFormTitle" xml:space="preserve">
+    <value>Rilevamento tratto di stato</value>
+  </data>
+  <data name="ZustandsabschnittCreatePopupTitle" xml:space="preserve">
+    <value>Rilevamento tratto di stato</value>
+  </data>
+  <data name="ZustandsabschnittEditFormTitle" xml:space="preserve">
+    <value>Modifica il tratto di stato</value>
+  </data>
+  <data name="ZustandsabschnittEditPopupTitle" xml:space="preserve">
+    <value>Modifica il tratto di stato</value>
+  </data>
+  <data name="ZustandsabschnittFahrbahnEditPopupTitle" xml:space="preserve">
+    <value>Carreggiata</value>
+  </data>
+  <data name="ZustandsabschnittPageTitle" xml:space="preserve">
+    <value>Stati e interventi consigliati</value>
+  </data>
+  <data name="ZustandsabschnittTrottoirEditPopupTitle" xml:space="preserve">
+    <value>Marciapiede</value>
+  </data>
+  <data name="ZustandTrottoirLinksFormPartTitle" xml:space="preserve">
+    <value>Stato del marciapiede sinistro</value>
+  </data>
+  <data name="ZustandTrottoirRechtsFormPartTitle" xml:space="preserve">
+    <value>Stato del marciapiede destro</value>
+  </data>
+  <data name="NetzdefinitionUndStrassenabschnittGISPageTitle" xml:space="preserve">
+    <value>Definizione della rete</value>
+  </data>
+  <data name="StrassenabschnittGISCreateFormTitle" xml:space="preserve">
+    <value>Rilevamento tratto di strada</value>
+  </data>
+  <data name="StrassenabschnittGISEditFormTitle" xml:space="preserve">
+    <value>Modifica il tratto di strada</value>
+  </data>
+  <data name="ZustandsabschnittOverviewPageTitle" xml:space="preserve">
+    <value>Stati e interventi consigliati</value>
+  </data>
+  <data name="MengeProBelastungskategorieGrafischePageTitle" xml:space="preserve">
+    <value>Suddivisione superfici stradali secondo la categoria di carico</value>
+  </data>
+  <data name="MengeProBelastungskategorieGrafischeReportTitle" xml:space="preserve">
+    <value>Suddivisione superfici stradali secondo la categoria di carico</value>
+  </data>
+  <data name="MengeProBelastungskategorieReportTitle" xml:space="preserve">
+    <value>Suddivisione superfici stradali secondo la categoria di carico</value>
+  </data>
+  <data name="SplitStrassenabschnittPopupTitle" xml:space="preserve">
+    <value>Dividi il tratto di strada</value>
+  </data>
+  <data name="SplitStrassenabschnittEditFormTitle" xml:space="preserve">
+    <value>Dividi il tratto di strada</value>
+  </data>
+  <data name="StrassenabschnittListePageTitle" xml:space="preserve">
+    <value>Tratti di strada</value>
+  </data>
+  <data name="StrassenabschnitteListeReportTitle" xml:space="preserve">
+    <value>Tratti di strada</value>
+  </data>
+  <data name="StrassenmengeUndZustandPopupTitle" xml:space="preserve">
+    <value>Quantità e stato della strada</value>
+  </data>
+  <data name="StrassenabschnittGISPageTitle" xml:space="preserve">
+    <value>Tratti di strada sulla carta</value>
+  </data>
+  <data name="ZustandsabschnittFahrbahnDynamicEditPopupTitle" xml:space="preserve">
+    <value>Carreggiata {0} {1} - {2}</value>
+    <comment>{0}: nome strada, {1}: denominazione/Km da, {2}: denominazione/Km fino a</comment>
+  </data>
+  <data name="ArbeitsmodusWechselnFormTitle" xml:space="preserve">
+    <value>Commutazione del modo di lavoro</value>
+  </data>
+  <data name="ArbeitsmodusWechselnPageTitle" xml:space="preserve">
+    <value>Commutazione del modo di lavoro</value>
+  </data>
+  <data name="ZustandsabschnittTrottoirDynamicEditPopupTitle" xml:space="preserve">
+    <value>Marciapiede {0} {1} - {2}</value>
+    <comment>{0}: nome strada, {1}: denominazione/Km da, {2}: denominazione/Km fino a</comment>
+  </data>
+  <data name="NochNichtInspizierteStrassenabschnittePageTitle" xml:space="preserve">
+    <value>Tratti di strada non ancora ispezionati</value>
+  </data>
+  <data name="NochNichtInspizierteStrassenabschnitteReportTitle" xml:space="preserve">
+    <value>Tratti di strada non ancora ispezionati</value>
+  </data>
+  <data name="WiederbeschaffungswertUndWertverlustProStrassenabschnittPageTitle" xml:space="preserve">
+    <value>Controvalore d'acquisto e deprezzamento per ogni tratto di strada</value>
+  </data>
+  <data name="WiederbeschaffungswertUndWertverlustGrafischePageTitle" xml:space="preserve">
+    <value>Controvalore d'acquisto e deprezzamento per ogni categoria di carico</value>
+  </data>
+  <data name="WiederbeschaffungswertUndWertverlustGrafischeReportTitle" xml:space="preserve">
+    <value>Controvalore d'acquisto &amp; deprezzamento per ogni categoria di carico</value>
+  </data>
+  <data name="InspektionsRouteGISPageTitle" xml:space="preserve">
+    <value>Componi l'itinerario d'ispezione</value>
+  </data>
+  <data name="AnwendungsLoggingsFormTitle" xml:space="preserve">
+    <value>Modifica del grado di dettaglio delle registrazioni dell'applicazione</value>
+  </data>
+  <data name="AnwendungsLoggingsPageTitle" xml:space="preserve">
+    <value>Modifica il grado di  dettaglio delle registrazioni dell'applicazione</value>
+  </data>
+  <data name="WiederbeschaffungswertAndAlterungsbeiwertFormTitle" xml:space="preserve">
+    <value>Modifica il controvalore d'acquisto e il coefficiente di svalorizzazione</value>
+  </data>
+  <data name="WiederbeschaffungswertAndAlterungsbeiwertPageTitle" xml:space="preserve">
+    <value>Controvalore d'acquisto e coefficiente di svalorizzazione a seconda della categoria di carico</value>
+  </data>
+  <data name="WiederbeschaffungswertFormTitle" xml:space="preserve">
+    <value>Modifica il controvalore d'acquisto</value>
+  </data>
+  <data name="WiederbeschaffungswertPageTitle" xml:space="preserve">
+    <value>Controvalore d'acquisto a seconda della categoria di carico</value>
+  </data>
+  <data name="WiederbeschaffungswertEditPopupTitle" xml:space="preserve">
+    <value>Modifica il controvalore d'acquisto</value>
+  </data>
+  <data name="WiederbeschaffungswertAndAlterungsbeiwertEditPopupTitle" xml:space="preserve">
+    <value>Modifica il controvalore d'acquisto e il coefficiente di svalorizzazione</value>
+  </data>
+  <data name="WiederbeschaffungswertAndAlterungsbeiwertCreatePopupTitle" xml:space="preserve">
+    <value>Rilevamento controvalore d'acquisto e coefficiente di svalorizzazione</value>
+  </data>
+  <data name="WiederbeschaffungswertAndAlterungsbeiwertCreateFormTitle" xml:space="preserve">
+    <value>Rilevamento controvalore d'acquisto e coefficiente di svalorizzazione</value>
+  </data>
+  <data name="WiederbeschaffungswertAndAlterungsbeiwertEditFormTitle" xml:space="preserve">
+    <value>Modifica il controvalore d'acquisto e il coefficiente di svalorizzazione</value>
+  </data>
+  <data name="RealisierteMassnahmenSummarischPageTitle" xml:space="preserve">
+    <value>Interventi realizzati</value>
+  </data>
+  <data name="RealisierteMassnahmenSummarischCreateFormTitle" xml:space="preserve">
+    <value>Rileva interventi realizzati</value>
+  </data>
+  <data name="RealisierteMassnahmenSummarischCreatePopupTitle" xml:space="preserve">
+    <value>Rileva interventi realizzati</value>
+  </data>
+  <data name="RealisierteMassnahmenSummarischEditFormTitle" xml:space="preserve">
+    <value>Modifica interventi realizzati</value>
+  </data>
+  <data name="RealisierteMassnahmenSummarischEditPopupTitle" xml:space="preserve">
+    <value>Modifica interventi realizzati</value>
+  </data>
+  <data name="MassnahmenvorschlagKatalogCreateFormTitle" xml:space="preserve">
+    <value>Rileva interventi consigliati</value>
+  </data>
+  <data name="MassnahmenvorschlagKatalogCreatePopupTitle" xml:space="preserve">
+    <value>Rileva interventi consigliati</value>
+  </data>
+  <data name="MassnahmenvorschlagKatalogEditFormTitle" xml:space="preserve">
+    <value>Modifica interventi consigliati</value>
+  </data>
+  <data name="MassnahmenvorschlagKatalogEditPopupTitle" xml:space="preserve">
+    <value>Modifica interventi consigliati</value>
+  </data>
+  <data name="MassnahmenvorschlagKatalogPageTitle" xml:space="preserve">
+    <value>Gestire gli interventi consigliati</value>
+  </data>
+  <data name="ZustandsabschnittFahrbahnShortDynamicEditPopupTitle" xml:space="preserve">
+    <value>Carreggiata {0}</value>
+  </data>
+  <data name="ZustandsabschnittTrottoirShortDynamicEditPopupTitle" xml:space="preserve">
+    <value>Marciapiede {0}</value>
+  </data>
+  <data name="StrassenabschnittOverviewPageTitle" xml:space="preserve">
+    <value>Quadro generale tratti di strada</value>
+  </data>
+  <data name="DetailsTabTitle" xml:space="preserve">
+    <value>Carta</value>
+  </data>
+  <data name="OverviewTabTitle" xml:space="preserve">
+    <value>Lista</value>
+  </data>
+  <data name="JahresAbschlussPageSubTitle" xml:space="preserve">
+    <value>Si prega di eseguire il bilancio annuale solo se per l’anno sono stati rilevati tutti i dati (stati, interventi consigliati e interventi realizzati), oppure se per l'anno non ci saranno ulteriori rilevamenti. Come selezione sono a disposizione tutti gli anni dell'anno successivo all'ultimo bilancio annuale fino all'attuale anno di calendario. Se è stato già eseguito un bilancio annuale per l'attuale anno di calendario, il bilancio annuale corrispondente non sarà più possibile.</value>
+  </data>
+  <data name="HomePageTitle" xml:space="preserve">
+    <value>Pagina iniziale</value>
+  </data>
+  <data name="ErrorTitle" xml:space="preserve">
+    <value>Errore</value>
+  </data>
+  <data name="AndereBenutzerrollenEinnehmenPageTitle" xml:space="preserve">
+    <value>Prendere altri utenti (nomi)</value>
+  </data>
+  <data name="InspektionsRouteOverviewPageTitle" xml:space="preserve">
+    <value>Quadro generale itinerario d'ispezione</value>
+  </data>
+  <data name="ImportInspektionsroutenPopupTitle" xml:space="preserve">
+    <value>Importa itinerari d'ispezione</value>
+  </data>
+  <data name="StatusverlaufPopupTitle" xml:space="preserve">
+    <value>Svolgimento dello stato</value>
+  </data>
+  <data name="RealisierteMassnahmenCreatePopupTitle" xml:space="preserve">
+    <value>Rileva interventi realizzati</value>
+  </data>
+  <data name="RealisierteMassnahmenEditPopupTitle" xml:space="preserve">
+    <value>Modifica interventi realizzati</value>
+  </data>
+  <data name="RealisierteMassnahmenPageTitle" xml:space="preserve">
+    <value>Interventi realizzati</value>
+  </data>
+  <data name="RealisierteMassnahmenvorschlagKatalogPageTitle" xml:space="preserve">
+    <value>Gestire i tipi di interventi</value>
+  </data>
+  <data name="RealisierteMassnahmenvorschlagKatalogPopupTitle" xml:space="preserve">
+    <value>Gestire i tipi di interventi</value>
+  </data>
+  <data name="AusgefuellteErfassungsformulareFuerOberflaechenschaedenPageTitle" xml:space="preserve">
+    <value>Formulari dei danneggiamenti di superficie compilati per ogni tratto di strada</value>
+  </data>
+  <data name="AusgefuellteErfassungsformulareFuerOberflaechenschaedenReportTitle" xml:space="preserve">
+    <value>Formulario dei danneggiamenti di superficie</value>
+  </data>
+  <data name="ErfassungsformulareFuerOberflaechenschaedenPageTitle" xml:space="preserve">
+    <value>Formulario dei danneggiamenti di superficie vuoto</value>
+  </data>
+  <data name="ErfassungsformulareFuerOberflaechenschaedenReportTitle" xml:space="preserve">
+    <value>Formulario dei danneggiamenti di superficie</value>
+  </data>
+  <data name="ForAsphaltPageSubTitle" xml:space="preserve">
+    <value>Per il rivestimento con bitume</value>
+  </data>
+  <data name="ForBetonPageSubTitle" xml:space="preserve">
+    <value>Per il rivestimento in calcestruzzo</value>
+  </data>
+  <data name="MassnahmenvorschlaegeAndererTeilsystemePageTitle" xml:space="preserve">
+    <value>Interventi dei sottosistemi</value>
+  </data>
+  <data name="KoordinierteMassnahmenPageTitle" xml:space="preserve">
+    <value>Interventi coordinati</value>
+  </data>
+  <data name="ZustandsspiegelProBelastungskategorieGrafischePageTitle" xml:space="preserve">
+    <value>Livello dello stato per ogni categoria di carico</value>
+  </data>
+  <data name="ZustandsspiegelProBelastungskategorieGrafischeReportTitle" xml:space="preserve">
+    <value>Livello dello stato per ogni categoria di carico</value>
+  </data>
+  <data name="MassnahmenvorschlagTeilsystemeGISCreateFormTitle" xml:space="preserve">
+    <value>Rileva interventi dei sottosistemi</value>
+  </data>
+  <data name="MassnahmenvorschlagTeilsystemeGISEditFormTitle" xml:space="preserve">
+    <value>Modifica interventi sottosistemi</value>
+  </data>
+  <data name="KoordinierteMassnahmeGISCreateFormTitle" xml:space="preserve">
+    <value>Rileva interventi coordinati</value>
+  </data>
+  <data name="KoordinierteMassnahmeGISEditFormTitle" xml:space="preserve">
+    <value>Modifica interventi coordinati</value>
+  </data>
+  <data name="KenngroessenFruehererJahrenCreatePopupTitle" xml:space="preserve">
+    <value>Rilevamento valori caratteristici anni precedenti</value>
+  </data>
+  <data name="KenngroessenFruehererJahrenEditPopupTitle" xml:space="preserve">
+    <value>Modifica valori caratteristici anni precedenti</value>
+  </data>
+  <data name="KenngroessenFruehererJahrePageTitle" xml:space="preserve">
+    <value>Valori caratteristici anni precedenti</value>
+  </data>
+  <data name="ZustandProZustandsabschnittPageTitle" xml:space="preserve">
+    <value>Tratti di stato</value>
+  </data>
+  <data name="ZustandProZustandsabschnittReportTitle" xml:space="preserve">
+    <value>Tratti di stato</value>
+  </data>
+  <data name="CheckOutRueckgaengig" xml:space="preserve">
+    <value>Annulla il check-out degli itinerari d'ispezione</value>
+  </data>
+  <data name="MassnahmenvorschlagProZustandsabschnittReportTitle" xml:space="preserve">
+    <value>Interventi consigliati alla carreggiata</value>
+  </data>
+  <data name="MassnahmenvorschlagProZustandsabschnittPageTitle" xml:space="preserve">
+    <value>Interventi consigliati alla carreggiata</value>
+  </data>
+  <data name="WiederbeschaffungswertUndWertverlustProBelastungskategorieReportTitle" xml:space="preserve">
+    <value>Controvalore d'acquisto e deprezzamento per ogni categoria di carico</value>
+  </data>
+  <data name="WiederbeschaffungswertUndWertverlustProBelastungskategoriePageTitle" xml:space="preserve">
+    <value>Controvalore d'acquisto e deprezzamento per ogni categoria di carico</value>
+  </data>
+  <data name="JustMapGisReportSubTitle" xml:space="preserve">
+    <value>Rapporto carta</value>
+  </data>
+  <data name="JustTableGisReportSubTitle" xml:space="preserve">
+    <value>Rapporto tabella</value>
+  </data>
+  <data name="MapAndTableGisReportSubTitle" xml:space="preserve">
+    <value>Rapporto carta e tabella</value>
+  </data>
+  <data name="AchsenUpdatePageTitle" xml:space="preserve">
+    <value>Aggiornamento degli assi</value>
+  </data>
+  <data name="AchsenUpdateSuccessfulPageTitle" xml:space="preserve">
+    <value>Aggiornamento assi terminato</value>
+  </data>
+  <data name="ImportZustandsabschnittPopupTitle" xml:space="preserve">
+    <value>Importa i tratti di stato (.xlsx)</value>
+  </data>
+  <data name="MandantLogoPageTitle" xml:space="preserve">
+    <value>Carica logo-mandante</value>
+  </data>
+  <data name="ListeDerInspektionsroutenPageTitle" xml:space="preserve">
+    <value>Itinerari d'ispezione</value>
+  </data>
+  <data name="RealisierteMassnahmeGISCreateFormTitle" xml:space="preserve">
+    <value>Rileva interventi realizzati</value>
+  </data>
+  <data name="RealisierteMassnahmeGISEditFormTitle" xml:space="preserve">
+    <value>Modifica intervento realizzato</value>
+  </data>
+  <data name="StrassenabschnitteListeOhneInspektionsroutePageTitle" xml:space="preserve">
+    <value>Tratti di strada non assegnati a un’itinerario d’ispezione</value>
+  </data>
+  <data name="StrassenabschnitteListeOhneInspektionsrouteReportTitle" xml:space="preserve">
+    <value>Tratti di strada non assegnati a un’itinerario d’ispezione</value>
+  </data>
+  <data name="EreignisLog" xml:space="preserve">
+    <value>Log degli eventi</value>
+  </data>
+  <data name="RealisierteMassnahmenvorschlagKatalogPageSubTitle" xml:space="preserve">
+    <value>Gestire i tipi di interventi per interventi realizzati e coordinati dei sottosistema</value>
+  </data>
+  <data name="Filter" xml:space="preserve">
+    <value>Filtro</value>
+  </data>
+  <data name="EineListeVonKoordiniertenMassnahmenPageTitle" xml:space="preserve">
+    <value>Interventi coordinati</value>
+  </data>
+  <data name="EineListeVonMassnahmenGegliedertNachTeilsystemenPageTitle" xml:space="preserve">
+    <value>Interventi dei sottosistemi</value>
+  </data>
+  <data name="GlobalResourcePageTitle" xml:space="preserve">
+    <value>Carica il file di localizzazione</value>
+  </data>
+  <data name="ZustandsspiegelProJahrGrafischePageTitle" xml:space="preserve">
+    <value>Sviluppo dello stato della rete stradale rilevata</value>
+  </data>
+  <data name="ZustandsspiegelProJahrGrafischeReportTitle" xml:space="preserve">
+    <value>Sviluppo dello stato della rete stradale rilevata</value>
+  </data>
+  <data name="EineListeVonRealisiertenMassnahmenGeordnetNachJahrenPageTitle" xml:space="preserve">
+    <value>Interventi realizzati</value>
+  </data>
+  <data name="WiederbeschaffungswertUndWertverlustProJahrGrafischePageTitle" xml:space="preserve">
+    <value>Controvalore d'acquisto e deprezzamento - Sviluppo della rete stradale rilevata</value>
+  </data>
+  <data name="WiederbeschaffungswertUndWertverlustProJahrGrafischeReportTitle" xml:space="preserve">
+    <value>Controvalore d'acquisto e deprezzamento - Sviluppo della rete stradale rilevata</value>
+  </data>
+  <data name="RealisiertenMassnahmenWertverlustZustandsindexProJahrGrafischePageTitle" xml:space="preserve">
+    <value>Interventi realizzati, deprezzamento e indice di stato medio</value>
+  </data>
+  <data name="MandantDetailsPageTitle" xml:space="preserve">
+    <value>Modifica dati organizzazione</value>
+  </data>
+  <data name="BenchmarkauswertungInventarkennwertenReportTitle" xml:space="preserve">
+    <value>Rapporto Benchmark per i parametri sull'inventario</value>
+  </data>
+  <data name="BenchmarkauswertungKennwertenRealisiertenMassnahmenReportTitle" xml:space="preserve">
+    <value>Rapporto Benchmark per i parametri degli interventi realizzati</value>
+  </data>
+  <data name="BenchmarkauswertungZustandskennwertenReportTitle" xml:space="preserve">
+    <value>Rapporto Benchmark per i parametri sullo stato</value>
+  </data>
+  <data name="HelpSystemPageTitle" xml:space="preserve">
+    <value>Gestione menu aiuto</value>
+  </data>
+  <data name="MasterHelpSystemSubTitle" xml:space="preserve">
+    <value>Master</value>
+  </data>
+  <data name="MobileHelpSystemSubTitle" xml:space="preserve">
+    <value>Mobile</value>
+  </data>
+  <data name="HomePageAuswertungenDurchfuehrenSubTitle" xml:space="preserve">
+    <value>Esegui rapporti</value>
+  </data>
+  <data name="HomePageMassnahmenVerwaltenSubTitle" xml:space="preserve">
+    <value>Gestione interventi</value>
+  </data>
+  <data name="HomePageNetzUndZustandVerwaltenSubTitle" xml:space="preserve">
+    <value>Gestione rete e stato</value>
+  </data>
+  <data name="HomePageSecuritySubTitle" xml:space="preserve">
+    <value>Informazione
+sistema</value>
+  </data>
+  <data name="EineListeVonMassnahmenGegliedertNachTeilsystemenReportTitle" xml:space="preserve">
+    <value>Interventi dei sottosistemi</value>
+  </data>
+  <data name="ListeDerInspektionsroutenReportTitle" xml:space="preserve">
+    <value>Itinerari d'ispezione</value>
+  </data>
+  <data name="EineListeVonRealisiertenMassnahmenGeordnetNachJahrenGISReportTitle" xml:space="preserve">
+    <value>Interventi realizzati</value>
+  </data>
+  <data name="EineListeVonRealisiertenMassnahmenGeordnetNachJahrenReportTitle" xml:space="preserve">
+    <value>Interventi realizzati</value>
+  </data>
+  <data name="EineListeVonRealisiertenMassnahmenGeordnetNachJahrenSummarischReportTitle" xml:space="preserve">
+    <value>Interventi realizzati</value>
+  </data>
+  <data name="StrassenabschnitteListeMapReportTitle" xml:space="preserve">
+    <value>Tratti di strada</value>
+  </data>
+  <data name="ZustandProZustandsabschnittMapReportTitle" xml:space="preserve">
+    <value>Tratti di stato</value>
+  </data>
+  <data name="EineListeVonKoordiniertenMassnahmenMapReportTitle" xml:space="preserve">
+    <value>Interventi coordinati</value>
+  </data>
+  <data name="EineListeVonKoordiniertenMassnahmenReportTitle" xml:space="preserve">
+    <value>Interventi coordinati</value>
+  </data>
+  <data name="EineListeVonMassnahmenGegliedertNachTeilsystemenMapReportTitle" xml:space="preserve">
+    <value>Interventi dei sottosistemi</value>
+  </data>
+  <data name="MassnahmenvorschlagProZustandsabschnittMapReportTitle" xml:space="preserve">
+    <value>Interventi consigliati alla carreggiata</value>
+  </data>
+  <data name="ListeDerInspektionsroutenMapReportTitle" xml:space="preserve">
+    <value>Itinerari d'ispezione</value>
+  </data>
+  <data name="RealisiertenMassnahmenWertverlustZustandsindexProJahrGrafischeReportTitle" xml:space="preserve">
+    <value>Interventi realizzati, deprezzamento e indice di stato medio</value>
+  </data>
+  <data name="ZustandsabschnittDynamicEditPopupTitle" xml:space="preserve">
+    <value>Modifica tratti di stato {0} {1} - {2}</value>
+  </data>
+  <data name="ZustandsabschnittShortDynamicEditPopupTitle" xml:space="preserve">
+    <value>Elabora tratto di stato {0}</value>
+  </data>
+  <data name="StrassenabschnittImportCommitCreateListSubTitle" xml:space="preserve">
+    <value>Nuovi tratti di strada inseriti:</value>
+  </data>
+  <data name="StrassenabschnittImportCommitUpdateListSubTitle" xml:space="preserve">
+    <value>Tratti di strada aggiornati:</value>
+  </data>
+  <data name="ZustandsabschnittImportCommitCreateListSubTitle" xml:space="preserve">
+    <value>Nuovi tratti di stato inseriti:</value>
+  </data>
+  <data name="ZustandsabschnittImportCommitUpdateListSubTitle" xml:space="preserve">
+    <value>Tratti di stato aggiornati:</value>
+  </data>
+  <data name="ZustandTabTitle" xml:space="preserve">
+    <value>Tratto di stato</value>
+  </data>
+  <data name="ZustandFahrbahnTabTitle" xml:space="preserve">
+    <value>Stato carreggiata</value>
+  </data>
+  <data name="ZustandTrottoirTabTitle" xml:space="preserve">
+    <value>Stato marciap.</value>
+  </data>
+  <data name="AchsenUpdateFailedPageTitle" xml:space="preserve">
+    <value>Aggiornamento assi non riuscito</value>
+  </data>
+  <data name="WiederbeschaffungswertUndWertverlustProStrassenabschnittReportTitle" xml:space="preserve">
+    <value>Controvalore d'acquisto e deprezzamento per ogni tratto di strada</value>
+  </data>
+  <data name="OverrideMassnahmenvorschlagKatalogCreatePopupTitle" xml:space="preserve">
+    <value>Acquisire i costi specifici dell’organizzazione</value>
+  </data>
+  <data name="OverrideMassnahmenvorschlagKatalogEditPopupTitle" xml:space="preserve">
+    <value>Modificare i costi specifici dell’organizzazione</value>
+  </data>
+  <data name="GISExportTitle" xml:space="preserve">
+    <value>Esportazione SIG</value>
+  </data>
+  <data name="LetztenJahresAbschluss" xml:space="preserve">
+    <value>Bilancio annuale precedente</value>
+  </data>
+  <data name="PreviewReport" xml:space="preserve">
+    <value>Anteprima</value>
+  </data>
+  <data name="AchsenCreateFormTitle" xml:space="preserve">
+    <value>Creare assi</value>
+  </data>
+  <data name="AchsenEditFormTitle" xml:space="preserve">
+    <value>Editare assi</value>
+  </data>
+  <data name="AchsenEditModePageTitle" xml:space="preserve">
+    <value>Cambiare modo editare assi</value>
+  </data>
+</root>

@@ -1,0 +1,45 @@
+﻿@using ASTRA.EMSG.Business.Reports.EineListeVonKoordiniertenMassnahmen
+@using ASTRA.EMSG.Common
+@using Resources
+@using Kendo.Mvc.UI
+@using ASTRA.EMSG.Web.Infrastructure.HtmlHelperExtensions
+@using ASTRA.EMSG.Web.Infrastructure
+@model string
+
+    @(Html.Kendo().Grid<EineListeVonKoordiniertenMassnahmenPo>()
+            .Name("EineListeVonKoordiniertenMassnahmen")
+            .ApplyEmsgSettings(filterable: false, editable: false)
+            .Columns(columns =>
+            {
+                columns.Bound(m => m.Projektname).Title(GridHeaderFooterLocalization.Projektname).SumLabel();
+                columns.Bound(m => m.BezeichnungVon).Title(GridHeaderFooterLocalization.BezeichnungVon);
+                columns.Bound(m => m.BezeichnungBis).Title(GridHeaderFooterLocalization.BezeichnungBis);
+                columns.Bound(m => m.LeitendeOrganisation).Title(GridHeaderFooterLocalization.LeitendeOrganisation);
+                columns.Bound(m => m.BeteiligteSystemeListe).Title(GridHeaderFooterLocalization.BeteiligteSysteme);
+                columns.Bound(m => m.Beschreibung).Title(GridHeaderFooterLocalization.Beschreibung);
+                columns.Bound(m => m.AusfuehrungsAnfang).Title(GridHeaderFooterLocalization.AusfuehrungsAnfang).Format(FormatStrings.ShortDateTimeFormat);
+                columns.Bound(m => m.AusfuehrungsEnde).Title(GridHeaderFooterLocalization.AusfuehrungsEnde).Format(FormatStrings.ShortDateTimeFormat);
+                columns.Bound(m => m.Laenge).Title(GridHeaderFooterLocalization.Laenge).Format(FormatStrings.NoDecimalFormat).AlignRight().Sum();
+                columns.Bound(m => m.FlaecheFahrbahn).Title(GridHeaderFooterLocalization.FlaecheFahrbahn).Format(FormatStrings.NoDecimalFormat).Sum();
+                columns.Bound(m => m.FlaecheTrottoirLinks).Title(GridHeaderFooterLocalization.FlaecheTrottoirLinks).Format(FormatStrings.NoDecimalFormat).Sum();
+                columns.Bound(m => m.FlaecheTrottoirRechts).Title(GridHeaderFooterLocalization.FlaecheTrottoirRechts).Format(FormatStrings.NoDecimalFormat).Sum();
+                columns.Bound(m => m.KostenGesamtprojekt).Title(GridHeaderFooterLocalization.KostenGesamtprojekt).Format(FormatStrings.NoDecimalFormat).Sum();
+                columns.Bound(m => m.KostenStrasse).Title(GridHeaderFooterLocalization.KostenStrasse).Format(FormatStrings.NoDecimalFormat).Sum();
+                columns.Bound(m => m.StatusBezeichnung).Title(GridHeaderFooterLocalization.Status);
+            })            
+            .DataSource(dataBinding => dataBinding
+                .Ajax()
+                .Read(c => c.Action("GetAll", Model).Data("gisReport.form.getReportParameter"))
+                .Model(dataKey => dataKey.Id(m => m.Id))
+                .PageSize(ConstantSettings.GridPageSize)
+                .Aggregates(aggregate =>
+                {
+                    aggregate.Add(p => p.Laenge).Sum();
+                    aggregate.Add(p => p.FlaecheFahrbahn).Sum();
+                    aggregate.Add(p => p.FlaecheTrottoirLinks).Sum();
+                    aggregate.Add(p => p.FlaecheTrottoirRechts).Sum();
+                    aggregate.Add(p => p.KostenGesamtprojekt).Sum();
+                    aggregate.Add(p => p.KostenStrasse).Sum();
+                }))
+            .HtmlAttributes(new { style = "display : inline-block" })
+            .Events(c => c.DataBound("gisReport.form.onDataBound")))

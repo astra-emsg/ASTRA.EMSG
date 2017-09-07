@@ -1,0 +1,582 @@
+<?xml version="1.0" encoding="utf-8"?>
+<root>
+  <!-- 
+    Microsoft ResX Schema 
+    
+    Version 2.0
+    
+    The primary goals of this format is to allow a simple XML format 
+    that is mostly human readable. The generation and parsing of the 
+    various data types are done through the TypeConverter classes 
+    associated with the data types.
+    
+    Example:
+    
+    ... ado.net/XML headers & schema ...
+    <resheader name="resmimetype">text/microsoft-resx</resheader>
+    <resheader name="version">2.0</resheader>
+    <resheader name="reader">System.Resources.ResXResourceReader, System.Windows.Forms, ...</resheader>
+    <resheader name="writer">System.Resources.ResXResourceWriter, System.Windows.Forms, ...</resheader>
+    <data name="Name1"><value>this is my long string</value><comment>this is a comment</comment></data>
+    <data name="Color1" type="System.Drawing.Color, System.Drawing">Blue</data>
+    <data name="Bitmap1" mimetype="application/x-microsoft.net.object.binary.base64">
+        <value>[base64 mime encoded serialized .NET Framework object]</value>
+    </data>
+    <data name="Icon1" type="System.Drawing.Icon, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
+        <value>[base64 mime encoded string representing a byte array form of the .NET Framework object]</value>
+        <comment>This is a comment</comment>
+    </data>
+                
+    There are any number of "resheader" rows that contain simple 
+    name/value pairs.
+    
+    Each data row contains a name, and value. The row also contains a 
+    type or mimetype. Type corresponds to a .NET class that support 
+    text/value conversion through the TypeConverter architecture. 
+    Classes that don't support this are serialized and stored with the 
+    mimetype set.
+    
+    The mimetype is used for serialized objects, and tells the 
+    ResXResourceReader how to depersist the object. This is currently not 
+    extensible. For a given mimetype the value must be set accordingly:
+    
+    Note - application/x-microsoft.net.object.binary.base64 is the format 
+    that the ResXResourceWriter will generate, however the reader can 
+    read any of the formats listed below.
+    
+    mimetype: application/x-microsoft.net.object.binary.base64
+    value   : The object must be serialized with 
+            : System.Runtime.Serialization.Formatters.Binary.BinaryFormatter
+            : and then encoded with base64 encoding.
+    
+    mimetype: application/x-microsoft.net.object.soap.base64
+    value   : The object must be serialized with 
+            : System.Runtime.Serialization.Formatters.Soap.SoapFormatter
+            : and then encoded with base64 encoding.
+
+    mimetype: application/x-microsoft.net.object.bytearray.base64
+    value   : The object must be serialized into a byte array 
+            : using a System.ComponentModel.TypeConverter
+            : and then encoded with base64 encoding.
+    -->
+  <xsd:schema id="root" xmlns="" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:msdata="urn:schemas-microsoft-com:xml-msdata">
+    <xsd:import namespace="http://www.w3.org/XML/1998/namespace" />
+    <xsd:element name="root" msdata:IsDataSet="true">
+      <xsd:complexType>
+        <xsd:choice maxOccurs="unbounded">
+          <xsd:element name="metadata">
+            <xsd:complexType>
+              <xsd:sequence>
+                <xsd:element name="value" type="xsd:string" minOccurs="0" />
+              </xsd:sequence>
+              <xsd:attribute name="name" use="required" type="xsd:string" />
+              <xsd:attribute name="type" type="xsd:string" />
+              <xsd:attribute name="mimetype" type="xsd:string" />
+              <xsd:attribute ref="xml:space" />
+            </xsd:complexType>
+          </xsd:element>
+          <xsd:element name="assembly">
+            <xsd:complexType>
+              <xsd:attribute name="alias" type="xsd:string" />
+              <xsd:attribute name="name" type="xsd:string" />
+            </xsd:complexType>
+          </xsd:element>
+          <xsd:element name="data">
+            <xsd:complexType>
+              <xsd:sequence>
+                <xsd:element name="value" type="xsd:string" minOccurs="0" msdata:Ordinal="1" />
+                <xsd:element name="comment" type="xsd:string" minOccurs="0" msdata:Ordinal="2" />
+              </xsd:sequence>
+              <xsd:attribute name="name" type="xsd:string" use="required" msdata:Ordinal="1" />
+              <xsd:attribute name="type" type="xsd:string" msdata:Ordinal="3" />
+              <xsd:attribute name="mimetype" type="xsd:string" msdata:Ordinal="4" />
+              <xsd:attribute ref="xml:space" />
+            </xsd:complexType>
+          </xsd:element>
+          <xsd:element name="resheader">
+            <xsd:complexType>
+              <xsd:sequence>
+                <xsd:element name="value" type="xsd:string" minOccurs="0" msdata:Ordinal="1" />
+              </xsd:sequence>
+              <xsd:attribute name="name" type="xsd:string" use="required" />
+            </xsd:complexType>
+          </xsd:element>
+        </xsd:choice>
+      </xsd:complexType>
+    </xsd:element>
+  </xsd:schema>
+  <resheader name="resmimetype">
+    <value>text/microsoft-resx</value>
+  </resheader>
+  <resheader name="version">
+    <value>2.0</value>
+  </resheader>
+  <resheader name="reader">
+    <value>System.Resources.ResXResourceReader, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </resheader>
+  <resheader name="writer">
+    <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </resheader>
+  <data name="Error" xml:space="preserve">
+    <value>Errore</value>
+  </data>
+  <data name="ErrorCode" xml:space="preserve">
+    <value>Codice errore</value>
+  </data>
+  <data name="ErrorGettingLegend" xml:space="preserve">
+    <value>Errore durante il caricamento della legenda</value>
+  </data>
+  <data name="LayerAchsensegmente" xml:space="preserve">
+    <value>Assi</value>
+  </data>
+  <data name="LayerBackground" xml:space="preserve">
+    <value>Carta di sfondo</value>
+  </data>
+  <data name="LayerBackground_gg25_fill" xml:space="preserve">
+    <value>Superfici limite</value>
+  </data>
+  <data name="LayerBackground_Pixelmap_color" xml:space="preserve">
+    <value>Carta (colorata)</value>
+  </data>
+  <data name="LayerBackground_Pixelmap_gray" xml:space="preserve">
+    <value>Carta (bianco/nero)</value>
+  </data>
+  <data name="LayerBackground_rimini_relief" xml:space="preserve">
+    <value>Rilievo</value>
+  </data>
+  <data name="LayerBackground_swissimage" xml:space="preserve">
+    <value>Orthofoto</value>
+  </data>
+  <data name="LayerBackground_v25_geb" xml:space="preserve">
+    <value>Edificio</value>
+  </data>
+  <data name="LayerBackground_v25_pri" xml:space="preserve">
+    <value>Standard</value>
+  </data>
+  <data name="LayerBackground_v25_str" xml:space="preserve">
+    <value>Strade</value>
+  </data>
+  <data name="LayerInspektionsroute" xml:space="preserve">
+    <value>Itinerari d'ispezione</value>
+  </data>
+  <data name="LayerStrassenabschnitte" xml:space="preserve">
+    <value>Tratti di strada</value>
+  </data>
+  <data name="LayerZustandsabschnitte" xml:space="preserve">
+    <value>Tratti di stato carreggiata</value>
+  </data>
+  <data name="StrassenabschnittEditToolText" xml:space="preserve">
+    <value>Modifica il tratto di strada</value>
+  </data>
+  <data name="StrassenabschnittNewToolText" xml:space="preserve">
+    <value>Nuovo tratto di strada</value>
+  </data>
+  <data name="StrassenabschnittSelectToolText" xml:space="preserve">
+    <value>Seleziona tratto di strada</value>
+  </data>
+  <data name="ZusandsIndexIsNull" xml:space="preserve">
+    <value>Senza indice dello stato</value>
+  </data>
+  <data name="ZustandsabschnittEditToolText" xml:space="preserve">
+    <value>Modifica il tratto di stato</value>
+  </data>
+  <data name="ZustandsabschnittNewToolText" xml:space="preserve">
+    <value>Nuovo tratto di stato</value>
+  </data>
+  <data name="ZustandsabschnittSelectToolText" xml:space="preserve">
+    <value>Seleziona tratto di stato</value>
+  </data>
+  <data name="LayerKoordinierteMassnahmen" xml:space="preserve">
+    <value>Interventi coordinati</value>
+  </data>
+  <data name="MassnahmeEditToolText" xml:space="preserve">
+    <value>Modifica intervento</value>
+  </data>
+  <data name="MassnahmeNewToolText" xml:space="preserve">
+    <value>Nuovo intervento</value>
+  </data>
+  <data name="MassnahmeSelectToolText" xml:space="preserve">
+    <value>Seleziona intervento</value>
+  </data>
+  <data name="LayerMassnahmenVorschlagTeilsysteme" xml:space="preserve">
+    <value>Interventi dei sottoinsiemi</value>
+  </data>
+  <data name="MassnahmenVorschlagTeilsystemeEditToolText" xml:space="preserve">
+    <value>Modifica interventi consigliati</value>
+  </data>
+  <data name="MassnahmenVorschlagTeilsystemeNewToolText" xml:space="preserve">
+    <value>Nuovo intervento consigliato</value>
+  </data>
+  <data name="MassnahmenVorschlagTeilsystemeSelectToolText" xml:space="preserve">
+    <value>Rileva intervento</value>
+  </data>
+  <data name="LayerAchsenUpdateKonflikte" xml:space="preserve">
+    <value>Modifiche assi</value>
+  </data>
+  <data name="LayerZustandabschnittMassnahmeTyp" xml:space="preserve">
+    <value>Interventi consigliati strada</value>
+  </data>
+  <data name="LayerNoBackground" xml:space="preserve">
+    <value>Nessun sottofondo</value>
+  </data>
+  <data name="InspektionsrouteEditToolText" xml:space="preserve">
+    <value>Modifica itinerario d'ispezione</value>
+  </data>
+  <data name="InspektionsrouteExportToolText" xml:space="preserve">
+    <value>Esporta itinerari d'ispezione selezionati</value>
+  </data>
+  <data name="InspektionsrouteNewToolText" xml:space="preserve">
+    <value>Nuovo itinerario d'ispezione</value>
+  </data>
+  <data name="InspektionsrouteSelectExportToolText" xml:space="preserve">
+    <value>Seleziona itinerari d'ispezione per l'export</value>
+  </data>
+  <data name="InspektionsrouteStrassenabschnittGISAuswertung" xml:space="preserve">
+    <value>Tratti di strada simboleggiati secondo gli itinerari d'ispezione</value>
+  </data>
+  <data name="LayerRealisierteMassnahmen" xml:space="preserve">
+    <value>Interventi realizzati</value>
+  </data>
+  <data name="RealisierteMassnahmenEditToolText" xml:space="preserve">
+    <value>Modifica intervento realizzato</value>
+  </data>
+  <data name="RealisierteMassnahmenNewToolText" xml:space="preserve">
+    <value>Nuovo intervento realizzato</value>
+  </data>
+  <data name="RealisierteMassnahmenSelectToolText" xml:space="preserve">
+    <value>Selezionata intervento realizzato</value>
+  </data>
+  <data name="Legende" xml:space="preserve">
+    <value>Legenda</value>
+  </data>
+  <data name="PanToolText" xml:space="preserve">
+    <value>Sposta</value>
+  </data>
+  <data name="ZoomToolText" xml:space="preserve">
+    <value>Zoom</value>
+  </data>
+  <data name="BaseLayer" xml:space="preserve">
+    <value>Carta di sfondo</value>
+  </data>
+  <data name="Overlays" xml:space="preserve">
+    <value>Carte sovrapposte</value>
+  </data>
+  <data name="MousePos_Format" xml:space="preserve">
+    <value>X: ${lon}, Y: ${lat}</value>
+  </data>
+  <data name="MassnahmenvorschlagTeilsystemeGIS_Auswertung" xml:space="preserve">
+    <value>Interventi, simboleggiati secondo sottosistema</value>
+  </data>
+  <data name="ZoomToFullExtentToolText" xml:space="preserve">
+    <value>Zoom su tutti gli assi del mandante</value>
+  </data>
+  <data name="KoordinierteMassnahmeGIS_Auswertung" xml:space="preserve">
+    <value>Interventi coordinati</value>
+  </data>
+  <data name="StrassenabschnittTeilenToolText" xml:space="preserve">
+    <value>Dividi il tratto di strada</value>
+  </data>
+  <data name="InspektionsrouteSelectToolText" xml:space="preserve">
+    <value>Seleziona itinerario d'ispezione</value>
+  </data>
+  <data name="Abwasseranlagen" xml:space="preserve">
+    <value>Impianti d'acque di scarico</value>
+  </data>
+  <data name="available" xml:space="preserve">
+    <value>a disposizione</value>
+  </data>
+  <data name="Beleuchtungsanlagen" xml:space="preserve">
+    <value>Impianti d'illuminazione</value>
+  </data>
+  <data name="CONFLICTTYPE_COMPLETELOSS_REFERENCE_OUTSIDE" xml:space="preserve">
+    <value>Segmento spostato / ridotto</value>
+  </data>
+  <data name="CONFLICTTYPE_COMPLETELOSS_REFERENCE_TOOSHORT" xml:space="preserve">
+    <value>Segmento spostato / ridotto</value>
+  </data>
+  <data name="CONFLICTTYPE_COMPLETELOSS_SEGMENT_DELETED" xml:space="preserve">
+    <value>Segmento eliminato</value>
+  </data>
+  <data name="CONFLICTTYPE_NEWSEGMENT" xml:space="preserve">
+    <value>Nuovo segmento</value>
+  </data>
+  <data name="CONFLICTTYPE_PARTIAL_REFERENCE_OUTSIDE" xml:space="preserve">
+    <value>Segmento parzialmente spostato</value>
+  </data>
+  <data name="CONFLICTTYPE_PARTIAL_REFERENCE_TOOSHORT" xml:space="preserve">
+    <value>Segmento ridotto</value>
+  </data>
+  <data name="CONFLICTTYPE_PARTIAL_SEGMENT_DELETED" xml:space="preserve">
+    <value>Segmento in parte eliminato</value>
+  </data>
+  <data name="Elektrizitaetsversorgung" xml:space="preserve">
+    <value>Approvvigionamento di elettricità</value>
+  </data>
+  <data name="exported" xml:space="preserve">
+    <value>esportato</value>
+  </data>
+  <data name="Fernwaermeversorgung" xml:space="preserve">
+    <value>Approvvigionamento del riscaldamento a distanza</value>
+  </data>
+  <data name="FourToFive" xml:space="preserve">
+    <value>4 - 5</value>
+  </data>
+  <data name="Gasversorgung" xml:space="preserve">
+    <value>Approvvigionamento gas</value>
+  </data>
+  <data name="Gruenanlagen" xml:space="preserve">
+    <value>Parchi</value>
+  </data>
+  <data name="IA" xml:space="preserve">
+    <value>IA</value>
+  </data>
+  <data name="IB" xml:space="preserve">
+    <value>IB</value>
+  </data>
+  <data name="IC" xml:space="preserve">
+    <value>IC</value>
+  </data>
+  <data name="II" xml:space="preserve">
+    <value>II</value>
+  </data>
+  <data name="III" xml:space="preserve">
+    <value>III</value>
+  </data>
+  <data name="IV" xml:space="preserve">
+    <value>IV</value>
+  </data>
+  <data name="Kommunikationsanlagen" xml:space="preserve">
+    <value>Impianti di comunicazione</value>
+  </data>
+  <data name="Kunstbauten" xml:space="preserve">
+    <value>Manufatti</value>
+  </data>
+  <data name="OeffentlicherVerkehr" xml:space="preserve">
+    <value>Trasporti pubblici</value>
+  </data>
+  <data name="OneToTwo" xml:space="preserve">
+    <value>1 - 1,99</value>
+  </data>
+  <data name="Sonstige" xml:space="preserve">
+    <value>Altro</value>
+  </data>
+  <data name="Strassen" xml:space="preserve">
+    <value>Strade</value>
+  </data>
+  <data name="ThreeToFour" xml:space="preserve">
+    <value>3 - 3,99</value>
+  </data>
+  <data name="TwoToThree" xml:space="preserve">
+    <value>2 - 2,99</value>
+  </data>
+  <data name="Undefiniert" xml:space="preserve">
+    <value>Indefinito</value>
+  </data>
+  <data name="UnknownIndex" xml:space="preserve">
+    <value>Nessun indice</value>
+  </data>
+  <data name="VerkehrslenkungLichtsignalanlagen" xml:space="preserve">
+    <value>Gestione del traffico impianti di segnaletica</value>
+  </data>
+  <data name="Wasserbau" xml:space="preserve">
+    <value>Opere idrauliche</value>
+  </data>
+  <data name="Wasserversorgungsanlagen" xml:space="preserve">
+    <value>Impianti d'approvvigionamento d'acqua</value>
+  </data>
+  <data name="ZeroToOne" xml:space="preserve">
+    <value>0 - 0,99</value>
+  </data>
+  <data name="Benutzerdefiniert1" xml:space="preserve">
+    <value>Definito dall'utente 1</value>
+  </data>
+  <data name="Benutzerdefiniert2" xml:space="preserve">
+    <value>Definito dall'utente 2</value>
+  </data>
+  <data name="Benutzerdefiniert3" xml:space="preserve">
+    <value>Definito dall'utente 3</value>
+  </data>
+  <data name="Chaussierung" xml:space="preserve">
+    <value>Sterrato</value>
+  </data>
+  <data name="Pflaesterung" xml:space="preserve">
+    <value>Pavimentazione</value>
+  </data>
+  <data name="Filterparameter" xml:space="preserve">
+    <value>I dati sono filtrati per:</value>
+  </data>
+  <data name="Belagserneuerung" xml:space="preserve">
+    <value>Rinnovo del rivestimento</value>
+  </data>
+  <data name="Deckbelagserneuerung" xml:space="preserve">
+    <value>Rinnovo dello strato di rivestimento</value>
+  </data>
+  <data name="ErneuerungOberbau" xml:space="preserve">
+    <value>Rinnovo della sovrastruttura</value>
+  </data>
+  <data name="KeineErneuerung" xml:space="preserve">
+    <value>Nessun rinnovamento</value>
+  </data>
+  <data name="MapReportRedBox" xml:space="preserve">
+    <value>I box rosso mostra il perimetro dell'anteprima</value>
+  </data>
+  <data name="Oberflaechenverbesserung" xml:space="preserve">
+    <value>Miglioramento della superficie</value>
+  </data>
+  <data name="WarningSplitContainsZabs" xml:space="preserve">
+    <value>Attenzione: i dati di stato rilevati per questo tratto verranno eliminati.</value>
+  </data>
+  <data name="INSPEKTIONSROUTE_STRASSENABSCHNITTGISAUSWERTUNG" xml:space="preserve">
+    <value>Itinerari d'ispezione</value>
+  </data>
+  <data name="KoordinierteMassnahmeGIS_AuswMassnahmenvorschlagTeilsystemeGIS_Auswertung" xml:space="preserve">
+    <value>Interventi coordinati</value>
+  </data>
+  <data name="RealisierteMassnahmeGIS_Auswertung" xml:space="preserve">
+    <value>Interventi realizzati</value>
+  </data>
+  <data name="STRASSENABSCHNITTGISAUSWERTUNG" xml:space="preserve">
+    <value>Tratti di strada</value>
+  </data>
+  <data name="ZUSTANDSABSCHNITTGIS_INDEX_AUSWERTUNG" xml:space="preserve">
+    <value>Tratti di stato</value>
+  </data>
+  <data name="ZUSTANDSABSCHNITTGIS_MASSNAHMETYP_AUSWERTUNG" xml:space="preserve">
+    <value>Interventi consigliati</value>
+  </data>
+  <data name="AVLayerGroup" xml:space="preserve">
+    <value>Info aggiuntive</value>
+  </data>
+  <data name="LayerBackground_AV_WMS" xml:space="preserve">
+    <value>Dati MU</value>
+  </data>
+  <data name="LayerBackground_bahnlaerm_nacht" xml:space="preserve">
+    <value>Rumore ferr. nott.</value>
+  </data>
+  <data name="LayerBackground_bahnlaerm_tag" xml:space="preserve">
+    <value>Rumore ferr. diur.</value>
+  </data>
+  <data name="LayerBackground_gebaeude_wohnungs_register_label" xml:space="preserve">
+    <value>N° civico</value>
+  </data>
+  <data name="LayerBackground_geologie_hydrogeologische_karte_grundwasservorkommen" xml:space="preserve">
+    <value>Giacim. acq. sotter.</value>
+  </data>
+  <data name="LayerBackground_geologie_hydrogeologische_karte_grundwasservulnerabilitaet" xml:space="preserve">
+    <value>Vulner. acq. sotter.</value>
+  </data>
+  <data name="LayerBackground_kataster_belasteter_standorte_oev" xml:space="preserve">
+    <value>Catasto collocazioni affette</value>
+  </data>
+  <data name="LayerBackground_pixelkarte_farbe_pk1000" xml:space="preserve">
+    <value>Mappa colori MU</value>
+  </data>
+  <data name="LayerBackground_pixelkarte_grau_pk1000" xml:space="preserve">
+    <value>Mappa BN MU</value>
+  </data>
+  <data name="LayerBackground_pixelkarte_pk100_metadata" xml:space="preserve">
+    <value>Metadati mappa 100</value>
+  </data>
+  <data name="LayerBackground_pixelkarte_pk200_metadata" xml:space="preserve">
+    <value>Metadati mappa 200</value>
+  </data>
+  <data name="LayerBackground_pixelkarte_pk25_metadata" xml:space="preserve">
+    <value>Metadati mappa 25</value>
+  </data>
+  <data name="LayerBackground_pixelkarte_pk500_metadata" xml:space="preserve">
+    <value>Metadati mappa 500</value>
+  </data>
+  <data name="LayerBackground_pixelkarte_pk50_metadata" xml:space="preserve">
+    <value>Metadati mappa 50</value>
+  </data>
+  <data name="LayerBackground_strassenlaerm_nacht" xml:space="preserve">
+    <value>Rumore str. diurno</value>
+  </data>
+  <data name="LayerBackground_strassenlaerm_tag" xml:space="preserve">
+    <value>Rumore str. diurno</value>
+  </data>
+  <data name="LayerOverlay_grundwasservorkommen" xml:space="preserve">
+    <value>Giacim. acq. sotter.</value>
+  </data>
+  <data name="LayerOverlay_grundwasservulnerabilitaet" xml:space="preserve">
+    <value>Vulner. acq. sotter.</value>
+  </data>
+  <data name="MeasureAreaToolText" xml:space="preserve">
+    <value>Misura superficie</value>
+  </data>
+  <data name="MeasureLineToolText" xml:space="preserve">
+    <value>Misura distanza</value>
+  </data>
+  <data name="ZoomToCurrentToolText" xml:space="preserve">
+    <value>Zoom sull'oggetto selezionato</value>
+  </data>
+  <data name="MassnahmeSelectTitle" xml:space="preserve">
+    <value>Selezionare l'intervento</value>
+  </data>
+  <data name="NoMeasure" xml:space="preserve">
+    <value>Nessun intervento</value>
+  </data>
+  <data name="Achsen" xml:space="preserve">
+    <value>Assi</value>
+  </data>
+  <data name="KoordinierteMassnahmen" xml:space="preserve">
+    <value>Interventi coordinati</value>
+  </data>
+  <data name="RealisierteMassnahmen" xml:space="preserve">
+    <value>Interventi realizzati</value>
+  </data>
+  <data name="Strassenabschnitte" xml:space="preserve">
+    <value>Tratti di strada</value>
+  </data>
+  <data name="NextExtentToolText" xml:space="preserve">
+    <value>Avanti</value>
+  </data>
+  <data name="PreviousExtentToolText" xml:space="preserve">
+    <value>Indietro</value>
+  </data>
+  <data name="MapTransparency" xml:space="preserve">
+    <value>Trasparenza</value>
+  </data>
+  <data name="BoxSelectToolText" xml:space="preserve">
+    <value>Selezionare alcuni tratti di strada</value>
+  </data>
+  <data name="AchsenEditToolText" xml:space="preserve">
+    <value>Editare asse</value>
+  </data>
+  <data name="AchsenNewToolText" xml:space="preserve">
+    <value>Creare asse</value>
+  </data>
+  <data name="AchsenReverseToolText" xml:space="preserve">
+    <value>Intvertire direzione asse</value>
+  </data>
+  <data name="AchsenSelectToolText" xml:space="preserve">
+    <value>Scegliere asse</value>
+  </data>
+  <data name="LayerZustandabschnittMassnahmeTypTrottoir" xml:space="preserve">
+    <value>Interventi consigliati marciapiede</value>
+  </data>
+  <data name="LayerZustandsabschnitteTrottoir" xml:space="preserve">
+    <value>Tratti di stato marciapiede</value>
+  </data>
+  <data name="ErrorNoReportLayerSelected" xml:space="preserve">
+    <value>Non è stato scelto nessun strato valido per il rapporto</value>
+  </data>
+  <data name="Ausreichend" xml:space="preserve">
+    <value>sufficiente</value>
+  </data>
+  <data name="Gut" xml:space="preserve">
+    <value>buono</value>
+  </data>
+  <data name="Kritisch" xml:space="preserve">
+    <value>critico</value>
+  </data>
+  <data name="Mittel" xml:space="preserve">
+    <value>medio</value>
+  </data>
+  <data name="Schlecht" xml:space="preserve">
+    <value>cattivo</value>
+  </data>
+  <data name="Unbekannt" xml:space="preserve">
+    <value>non rilevato</value>
+  </data>
+</root>

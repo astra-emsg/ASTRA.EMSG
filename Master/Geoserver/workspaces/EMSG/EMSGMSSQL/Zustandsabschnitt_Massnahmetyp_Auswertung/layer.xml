@@ -1,0 +1,15 @@
+<layer>
+  <name>Zustandsabschnitt_Massnahmetyp_Auswertung</name>
+  <id>LayerInfoImpl--712dd8df:156b736ad9b:-7dbc</id>
+  <type>VECTOR</type>
+  <defaultStyle>
+    <id>StyleInfoImpl-5395701e:15704052cf3:-782</id>
+  </defaultStyle>
+  <resource class="featureType">
+    <id>FeatureTypeInfoImpl--712dd8df:156b736ad9b:-7dbd</id>
+  </resource>
+  <attribution>
+    <logoWidth>0</logoWidth>
+    <logoHeight>0</logoHeight>
+  </attribution>
+</layer>

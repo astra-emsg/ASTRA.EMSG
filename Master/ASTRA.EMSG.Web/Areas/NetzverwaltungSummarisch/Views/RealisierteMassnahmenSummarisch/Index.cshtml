@@ -1,0 +1,65 @@
+﻿@using ASTRA.EMSG.Business.Models.Summarisch
+@using ASTRA.EMSG.Web.Areas.Common.GridCommands
+@using ASTRA.EMSG.Web.Infrastructure.HtmlHelperExtensions
+@using Resources
+@using ASTRA.EMSG.Web.Infrastructure.TelerikExtensions
+@using Kendo.Mvc.UI
+
+@section JavaScript
+{
+    <script type="text/javascript" src="@(Url.Content("~/Scripts/Areas/NetzverwaltungSummarisch/RealisierteMassnahmenSummarisch/RealisierteMassnahmenSummarisch.js"))"></script>
+}
+
+<h2>@TitleLocalization.RealisierteMassnahmenSummarischPageTitle</h2>
+
+@(Html.ToGridFilterBuilder<RealisierteMassnahmenSummarischGridCommand>()
+                        .WithTextFilter(f => f.Projektname)
+                        .WithUnobstrusiveFilterButton(filterButtonLabel: ButtonLocalization.Search))
+
+<br />
+<div class="scrollable-grid-border">
+    <div class="scrollable-grid">
+        @{
+            Html.Kendo().Grid<RealisierteMassnahmeSummarsichOverviewModel>()
+                .Name("RealisierteMassnahmeSummarsichGrid")
+                .ApplyEmsgSettings()
+                .DataSource(dataBinding => dataBinding
+                    .Ajax()
+                    .Model(keys => keys.Id(m => m.Id))
+                    .Read(c => c.Action("GetAll", "RealisierteMassnahmenSummarisch").Data("index.getFilteredData"))
+                    .Destroy(c => c.Action("Delete", "RealisierteMassnahmenSummarisch"))
+                    .PageSize(ASTRA.EMSG.Web.Infrastructure.ConstantSettings.GridPageSize)
+                    )
+                .ToolBar(commands =>
+                {
+                    commands.Template(
+                    new EmsgToolbarBuilder()
+                        .AddButton("index.openRealisierteMassnahmeSummarsichCreateWindow()", ButtonLocalization.AddNewRealisierteMassnahme)
+                        .ToTemplate());
+                })
+                .HtmlAttributes(new
+                {
+                    data_edit_url = Url.Action("EditRealisierteMassnahmeSummarsich"),
+                    data_create_url = Url.Action("Create"),
+                    data_edit_window_title = TitleLocalization.RealisierteMassnahmenSummarischEditPopupTitle,
+                    data_create_window_title = TitleLocalization.RealisierteMassnahmenSummarischCreatePopupTitle,
+                    data_saved_warning = NotificationLocalization.RealisierteMassnahmeSummarichSavedWarning
+                })
+                .Columns(columns =>
+                {
+                    columns.Bound(m => m.Id).GridCommands(Html.EditButton("index.openRealisierteMassnahmeSummarsichEditWindow('#=Id#')").ToHtmlString(),
+                        Html.GridDeleteButton().ToHtmlString()).Width(85);
+
+                    columns.Bound(m => m.Projektname).Title(GridHeaderFooterLocalization.Projektname);
+                    columns.Bound(m => m.Beschreibung).Title(GridHeaderFooterLocalization.Beschreibung).Width("20%");
+                    columns.Bound(m => m.KostenFahrbahn).Title(GridHeaderFooterLocalization.KostenFahrbahn).AlignRight();
+                    columns.Bound(m => m.BelastungskategorieBezeichnung).Title(GridHeaderFooterLocalization.Belastungskategorie);
+                    columns.Bound(m => m.Fahrbahnflaeche).Title(GridHeaderFooterLocalization.Strassenflaeche).AlignRight();
+                })
+                .Render();
+                }
+    </div>
+</div>
+
+@(Html.TelerikWindow(TitleLocalization.RealisierteMassnahmenSummarischEditPopupTitle, "RealisierteMassnahmeSummarsichWindow", "realisierteMassnahmeSummarsichFormDiv")
+        .Events(events => events.Close("edit.onClose")))

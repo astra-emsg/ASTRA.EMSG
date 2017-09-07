@@ -1,0 +1,43 @@
+﻿@using ASTRA.EMSG.Web.Infrastructure.HtmlHelperExtensions
+@using Resources
+@using System.Linq
+@model ASTRA.EMSG.Business.Models.Strassennamen.ImportResultModel<ASTRA.EMSG.Business.Models.Strassennamen.StrassenabschnittImportModel, ASTRA.EMSG.Business.Models.Strassennamen.StrassenabschnittImportOverviewModel>
+<fieldset class="popupFormFieldset">
+    <hr />
+    <br />
+    @if (Model.Warnings.Any())
+    {
+        <span>@NotificationLocalization.ImportStrassenabschnittWarningTitle</span>
+        <br />
+        <br />
+        foreach (var warning in Model.Warnings)
+        {
+        <span style="color: orange">@warning</span><br />
+        }
+        <br />
+        <br />
+    }
+    @if (Model.Errors.Any())
+    {
+        <span>@NotificationLocalization.ImportStrassennetzErrorTitle</span>
+        <br />
+        <br />
+        foreach (var error in Model.Errors)
+        {
+        <span style="color: red">@error</span><br />
+        }
+        <br />
+        <span>@NotificationLocalization.ImportStrassennetzErrorHelp</span>
+    }
+    else
+    {
+        <span>@NotificationLocalization.ImportStrassennetzSuccessful</span>
+    }
+    <br />
+    <hr />
+    <br />
+    <div class="popupFormButtons">
+        @Html.BackToOverviewButton("strassenabschnittPage.strassenabschnittImport.closeImportWindow()")
+    </div>
+</fieldset>
+<div class="helpButton">@Html.HelpButtonFor("Import")</div>

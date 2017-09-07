@@ -1,0 +1,15 @@
+<layer>
+  <name>KoordinierteMassnahme_Auswertung</name>
+  <id>LayerInfoImpl--712dd8df:156b736ad9b:-7d7e</id>
+  <type>VECTOR</type>
+  <defaultStyle>
+    <id>StyleInfoImpl--712dd8df:156b736ad9b:-797e</id>
+  </defaultStyle>
+  <resource class="featureType">
+    <id>FeatureTypeInfoImpl--712dd8df:156b736ad9b:-7d7f</id>
+  </resource>
+  <attribution>
+    <logoWidth>0</logoWidth>
+    <logoHeight>0</logoHeight>
+  </attribution>
+</layer>

@@ -1,0 +1,27 @@
+﻿@using ASTRA.EMSG.Web.Infrastructure.HtmlHelperExtensions
+@model ASTRA.EMSG.Business.Models.Summarisch.NetzSummarischDetailModel
+
+@using (Ajax.BeginForm("Update", "StrassenmengeUndZustand",
+                        new AjaxOptions
+                        {
+                            HttpMethod = "POST",
+                            UpdateTargetId = "strassenmengeUndZustandFormDiv",
+                            InsertionMode = InsertionMode.Replace,
+                        }, new { id = "form", className = "k-edit-form" }))
+{
+    <fieldset class="popupFormFieldset ">
+        @Html.HiddenFor(m => m.Id)
+        @Html.HiddenFor(m => m.Belastungskategorie)
+    
+        @(Html.EditorTable()
+            .WithReadOnlyFieldFor(m => m.BelastungskategorieTyp, false)
+            .WithDecimalEditorFor(m => m.MittlererZustand, 1, false)
+            .WithIntegerEditorFor(m => m.Fahrbahnflaeche)
+            .WithDecimalEditorFor(m => m.Fahrbahnlaenge, 1))
+    
+        @Html.UnobtrusiveOkCancelPopupFormButtons()
+
+    </fieldset>
+}
+
+<div class="helpButton">@Html.HelpButtonFor("EditNetzSummarischDetailModel")</div>

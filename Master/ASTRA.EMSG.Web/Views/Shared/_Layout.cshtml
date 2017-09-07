@@ -1,0 +1,259 @@
+﻿@using System.Reflection
+@using System.Threading
+@using ASTRA.EMSG.Common
+@using ASTRA.EMSG.Common.Enums
+@using ASTRA.EMSG.Common.Master.ConfigurationHandling
+@using ASTRA.EMSG.Web.Controllers
+@using Resources
+@using ASTRA.EMSG.Web.Infrastructure.HtmlHelperExtensions
+@using ASTRA.EMSG.Web.Infrastructure
+@using StackExchange.Profiling
+<!DOCTYPE html>
+<html>
+<head>
+    @*Note: For Development and Testing*@
+    @*<meta http-equiv="X-UA-Compatible" content="IE=EmulateIE8">*@
+    @*Note: For Deployed Version*@ 
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta http-equiv="pragma" content="no-cache" />
+    <meta http-equiv="cache-control" content="no-cache" />
+    <meta charset="utf-8" />
+    @{
+        RouteData routeData = HttpContext.Current.Request.RequestContext.RouteData;
+        string title = PageTitleLocalization.ResourceManager.GetString(string.Format("{0}_{1}_{2}", routeData.GetArea(), routeData.GetController(), routeData.GetAction()));
+    }
+    <title>@(ViewBag.Title ?? title)</title>
+    <link rel="shortcut icon" href="/favicon.ico" type="image/x-icon" />
+    <link href="@Url.Content("~/Content/Site.css")" rel="stylesheet" type="text/css" />
+    <script src="@Url.Content("~/Scripts/jquery-3.1.0.min.js")" type="text/javascript"></script>
+    <script src="@Url.Content("~/Scripts/jquery-migrate-3.0.0.min.js")" type="text/javascript"></script>
+    <script src="@Url.Content("~/Scripts/jquery.json-2.2.min.js")" type="text/javascript"></script>
+    <script src="@Url.Content("~/Scripts/jquery-ui-1.12.0.min.js")" type="text/javascript"></script>
+    <script src="@Url.Content("~/Scripts/jquery.unobtrusive-ajax.min.js")" type="text/javascript"></script>
+    <script src="@Url.Content("~/Scripts/jquery.blockUI.js")" type="text/javascript"></script>
+    <script src="@Url.Content("~/Scripts/jquery.download.js")" type="text/javascript"></script>
+    <script src="@Url.Content("~/Scripts/underscore.min.js")" type="text/javascript"></script>
+    <script src="@Url.Content("~/OpenLayers-2.12/OpenLayers.js")" type="text/javascript"></script>
+    <script src="@Url.Content("~/Scripts/Custom/emsg.js")" type="text/javascript"></script>
+    <script src="@Url.Content("~/Scripts/Custom/emsg.utils.dialogs.js")" type="text/javascript"></script>
+    <script src="@Url.Content("~/Scripts/Custom/emsg.interface.js")" type="text/javascript"></script>
+    @*<script src="@Url.Content("~/Scripts/Custom/emsg.telerik.js")" type="text/javascript"></script>*@
+    <script src="@Url.Content("~/Scripts/Areas/Common/Common.js")" type="text/javascript"></script>
+    <script type="text/javascript">
+        // gobal variable get from opener, keep current or create new one if none exists
+        try {
+            // catch errors when emsg is opened from bit page as window.open (phishing attack prevention in browsers)
+            // and ignore them - there is no need to call back. Our window.open will work because the url is the same
+            if (window.opener) window.emsg = window.opener.emsg;
+        }
+        catch (ex) {
+        }
+        window.emsg = window.emsg || new Emsg.App();
+    </script>
+    <script type="text/javascript">
+
+        /* OPENLAYERS 2.12 PoC - missing things */
+        function hideElement() { 
+            //does nothing
+        }
+    
+    </script>
+    
+    <link href="@Url.Content("~/Content/themes/base/jquery-ui.css")" rel="stylesheet" type="text/css" />
+    
+    @*<link href="@Url.Content("~/Content/kendo/2016.2.714/telerik/telerik.common.css")" rel="stylesheet" type="text/css" />
+    <link href="@Url.Content("~/Content/kendo/2016.2.714/telerik/telerik.windows7.min.css")" rel="stylesheet" type="text/css" />*@
+
+    <link href="@Url.Content("~/Content/kendo/2016.2.714/kendo.common.min.css")" rel="stylesheet" type="text/css" />
+    <link href="@Url.Content("~/Content/kendo/2016.2.714/kendo.silver.min.css")" rel="stylesheet" type="text/css" />
+
+    <script src="@Url.Content("~/Scripts/kendo/2016.2.714/kendo.all.min.js")"></script>
+    <script src="@Url.Content("~/Scripts/kendo/2016.2.714/kendo.aspnetmvc.min.js")"></script>
+
+    <script src="@Url.Content("~/Scripts/kendo/2016.2.714/cultures/kendo.culture.de-CH.min.js")"></script>
+    <script src="@Url.Content("~/Scripts/kendo/2016.2.714/cultures/kendo.culture.fr-CH.min.js")"></script>
+    <script src="@Url.Content("~/Scripts/kendo/2016.2.714/cultures/kendo.culture.it-CH.min.js")"></script>
+
+    <script src="@Url.Content("~/Scripts/Areas/Common/KendoCustomizations.js")"></script>
+
+    @* Load the neccessary culture related message js files - for the grid localization *@
+    @{
+        var culture = System.Globalization.CultureInfo.CurrentCulture.ToString();
+        <script src="@Url.Content("~/Scripts/kendo/2016.2.714/messages/kendo.messages." + culture + ".min.js")"></script>
+    }
+    
+    <link href="@Url.Content("~/Content/Site.telerik.EMSG.css")" rel="stylesheet" type="text/css" />
+    <link href="@Url.Content("~/Content/emsg.map.css")" rel="stylesheet" type="text/css" />
+    <link href="@Url.Content("~/Content/emsg.legend.css")" rel="stylesheet" type="text/css" />
+    @(RenderSection("JavaScript", false))
+    @{
+        var tick = DateTime.Now.Ticks;
+    }
+    <script type="text/javascript">
+        kendo.culture("@(Thread.CurrentThread.CurrentCulture.Name)");
+
+        function blockScreen() {
+            $.blockUI(
+                {
+                    message: '<h1></h1><img src="@Url.Content("~/Content/gifs/MechanicBusy.gif")" /><h1>@(TextLocalization.PleaseWait)</h1>'
+                });
+        }
+
+        function blockScreenUntilPageReload() {
+            $.blockUI(
+                {
+                    message: '<h1></h1><img src="@Url.Content("~/Content/gifs/MechanicBusy.gif")" /><h1>@(TextLocalization.PleaseWait)</h1>'
+                });
+            $.blockUI = function () { };
+        }
+
+        function unblockScreen() {
+            $.unblockUI();
+        }
+
+        var globalMapAdjustCorrector = 0;
+
+        var correctorRespectedElements = [
+         {key: '.emsg-filter-expand-area-middle', maxvalue : 0},
+         {key: '.emsg-filter-expand-area-bottom', maxvalue : 0},
+         {key: '#inspektionsRtStrAbschnitteListDiv', maxvalue: 100}
+        ];
+
+        function adjustMapHeight() {
+            xElem = document.getElementById("map");
+            if (xElem)
+            {
+                screensize = $(window).height();
+                correctorfactor = 208 + globalMapAdjustCorrector;
+                for(var i = 0, iMax = correctorRespectedElements.length; i < iMax; i++)
+                {
+                  xFilter = $(correctorRespectedElements[i].key);
+                  if (xFilter != null && xFilter != undefined && xFilter.length > 0)
+                  {
+                    xFactor = Math.min(correctorRespectedElements[i].maxvalue == 0?Number.MAX_VALUE : correctorRespectedElements[i].maxvalue, xFilter[0].clientHeight);
+                    correctorfactor += xFactor;
+                  }
+                }
+                if (screensize - correctorfactor > 0)
+                {
+                    xElem.style.height = screensize - correctorfactor + "px";
+                    xElem = document.getElementById("contentdiv");
+                    xElem.style.height = screensize - correctorfactor + 49 + "px";
+                }
+            }
+            if(emsg && emsg.map && emsg.map.updateSize){
+                emsg.map.updateSize();
+            }
+        }
+        window.onresize = adjustMapHeight;
+
+        $(document).ajaxStart(blockScreen).ajaxStop(unblockScreen);
+
+        $(document).ajaxError(function (event, jqXHR, ajaxSettings, thrownError) {
+
+            @if (new ServerConfigurationProvider().Environment != ApplicationEnvironment.Development)
+            {
+
+                <text>
+            var longRunningActions = [
+                '@Url.Action("ErfassungsPeriodAbschluss", "ErfassungsPeriodAbschluss")',
+                '@Url.Action("RevertLastErfassungsPeriod", "ErfassungsPeriodAbschluss")',
+                '@Url.Action("Export", "InspektionsroutenGIS")' ];            
+            var timeout = "The request timed out";
+            if (!(longRunningActions.indexOf(ajaxSettings.url) > -1 && jqXHR.status == 500 && jqXHR.responseText.indexOf(timeout) > -1)) {
+                    document.body.innerHTML = "";
+                    document.body.innerHTML = jqXHR.responseText;
+                    document.title = '@(TitleLocalization.ErrorTitle)';
+            }
+
+                </text>
+            }
+            else
+            {
+                <text>
+                    var window = $('#AjaxErrorWindow-@(tick)').data('kendoWindow');
+                    if (!window) {
+                        alert("Error during AJAX request!");
+                        return;
+                    }
+                    $('#ajaxErrorWindowDiv-@(tick)').empty().append(jqXHR.responseText);
+                    window.restore();
+                    window.center();
+                    window.maximize();
+                    window.open();
+                </text>
+            }
+        });
+    </script>
+    <script type="text/javascript">
+        function DecimalToString(decimalValue) {
+            return decimalValue.toString().replace('.', '@(System.Threading.Thread.CurrentThread.CurrentCulture.NumberFormat.NumberDecimalSeparator)');
+        }
+
+        function DecimalToShortGrouppedString(decimalValue) {
+            if (!decimalValue)
+                return null;
+            var str = decimalValue.toFixed(1).toString().split('.');
+            str[0] = str[0].replace(/(\d)(?=(\d{3})+$)/g, '$1@(Thread.CurrentThread.CurrentCulture.NumberFormat.NumberGroupSeparator)');
+            return str.join('@(Thread.CurrentThread.CurrentCulture.NumberFormat.NumberDecimalSeparator)');
+        }
+
+        function DecimalToShortString(decimalValue) {
+            return decimalValue == null ? null : DecimalToString(decimalValue.toFixed(1));
+        }
+
+        function DecimalToLongString(decimalValue) {
+            return decimalValue == null ? null : DecimalToString(decimalValue.toFixed(2));
+        }
+    </script>
+</head>
+<body>
+    <div id="wrapper" style="position: absolute; left: 0px; top: 0px; right: 0px; bottom: 0px;">
+        <div style="margin: 5px">
+            @if (!(ViewBag.DisableMenu ?? false))
+            {
+                <div class="header">
+                    <div class="logo">
+                    </div>
+                    <div class="menu">
+                        <div class="contextmenu">
+                            <div style="float: left; margin-top: 5px; margin-left: 10px">
+                                <a class="emsg-black-link" href="https://portal.mistra.ch/extranet" target="_blank">@TextLocalization.MistraStartSeite</a>
+                                <span class="lsep emsg-black-link">|</span> <a class="emsg-black-link" href="http://emsg.mistra.ch " target="_blank">@TextLocalization.HelpDesk</a>
+                            </div>
+                            @Html.Action("LanguageSelector", "Header", new { area = "" })
+                            @Html.Partial("VersionInfo")
+                        </div>
+                        <div class="mainmenu">
+                            <div style="float: right; margin-left: 4px; margin-right: 4px; margin-top: 5px">@Html.HelpButton()</div>
+                            <div style="float: left">@Html.Action("Menu", "Header", new { area = "" })</div>
+                            <div style="float: right; margin-right: 20px">
+                            </div>
+                        </div>
+                    </div>
+                    <div class="breadcrumb">
+                        @if (!IsSectionDefined("Breadcrumb"))
+                        {
+                            <div style="float: left">@Html.Action("Breadcrumb", "Header", new { area = "" })</div>
+                        }
+                        @(RenderSection("Breadcrumb", false))
+                    </div>
+                    <div style="float: right; margin-right: 15px" class="emsg-user-info-item">
+                        @Html.Action("UserInfo", "Header", new { area = "" })
+                    </div>
+                </div>
+                <div style="clear: both; margin-bottom: 10px"></div>
+            }
+        </div>
+        <div style="clear: both; margin: 5px; margin-bottom: 0px">
+            <div id="contentdiv" style="min-width: @(ViewBag.ContentDivWidth ?? 960)px" >@RenderBody()</div>
+        </div>
+    </div> 
+    @*@(Html.TelerikWindow("AJAX error", "AjaxErrorWindow-" + tick, "ajaxErrorWindowDiv-" + tick))*@
+    @*<script src="@Url.Content("~/Scripts/telerik.extensions.js")" type="text/javascript"></script>*@
+    @if (new ServerConfigurationProvider().EnableMiniProfiler)
+    {
+        @MiniProfiler.RenderIncludes()
+    }
+</body>
+</html>

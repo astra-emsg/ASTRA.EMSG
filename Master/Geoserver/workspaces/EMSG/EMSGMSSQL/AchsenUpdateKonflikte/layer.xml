@@ -1,0 +1,15 @@
+<layer>
+  <name>AchsenUpdateKonflikte</name>
+  <id>LayerInfoImpl--712dd8df:156b736ad9b:-7f41</id>
+  <type>VECTOR</type>
+  <defaultStyle>
+    <id>StyleInfoImpl--712dd8df:156b736ad9b:-7ab8</id>
+  </defaultStyle>
+  <resource class="featureType">
+    <id>FeatureTypeInfoImpl--712dd8df:156b736ad9b:-7f42</id>
+  </resource>
+  <attribution>
+    <logoWidth>0</logoWidth>
+    <logoHeight>0</logoHeight>
+  </attribution>
+</layer>

@@ -1,0 +1,93 @@
+﻿@using ASTRA.EMSG.Business.Models.Strassennamen
+@using ASTRA.EMSG.Web.Areas.Common.GridCommands
+@using ASTRA.EMSG.Web.Infrastructure.TelerikExtensions
+@using Resources
+@using ASTRA.EMSG.Web.Infrastructure.HtmlHelperExtensions
+@using Kendo.Mvc.UI
+@model SerializableGridModel<ZustandsabschnittModel>
+@section JavaScript
+{
+    <script type="text/javascript" src="@(Url.Content("~/Scripts/Areas/NetzverwaltungStrassennamen/ZustaendeUndMassnahmenvorschlaege/ZustaendeUndMassnahmenvorschlaege.js"))"></script>
+}
+
+<h2>@TitleLocalization.ZustandsabschnittOverviewPageTitle</h2>
+
+@(Html.ToGridFilterBuilder<ZustandsabschnittGridCommand>()
+                        .WithTextFilter(f => f.Ortsbezeichnung)
+                        .WithFilterButton(filterButtonLabel: ButtonLocalization.Search))
+
+<div class="scrollable-grid-border">
+    <div class="scrollable-grid">
+        @(Html.Kendo().Grid<ZustandsabschnittModel>()
+              .Name("ZustandsabschnittenGrid")
+              .ApplyEmsgSettings()
+              .DataSource(dataBinding => dataBinding
+                  .Ajax()
+                  .Model(keys => keys.Id(m => m.Id))
+                  .Read(c => c.Action("GetAll", "ZustaendeUndMassnahmenvorschlaege").Data("getFilteredData"))
+                  .Destroy(c => c.Action("Delete", "ZustaendeUndMassnahmenvorschlaege"))
+                  .PageSize(ASTRA.EMSG.Web.Infrastructure.ConstantSettings.GridPageSize))
+              .ToolBar(commands =>
+              {
+                  commands.Template(
+                      new EmsgToolbarBuilder()
+                      .CustomButton(ButtonLocalization.ExportZustandsabschnitte, Url.Action("DownloadExcelReport", "ZustaendeUndMassnahmenvorschlaege"), string.Format("background: url('{0}'); height: 16px; width: 16px; vertical-align: middle; margin-bottom: 2px", new UrlHelper(HttpContext.Current.Request.RequestContext).Content("~/Content/images/page_excel.png")))
+                      .CustomButton(ButtonLocalization.ImportZustandsabschnitt, "javascript:index.openImportWindow()", string.Format("background: url('{0}'); height: 16px; width: 16px; vertical-align: middle; margin-bottom: 2px", new UrlHelper(HttpContext.Current.Request.RequestContext).Content("~/Content/images/page_excel.png")))
+                      .ToTemplate());
+              })
+              .HtmlAttributes(new
+              {
+                  data_import_url = Url.Action("Import", "ZustandsabschnittImport"),
+                  data_edit_url = Url.Action("EditZustandsabschnitt", "Zustandsabschnitt"),
+                  style = "display : inline-block"
+              })
+              .Columns(columns =>
+              {
+                  columns.Bound(m => m.Id).GridCommands(
+                      Html.EditButton("index.openZustandsabschnittWindow('#= Id #')", "~/Content/images/page_edit.png", "emsg-zustandsabschnitt-edit-button").ToHtmlString()
+                      +
+                      Html.EditButton("index.openZustandsabschnittWindow('#= Id #')", "~/Content/images/page_white_edit.png", "emsg-zustandsabschnitt-white-edit-button").ToHtmlString(),
+                      Html.GridDeleteButton().ToHtmlString()).Width(85);
+
+                  columns.Bound(m => m.Sreassenabschnittsnummer).Title(GridHeaderFooterLocalization.Strassenabschnittsnummer);
+                  columns.Bound(m => m.Strassenname).Title(GridHeaderFooterLocalization.Strassenname);
+                  columns.Bound(m => m.StrasseOrtsbezeichnung).Title(GridHeaderFooterLocalization.Ortsbezeichnung);
+                  columns.Bound(m => m.Abschnittsnummer).Title(GridHeaderFooterLocalization.Zustandabschnittnummer);
+                  columns.Bound(m => m.BezeichnungVon).Title(GridHeaderFooterLocalization.BezeichnungVon);
+                  columns.Bound(m => m.BezeichnungBis).Title(GridHeaderFooterLocalization.BezeichnungBis);
+                  columns.Bound(m => m.Bemerkung).Title(GridHeaderFooterLocalization.Bemerkung).TruncatedTextTemplate(m => m.Bemerkung, m => m.BemerkungShort);
+                  columns.Bound(m => m.Zustandsindex).Title(GridHeaderFooterLocalization.Zustandsindex).AlignRight();
+                  columns.Bound(m => m.Laenge).Title(GridHeaderFooterLocalization.Laenge);
+                  columns.Bound(m => m.FlaecheFahrbahn).Title(GridHeaderFooterLocalization.FlaecheFahrbahn).AlignRight();
+                  columns.Bound(m => m.FlaceheTrottoirLinks).Title(GridHeaderFooterLocalization.FlaceheTrottoirLinks).AlignRight();
+                  columns.Bound(m => m.FlaceheTrottoirRechts).Title(GridHeaderFooterLocalization.FlaceheTrottoirRechts).AlignRight();
+              })
+              .Events(events => events.DataBound("index.onRowDataBound"))
+              )
+    </div>
+</div>
+
+@(Html.TelerikWindow(TitleLocalization.ImportZustandsabschnittPopupTitle, "ImportWindow", "importFormDiv")
+        .Events(events => events.Close("index.importWindowOnClose")))
+
+@(Html.TelerikWindow(TitleLocalization.ZustandsabschnittEditPopupTitle, "ZustandsabschnittWindow", "zustandsabschnittEditFormDiv")
+        .Resizable(c => c.Enabled(false))
+        .Events(events => events.Close("index.onClose")))
+
+<script type="text/javascript">
+
+    function getFilteredData(e) {
+        return {
+            Ortsbezeichnung: $("#Ortsbezeichnung").val()
+        };
+    }
+
+    function clearOrtsbezeichnungFilter() {
+        $("#Ortsbezeichnung").val("");
+    }
+
+    function RefreshGrid(keepCurentPage) {
+        common.refreshGrid('#ZustandsabschnittenGrid', keepCurentPage);
+    }
+
+</script>

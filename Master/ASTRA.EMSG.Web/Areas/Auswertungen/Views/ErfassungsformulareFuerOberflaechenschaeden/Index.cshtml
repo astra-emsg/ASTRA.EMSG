@@ -1,0 +1,24 @@
+﻿@using ASTRA.EMSG.Common.Enums
+
+@using ASTRA.EMSG.Web.Infrastructure.HtmlHelperExtensions
+@using Resources
+
+@section JavaScript
+{
+    <script type="text/javascript" src="@(Url.Content("~/Scripts/Areas/Auswertungen/ErfassungsformulareFuerOberflaechenschaeden/ErfassungsformulareFuerOberflaechenschaeden.js"))"></script>
+}
+
+<h1>@TitleLocalization.ErfassungsformulareFuerOberflaechenschaedenPageTitle</h1>
+<h2>@TitleLocalization.ForAsphaltPageSubTitle</h2>
+<div style="margin-top: 10px; margin-bottom: 10px">
+    @Html.UnobstrusiveShadenerfassungsformularExcelReportButton("GenerateReport", "GetLastGeneratedReport", BelagsTyp.Asphalt)
+    @Html.UnobstrusiveShadenerfassungsformularPdfReportButton("GenerateReport", "GetLastGeneratedReport", BelagsTyp.Asphalt)
+</div>
+
+<hr/>
+
+<h2>@TitleLocalization.ForBetonPageSubTitle</h2>
+<div style="margin-top: 10px; margin-bottom: 10px">
+    @Html.UnobstrusiveShadenerfassungsformularExcelReportButton("GenerateReport", "GetLastGeneratedReport", BelagsTyp.Beton)
+    @Html.UnobstrusiveShadenerfassungsformularPdfReportButton("GenerateReport", "GetLastGeneratedReport", BelagsTyp.Beton)
+</div>

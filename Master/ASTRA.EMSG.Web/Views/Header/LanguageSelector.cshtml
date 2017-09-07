@@ -1,0 +1,19 @@
+﻿@using ASTRA.EMSG.Common.Enums
+
+@using ASTRA.EMSG.Web.Infrastructure.HtmlHelperExtensions
+@using Resources
+@model ASTRA.EMSG.Common.Enums.EmsgLanguage
+
+@functions 
+{
+    private MvcHtmlString FlagButton(EmsgLanguage emsgLanguage)
+    {
+        return Html.ActionLink(ButtonLocalization.ResourceManager.GetString(emsgLanguage.ToString()), "SetLanguage", "Header", new { emsgLanguage, lastMethodPost = IsPost },
+            new { @class = Model == emsgLanguage ? "emsg-active-language-link-item" : "emsg-passive-language-link-item" });
+    }
+}
+<div style="float: right; margin-right: 6px; margin-top: 4px;">
+<div style="float: right">@FlagButton(EmsgLanguage.It)</div>
+<div style="float: right"><span class="lsep">|</span>@FlagButton(EmsgLanguage.Fr)<span class="lsep">|</span></div>
+<div style="float: right">@FlagButton(EmsgLanguage.Ch)</div>
+</div>

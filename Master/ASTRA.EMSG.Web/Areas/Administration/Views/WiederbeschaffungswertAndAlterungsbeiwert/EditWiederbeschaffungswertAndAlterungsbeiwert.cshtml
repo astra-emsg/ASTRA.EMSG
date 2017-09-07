@@ -1,0 +1,35 @@
+﻿@using ASTRA.EMSG.Web.Infrastructure.HtmlHelperExtensions
+@using Kendo.Mvc.UI
+@model ASTRA.EMSG.Business.Models.Katalogs.WiederbeschaffungswertKatalogEditModel
+
+@{
+    bool isNotForApplicationLevel = !(ViewBag.IsForApplicationLevel ?? false);
+    bool isNew = (ViewBag.IsNew ?? false);    
+}
+
+@using (Ajax.BeginForm(isNew ? "Insert" : "Update", "WiederbeschaffungswertAndAlterungsbeiwert",
+                        new AjaxOptions
+                            {
+                                HttpMethod = "POST",
+                                UpdateTargetId = "wiederbeschaffungswertAndAlterungsbeiwertWindowDiv",
+                                InsertionMode = InsertionMode.Replace,
+                            }))
+{
+    <fieldset class="popupFormFieldset">
+        @Html.HiddenFor(m => m.Id)
+        @(Html.EditorTable()
+        .WithCustomEditorFor(m => m.Belastungskategorie, isNotForApplicationLevel && isNew
+            ? MvcHtmlString.Create(Html.Kendo().DropDownListFor(m => m.Belastungskategorie).BindTo((IEnumerable<DropDownListItem>)ViewBag.Belastungskategorien).Events(events => events.Change("edit.onChange")).HtmlAttributes(new { style = "width: 200px;" }).ToHtmlString())
+            : MvcHtmlString.Create(Html.DisplayFor(m => m.BelastungskategorieBezeichnung).ToHtmlString() + Html.HiddenFor(m => m.Belastungskategorie).ToHtmlString() + Html.HiddenFor(m => m.BelastungskategorieBezeichnung).ToHtmlString()), isNotForApplicationLevel && isNew)
+        .WithDecimalEditorFor(m => m.FlaecheFahrbahn)
+        .WithDecimalEditorFor(m => m.FlaecheTrottoir)
+        .WithDecimalEditorFor(m => m.GesamtflaecheFahrbahn)
+        .WithDecimalEditorFor(m => m.AlterungsbeiwertI)
+        .WithDecimalEditorFor(m => m.AlterungsbeiwertII))
+    
+        @Html.UnobtrusiveOkCancelPopupFormButtons()
+    </fieldset>
+    @Html.RequiredFieldLegend()
+}
+
+<div class="helpButton">@Html.HelpButtonFor("EditWiederbeschaffungswertAndAlterungsbeiwert")</div>

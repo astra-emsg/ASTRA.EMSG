@@ -1,0 +1,190 @@
+﻿@using System.Threading
+@using ASTRA.EMSG.Business.Services.Security
+@using ASTRA.EMSG.Common.Enums
+@using Resources
+@model ASTRA.EMSG.Business.Models.Administration.HomeModel
+@helper QuickLink([JetBrains.Annotations.AspMvcArea] string area, [JetBrains.Annotations.AspMvcController] string controller, [JetBrains.Annotations.AspMvcAction] string action = "Index", string customLinkText = null)
+{
+        string resourceKey = string.Format("{0}_{1}_{2}", area, controller, action);
+        string linkText = MenuLocalization.ResourceManager.GetString(resourceKey);
+    @Html.ActionLink(customLinkText ?? (linkText ?? resourceKey), action, controller, new { area = area }, new { style = "color: #6B80DA;" })
+}
+@helper DisabledQuickLink([JetBrains.Annotations.AspMvcArea] string area, [JetBrains.Annotations.AspMvcController] string controller, [JetBrains.Annotations.AspMvcAction] string action = "Index")
+{
+        string resourceKey = string.Format("{0}_{1}_{2}", area, controller, action);
+        string linkText = MenuLocalization.ResourceManager.GetString(resourceKey);
+    <u style="color: grey; text-decoration: none">@linkText</u>
+}
+<table style="border-spacing: 0px;">
+    <tr>
+        <td class="emsg-qicklink-td">
+            <div class="emsg-qicklink-image-div">
+                <img src="@Url.Content("~/Content/images/Startseite_01.png")" />
+            </div>
+            <div class="emsg-quicklink-linkarea">
+                <div class="emsg-quicklink-title">
+                    <b>@TitleLocalization.HomePageNetzUndZustandVerwaltenSubTitle</b>
+                </div>
+                <div class="emsg-quicklink-linklist">
+                    @if (Model.Rollen.Contains(Rolle.DataManager))
+                    {
+                        if (Model.NetzErfassungsmodus == NetzErfassungsmodus.Summarisch)
+                        {
+                        <ul>
+                            <li>@QuickLink("NetzverwaltungSummarisch", "StrassenmengeUndZustand")</li>
+                            <li>@DisabledQuickLink("NetzverwaltungStrassennamen", "ZustaendeUndMassnahmenvorschlaege")</li>
+                        </ul>
+                        }
+
+                        if (Model.NetzErfassungsmodus == NetzErfassungsmodus.Tabellarisch)
+                        {
+                        <ul>
+                            <li>@QuickLink("NetzverwaltungStrassennamen", "NetzdefinitionUndStrassenabschnitt")</li>
+                            <li>@QuickLink("NetzverwaltungStrassennamen", "ZustaendeUndMassnahmenvorschlaege")</li>
+                        </ul>
+                        }
+
+                        if (Model.NetzErfassungsmodus == NetzErfassungsmodus.Gis)
+                        {
+                        <ul>
+                            <li>@QuickLink("NetzverwaltungGIS", "NetzdefinitionUndStrassenabschnittGIS")</li>
+                            <li>@QuickLink("NetzverwaltungGIS", "ZustaendeUndMassnahmenvorschlaegeGIS")</li>
+                        </ul>
+                        }
+                    }
+                </div>
+            </div>
+        </td>
+        <td class="emsg-qicklink-td">
+            <div class="emsg-qicklink-image-div">
+                <img src="@Url.Content("~/Content/images/Startseite_02.png")" />
+            </div>
+            <div class="emsg-quicklink-linkarea">
+                <div class="emsg-quicklink-title">
+                    <b>@TitleLocalization.HomePageMassnahmenVerwaltenSubTitle</b>
+                </div>
+                <div class="emsg-quicklink-linklist">
+                    @if (Model.Rollen.Contains(Rolle.DataManager))
+                    {
+                        if (Model.NetzErfassungsmodus == NetzErfassungsmodus.Summarisch)
+                        {
+                        <ul>
+                            <li>@DisabledQuickLink("NetzverwaltungGIS", "MassnahmenvorschlaegeAndererTeilsysteme")</li>
+                            <li>@DisabledQuickLink("NetzverwaltungGIS", "KoordinierteMassnahmen")</li>
+                            <li>@QuickLink("NetzverwaltungSummarisch", "RealisierteMassnahmenSummarisch")</li>
+                        </ul>
+                        }
+
+                        if (Model.NetzErfassungsmodus == NetzErfassungsmodus.Tabellarisch)
+                        {
+                        <ul>
+                            <li>@DisabledQuickLink("NetzverwaltungGIS", "MassnahmenvorschlaegeAndererTeilsysteme")</li>
+                            <li>@DisabledQuickLink("NetzverwaltungGIS", "KoordinierteMassnahmen")</li>
+                            <li>@QuickLink("NetzverwaltungStrassennamen", "RealisierteMassnahmen")</li>
+                        </ul>
+                        }
+
+                        if (Model.NetzErfassungsmodus == NetzErfassungsmodus.Gis)
+                        {
+                        <ul>
+                            <li>@QuickLink("NetzverwaltungGIS", "MassnahmenvorschlaegeAndererTeilsysteme")</li>
+                            <li>@QuickLink("NetzverwaltungGIS", "KoordinierteMassnahmen")</li>
+                            <li>@QuickLink("NetzverwaltungGIS", "RealisierteMassnahmenGIS")</li>
+                        </ul>
+                        }
+                    }
+                </div>
+            </div>
+        </td>
+        <td class="emsg-qicklink-td">
+            <div class="emsg-qicklink-image-div">
+                <img src="@Url.Content("~/Content/images/Startseite_03_a.png")" />
+            </div>
+            <div class="emsg-quicklink-linkarea">
+                <div class="emsg-quicklink-title">
+                    <b>@TitleLocalization.HomePageAuswertungenDurchfuehrenSubTitle</b>
+                </div>
+                <div class="emsg-quicklink-linklist">
+                    @if (Model.Rollen.Contains(Rolle.DataReader))
+                    {
+                        if (Model.NetzErfassungsmodus == NetzErfassungsmodus.Summarisch)
+                        {
+                        <ul>
+                            <li>@DisabledQuickLink("Auswertungen", "ZustandProZustandsabschnitt")</li>
+                            <li>@DisabledQuickLink("Auswertungen", "MassnahmenvorschlagProZustandsabschnitt")</li>
+                            <li>@DisabledQuickLink("Auswertungen", "EineListeVonMassnahmenGegliedertNachTeilsystemen")</li>
+                            <li>@DisabledQuickLink("Auswertungen", "ZustandsspiegelProBelastungskategorieGrafische")</li>
+                            <li>@QuickLink("Auswertungen", "EineListeVonRealisiertenMassnahmenGeordnetNachJahrenSummarisch")</li>
+                            <li>@QuickLink("Auswertungen", "WiederbeschaffungswertUndWertverlustProBelastungskategorie", "Index", @MenuLocalization.Auswertungen_WiederbeschaffungswertUndWertverlust)</li>
+                            <li>@QuickLink("Auswertungen", "RealisiertenMassnahmenWertverlustZustandsindexProJahrGrafische")</li>
+                        </ul>
+                        }
+                        if (Model.NetzErfassungsmodus == NetzErfassungsmodus.Tabellarisch)
+                        {
+                        <ul>
+                            <li>@DisabledQuickLink("Auswertungen", "ZustandProZustandsabschnitt")</li>
+                            <li>@QuickLink("Auswertungen", "MassnahmenvorschlagProZustandsabschnitt")</li>
+                            <li>@DisabledQuickLink("Auswertungen", "EineListeVonMassnahmenGegliedertNachTeilsystemen")</li>
+                            <li>@QuickLink("Auswertungen", "ZustandsspiegelProBelastungskategorieGrafische")</li>
+                            <li>@QuickLink("Auswertungen", "EineListeVonRealisiertenMassnahmenGeordnetNachJahren")</li>
+                            <li>@QuickLink("Auswertungen", "WiederbeschaffungswertUndWertverlustProBelastungskategorie", "Index", @MenuLocalization.Auswertungen_WiederbeschaffungswertUndWertverlust)</li>
+                            <li>@QuickLink("Auswertungen", "RealisiertenMassnahmenWertverlustZustandsindexProJahrGrafische")</li>
+                        </ul>
+                        }
+                        if (Model.NetzErfassungsmodus == NetzErfassungsmodus.Gis)
+                        {
+                        <ul>
+                            <li>@QuickLink("Auswertungen", "ZustandProZustandsabschnittGIS")</li>
+                            <li>@QuickLink("Auswertungen", "MassnahmenvorschlagProZustandsabschnittGIS")</li>
+                            <li>@QuickLink("Auswertungen", "ZustandsspiegelProBelastungskategorieGrafische")</li>
+                            <li>@QuickLink("Auswertungen", "EineListeVonMassnahmenGegliedertNachTeilsystemen")</li>
+                            <li>@QuickLink("Auswertungen", "EineListeVonRealisiertenMassnahmenGeordnetNachJahrenGIS")</li>
+                            <li>@QuickLink("Auswertungen", "WiederbeschaffungswertUndWertverlustProBelastungskategorie", "Index", @MenuLocalization.Auswertungen_WiederbeschaffungswertUndWertverlust)</li>
+                            <li>@QuickLink("Auswertungen", "RealisiertenMassnahmenWertverlustZustandsindexProJahrGrafische")</li>
+                        </ul>
+                        }
+                    }
+                </div>
+            </div>
+        </td>
+        <td class="emsg-system-info-td">
+            <div style="background: #F4F4F4; padding-left: 15px; padding-top: 10px; padding-bottom: 15px; width: 205px">
+                <div>
+                    <h2 style="width: 100px">@TitleLocalization.HomePageSecuritySubTitle</h2>
+                </div>
+                <div class="emsg-gray-label">@ModelLocalization.HomeModel_MandantName</div>
+                @if (Model.AppMode == ApplicationMode.NoMandants)
+                {
+                   <div>@ModelLocalization.HomeModel_NoMandants</div>
+                    <br />
+                }
+                else
+                {
+                    <div>@Html.Action("MandantSelector", "Header", new { area = "" })</div>
+                    <br />
+                    <div class="emsg-gray-label">@ModelLocalization.HomeModel_RollenBezeichnung</div>
+                    <div>@Model.RolleBezeichnungen</div>
+                    <br />
+                    <div class="emsg-gray-label">@ModelLocalization.HomeModel_NetzErfassungsmodusBezeichnung</div>
+                    <div>@Model.NetzErfassungsmodusBezeichnung</div>
+                    if (Model.NotInitialisedMandanten.Any())
+                    {
+                        <br />
+                        <div class="emsg-gray-label">@ModelLocalization.HomeModel_NotInitialisedMandantenBezeichnung</div>
+                        <div>@Model.NotInitialisedMandantenBezeichnung</div>
+                    }
+                }
+            </div>
+        </td>
+    </tr>
+    <tr>
+        <td colspan="2" style="text-align: center">
+            <img src="@Url.Content(string.Format("~/Content/images/Startseite_04_{0}.png", Thread.CurrentThread.CurrentCulture.TwoLetterISOLanguageName))" />
+        </td>
+        <td colspan="2" style="vertical-align: top">
+            <div style="max-width: 450px; margin: 5px;">
+                @Html.Raw(TextLocalization.HomePageDescription)
+            </div>
+        </td>
+    </tr>
+</table>

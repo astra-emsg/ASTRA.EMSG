@@ -1,0 +1,222 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="12.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProductVersion>8.0.30703</ProductVersion>
+    <SchemaVersion>2.0</SchemaVersion>
+    <ProjectGuid>{C54AFF3E-8BF6-4AC7-A5E4-9EF65322639D}</ProjectGuid>
+    <OutputType>Library</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>ASTRA.EMSG.Common</RootNamespace>
+    <AssemblyName>ASTRA.EMSG.Common</AssemblyName>
+    <TargetFrameworkVersion>v4.6.1</TargetFrameworkVersion>
+    <FileAlignment>512</FileAlignment>
+    <SccProjectName>SAK</SccProjectName>
+    <SccLocalPath>SAK</SccLocalPath>
+    <SccAuxPath>SAK</SccAuxPath>
+    <SccProvider>SAK</SccProvider>
+    <TargetFrameworkProfile />
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+    <Prefer32Bit>false</Prefer32Bit>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+    <Prefer32Bit>false</Prefer32Bit>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="BruTile">
+      <HintPath>..\..\Master\packages\BruTile.0.9.3\lib\net40\BruTile.dll</HintPath>
+    </Reference>
+    <Reference Include="Common.Logging, Version=3.3.1.0, Culture=neutral, PublicKeyToken=af08829b84f0328e, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\..\Master\packages\Common.Logging.3.3.1\lib\net40\Common.Logging.dll</HintPath>
+    </Reference>
+    <Reference Include="Common.Logging.Core">
+      <HintPath>..\..\Master\packages\Common.Logging.Core.3.3.1\lib\net40\Common.Logging.Core.dll</HintPath>
+    </Reference>
+    <Reference Include="GeoAPI">
+      <HintPath>..\..\Master\packages\GeoAPI.1.7.4\lib\net40-client\GeoAPI.dll</HintPath>
+    </Reference>
+    <Reference Include="NetTopologySuite">
+      <HintPath>..\..\Master\packages\NetTopologySuite.1.14\lib\net40-client\NetTopologySuite.dll</HintPath>
+    </Reference>
+    <Reference Include="NetTopologySuite.IO">
+      <HintPath>..\..\Master\packages\NetTopologySuite.IO.1.14.0.1\lib\net40-client\NetTopologySuite.IO.dll</HintPath>
+    </Reference>
+    <Reference Include="NetTopologySuite.IO.GeoTools">
+      <HintPath>..\..\Master\packages\NetTopologySuite.IO.1.14.0.1\lib\net40-client\NetTopologySuite.IO.GeoTools.dll</HintPath>
+    </Reference>
+    <Reference Include="NetTopologySuite.IO.MsSqlSpatial">
+      <HintPath>..\..\Master\packages\NetTopologySuite.IO.1.14.0.1\lib\net40-client\NetTopologySuite.IO.MsSqlSpatial.dll</HintPath>
+    </Reference>
+    <Reference Include="NetTopologySuite.IO.PostGis">
+      <HintPath>..\..\Master\packages\NetTopologySuite.IO.1.14.0.1\lib\net40-client\NetTopologySuite.IO.PostGis.dll</HintPath>
+    </Reference>
+    <Reference Include="NetTopologySuite.IO.ShapeFile">
+      <HintPath>..\..\Master\packages\NetTopologySuite.IO.1.14.0.1\lib\net40-client\NetTopologySuite.IO.ShapeFile.dll</HintPath>
+    </Reference>
+    <Reference Include="NetTopologySuite.IO.ShapeFile.Extended">
+      <HintPath>..\..\Master\packages\NetTopologySuite.IO.1.14.0.1\lib\net40-client\NetTopologySuite.IO.ShapeFile.Extended.dll</HintPath>
+    </Reference>
+    <Reference Include="NetTopologySuite.MGeometries">
+      <HintPath>..\..\Master\libraries\NetTopologySuite.MGeometries\NetTopologySuite.MGeometries.dll</HintPath>
+    </Reference>
+    <Reference Include="PowerCollections, Version=1.0.0.0, Culture=neutral, PublicKeyToken=2573bf8a1bdddcd5, processorArchitecture=MSIL">
+      <HintPath>..\..\Master\packages\NetTopologySuite.1.14\lib\net40-client\PowerCollections.dll</HintPath>
+    </Reference>
+    <Reference Include="ProjNet, Version=1.2.4455.27045, Culture=neutral, PublicKeyToken=a1f5bdcd9c6f5740, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\..\Master\packages\ProjNet.1.2\lib\net20\ProjNet.dll</HintPath>
+    </Reference>
+    <Reference Include="System" />
+    <Reference Include="System.Configuration" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.Drawing" />
+    <Reference Include="System.Runtime.Serialization" />
+    <Reference Include="System.Web.Extensions" />
+    <Reference Include="System.Xml.Linq" />
+    <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="Microsoft.CSharp" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Xml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="..\CommonAssemblyInfo.cs">
+      <Link>Properties\CommonAssemblyInfo.cs</Link>
+    </Compile>
+    <Compile Include="CheckOutGISDefaults.cs" />
+    <Compile Include="ConfigurationHandling\FileBasedConfigurationProvider.cs" />
+    <Compile Include="DataTransferObjects\AchsenReferenzDTO.cs" />
+    <Compile Include="DataTransferObjects\AchsenSegmentDTO.cs" />
+    <Compile Include="DataTransferObjects\BelastungskategorieDTO.cs" />
+    <Compile Include="DataTransferObjects\EventArgs\CreateZustandsabschnittDataTransferEventArgs.cs" />
+    <Compile Include="DataTransferObjects\EventArgs\DeleteZustandsabschnittDataTransferEventArgs.cs" />
+    <Compile Include="DataTransferObjects\EventArgs\EditZustandsabschnittDataTransferEventArgs.cs" />
+    <Compile Include="DataTransferObjects\EventArgs\SaveFormPopupDataTransferEventArgs.cs" />
+    <Compile Include="DataTransferObjects\EventArgs\SaveZustandsabschnittDataTransferEventArgs.cs" />
+    <Compile Include="DataTransferObjects\EventArgs\SelectStrassenabschnittDataTransferEventArgs.cs" />
+    <Compile Include="DataTransferObjects\EventArgs\SelectZustandsabschnittDataTransferEventArgs.cs" />
+    <Compile Include="DataTransferObjects\DataTransferObject.cs" />
+    <Compile Include="DataTransferObjects\DTOContainer.cs" />
+    <Compile Include="DataTransferObjects\FahrBahnZustandDTO.cs" />
+    <Compile Include="DataTransferObjects\IDTOGeometryHolder.cs" />
+    <Compile Include="DataTransferObjects\IReferenzGruppeDTOHolder.cs" />
+    <Compile Include="DataTransferObjects\MassnahmenvorschlagDTO.cs" />
+    <Compile Include="DataTransferObjects\MassnahmenvorschlagKatalogDTO.cs" />
+    <Compile Include="DataTransferObjects\ReferenzGruppeDTO.cs" />
+    <Compile Include="DataTransferObjects\SaveResult.cs" />
+    <Compile Include="DataTransferObjects\SchadendetailDTO.cs" />
+    <Compile Include="DataTransferObjects\SchadengruppeDTO.cs" />
+    <Compile Include="DataTransferObjects\StrassenabschnittGISDTO.cs" />
+    <Compile Include="DataTransferObjects\ZustandsabschnittGISDTO.cs" />
+    <Compile Include="EMSGBruTile\ILayerConfig.cs" />
+    <Compile Include="EMSGBruTile\ITileSourceFactory.cs" />
+    <Compile Include="EMSGBruTile\ServiceType.cs" />
+    <Compile Include="EMSGBruTile\TileFetcher.cs" />
+    <Compile Include="EMSGBruTile\Generated\WMSCapabilities.cs" />
+    <Compile Include="EMSGBruTile\TileLoader.cs" />
+    <Compile Include="EMSGBruTile\WmsTileSourceFactory.cs" />
+    <Compile Include="EMSGBruTile\WmtsTileSourceFactory.cs" />
+    <Compile Include="EMSGBruTile\WmtsRequest.cs" />
+    <Compile Include="EnumExtensions.cs" />
+    <Compile Include="Enums\Access.cs" />
+    <Compile Include="Enums\ApplicationEnvironment.cs" />
+    <Compile Include="Enums\AuswertungTyp.cs" />
+    <Compile Include="Enums\Availability.cs" />
+    <Compile Include="Enums\BelagsTyp.cs" />
+    <Compile Include="Enums\BenchmarkingGruppenTyp.cs" />
+    <Compile Include="Enums\DringlichkeitTyp.cs" />
+    <Compile Include="Enums\EditZustandsabschnittToolOperation.cs" />
+    <Compile Include="Enums\EigentuemerTyp.cs" />
+    <Compile Include="Enums\EmsgExceptionType.cs" />
+    <Compile Include="Enums\EmsgLanguage.cs" />
+    <Compile Include="Enums\GISOperation.cs" />
+    <Compile Include="Enums\LayerContainerEnum.cs" />
+    <Compile Include="Enums\LocalizationType.cs" />
+    <Compile Include="Enums\LockingType.cs" />
+    <Compile Include="Enums\MassnahmenvorschlagKatalogTyp.cs" />
+    <Compile Include="Enums\NetzErfassungsmodus.cs" />
+    <Compile Include="Enums\ErfassungsStatusTyp.cs" />
+    <Compile Include="Exceptions\EmsgException.cs" />
+    <Compile Include="EMSGBruTile\TileMatrix.cs" />
+    <Compile Include="EMSGBruTile\TiledLayerInfo.cs" />
+    <Compile Include="IShapeHolder.cs" />
+    <Compile Include="Utils\BenchmarkingGruppenTypExtensions.cs" />
+    <Compile Include="Utils\EmsgLanguageExtensions.cs" />
+    <Compile Include="Utils\GeometryUtils.cs" />
+    <Compile Include="Utils\LayerConfig.cs" />
+    <Compile Include="Utils\MobileHelpFileNames.cs" />
+    <Compile Include="Utils\JsonLayerContainer.cs" />
+    <Compile Include="Utils\NetzErfassungsmodusExtensions.cs" />
+    <Compile Include="Enums\Rolle.cs" />
+    <Compile Include="Enums\SchadenausmassTyp.cs" />
+    <Compile Include="Enums\SchadendetailTyp.cs" />
+    <Compile Include="Enums\SchadengruppeTyp.cs" />
+    <Compile Include="Enums\SchadenschwereTyp.cs" />
+    <Compile Include="Enums\StatusTyp.cs" />
+    <Compile Include="Enums\TeilsystemTyp.cs" />
+    <Compile Include="Enums\TrottoirTyp.cs" />
+    <Compile Include="Enums\WetterTyp.cs" />
+    <Compile Include="Enums\ZustandsErfassungsmodus.cs" />
+    <Compile Include="Enums\ZustandsindexTyp.cs" />
+    <Compile Include="ExpressionHelper.cs" />
+    <Compile Include="FileNameConstants.cs" />
+    <Compile Include="FormatStrings.cs" />
+    <Compile Include="HexStringFromGuid.cs" />
+    <Compile Include="IIdHolder.cs" />
+    <Compile Include="ClientPackageDescriptor.cs" />
+    <Compile Include="Model.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="ReflectionMapper\EnumMapper.cs" />
+    <Compile Include="ReflectionMapper\Exceptions\PropertyTranslatonNotConfiguredException.cs" />
+    <Compile Include="ReflectionMapper\Exceptions\TranslatorNotFoundExceptiojn.cs" />
+    <Compile Include="ReflectionMapper\IMappingRule.cs" />
+    <Compile Include="ReflectionMapper\Interfaces\IMapper.cs" />
+    <Compile Include="ReflectionMapper\Interfaces\IMappingConfiguration.cs" />
+    <Compile Include="ReflectionMapper\Interfaces\IMappingEngine.cs" />
+    <Compile Include="ReflectionMapper\MappingConfiguration.cs" />
+    <Compile Include="ReflectionMapper\MappingEngine.cs" />
+    <Compile Include="ReflectionMapper\ReflectingMapper.cs" />
+    <Compile Include="ReflectionMapper\RuleDrivenReflectingMapper.cs" />
+    <Compile Include="ServerPackageDescriptor.cs" />
+    <Compile Include="Utils\PackageVersioner.cs" />
+    <Compile Include="Services\SchadenMetadaten\SchadendetailMetadaten.cs" />
+    <Compile Include="Services\SchadenMetadaten\SchadengruppeMetadaten.cs" />
+    <Compile Include="Services\SchadenMetadaten\SchadenMetadatenService.cs" />
+    <Compile Include="ShapeAttributeNames.cs" />
+    <Compile Include="TextValuePair.cs" />
+    <Compile Include="Utils\IEnumerableExtensions.cs" />
+    <Compile Include="Utils\EmsgLayerInfo.cs" />
+    <Compile Include="Utils\GisConstants.cs" />
+    <Compile Include="Utils\StreamExtensions.cs" />
+    <Compile Include="Utils\StringExtensions.cs" />
+    <Compile Include="VersionPostfix.cs" />
+    <Compile Include="XMLKeyValuePair.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="app.config" />
+    <None Include="packages.config" />
+  </ItemGroup>
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target>
+  -->
+</Project>

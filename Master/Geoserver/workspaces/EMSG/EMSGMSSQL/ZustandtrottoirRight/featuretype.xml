@@ -1,0 +1,121 @@
+<featureType>
+  <id>FeatureTypeInfoImpl-5a828897:156ea4b1d5b:-7b72</id>
+  <name>ZustandtrottoirRight</name>
+  <nativeName>ZUSTANDTROTTOIRRIGHT</nativeName>
+  <namespace>
+    <id>NamespaceInfoImpl--712dd8df:156b736ad9b:-7fe4</id>
+  </namespace>
+  <title>ZustandtrottoirRight</title>
+  <abstract>Right from the geometry; if inverted its the leftTrottoir displayed on the right side</abstract>
+  <keywords>
+    <string>ZUSTANDTROTTOIRRIGHT</string>
+    <string>features</string>
+  </keywords>
+  <nativeCRS class="projected">PROJCS[&quot;CH1903 / LV03&quot;, 
+  GEOGCS[&quot;CH1903&quot;, 
+    DATUM[&quot;CH1903&quot;, 
+      SPHEROID[&quot;Bessel 1841&quot;, 6377397.155, 299.1528128, AUTHORITY[&quot;EPSG&quot;,&quot;7004&quot;]], 
+      TOWGS84[674.4, 15.1, 405.3, 0.0, 0.0, 0.0, 0.0], 
+      AUTHORITY[&quot;EPSG&quot;,&quot;6149&quot;]], 
+    PRIMEM[&quot;Greenwich&quot;, 0.0, AUTHORITY[&quot;EPSG&quot;,&quot;8901&quot;]], 
+    UNIT[&quot;degree&quot;, 0.017453292519943295], 
+    AXIS[&quot;Geodetic longitude&quot;, EAST], 
+    AXIS[&quot;Geodetic latitude&quot;, NORTH], 
+    AUTHORITY[&quot;EPSG&quot;,&quot;4149&quot;]], 
+  PROJECTION[&quot;Oblique_Mercator&quot;], 
+  PARAMETER[&quot;longitude_of_center&quot;, 7.439583333333333], 
+  PARAMETER[&quot;latitude_of_center&quot;, 46.952405555555565], 
+  PARAMETER[&quot;azimuth&quot;, 90.0], 
+  PARAMETER[&quot;scale_factor&quot;, 1.0], 
+  PARAMETER[&quot;false_easting&quot;, 600000.0], 
+  PARAMETER[&quot;false_northing&quot;, 200000.0], 
+  PARAMETER[&quot;rectified_grid_angle&quot;, 90.0], 
+  UNIT[&quot;m&quot;, 1.0], 
+  AXIS[&quot;Easting&quot;, EAST], 
+  AXIS[&quot;Northing&quot;, NORTH], 
+  AUTHORITY[&quot;EPSG&quot;,&quot;21781&quot;]]</nativeCRS>
+  <srs>EPSG:21781</srs>
+  <nativeBoundingBox>
+    <minx>485869.5728</minx>
+    <maxx>837076.5648</maxx>
+    <miny>76443.1884</miny>
+    <maxy>299941.7864</maxy>
+  </nativeBoundingBox>
+  <latLonBoundingBox>
+    <minx>5.914046019212597</minx>
+    <maxx>10.604189138594377</maxx>
+    <miny>45.79817064996812</miny>
+    <maxy>47.849961828314406</maxy>
+    <crs>GEOGCS[&quot;WGS84(DD)&quot;, 
+  DATUM[&quot;WGS84&quot;, 
+    SPHEROID[&quot;WGS84&quot;, 6378137.0, 298.257223563]], 
+  PRIMEM[&quot;Greenwich&quot;, 0.0], 
+  UNIT[&quot;degree&quot;, 0.017453292519943295], 
+  AXIS[&quot;Geodetic longitude&quot;, EAST], 
+  AXIS[&quot;Geodetic latitude&quot;, NORTH]]</crs>
+  </latLonBoundingBox>
+  <projectionPolicy>FORCE_DECLARED</projectionPolicy>
+  <enabled>true</enabled>
+  <metadata>
+    <entry key="JDBC_VIRTUAL_TABLE">
+      <virtualTable>
+        <name>ZUSTANDTROTTOIRRIGHT</name>
+        <sql>select    &#xd;
+  z.zsg_id as ID,     &#xd;
+  ar.acr_id as ACHSREFID,     &#xd;
+  z.zsg_zustandsind_nr as ZUSTANDIDX,    &#xd;
+  ar.acr_shape_vl as SHAPE,     &#xd;
+  s.stg_stg_man_nor_id AS MANDANT_ID , &#xd;
+  &#xd;
+  CASE ase.acs_isinverted_vl &#xd;
+    WHEN 1 THEN &#xd;
+      z.zsg_zstindtrl_vl &#xd;
+    WHEN 0 THEN &#xd;
+      z.zsg_zstindtrr_vl END -1 &#xd;
+  as  ZST_INDEX,&#xd;
+s.stg_trottoir_vl as TROTTOIR,&#xd;
+cast(ase.acs_isinverted_vl as int) as ISINVERTED&#xd;
+ &#xd;
+from &#xd;
+  add_zstgis_msg z    &#xd;
+  inner join add_stragis_msg s  &#xd;
+  on z.zsg_zsg_stg_nor_id = s.stg_id    &#xd;
+  join adr_refgruppe_msg r &#xd;
+  on z.zsg_zsg_rfg_nor_id = r.rfg_id  &#xd;
+  join add_achsref_msg ar &#xd;
+  on ar.acr_acr_rfg_nor_id = r.rfg_id  &#xd;
+  join srd_achsseg_msg ase &#xd;
+  on ar.acr_acr_acs_nor_id = ase.acs_id   &#xd;
+where &#xd;
+ (s.stg_stg_epr_nor_id in &#xd;
+   (select e.epr_id from add_erfperiode_msg e &#xd;
+     where e.epr_istabgeschl_vl =0)) &#xd;
+ AND&#xd;
+  (s.stg_trottoir_vl=4 &#xd;
+  OR&#xd;
+    (s.stg_trottoir_vl=2 AND &#xd;
+      ase.acs_isinverted_vl = 1)&#xd;
+  OR&#xd;
+    (s.stg_trottoir_vl=3 AND &#xd;
+      ase.acs_isinverted_vl = 0) )
+</sql>
+        <escapeSql>false</escapeSql>
+        <keyColumn>ID</keyColumn>
+        <geometry>
+          <name>SHAPE</name>
+          <type>MultiLineString</type>
+          <srid>21781</srid>
+        </geometry>
+      </virtualTable>
+    </entry>
+    <entry key="cachingEnabled">false</entry>
+  </metadata>
+  <store class="dataStore">
+    <id>DataStoreInfoImpl--712dd8df:156b736ad9b:-7fe3</id>
+  </store>
+  <maxFeatures>0</maxFeatures>
+  <numDecimals>0</numDecimals>
+  <overridingServiceSRS>false</overridingServiceSRS>
+  <skipNumberMatched>false</skipNumberMatched>
+  <circularArcPresent>false</circularArcPresent>
+</featureType>

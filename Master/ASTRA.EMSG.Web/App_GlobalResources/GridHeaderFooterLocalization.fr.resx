@@ -1,0 +1,474 @@
+<?xml version="1.0" encoding="utf-8"?>
+<root>
+  <!-- 
+    Microsoft ResX Schema 
+    
+    Version 2.0
+    
+    The primary goals of this format is to allow a simple XML format 
+    that is mostly human readable. The generation and parsing of the 
+    various data types are done through the TypeConverter classes 
+    associated with the data types.
+    
+    Example:
+    
+    ... ado.net/XML headers & schema ...
+    <resheader name="resmimetype">text/microsoft-resx</resheader>
+    <resheader name="version">2.0</resheader>
+    <resheader name="reader">System.Resources.ResXResourceReader, System.Windows.Forms, ...</resheader>
+    <resheader name="writer">System.Resources.ResXResourceWriter, System.Windows.Forms, ...</resheader>
+    <data name="Name1"><value>this is my long string</value><comment>this is a comment</comment></data>
+    <data name="Color1" type="System.Drawing.Color, System.Drawing">Blue</data>
+    <data name="Bitmap1" mimetype="application/x-microsoft.net.object.binary.base64">
+        <value>[base64 mime encoded serialized .NET Framework object]</value>
+    </data>
+    <data name="Icon1" type="System.Drawing.Icon, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
+        <value>[base64 mime encoded string representing a byte array form of the .NET Framework object]</value>
+        <comment>This is a comment</comment>
+    </data>
+                
+    There are any number of "resheader" rows that contain simple 
+    name/value pairs.
+    
+    Each data row contains a name, and value. The row also contains a 
+    type or mimetype. Type corresponds to a .NET class that support 
+    text/value conversion through the TypeConverter architecture. 
+    Classes that don't support this are serialized and stored with the 
+    mimetype set.
+    
+    The mimetype is used for serialized objects, and tells the 
+    ResXResourceReader how to depersist the object. This is currently not 
+    extensible. For a given mimetype the value must be set accordingly:
+    
+    Note - application/x-microsoft.net.object.binary.base64 is the format 
+    that the ResXResourceWriter will generate, however the reader can 
+    read any of the formats listed below.
+    
+    mimetype: application/x-microsoft.net.object.binary.base64
+    value   : The object must be serialized with 
+            : System.Runtime.Serialization.Formatters.Binary.BinaryFormatter
+            : and then encoded with base64 encoding.
+    
+    mimetype: application/x-microsoft.net.object.soap.base64
+    value   : The object must be serialized with 
+            : System.Runtime.Serialization.Formatters.Soap.SoapFormatter
+            : and then encoded with base64 encoding.
+
+    mimetype: application/x-microsoft.net.object.bytearray.base64
+    value   : The object must be serialized into a byte array 
+            : using a System.ComponentModel.TypeConverter
+            : and then encoded with base64 encoding.
+    -->
+  <xsd:schema id="root" xmlns="" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:msdata="urn:schemas-microsoft-com:xml-msdata">
+    <xsd:import namespace="http://www.w3.org/XML/1998/namespace" />
+    <xsd:element name="root" msdata:IsDataSet="true">
+      <xsd:complexType>
+        <xsd:choice maxOccurs="unbounded">
+          <xsd:element name="metadata">
+            <xsd:complexType>
+              <xsd:sequence>
+                <xsd:element name="value" type="xsd:string" minOccurs="0" />
+              </xsd:sequence>
+              <xsd:attribute name="name" use="required" type="xsd:string" />
+              <xsd:attribute name="type" type="xsd:string" />
+              <xsd:attribute name="mimetype" type="xsd:string" />
+              <xsd:attribute ref="xml:space" />
+            </xsd:complexType>
+          </xsd:element>
+          <xsd:element name="assembly">
+            <xsd:complexType>
+              <xsd:attribute name="alias" type="xsd:string" />
+              <xsd:attribute name="name" type="xsd:string" />
+            </xsd:complexType>
+          </xsd:element>
+          <xsd:element name="data">
+            <xsd:complexType>
+              <xsd:sequence>
+                <xsd:element name="value" type="xsd:string" minOccurs="0" msdata:Ordinal="1" />
+                <xsd:element name="comment" type="xsd:string" minOccurs="0" msdata:Ordinal="2" />
+              </xsd:sequence>
+              <xsd:attribute name="name" type="xsd:string" use="required" msdata:Ordinal="1" />
+              <xsd:attribute name="type" type="xsd:string" msdata:Ordinal="3" />
+              <xsd:attribute name="mimetype" type="xsd:string" msdata:Ordinal="4" />
+              <xsd:attribute ref="xml:space" />
+            </xsd:complexType>
+          </xsd:element>
+          <xsd:element name="resheader">
+            <xsd:complexType>
+              <xsd:sequence>
+                <xsd:element name="value" type="xsd:string" minOccurs="0" msdata:Ordinal="1" />
+              </xsd:sequence>
+              <xsd:attribute name="name" type="xsd:string" use="required" />
+            </xsd:complexType>
+          </xsd:element>
+        </xsd:choice>
+      </xsd:complexType>
+    </xsd:element>
+  </xsd:schema>
+  <resheader name="resmimetype">
+    <value>text/microsoft-resx</value>
+  </resheader>
+  <resheader name="version">
+    <value>2.0</value>
+  </resheader>
+  <resheader name="reader">
+    <value>System.Resources.ResXResourceReader, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </resheader>
+  <resheader name="writer">
+    <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </resheader>
+  <data name="AchsenVersion" xml:space="preserve">
+    <value>Version des axes</value>
+  </data>
+  <data name="AlterungsbeiwertI" xml:space="preserve">
+    <value>Coefficient de dépréciation I avec réparations [%/année]</value>
+  </data>
+  <data name="AlterungsbeiwertII" xml:space="preserve">
+    <value>Coefficient de dépréciation II sans réparations [%/an]</value>
+  </data>
+  <data name="Aufnahmedatum" xml:space="preserve">
+    <value>Date de relevé</value>
+  </data>
+  <data name="Aufnahmeteam" xml:space="preserve">
+    <value>Equipe effectuant le relevé</value>
+  </data>
+  <data name="AusfuehrungsAnfang" xml:space="preserve">
+    <value>Début de l'exécution</value>
+  </data>
+  <data name="AusfuehrungsEnde" xml:space="preserve">
+    <value>Fin de l'exécution</value>
+  </data>
+  <data name="BelagsArt" xml:space="preserve">
+    <value>Revêtement</value>
+  </data>
+  <data name="Belastungskategorie" xml:space="preserve">
+    <value>Catégorie de charges</value>
+  </data>
+  <data name="BelastungskategorieTyp" xml:space="preserve">
+    <value>Catégorie de charges</value>
+  </data>
+  <data name="Bemerkung" xml:space="preserve">
+    <value>Remarque</value>
+  </data>
+  <data name="Benutzer" xml:space="preserve">
+    <value>Utilisateur</value>
+  </data>
+  <data name="Beschreibung" xml:space="preserve">
+    <value>Description</value>
+  </data>
+  <data name="BeteiligteSysteme" xml:space="preserve">
+    <value>Systèmes participants</value>
+  </data>
+  <data name="Bewertung" xml:space="preserve">
+    <value>Evaluation</value>
+  </data>
+  <data name="Bezeichnung" xml:space="preserve">
+    <value>Désignation</value>
+  </data>
+  <data name="BezeichnungBis" xml:space="preserve">
+    <value>Désignation jusqu'à</value>
+  </data>
+  <data name="BezeichnungVon" xml:space="preserve">
+    <value>Désignation de</value>
+  </data>
+  <data name="Datum" xml:space="preserve">
+    <value>Date</value>
+  </data>
+  <data name="Dringlichkeit" xml:space="preserve">
+    <value>Urgence</value>
+  </data>
+  <data name="DringlichkeitFahrbahn" xml:space="preserve">
+    <value>Urgence chaussée</value>
+  </data>
+  <data name="DringlichkeitTrottoirLinks" xml:space="preserve">
+    <value>Urgence trottoir gauche</value>
+  </data>
+  <data name="DringlichkeitTrottoirRechts" xml:space="preserve">
+    <value>Urgence trottoir droite</value>
+  </data>
+  <data name="DurchschnittlicherWiederbeschaffungswert" xml:space="preserve">
+    <value>Valeur de remplacement moyenne [CHF/m²]</value>
+  </data>
+  <data name="EnthalteneAbschnitte" xml:space="preserve">
+    <value>Tronçons de route contenus</value>
+  </data>
+  <data name="EreignisData" xml:space="preserve">
+    <value>Information détaillée</value>
+  </data>
+  <data name="EreignisTyp" xml:space="preserve">
+    <value>Action</value>
+  </data>
+  <data name="ErfassungsPeriodeDateTime" xml:space="preserve">
+    <value>Période de saisie des axes</value>
+  </data>
+  <data name="Fahrbahnschaeden" xml:space="preserve">
+    <value>Dégradations de la chaussée</value>
+  </data>
+  <data name="FlaceheTrottoirLinks" xml:space="preserve">
+    <value>Surf. trottoir gauche [m²]</value>
+  </data>
+  <data name="FlaceheTrottoirRechts" xml:space="preserve">
+    <value>Surface trottoir droite [m²]</value>
+  </data>
+  <data name="FlaecheErfasstesTrottoir" xml:space="preserve">
+    <value>Surface trottoir saisi [m²]</value>
+  </data>
+  <data name="FlaecheFahrbahn" xml:space="preserve">
+    <value>Surf. chaussée [m²]</value>
+  </data>
+  <data name="FlaecheFahrbahnProzent" xml:space="preserve">
+    <value>Surface chaussée [%]</value>
+  </data>
+  <data name="FlaecheTrottoir" xml:space="preserve">
+    <value>Surf. trottoir [m²]</value>
+  </data>
+  <data name="FlaecheTrottoirLinks" xml:space="preserve">
+    <value>Surface trottoir gauche [m²]</value>
+  </data>
+  <data name="FlaecheTrottoirLinksProzent" xml:space="preserve">
+    <value>Surface trottoir gauche [%]</value>
+  </data>
+  <data name="FlaecheTrottoirProzent" xml:space="preserve">
+    <value>Surface trottoir [%]</value>
+  </data>
+  <data name="FlaecheTrottoirRechts" xml:space="preserve">
+    <value>Surface trottoir saisi de droite [m²]</value>
+  </data>
+  <data name="FlaecheTrottoirRechtsProzent" xml:space="preserve">
+    <value>Surface trottoir droite [%]</value>
+  </data>
+  <data name="GesamtFlaeche" xml:space="preserve">
+    <value>Surface totale [m²]</value>
+  </data>
+  <data name="GesamtFlaecheInkluzieveTrottoir" xml:space="preserve">
+    <value>Surface totale incl. trottoir</value>
+  </data>
+  <data name="GesamtLaenge" xml:space="preserve">
+    <value>Longueur totale</value>
+  </data>
+  <data name="Gewicht" xml:space="preserve">
+    <value>Poids</value>
+  </data>
+  <data name="GridFooterSchadensumme" xml:space="preserve">
+    <value>Somme des dégradations</value>
+  </data>
+  <data name="GridFooterSumme" xml:space="preserve">
+    <value>Somme :</value>
+  </data>
+  <data name="GridFooterZustandsindex" xml:space="preserve">
+    <value>Indice d’état chaussée</value>
+  </data>
+  <data name="ImportDateTime" xml:space="preserve">
+    <value>Moment de l'import</value>
+  </data>
+  <data name="ImportStatistic" xml:space="preserve">
+    <value>Statistique relative aux modifications</value>
+  </data>
+  <data name="InInspektionBei" xml:space="preserve">
+    <value>Inspection par</value>
+  </data>
+  <data name="InInspektionBis" xml:space="preserve">
+    <value>En inspection jusqu'à</value>
+  </data>
+  <data name="Inspektionsrouten" xml:space="preserve">
+    <value>Itinéraire d'inspection</value>
+  </data>
+  <data name="IstDetaillierteSchadenserfassungsformular" xml:space="preserve">
+    <value>Formulaire des dégradations de surface disponible ?</value>
+  </data>
+  <data name="Jahr" xml:space="preserve">
+    <value>Année</value>
+  </data>
+  <data name="Kosten" xml:space="preserve">
+    <value>Coûts [CHF]</value>
+  </data>
+  <data name="KostenFahrbahn" xml:space="preserve">
+    <value>Coûts chaussée [CHF]</value>
+  </data>
+  <data name="KostenFahrbahnAndTrottoir" xml:space="preserve">
+    <value>Coûts chaussée et trottoir [CHF]</value>
+  </data>
+  <data name="KostenGesamtprojekt" xml:space="preserve">
+    <value>Coûts totaux du projet [CHF]</value>
+  </data>
+  <data name="KostenStrasse" xml:space="preserve">
+    <value>Coûts route [CHF]</value>
+  </data>
+  <data name="KostenTrottoirLinks" xml:space="preserve">
+    <value>Coûts trottoir gauche [CHF]</value>
+  </data>
+  <data name="KostenTrottoirRechts" xml:space="preserve">
+    <value>Coûts trottoir droite [CHF]</value>
+  </data>
+  <data name="Laenge" xml:space="preserve">
+    <value>Longueur [m]</value>
+  </data>
+  <data name="LeitendeOrganisation" xml:space="preserve">
+    <value>Organisation</value>
+  </data>
+  <data name="MandantName" xml:space="preserve">
+    <value>Mandant</value>
+  </data>
+  <data name="MassnahmenvorschlagFahrbahn" xml:space="preserve">
+    <value>Intervention à la chaussée</value>
+  </data>
+  <data name="MassnahmenvorschlagKatalogTyp" xml:space="preserve">
+    <value>Chaussée/trottoir</value>
+  </data>
+  <data name="MassnahmenvorschlagTrottoirLinks" xml:space="preserve">
+    <value>Intervention proposée pour le trottoir gauche</value>
+  </data>
+  <data name="MassnahmenvorschlagTrottoirRechts" xml:space="preserve">
+    <value>Intervention proposée pour le trottoir droite</value>
+  </data>
+  <data name="MassnahmenvorschlagTyp" xml:space="preserve">
+    <value>Désignation intervention proposée</value>
+  </data>
+  <data name="Matrix" xml:space="preserve">
+    <value>Matrice</value>
+  </data>
+  <data name="MittlerenJaehrlicherWerteverlust" xml:space="preserve">
+    <value>Dépréciation annuelle moy. [CHF]</value>
+  </data>
+  <data name="MittlererZustand" xml:space="preserve">
+    <value>Etat moyen</value>
+  </data>
+  <data name="Ortsbezeichnung" xml:space="preserve">
+    <value>Désignation du lieu</value>
+  </data>
+  <data name="Projektname" xml:space="preserve">
+    <value>Nom du projet</value>
+  </data>
+  <data name="RealisierteMassnahmenvorschlagKatalog" xml:space="preserve">
+    <value>Désignation</value>
+  </data>
+  <data name="Schadenausmass" xml:space="preserve">
+    <value>Etendue des dégradations</value>
+  </data>
+  <data name="Schadenbewertung" xml:space="preserve">
+    <value>Evaluation des dégradations</value>
+  </data>
+  <data name="Schadenschwere" xml:space="preserve">
+    <value>Gravité des dégradations</value>
+  </data>
+  <data name="Status" xml:space="preserve">
+    <value>Statut</value>
+  </data>
+  <data name="Strasseneigentuemer" xml:space="preserve">
+    <value>Propriétaire de la route</value>
+  </data>
+  <data name="Strassenflaeche" xml:space="preserve">
+    <value>Surf. des totale des chaussées [m²]</value>
+  </data>
+  <data name="StrassenflaecheInklTrottoirs" xml:space="preserve">
+    <value>Surface totale des chaussées et trottoirs [m²]</value>
+  </data>
+  <data name="Strassenlaenge" xml:space="preserve">
+    <value>Longueur totale [m]</value>
+  </data>
+  <data name="Strassenname" xml:space="preserve">
+    <value>Nom de la route</value>
+  </data>
+  <data name="Teilsystem" xml:space="preserve">
+    <value>Sous-système</value>
+  </data>
+  <data name="Trottoir" xml:space="preserve">
+    <value>Trottoir</value>
+  </data>
+  <data name="WertlustI" xml:space="preserve">
+    <value>Dépréciation I [CHF]</value>
+  </data>
+  <data name="WertlustII" xml:space="preserve">
+    <value>Dépréciation II [CHF]</value>
+  </data>
+  <data name="Wetter" xml:space="preserve">
+    <value>Temps</value>
+  </data>
+  <data name="Wiederbeschaffungswert" xml:space="preserve">
+    <value>Valeur de remplacement chaussée et trottoir [CHF]</value>
+  </data>
+  <data name="WiederbeschaffungswertAlterungsbeiwertI" xml:space="preserve">
+    <value>Coefficient de dépréciation I avec prise en compte des coûts des travaux de réparation [%]</value>
+  </data>
+  <data name="WiederbeschaffungswertAlterungsbeiwertII" xml:space="preserve">
+    <value>Coefficient de dépréciation II sans prise en compte des coûts des travaux de réparation [%]</value>
+  </data>
+  <data name="WiederbeschaffungswertFlaecheFahrbahn" xml:space="preserve">
+    <value>Valeur de remplacement moyenne chaussée, surface de référence chaussée [CHF/m²]</value>
+  </data>
+  <data name="WiederbeschaffungswertFlaecheTrottoir" xml:space="preserve">
+    <value>Valeur de remplacement moyenne trottoir, surface de référence trottoir [CHF/m²]</value>
+  </data>
+  <data name="WiederbeschaffungswertGesamtflaecheFahrbahn" xml:space="preserve">
+    <value>Valeur de remplacement totale moyenne, surface de référence uniquement surface de la chaussée [CHF/m²]</value>
+  </data>
+  <data name="WiederbeschaffungswertGesamtflaecheFahrbahnTrottoir" xml:space="preserve">
+    <value>Valeur de remplacement surface totale chaussée trottoir [CHF/m²]</value>
+  </data>
+  <data name="WiederbeschaffungswertGesamtlaenge" xml:space="preserve">
+    <value>Valeur de remplacement totale moyenne, dimension de référence longueur de chaussée [CHF/m]</value>
+  </data>
+  <data name="Zeit" xml:space="preserve">
+    <value>Date et heure</value>
+  </data>
+  <data name="Zustand" xml:space="preserve">
+    <value>Etat</value>
+  </data>
+  <data name="Zustandsindex" xml:space="preserve">
+    <value>Indice d’état I1</value>
+  </data>
+  <data name="ZustandsindexFahrbahn" xml:space="preserve">
+    <value>Indice d’état chaussée</value>
+  </data>
+  <data name="ZustandsindexTrottoirLinks" xml:space="preserve">
+    <value>Indice d’état trottoir gauche</value>
+  </data>
+  <data name="ZustandsindexTrottoirRechts" xml:space="preserve">
+    <value>Indice d’état trottoir droite</value>
+  </data>
+  <data name="ZustandsindexTypBezeichnung" xml:space="preserve">
+    <value>Indice d’état</value>
+  </data>
+  <data name="Abschnittsnummer" xml:space="preserve">
+    <value>Numéro de la section</value>
+  </data>
+  <data name="FilterName" xml:space="preserve">
+    <value>Nom filtre</value>
+  </data>
+  <data name="FilterValue" xml:space="preserve">
+    <value>Valeur filtre</value>
+  </data>
+  <data name="EntriesAreFiltered" xml:space="preserve">
+    <value>Entrées filtrées selon</value>
+  </data>
+  <data name="FiltersForInReport" xml:space="preserve">
+    <value>Entrées filtrées selon :</value>
+  </data>
+  <data name="StrassennameBezeichnungBis" xml:space="preserve">
+    <value>Désign. tronçon de route jusqu'à</value>
+  </data>
+  <data name="StrassennameBezeichnungVon" xml:space="preserve">
+    <value>Désign. tronçon de route de</value>
+  </data>
+  <data name="ZustandsErfassungsStatus" xml:space="preserve">
+    <value>État saisi</value>
+  </data>
+  <data name="Ausfuehrungsjahr" xml:space="preserve">
+    <value>Année d'exécution</value>
+  </data>
+  <data name="Trottoirtyp" xml:space="preserve">
+    <value>Type trottoir</value>
+  </data>
+  <data name="ExternalId" xml:space="preserve">
+    <value>ID</value>
+  </data>
+  <data name="Strassenabschnittsnummer" xml:space="preserve">
+    <value>Numéro tronçon de route</value>
+  </data>
+  <data name="Zustandabschnittnummer" xml:space="preserve">
+    <value>Numéro tronçon d‘état</value>
+  </data>
+  <data name="AchsenName" xml:space="preserve">
+    <value>Dénomination axe</value>
+  </data>
+</root>

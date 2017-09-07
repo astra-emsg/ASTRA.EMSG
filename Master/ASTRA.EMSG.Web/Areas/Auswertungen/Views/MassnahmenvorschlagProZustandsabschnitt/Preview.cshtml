@@ -1,0 +1,38 @@
+﻿@using ASTRA.EMSG.Common.Enums
+
+@using ASTRA.EMSG.Web.Areas.Auswertungen.ReportGridCommands
+@using ASTRA.EMSG.Web.Infrastructure.HtmlHelperExtensions
+@using Resources
+@model MassnahmenvorschlagProZustandsabschnittGridCommand
+@{
+    ViewData.Model = new MassnahmenvorschlagProZustandsabschnittGridCommand();
+}
+
+<div id="formDiv">
+
+    <div id="filters">
+        @Html.Hidden("ErfassungsPeriod", Model.ErfassungsPeriodId)
+
+        <div style="margin-top: 5px">
+            <b>@TitleLocalization.Filter</b>
+        </div>
+
+        @(Html.ToGridFilterBuilder<MassnahmenvorschlagProZustandsabschnittGridCommand>()
+              .WithTextFilter(m => m.Strassenname, triggerOn3Char: true)
+              .WithIntEnumFilter<EigentuemerTyp>(m => m.Eigentuemer, filterFunction: "gisReport.form.refreshGrid")
+              .WithIntEnumFilter<DringlichkeitTyp>(m => m.Dringlichkeit, filterFunction: "gisReport.form.refreshGrid")
+              .WithDecimalFilter(m => m.ZustandsindexVon, 1)
+              .WithDecimalFilter(m => m.ZustandsindexBis, 1)
+              .WithTextFilter(m => m.Ortsbezeichnung)
+              .WithFilterButton(true, "gisReport.form.refreshGrid"))
+    </div>
+
+    @ReportViewHelpers.GisReportButtons(Html, (NetzErfassungsmodus)ViewBag.NetzErfassungsmodus)
+
+    <div class="scrollable-grid-border">
+        <div class="scrollable-grid">
+            @Html.Partial("MassnahmenvorschlagProZustandsabschnittGrid", "MassnahmenvorschlagProZustandsabschnitt")
+        </div>
+    </div>
+
+</div>

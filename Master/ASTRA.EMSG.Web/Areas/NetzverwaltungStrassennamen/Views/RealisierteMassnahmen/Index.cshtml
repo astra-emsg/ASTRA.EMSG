@@ -1,0 +1,72 @@
+﻿@using ASTRA.EMSG.Business.Models.Strassennamen
+@using ASTRA.EMSG.Common
+@using ASTRA.EMSG.Web.Areas.Common.GridCommands
+@using ASTRA.EMSG.Web.Infrastructure.HtmlHelperExtensions
+@using Resources
+@using ASTRA.EMSG.Web.Infrastructure.TelerikExtensions
+@using Kendo.Mvc.UI
+
+<h2>@TitleLocalization.RealisierteMassnahmenPageTitle</h2>
+@section JavaScript
+{
+    <script type="text/javascript" src="@(Url.Content("~/Scripts/Areas/NetzverwaltungStrassennamen/RealisierteMassnahmen/RealisierteMassnahmen.js"))"></script>
+}
+@(Html.ToGridFilterBuilder<RealisierteMassnahmenGridCommand>()
+                        .WithTextFilter(f => f.ProjektnameFilter)
+                        .WithFilterButton(useUnobtrusive: true, filterButtonLabel: ButtonLocalization.Search))
+
+<br />
+<div class="scrollable-grid-border">
+    <div class="scrollable-grid">
+        @{
+            Html.Kendo().Grid<RealisierteMassnahmeOverviewModel>()
+                .Name("RealisierteMassnahmeGrid")
+                .ApplyEmsgSettings()
+                .DataSource(dataBinding => dataBinding
+                    .Ajax()
+                    .Read(c => c.Action("GetAll", "RealisierteMassnahmen").Data("index.getFilteredData"))
+                    .Destroy(c => c.Action("Delete", "RealisierteMassnahmen"))
+                    .Model(keys => keys.Id(m => m.Id))
+                    .PageSize(ASTRA.EMSG.Web.Infrastructure.ConstantSettings.GridPageSize))
+                .HtmlAttributes(new
+                {
+                    data_createurl = @Url.Action("Create"),
+                    data_createwindowtitle = TitleLocalization.RealisierteMassnahmenCreatePopupTitle,
+                    data_editurl = @Url.Action("EditRealisierteMassnahme"),
+                    data_editwindowtitle = TitleLocalization.RealisierteMassnahmenEditPopupTitle,
+                    style = "display : inline-block"
+                })
+                .ToolBar(commands =>
+                {
+                    commands.Template(
+                    new EmsgToolbarBuilder()
+                        .AddButton("index.openRealisierteMassnahmeCreateWindow()", ButtonLocalization.AddNewRealisierteMassnahme)
+                        .ToTemplate());
+                })
+                .Columns(columns =>
+                {
+                    columns.Bound(m => m.Id).GridCommands(Html.EditButton("index.openRealisierteMassnahmeEditWindow('#= Id #')").ToHtmlString(),
+                        Html.GridDeleteButton().ToHtmlString()).Width(85);
+
+                    columns.Bound(m => m.Projektname).Title(GridHeaderFooterLocalization.Projektname);
+                    columns.Bound(m => m.BezeichnungVon).Title(GridHeaderFooterLocalization.BezeichnungVon);
+                    columns.Bound(m => m.BezeichnungBis).Title(GridHeaderFooterLocalization.BezeichnungBis);
+                    columns.Bound(m => m.Beschreibung).Title(GridHeaderFooterLocalization.Beschreibung).Width("20%");
+                    columns.Bound(m => m.FlaecheFahrbahn).Title(GridHeaderFooterLocalization.FlaecheFahrbahn).Format(FormatStrings.NoDecimalFormat).AlignRight();
+                    columns.Bound(m => m.FlaecheTrottoirLinks).Title(GridHeaderFooterLocalization.FlaceheTrottoirLinks).Format(FormatStrings.NoDecimalFormat).AlignRight();
+                    columns.Bound(m => m.FlaecheTrottoirRechts).Title(GridHeaderFooterLocalization.FlaceheTrottoirRechts).Format(FormatStrings.NoDecimalFormat).AlignRight();
+                    columns.Bound(m => m.KostenFahrbahn).Title(GridHeaderFooterLocalization.KostenFahrbahn).Format(FormatStrings.NoDecimalFormat).AlignRight();
+                    columns.Bound(m => m.KostenTrottoirLinks).Title(GridHeaderFooterLocalization.KostenTrottoirLinks).Format(FormatStrings.NoDecimalFormat).AlignRight();
+                    columns.Bound(m => m.KostenTrottoirRechts).Title(GridHeaderFooterLocalization.KostenTrottoirRechts).Format(FormatStrings.NoDecimalFormat).AlignRight();
+                })
+                .Render();
+        }
+    </div>
+</div>
+
+@{
+    Html.TelerikWindow(TitleLocalization.RealisierteMassnahmenEditPopupTitle, "RealisierteMassnahmeWindow", "realisierteMassnahmeFormDiv")
+        .Events(events => events.Close("index.onCloseRealisierteMassnahmeWindow"))
+        .HtmlAttributes(new { data_savedwarning = @Html.Raw(NotificationLocalization.RealisierteMassnahmeSavedWarning) })
+        .Render();
+}

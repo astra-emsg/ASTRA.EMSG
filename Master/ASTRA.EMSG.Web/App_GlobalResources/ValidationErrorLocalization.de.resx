@@ -1,0 +1,331 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<root>
+  <!-- 
+    Microsoft ResX Schema 
+    
+    Version 2.0
+    
+    The primary goals of this format is to allow a simple XML format 
+    that is mostly human readable. The generation and parsing of the 
+    various data types are done through the TypeConverter classes 
+    associated with the data types.
+    
+    Example:
+    
+    ... ado.net/XML headers & schema ...
+    <resheader name="resmimetype">text/microsoft-resx</resheader>
+    <resheader name="version">2.0</resheader>
+    <resheader name="reader">System.Resources.ResXResourceReader, System.Windows.Forms, ...</resheader>
+    <resheader name="writer">System.Resources.ResXResourceWriter, System.Windows.Forms, ...</resheader>
+    <data name="Name1"><value>this is my long string</value><comment>this is a comment</comment></data>
+    <data name="Color1" type="System.Drawing.Color, System.Drawing">Blue</data>
+    <data name="Bitmap1" mimetype="application/x-microsoft.net.object.binary.base64">
+        <value>[base64 mime encoded serialized .NET Framework object]</value>
+    </data>
+    <data name="Icon1" type="System.Drawing.Icon, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
+        <value>[base64 mime encoded string representing a byte array form of the .NET Framework object]</value>
+        <comment>This is a comment</comment>
+    </data>
+                
+    There are any number of "resheader" rows that contain simple 
+    name/value pairs.
+    
+    Each data row contains a name, and value. The row also contains a 
+    type or mimetype. Type corresponds to a .NET class that support 
+    text/value conversion through the TypeConverter architecture. 
+    Classes that don't support this are serialized and stored with the 
+    mimetype set.
+    
+    The mimetype is used for serialized objects, and tells the 
+    ResXResourceReader how to depersist the object. This is currently not 
+    extensible. For a given mimetype the value must be set accordingly:
+    
+    Note - application/x-microsoft.net.object.binary.base64 is the format 
+    that the ResXResourceWriter will generate, however the reader can 
+    read any of the formats listed below.
+    
+    mimetype: application/x-microsoft.net.object.binary.base64
+    value   : The object must be serialized with 
+            : System.Runtime.Serialization.Formatters.Binary.BinaryFormatter
+            : and then encoded with base64 encoding.
+    
+    mimetype: application/x-microsoft.net.object.soap.base64
+    value   : The object must be serialized with 
+            : System.Runtime.Serialization.Formatters.Soap.SoapFormatter
+            : and then encoded with base64 encoding.
+
+    mimetype: application/x-microsoft.net.object.bytearray.base64
+    value   : The object must be serialized into a byte array 
+            : using a System.ComponentModel.TypeConverter
+            : and then encoded with base64 encoding.
+    -->
+  <xsd:schema id="root" xmlns="" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:msdata="urn:schemas-microsoft-com:xml-msdata">
+    <xsd:import namespace="http://www.w3.org/XML/1998/namespace" />
+    <xsd:element name="root" msdata:IsDataSet="true">
+      <xsd:complexType>
+        <xsd:choice maxOccurs="unbounded">
+          <xsd:element name="metadata">
+            <xsd:complexType>
+              <xsd:sequence>
+                <xsd:element name="value" type="xsd:string" minOccurs="0" />
+              </xsd:sequence>
+              <xsd:attribute name="name" use="required" type="xsd:string" />
+              <xsd:attribute name="type" type="xsd:string" />
+              <xsd:attribute name="mimetype" type="xsd:string" />
+              <xsd:attribute ref="xml:space" />
+            </xsd:complexType>
+          </xsd:element>
+          <xsd:element name="assembly">
+            <xsd:complexType>
+              <xsd:attribute name="alias" type="xsd:string" />
+              <xsd:attribute name="name" type="xsd:string" />
+            </xsd:complexType>
+          </xsd:element>
+          <xsd:element name="data">
+            <xsd:complexType>
+              <xsd:sequence>
+                <xsd:element name="value" type="xsd:string" minOccurs="0" msdata:Ordinal="1" />
+                <xsd:element name="comment" type="xsd:string" minOccurs="0" msdata:Ordinal="2" />
+              </xsd:sequence>
+              <xsd:attribute name="name" type="xsd:string" use="required" msdata:Ordinal="1" />
+              <xsd:attribute name="type" type="xsd:string" msdata:Ordinal="3" />
+              <xsd:attribute name="mimetype" type="xsd:string" msdata:Ordinal="4" />
+              <xsd:attribute ref="xml:space" />
+            </xsd:complexType>
+          </xsd:element>
+          <xsd:element name="resheader">
+            <xsd:complexType>
+              <xsd:sequence>
+                <xsd:element name="value" type="xsd:string" minOccurs="0" msdata:Ordinal="1" />
+              </xsd:sequence>
+              <xsd:attribute name="name" type="xsd:string" use="required" />
+            </xsd:complexType>
+          </xsd:element>
+        </xsd:choice>
+      </xsd:complexType>
+    </xsd:element>
+  </xsd:schema>
+  <resheader name="resmimetype">
+    <value>text/microsoft-resx</value>
+  </resheader>
+  <resheader name="version">
+    <value>2.0</value>
+  </resheader>
+  <resheader name="reader">
+    <value>System.Resources.ResXResourceReader, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </resheader>
+  <resheader name="writer">
+    <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </resheader>
+  <data name="AllowedDecimalPlaces" xml:space="preserve">
+    <value>Nur {0} Nachkommastelle(n) erlaubt!</value>
+    <comment>{0} : Decimal places count</comment>
+  </data>
+  <data name="AusfuehrungsAnfangAusfuehrungsEndeError" xml:space="preserve">
+    <value>Ausführungsanfang soll kleiner oder gleich sein als Ausführungsende!</value>
+  </data>
+  <data name="BeteiligteSystemeEmpty" xml:space="preserve">
+    <value>Sie müssen mindestens ein beteiligtes System auswählen.</value>
+  </data>
+  <data name="email_error" xml:space="preserve">
+    <value>„{PropertyName}“ ist keine gültige E-Mail-Adresse.</value>
+  </data>
+  <data name="equal_error" xml:space="preserve">
+    <value>„{PropertyName}“ muss gleich '{PropertyValue}' sein.</value>
+  </data>
+  <data name="exact_length_error" xml:space="preserve">
+    <value>„{PropertyName}“ muss genau {MaxLength} Zeichen lang sein. Es wurde {TotalLength} Zeichen eingegeben.</value>
+  </data>
+  <data name="exclusivebetween_error" xml:space="preserve">
+    <value>„{PropertyName}“ muss zwischen {From} und {To} sein. Es wurde {Value} eingegeben.</value>
+  </data>
+  <data name="GeometryNotOnAchsenSegment" xml:space="preserve">
+    <value>Die gewählte Geometrie befindet sich nicht vollständig auf der zugehörigen Achse</value>
+  </data>
+  <data name="GeometryNull" xml:space="preserve">
+    <value>Für den Abschnitt wurde keine Geometrie ausgewählt. Bitte wählen Sie diese über die Karte aus.</value>
+    <comment>General error message for Geometry == null (Nothing selected on the map)</comment>
+  </data>
+  <data name="GeometryOverlaps" xml:space="preserve">
+    <value>Der ausgewählte Abschnitt überlappt andere Abschnitte!</value>
+  </data>
+  <data name="greaterthanorequal_error" xml:space="preserve">
+    <value>Der Wert von „{PropertyName}“ muss grösser oder gleich '{ComparisonValue}' sein.</value>
+  </data>
+  <data name="greaterthan_error" xml:space="preserve">
+    <value>Der Wert von „{PropertyName}“ muss grösser als „{ComparisonValue}“ sein.</value>
+  </data>
+  <data name="HasNotJustUniqueStraasenabschnittenInspektionsRouteGIS" xml:space="preserve">
+    <value>Jeder Strassenabschnitt darf nur zu einer Inspektionsroute zugeordnet werden!</value>
+  </data>
+  <data name="HtmlTagsNotAllowed" xml:space="preserve">
+    <value>„{PropertyName} weist ein ungültiges Format auf.</value>
+  </data>
+  <data name="ImportError" xml:space="preserve">
+    <value>Fehler beim Import</value>
+  </data>
+  <data name="inclusivebetween_error" xml:space="preserve">
+    <value>„{PropertyName}“ muss einen Wert von {From} bis {To} haben. Es wurde {Value} eingegeben.</value>
+  </data>
+  <data name="IncorrectHeaderText" xml:space="preserve">
+    <value>Die Spaltenüberschrift in Spalte {0} ist nicht korrekt!</value>
+    <comment>{0} : Column identifier</comment>
+  </data>
+  <data name="IncorrectNumberOfColumns" xml:space="preserve">
+    <value>Kolonnenanzahl stimmt nicht überein!</value>
+  </data>
+  <data name="InspektionsRouteNotExported" xml:space="preserve">
+    <value>Die Inspektionsroute konnte nicht importiert werden, da sie nicht unter den ausgecheckten Inspektionsrouten erscheint.</value>
+  </data>
+  <data name="InspektionsRouteNotFound" xml:space="preserve">
+    <value>Die Inspektionsroute konnte nicht importiert werden, da sie nicht unter den ausgecheckten Inspektionsrouten erscheint.</value>
+  </data>
+  <data name="InvalidKenngroessenFuehererJahre" xml:space="preserve">
+    <value>Jahr soll vor dem ersten Jahresabschluss ({0}) sein!</value>
+    <comment>{0} year of the first Jahresabschluss</comment>
+  </data>
+  <data name="InvalidLogLevel" xml:space="preserve">
+    <value>Ungültiges Log-Stufe!</value>
+  </data>
+  <data name="InvalidPackage" xml:space="preserve">
+    <value>Das importierte Paket ist ungültig</value>
+  </data>
+  <data name="InvalidResourceFileFormat" xml:space="preserve">
+    <value>Ungültiges Dateiformat!</value>
+  </data>
+  <data name="InvalidResourceFileKeyCount" xml:space="preserve">
+    <value>Zu wenige Schlüssel in der Datei!</value>
+  </data>
+  <data name="InvalidResourceFileName" xml:space="preserve">
+    <value>Ungültiger Dateiname!</value>
+  </data>
+  <data name="InvalidUserName" xml:space="preserve">
+    <value>Ungültiger Benutzername!</value>
+  </data>
+  <data name="KostenGesamtprojektGraterThanSum" xml:space="preserve">
+    <value>Kosten Gesamtprojekt muss grösser/gleich Kosten Fahrbahn + Kosten Trottoir links + Kosten Trottoir rechts sein</value>
+  </data>
+  <data name="LaengeShouldBeLessThanTheSumOfTheKorrekturen" xml:space="preserve">
+    <value>Die Summer der beiden Längenreduktionen muss kleiner/gleich als die Länge sein!</value>
+  </data>
+  <data name="length_error" xml:space="preserve">
+    <value>Die Länge von „{PropertyName}“ muss zwischen {MinLength} und {MaxLength} Zeichen liegen. Es wurden {TotalLength} Zeichen eingetragen.</value>
+  </data>
+  <data name="lessthanorequal_error" xml:space="preserve">
+    <value>Der Wert von „{PropertyName}“ muss kleiner oder gleich „{ComparisonValue}“ sein.</value>
+  </data>
+  <data name="lessthan_error" xml:space="preserve">
+    <value>Der Wert von „{PropertyName}“ muss kleiner als „{ComparisonValue}“ sein.</value>
+  </data>
+  <data name="MaximumEigenschaften" xml:space="preserve">
+    <value>Sie dürfen maximal 3 Vergleichsparameter auswählen!</value>
+  </data>
+  <data name="MissignHeader" xml:space="preserve">
+    <value>Die Spaltenüberschrift fehlt!</value>
+  </data>
+  <data name="notempty_error" xml:space="preserve">
+    <value>„{PropertyName}“ darf nicht leer sein.</value>
+  </data>
+  <data name="notequal_error" xml:space="preserve">
+    <value>„{PropertyName}“ darf nicht '{PropertyValue}' sein.</value>
+  </data>
+  <data name="notnull_error" xml:space="preserve">
+    <value>„{PropertyName}“ darf nicht leer sein.</value>
+  </data>
+  <data name="PackageVersionNotSupported" xml:space="preserve">
+    <value>Die Version des Import-Pakets wird nicht unterstützt</value>
+  </data>
+  <data name="predicate_error" xml:space="preserve">
+    <value>Der Wert von „{PropertyName}“ entspricht nicht der festgelegten Bedingung.</value>
+  </data>
+  <data name="regex_error" xml:space="preserve">
+    <value>„{PropertyName} weist ein ungültiges Format auf.</value>
+  </data>
+  <data name="RowN" xml:space="preserve">
+    <value> (Zeile {0})</value>
+    <comment>{0}: Rownumber</comment>
+  </data>
+  <data name="ShouldBeEmpty" xml:space="preserve">
+    <value>„{0}“ muss leer sein.</value>
+    <comment>{0}: Field name</comment>
+  </data>
+  <data name="ShouldBeUnique" xml:space="preserve">
+    <value>Der Wert sollte eindeutig sein!</value>
+  </data>
+  <data name="ShouldNotBeEmpty" xml:space="preserve">
+    <value>„{0}“ darf nicht leer sein.</value>
+    <comment>{0}: Field name</comment>
+  </data>
+  <data name="ShouldNotBeNegative" xml:space="preserve">
+    <value>Wert darf nicht negativ sein!</value>
+  </data>
+  <data name="StrassenabschnittDoesNotExistsError" xml:space="preserve">
+    <value>Es gibt keinen Strassenabschnitt mit Strassenname "{0}", mit Bezeichnung von "{1}" und mit Bezeichnung bis "{2}" in Zeile {3} !</value>
+    <comment>{0}: Strassenname, {1}: BezeichnungVon, {2}: BezeichnungBis, {3}:RowNumber</comment>
+  </data>
+  <data name="StrassenabschnittZustandsabschnittLaengeError" xml:space="preserve">
+    <value>Die Summe der Längen der Zustandsabschnitte darf nicht grösser sein als die Länge des Strassenabschnitts ({0:#,0} m).</value>
+    <comment>{0}:Strassenabschnitt Länge</comment>
+  </data>
+  <data name="TooBigFile" xml:space="preserve">
+    <value>Die hochgeladene Datei ist zu gross!</value>
+  </data>
+  <data name="WrongDataFormat" xml:space="preserve">
+    <value>Ungültiger Eintrag in Zelle {0}!</value>
+    <comment>{0}: Cell identifier</comment>
+  </data>
+  <data name="WrongFileFormat" xml:space="preserve">
+    <value>Nicht korrektes Dateiformat!</value>
+  </data>
+  <data name="ZustandAbschnittNotWithin" xml:space="preserve">
+    <value>Der Zustandsabschnitt befindet sich nicht vollständig innerhalb des Strassenabschnitts!</value>
+  </data>
+  <data name="HelpFileMappingMissing" xml:space="preserve">
+    <value>{0} fehlt!</value>
+    <comment>{0}: HelpFileMapping file name</comment>
+  </data>
+  <data name="JahresAbschlussStrassenabschnittLocked" xml:space="preserve">
+    <value>Einige Strassenabschnitte sind durch eine exportierte Inspektionsroute gesperrt</value>
+  </data>
+  <data name="BelagBelastungskategorieMissmatch" xml:space="preserve">
+    <value>Bitte beachten Sie, dass bei mindestens einem Strassenabschnitt die Kombination von Belag und Belastungskategorie fachlich fragwürdig ist.</value>
+  </data>
+  <data name="SessionTimeOut" xml:space="preserve">
+    <value>Sie haben zu lange zwischen dem Import und dem Bestätigen gewartet! Bitte führen Sie den Import erneut durch!</value>
+  </data>
+  <data name="UnexpectedAchsenUpdateError" xml:space="preserve">
+    <value>Während des Updates trat ein unerwarteter Fehler auf!</value>
+  </data>
+  <data name="UpdateRunning" xml:space="preserve">
+    <value>Update für mandant {0} läuft! Startzeit: {1}</value>
+    <comment>{0}: Mandantname {1}: AchsenLock.StartTime</comment>
+  </data>
+  <data name="DetailFormIsNotInitialized" xml:space="preserve">
+    <value>Es wurde noch kein Schaden erfasst!</value>
+  </data>
+  <data name="GrobFormIsNotInitialized" xml:space="preserve">
+    <value>Es wurde noch kein Schaden erfasst!</value>
+  </data>
+  <data name="InvalidGeometry" xml:space="preserve">
+    <value>Die ausgewählte Geometrie ist ungültig</value>
+  </data>
+  <data name="HelpFileMissing" xml:space="preserve">
+    <value>{0} fehlt!</value>
+    <comment>{0}: HelpFile name</comment>
+  </data>
+  <data name="InvalidFileStructure" xml:space="preserve">
+    <value>Inkorrekter File Inhalt</value>
+  </data>
+  <data name="NoGISDataForExportError" xml:space="preserve">
+    <value>Es stehen keine Daten für den GIS-Export zur Verfügung.</value>
+  </data>
+  <data name="GeometryNotSimple" xml:space="preserve">
+    <value>Die Geometrie darf sich nicht selbst schneiden!</value>
+  </data>
+  <data name="RealisierteMassnahmeBreiteEmpty" xml:space="preserve">
+    <value>Sie müssen eine Breite angeben.</value>
+  </data>
+  <data name="NewPasswordShouldBeSame" xml:space="preserve">
+    <value>Die angegebenen Passwörter stimmen nicht überein!</value>
+  </data>
+</root>

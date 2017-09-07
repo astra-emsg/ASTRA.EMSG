@@ -1,0 +1,79 @@
+﻿@using ASTRA.EMSG.Business.Models.Reports
+@using ASTRA.EMSG.Common
+@using ASTRA.EMSG.Common.Enums
+
+@using ASTRA.EMSG.Web.Areas.Auswertungen.ReportGridCommands
+@using ASTRA.EMSG.Web.Infrastructure.HtmlHelperExtensions
+@using Resources
+@using Kendo.Mvc.UI
+
+@{
+    var isInGISMode = (NetzErfassungsmodus)ViewBag.NetzErfassungsmodus == NetzErfassungsmodus.Gis;
+    var erfassungsjahr = (DateTime?)ViewBag.Erfassungsjahr;
+
+    var gridFilterBuilder = Html.ToGridFilterBuilder<AusgefuellteErfassungsformulareFuerOberflaechenschaedenGridCommand>()
+        .WithEnumFilter<EigentuemerTyp?, EigentuemerTyp>(f => f.Eigentuemer)
+        .WithTextFilter(f => f.Strassenname, triggerOn3Char: true);
+
+    if (isInGISMode)
+    {
+        gridFilterBuilder.WithTextFilter(f => f.Inspektionsroutename);
+    }
+
+    gridFilterBuilder
+        .WithDateFilter(f => f.AufnahmedatumVon, erfassungsjahr.HasValue ? new DateTime(erfassungsjahr.Value.Year, 1, 1) : (DateTime?)null)
+        .WithDateFilter(f => f.AufnahmedatumBis, erfassungsjahr.HasValue ? new DateTime(erfassungsjahr.Value.Year, 12, 31) : (DateTime?)null)
+        .WithDecimalFilter(f => f.ZustandsindexVon, 2, 0)
+        .WithDecimalFilter(f => f.ZustandsindexBis, 2, 5)
+        .WithFilterButton(true);
+}
+
+@gridFilterBuilder
+
+@ReportViewHelpers.TabellarischReportButtons(Html, "AusgefuellteErfassungsformulareFuerOberflaechenschaeden", "AusgefuellteErfassungsformulareFuerOberflaechenschaeden", "preview.canGenerateReport")
+<div class="scrollable-grid-border">
+    <div class="scrollable-grid">
+        @(Html.Kendo().Grid<AusgefuellteErfassungsformulareFuerOberflaechenschaeden>()
+              .Name("AusgefuellteErfassungsformulareFuerOberflaechenschaeden")
+              .ApplyEmsgSettings(filterable: false, sortable: false, editable: false)
+              .DataSource(dataBinding => dataBinding
+                    .Ajax()
+                    .Read(c => c.Action("GetAllPreview", "AusgefuellteErfassungsformulareFuerOberflaechenschaeden")
+                        .Data("BuildParameter"))
+                        .Events(c => c.RequestEnd("preview.onRequestEnd"))
+                    .PageSize(ASTRA.EMSG.Web.Infrastructure.ConstantSettings.GridPageSize))
+              .HtmlAttributes(new { data_no_detallierte_schadenerfassungsformular_message = NotificationLocalization.NoDetallierteSchadenerfassungsformular })
+              .Columns(columns =>
+              {
+                  columns.Bound(m => m.Strassenname).Title(GridHeaderFooterLocalization.Strassenname);
+                  columns.Bound(m => m.BezeichnungVon).Title(GridHeaderFooterLocalization.BezeichnungVon);
+                  columns.Bound(m => m.BezeichnungBis).Title(GridHeaderFooterLocalization.BezeichnungBis);
+                  columns.Bound(m => m.InspektionsroutenName).Title(GridHeaderFooterLocalization.Inspektionsrouten).Hidden(!isInGISMode);
+                  columns.Bound(m => m.Aufnahmedatum).Title(GridHeaderFooterLocalization.Aufnahmedatum).Format(FormatStrings.ShortDateTimeFormat);
+                  columns.Bound(m => m.Zustandsindex).Title(GridHeaderFooterLocalization.Zustandsindex);
+                  columns.Bound(m => m.IstDetaillierteSchadenserfassungsformular)
+                      .ClientTemplate(string.Format("#= IstDetaillierteSchadenserfassungsformular ? '{0}' : '{1}' #", TextLocalization.Yes, TextLocalization.No))
+                      .Title(GridHeaderFooterLocalization.IstDetaillierteSchadenserfassungsformular);
+              })
+              )
+    </div>
+</div>
+
+<script type="text/javascript">
+
+    function RefreshGrid() {
+        common.refreshGrid('#AusgefuellteErfassungsformulareFuerOberflaechenschaeden');
+    }
+
+    function GetReportParameter() {
+        return {
+            Eigentuemer: $("#Eigentuemer").val(),
+            Strassenname: $("#Strassenname").val(),
+            Inspektionsroutename: $("#Inspektionsroutename").val(),
+            AufnahmedatumVon: $("#AufnahmedatumVon").val(),
+            AufnahmedatumBis: $("#AufnahmedatumBis").val(),
+            ZustandsindexVon: $("#ZustandsindexVon").val(),
+            ZustandsindexBis: $("#ZustandsindexBis").val()
+        };
+    }
+</script>

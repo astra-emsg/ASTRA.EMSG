@@ -1,0 +1,39 @@
+﻿@using ASTRA.EMSG.Business.Models.GIS
+@using ASTRA.EMSG.Common
+@using ASTRA.EMSG.Web.Areas.Common.GridCommands
+@using ASTRA.EMSG.Web.Infrastructure.HtmlHelperExtensions
+@using ASTRA.EMSG.Web.Infrastructure.TelerikExtensions
+@using Resources
+@using Kendo.Mvc.UI
+
+    @(Html.ToGridFilterBuilder<AchsenGridCommand>()
+                .WithTextFilter(f => f.AchsenName, triggerOn3Char: true)
+                .WithFilterButton(useUnobtrusive: true, filterButtonLabel: ButtonLocalization.Search))
+
+    <div class="scrollable-grid">
+        @(Html.Kendo().Grid<AchsenSegmentOverviewModel>()
+            .Name("AchsenGrid")
+            .ApplyEmsgSettings()
+            .DataSource(dataBinding => dataBinding
+                .Ajax()
+                .Read(c => c.Action("GetAll", "Achsen").Data("index.getFilteredData"))
+                .Destroy(c => c.Action("Delete", "Achsen"))
+                .Model(keys => keys.Id(m => m.Id))
+                .PageSize(ASTRA.EMSG.Web.Infrastructure.ConstantSettings.GridPageSize))
+                .ToolBar(commands =>
+                {
+                    commands.Template(
+                    new EmsgToolbarBuilder()
+                        .AddButton("overview.create()", ButtonLocalization.AddAchsen)
+                        .ToTemplate());
+                })
+                .Columns(columns =>
+                {
+                    columns.Bound(m => m.Id).GridCommands(Html.EditButton("overview.edit('#= Id #')").ToHtmlString(),
+                        Html.GridDeleteButton().ToHtmlString()).Width(85);
+
+                    columns.Bound(m => m.AchsenName).Title(GridHeaderFooterLocalization.AchsenName);
+                }
+            )
+        )
+    </div>

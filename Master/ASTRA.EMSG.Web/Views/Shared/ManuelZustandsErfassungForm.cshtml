@@ -1,0 +1,7 @@
+﻿@using ASTRA.EMSG.Common.Enums
+@using ASTRA.EMSG.Web.Infrastructure.HtmlHelperExtensions
+@model ASTRA.EMSG.Business.Models.Common.ZustandsabschnittdetailsModel
+<input type="hidden" id="CurrentZustandsErfassungsmodus" value="@(ZustandsErfassungsmodus.Manuel)"/>
+<div id="zustandsabschnittFormDiv">
+        @(Html.EditorTable(140).WithDecimalEditorFor(m => m.Zustandsindex, decimalPlaces:1))
+</div>

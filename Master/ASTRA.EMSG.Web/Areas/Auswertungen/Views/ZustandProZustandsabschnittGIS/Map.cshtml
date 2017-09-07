@@ -1,0 +1,20 @@
+﻿@using Resources
+<style type="text/css">
+    .legend .Name_ZUSTANDSABSCHNITTGIS_INDEX_AUSWERTUNG, 
+    .legend .Name_ZUSTANDSABSCHNITTGIS_INDEX_AUSWERTUNG_IndexIsNull
+    {
+        display: inline;
+    }
+</style>
+<script type="text/javascript">
+    globalMapAdjustCorrector = -20;
+
+    emsg.config.set("WMS.ARCGIS.LAYERS.ZUSTANDSABSCHNITTE", "ZustandabschnittLayer_Index");
+    emsg.config.set("WMS.ARCGIS.LAYERS.ZUSTANDSABSCHNITTETROTTOIR", "ZustandabschnittLayer_Trottoir_Index");
+    emsg.config.set("WMS.ARCGIS.LAYERS.STRASSENABSCHNITTE", "StrassenabschnittLayer_Report_Grey");
+    emsg.config.set("WMS.ARCGIS.LAYERID", "ZustandabschnittLayer_Index");
+
+    emsg.map = new Emsg.Map.Analysis(emsg);
+    emsg.map.layer_property = 'zabs';
+    emsg.map.sublayer_properties = [{ name: 'zabstrot', isRelevant: true }, { name: 'strabs', possibleFilter: ['ErfassungsPeriodId', 'Ortsbezeichnung', 'Eigentuemer'], isRelevant: false}];
+</script>

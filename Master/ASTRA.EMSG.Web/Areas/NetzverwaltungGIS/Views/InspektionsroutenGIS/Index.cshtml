@@ -1,0 +1,13 @@
+﻿@using Resources
+
+@section JavaScript 
+{ 
+    <script type="text/javascript" src="@(Url.Content("~/Scripts/Areas/NetzverwaltungGIS/Common.js"))"></script> 
+    <script type="text/javascript" src="@(Url.Content("~/Scripts/Areas/NetzverwaltungGIS/InspektionsroutenGIS/InspektionsroutenGIS.js"))"></script> 
+}
+
+@Html.Partial("OverviewDetailsTabs")
+
+<script>
+    var getExportReady = '@Url.Action("IsInspektionsroutenExportReady", "InspektionsroutenGIS")';
+</script>

@@ -1,0 +1,586 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="14.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProductVersion>
+    </ProductVersion>
+    <SchemaVersion>2.0</SchemaVersion>
+    <ProjectGuid>{0C4E9FE4-1B17-4C7D-889D-898249F12619}</ProjectGuid>
+    <OutputType>Library</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>ASTRA.EMSG.Tests</RootNamespace>
+    <AssemblyName>ASTRA.EMSG.Tests</AssemblyName>
+    <TargetFrameworkVersion>v4.6.1</TargetFrameworkVersion>
+    <FileAlignment>512</FileAlignment>
+    <ProjectTypeGuids>{3AC096D0-A1C2-E12C-1390-A8335801FDAB};{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}</ProjectTypeGuids>
+    <SccProjectName>SAK</SccProjectName>
+    <SccLocalPath>SAK</SccLocalPath>
+    <SccAuxPath>SAK</SccAuxPath>
+    <SccProvider>SAK</SccProvider>
+    <TargetFrameworkProfile />
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+    <PlatformTarget>x86</PlatformTarget>
+    <Prefer32Bit>false</Prefer32Bit>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+    <Prefer32Bit>false</Prefer32Bit>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="Autofac">
+      <HintPath>..\packages\Autofac.2.5.2.830\lib\NET40\Autofac.dll</HintPath>
+    </Reference>
+    <Reference Include="Autofac.Configuration">
+      <HintPath>..\packages\Autofac.2.5.2.830\lib\NET40\Autofac.Configuration.dll</HintPath>
+    </Reference>
+    <Reference Include="ClosedXML, Version=0.60.0.0, Culture=neutral, PublicKeyToken=fd1eb21b62ae805b, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\packages\ClosedXML_NET_4.0.60.0\lib\ClosedXML.dll</HintPath>
+    </Reference>
+    <Reference Include="DocumentFormat.OpenXml, Version=2.0.5022.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>..\packages\DocumentFormat.OpenXmlSDK.2.0\lib\Net35\DocumentFormat.OpenXml.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="FluentValidation, Version=3.4.6.0, Culture=neutral, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\packages\FluentValidation.3.4.6.0\lib\Net40\FluentValidation.dll</HintPath>
+    </Reference>
+    <Reference Include="GeoAPI">
+      <HintPath>..\packages\GeoAPI.1.7.4\lib\net40-client\GeoAPI.dll</HintPath>
+    </Reference>
+    <Reference Include="Iesi.Collections">
+      <HintPath>..\packages\Iesi.Collections.4.0.0.4000\lib\net40\Iesi.Collections.dll</HintPath>
+    </Reference>
+    <Reference Include="Ionic.Zip, Version=1.9.1.8, Culture=neutral, PublicKeyToken=edbe51ad942a3f5c, processorArchitecture=MSIL">
+      <HintPath>..\packages\DotNetZip.1.9.1.8\lib\net20\Ionic.Zip.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.SqlServer.Types, Version=13.0.0.0, Culture=neutral, PublicKeyToken=89845dcd8080cc91, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\packages\Microsoft.SqlServer.Types.11.0.2\lib\net20\Microsoft.SqlServer.Types.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.VisualStudio.QualityTools.UnitTestFramework, Version=10.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a, processorArchitecture=MSIL" />
+    <Reference Include="Moq">
+      <HintPath>..\packages\Moq.4.0.10827\lib\NET40\Moq.dll</HintPath>
+    </Reference>
+    <Reference Include="NetTopologySuite">
+      <HintPath>..\packages\NetTopologySuite.1.14\lib\net40-client\NetTopologySuite.dll</HintPath>
+    </Reference>
+    <Reference Include="NetTopologySuite.MGeometries">
+      <HintPath>..\libraries\NetTopologySuite.MGeometries\NetTopologySuite.MGeometries.dll</HintPath>
+    </Reference>
+    <Reference Include="NHibernate">
+      <HintPath>..\packages\NHibernate.4.0.4.4000\lib\net40\NHibernate.dll</HintPath>
+    </Reference>
+    <Reference Include="nunit.framework, Version=2.5.10.11092, Culture=neutral, PublicKeyToken=96d09a1eb7f44a77, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\packages\NUnit.2.5.10.11092\lib\nunit.framework.dll</HintPath>
+    </Reference>
+    <Reference Include="nunit.mocks, Version=2.5.10.11092, Culture=neutral, PublicKeyToken=96d09a1eb7f44a77, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\packages\NUnit.2.5.10.11092\lib\nunit.mocks.dll</HintPath>
+    </Reference>
+    <Reference Include="PowerCollections">
+      <HintPath>..\packages\NetTopologySuite.1.14\lib\net40-client\PowerCollections.dll</HintPath>
+    </Reference>
+    <Reference Include="System" />
+    <Reference Include="System.Configuration" />
+    <Reference Include="System.Core">
+      <RequiredTargetFramework>3.5</RequiredTargetFramework>
+    </Reference>
+    <Reference Include="System.Data" />
+    <Reference Include="System.ServiceModel" />
+    <Reference Include="System.Web.Mvc, Version=3.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL" />
+    <Reference Include="System.Web.Services" />
+    <Reference Include="System.Windows.Forms" />
+    <Reference Include="System.Xml" />
+  </ItemGroup>
+  <ItemGroup>
+    <CodeAnalysisDependentAssemblyPaths Condition=" '$(VS100COMNTOOLS)' != '' " Include="$(VS100COMNTOOLS)..\IDE\PrivateAssemblies">
+      <Visible>False</Visible>
+    </CodeAnalysisDependentAssemblyPaths>
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="..\..\Common\CommonAssemblyInfo.cs">
+      <Link>Properties\CommonAssemblyInfo.cs</Link>
+    </Compile>
+    <Compile Include="AxisUpdate\ReferenceGeometryUpdaterTest.cs" />
+    <Compile Include="Common\StubUserIdentityProvider.cs" />
+    <Compile Include="Common\TestConatainerSetup.cs" />
+    <Compile Include="FilterTests\FiltererFactoryTest.cs" />
+    <Compile Include="GeomUtils\GeometryUtilsTest.cs" />
+    <Compile Include="HistorizationServiceTests\GetAvailableErfassungsabschlussenTests.cs" />
+    <Compile Include="InterlisParser\InterlisFilenameTest.cs" />
+    <Compile Include="InterlisParser\InterlisParserTest.cs" />
+    <Compile Include="MappingConfigurationTests\MappingConfigurationTests.cs" />
+    <Compile Include="PercentCorrigatorTests\Percent.cs" />
+    <Compile Include="PercentCorrigatorTests\PercentCorrigatorTests.cs" />
+    <Compile Include="ResourceTests\ResourceComparingService.cs" />
+    <Compile Include="ResourceTests\ResourceKeyComparisonContainer.cs" />
+    <Compile Include="ResourceTests\ResourceLocalizationTest.cs" />
+    <Compile Include="ResourceTests\ResourceLocalizationValueConsistencyTest.cs" />
+    <Compile Include="ResourceTests\ResourceValueComparisonContainer.cs" />
+    <Compile Include="Security\SecurityServiceTests.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="SchadenerfassenTest\BewertungCalculationTest.cs" />
+    <Compile Include="SchadenerfassenTest\MatrixCalculationTest.cs" />
+    <Compile Include="SchadenerfassenTest\SchadenMetadatenServiceTest.cs" />
+    <Compile Include="SchadenerfassenTest\ZustandsindexCalculationTest.cs" />
+    <Compile Include="XlsxImportTests\XlsxServiceTests.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="App.config" />
+    <None Include="InterlisParser\TestData\2012_01_04_export_Achsen_CH_incr_1.09.2011_19.12.2011.xtf">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
+    <None Include="packages.config" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\..\Common\ASTRA.EMSG.Common\ASTRA.EMSG.Common.csproj">
+      <Project>{C54AFF3E-8BF6-4AC7-A5E4-9EF65322639D}</Project>
+      <Name>ASTRA.EMSG.Common</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\..\Mobile\ASTRA.EMSG.Localization\ASTRA.EMSG.Localization.csproj">
+      <Project>{918E5FD3-56AF-414C-9685-DAB26AC69564}</Project>
+      <Name>ASTRA.EMSG.Localization</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\ASTRA.EMSG.Business\ASTRA.EMSG.Business.csproj">
+      <Project>{529D8AAD-3D7E-4359-A37D-7360B88D8BF7}</Project>
+      <Name>ASTRA.EMSG.Business</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\ASTRA.EMSG.Common.Master\ASTRA.EMSG.Common.Master.csproj">
+      <Project>{D452433F-4317-47F7-B4B9-4588966FA897}</Project>
+      <Name>ASTRA.EMSG.Common.Master</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\ASTRA.EMSG.Tests.Common\ASTRA.EMSG.Tests.Common.csproj">
+      <Project>{9E0C3C64-CB60-44C4-BE86-EFF4EAD9C804}</Project>
+      <Name>ASTRA.EMSG.Tests.Common</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\ASTRA.EMSG.Web\ASTRA.EMSG.Web.csproj">
+      <Project>{5BBFEE4D-39A9-4605-86E3-496F8C74D98D}</Project>
+      <Name>ASTRA.EMSG.Web.new</Name>
+    </ProjectReference>
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="..\astra.emsg.web\app_globalresources\ButtonLocalization.de.resx">
+      <Link>ResourceTests\Resources\ButtonLocalization.de.resx</Link>
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="..\astra.emsg.web\app_globalresources\ButtonLocalization.fr.resx">
+      <Link>ResourceTests\Resources\ButtonLocalization.fr.resx</Link>
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="..\astra.emsg.web\app_globalresources\ButtonLocalization.it.resx">
+      <Link>ResourceTests\Resources\ButtonLocalization.it.resx</Link>
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="..\astra.emsg.web\app_globalresources\ButtonLocalization.resx">
+      <Link>ResourceTests\Resources\ButtonLocalization.resx</Link>
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="..\astra.emsg.web\app_globalresources\EditorLocalization.de.resx">
+      <Link>ResourceTests\Resources\EditorLocalization.de.resx</Link>
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="..\astra.emsg.web\app_globalresources\EditorLocalization.fr.resx">
+      <Link>ResourceTests\Resources\EditorLocalization.fr.resx</Link>
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="..\astra.emsg.web\app_globalresources\EditorLocalization.it.resx">
+      <Link>ResourceTests\Resources\EditorLocalization.it.resx</Link>
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="..\astra.emsg.web\app_globalresources\EditorLocalization.resx">
+      <Link>ResourceTests\Resources\EditorLocalization.resx</Link>
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="..\astra.emsg.web\app_globalresources\EnumLocalization.de.resx">
+      <Link>ResourceTests\Resources\EnumLocalization.de.resx</Link>
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="..\astra.emsg.web\app_globalresources\EnumLocalization.fr.resx">
+      <Link>ResourceTests\Resources\EnumLocalization.fr.resx</Link>
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="..\astra.emsg.web\app_globalresources\EnumLocalization.it.resx">
+      <Link>ResourceTests\Resources\EnumLocalization.it.resx</Link>
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="..\astra.emsg.web\app_globalresources\EnumLocalization.resx">
+      <Link>ResourceTests\Resources\EnumLocalization.resx</Link>
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="..\astra.emsg.web\app_globalresources\GridHeaderFooterLocalization.de.resx">
+      <Link>ResourceTests\Resources\GridHeaderFooterLocalization.de.resx</Link>
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="..\astra.emsg.web\app_globalresources\GridHeaderFooterLocalization.fr.resx">
+      <Link>ResourceTests\Resources\GridHeaderFooterLocalization.fr.resx</Link>
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="..\astra.emsg.web\app_globalresources\GridHeaderFooterLocalization.it.resx">
+      <Link>ResourceTests\Resources\GridHeaderFooterLocalization.it.resx</Link>
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="..\astra.emsg.web\app_globalresources\GridHeaderFooterLocalization.resx">
+      <Link>ResourceTests\Resources\GridHeaderFooterLocalization.resx</Link>
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="..\astra.emsg.web\app_globalresources\GridLocalization.de.resx">
+      <Link>ResourceTests\Resources\GridLocalization.de.resx</Link>
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="..\astra.emsg.web\app_globalresources\GridLocalization.fr.resx">
+      <Link>ResourceTests\Resources\GridLocalization.fr.resx</Link>
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="..\astra.emsg.web\app_globalresources\GridLocalization.it.resx">
+      <Link>ResourceTests\Resources\GridLocalization.it.resx</Link>
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="..\astra.emsg.web\app_globalresources\GridLocalization.resx">
+      <Link>ResourceTests\Resources\GridLocalization.resx</Link>
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="..\astra.emsg.web\app_globalresources\LookupLocalization.de.resx">
+      <Link>ResourceTests\Resources\LookupLocalization.de.resx</Link>
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="..\astra.emsg.web\app_globalresources\LookupLocalization.fr.resx">
+      <Link>ResourceTests\Resources\LookupLocalization.fr.resx</Link>
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="..\astra.emsg.web\app_globalresources\LookupLocalization.it.resx">
+      <Link>ResourceTests\Resources\LookupLocalization.it.resx</Link>
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="..\astra.emsg.web\app_globalresources\LookupLocalization.resx">
+      <Link>ResourceTests\Resources\LookupLocalization.resx</Link>
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="..\astra.emsg.web\app_globalresources\MapLocalization.de.resx">
+      <Link>ResourceTests\Resources\MapLocalization.de.resx</Link>
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="..\astra.emsg.web\app_globalresources\MapLocalization.fr.resx">
+      <Link>ResourceTests\Resources\MapLocalization.fr.resx</Link>
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="..\astra.emsg.web\app_globalresources\MapLocalization.it.resx">
+      <Link>ResourceTests\Resources\MapLocalization.it.resx</Link>
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="..\astra.emsg.web\app_globalresources\MapLocalization.resx">
+      <Link>ResourceTests\Resources\MapLocalization.resx</Link>
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="..\astra.emsg.web\app_globalresources\MenuLocalization.de.resx">
+      <Link>ResourceTests\Resources\MenuLocalization.de.resx</Link>
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="..\astra.emsg.web\app_globalresources\MenuLocalization.fr.resx">
+      <Link>ResourceTests\Resources\MenuLocalization.fr.resx</Link>
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="..\astra.emsg.web\app_globalresources\MenuLocalization.it.resx">
+      <Link>ResourceTests\Resources\MenuLocalization.it.resx</Link>
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="..\astra.emsg.web\app_globalresources\MenuLocalization.resx">
+      <Link>ResourceTests\Resources\MenuLocalization.resx</Link>
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="..\astra.emsg.web\app_globalresources\ModelLocalization.de.resx">
+      <Link>ResourceTests\Resources\ModelLocalization.de.resx</Link>
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="..\astra.emsg.web\app_globalresources\ModelLocalization.fr.resx">
+      <Link>ResourceTests\Resources\ModelLocalization.fr.resx</Link>
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="..\astra.emsg.web\app_globalresources\ModelLocalization.it.resx">
+      <Link>ResourceTests\Resources\ModelLocalization.it.resx</Link>
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="..\astra.emsg.web\app_globalresources\ModelLocalization.resx">
+      <Link>ResourceTests\Resources\ModelLocalization.resx</Link>
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="..\astra.emsg.web\app_globalresources\NotificationLocalization.de.resx">
+      <Link>ResourceTests\Resources\NotificationLocalization.de.resx</Link>
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="..\astra.emsg.web\app_globalresources\NotificationLocalization.fr.resx">
+      <Link>ResourceTests\Resources\NotificationLocalization.fr.resx</Link>
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="..\astra.emsg.web\app_globalresources\NotificationLocalization.it.resx">
+      <Link>ResourceTests\Resources\NotificationLocalization.it.resx</Link>
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="..\astra.emsg.web\app_globalresources\NotificationLocalization.resx">
+      <Link>ResourceTests\Resources\NotificationLocalization.resx</Link>
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="..\astra.emsg.web\app_globalresources\PageTitleLocalization.de.resx">
+      <Link>ResourceTests\Resources\PageTitleLocalization.de.resx</Link>
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="..\astra.emsg.web\app_globalresources\PageTitleLocalization.fr.resx">
+      <Link>ResourceTests\Resources\PageTitleLocalization.fr.resx</Link>
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="..\astra.emsg.web\app_globalresources\PageTitleLocalization.it.resx">
+      <Link>ResourceTests\Resources\PageTitleLocalization.it.resx</Link>
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="..\astra.emsg.web\app_globalresources\PageTitleLocalization.resx">
+      <Link>ResourceTests\Resources\PageTitleLocalization.resx</Link>
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="..\astra.emsg.web\app_globalresources\ReportLocalization.de.resx">
+      <Link>ResourceTests\Resources\ReportLocalization.de.resx</Link>
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="..\astra.emsg.web\app_globalresources\ReportLocalization.fr.resx">
+      <Link>ResourceTests\Resources\ReportLocalization.fr.resx</Link>
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="..\astra.emsg.web\app_globalresources\ReportLocalization.it.resx">
+      <Link>ResourceTests\Resources\ReportLocalization.it.resx</Link>
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="..\astra.emsg.web\app_globalresources\ReportLocalization.resx">
+      <Link>ResourceTests\Resources\ReportLocalization.resx</Link>
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="..\astra.emsg.web\app_globalresources\TextLocalization.de.resx">
+      <Link>ResourceTests\Resources\TextLocalization.de.resx</Link>
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="..\astra.emsg.web\app_globalresources\TextLocalization.fr.resx">
+      <Link>ResourceTests\Resources\TextLocalization.fr.resx</Link>
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="..\astra.emsg.web\app_globalresources\TextLocalization.it.resx">
+      <Link>ResourceTests\Resources\TextLocalization.it.resx</Link>
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="..\astra.emsg.web\app_globalresources\TextLocalization.resx">
+      <Link>ResourceTests\Resources\TextLocalization.resx</Link>
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="..\astra.emsg.web\app_globalresources\TitleLocalization.de.resx">
+      <Link>ResourceTests\Resources\TitleLocalization.de.resx</Link>
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="..\astra.emsg.web\app_globalresources\TitleLocalization.fr.resx">
+      <Link>ResourceTests\Resources\TitleLocalization.fr.resx</Link>
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="..\astra.emsg.web\app_globalresources\TitleLocalization.it.resx">
+      <Link>ResourceTests\Resources\TitleLocalization.it.resx</Link>
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="..\astra.emsg.web\app_globalresources\TitleLocalization.resx">
+      <Link>ResourceTests\Resources\TitleLocalization.resx</Link>
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="..\astra.emsg.web\app_globalresources\UploadLocalization.de.resx">
+      <Link>ResourceTests\Resources\UploadLocalization.de.resx</Link>
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="..\astra.emsg.web\app_globalresources\UploadLocalization.fr.resx">
+      <Link>ResourceTests\Resources\UploadLocalization.fr.resx</Link>
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="..\astra.emsg.web\app_globalresources\UploadLocalization.it.resx">
+      <Link>ResourceTests\Resources\UploadLocalization.it.resx</Link>
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="..\astra.emsg.web\app_globalresources\UploadLocalization.resx">
+      <Link>ResourceTests\Resources\UploadLocalization.resx</Link>
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="..\astra.emsg.web\app_globalresources\ValidationErrorLocalization.de.resx">
+      <Link>ResourceTests\Resources\ValidationErrorLocalization.de.resx</Link>
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="..\astra.emsg.web\app_globalresources\ValidationErrorLocalization.fr.resx">
+      <Link>ResourceTests\Resources\ValidationErrorLocalization.fr.resx</Link>
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="..\astra.emsg.web\app_globalresources\ValidationErrorLocalization.it.resx">
+      <Link>ResourceTests\Resources\ValidationErrorLocalization.it.resx</Link>
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="..\astra.emsg.web\app_globalresources\ValidationErrorLocalization.resx">
+      <Link>ResourceTests\Resources\ValidationErrorLocalization.resx</Link>
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+  </ItemGroup>
+  <ItemGroup>
+    <WCFMetadata Include="Service References\" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="..\..\Mobile\ASTRA.EMSG.Mobile\Resources\MobileLocalization.de.resx">
+      <Link>ResourceTests\MobileResources\MobileLocalization.de.resx</Link>
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="..\..\Mobile\ASTRA.EMSG.Mobile\Resources\MobileLocalization.fr.resx">
+      <Link>ResourceTests\MobileResources\MobileLocalization.fr.resx</Link>
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="..\..\Mobile\ASTRA.EMSG.Mobile\Resources\MobileLocalization.it.resx">
+      <Link>ResourceTests\MobileResources\MobileLocalization.it.resx</Link>
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+  </ItemGroup>
+  <Import Project="$(MSBuildBinPath)\Microsoft.CSharp.targets" />
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target>
+  -->
+</Project>

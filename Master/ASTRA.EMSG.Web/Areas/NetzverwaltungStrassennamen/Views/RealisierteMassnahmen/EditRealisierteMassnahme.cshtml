@@ -1,0 +1,55 @@
+﻿@using ASTRA.EMSG.Business.Models
+@using ASTRA.EMSG.Web.Infrastructure.HtmlHelperExtensions
+@using Kendo.Mvc.UI
+@model ASTRA.EMSG.Business.Models.Strassennamen.RealisierteMassnahmeModel
+@{
+    bool isNew = ViewBag.IsNew ?? false;
+    string actionName = (isNew ? "Insert" : "Update");
+}
+@using (Ajax.BeginForm(actionName, "RealisierteMassnahmen",
+                        new AjaxOptions
+                        {
+                            HttpMethod = "POST",
+                            UpdateTargetId = "realisierteMassnahmeFormDiv",
+                            InsertionMode = InsertionMode.Replace,
+                        }))
+{
+    <fieldset class="popupFormFieldset k-edit-form-container">
+        @Html.HiddenFor(m => m.Id)
+        
+        @(Html.EditorTable()
+            .WithTextBoxFor(m => m.Projektname)
+            .WithTextBoxFor(m => m.BezeichnungVon, false)
+            .WithTextBoxFor(m => m.BezeichnungBis, false)
+            .WithDecimalEditorFor(m => m.Laenge, 1)
+            .WithDecimalEditorFor(m => m.BreiteFahrbahn, requiredField: false)
+            .WithDisplayFor(m => m.FlaecheFahrbahn, false)
+            .WithDecimalEditorFor(m => m.BreiteTrottoirLinks, requiredField: false)
+            .WithDisplayFor(m => m.FlaecheTrottoirLinks, false)
+            .WithDecimalEditorFor(m => m.BreiteTrottoirRechts, requiredField: false)
+            .WithDisplayFor(m => m.FlaecheTrottoirRechts, false)
+
+            .WithCustomEditorFor(m => m.MassnahmenvorschlagFahrbahn, MvcHtmlString.Create(Html.Kendo().DropDownListFor(m => m.MassnahmenvorschlagFahrbahn)
+                .Name(Html.ClientIdFor(m => m.MassnahmenvorschlagFahrbahn).ToString())
+                .BindTo((IEnumerable<DropDownListItem>)ViewBag.MassnahmenvorschlagFahrbahnKatalogen)
+                .HtmlAttributes(new { style = "width: 200px;" }).ToHtmlString()))
+                
+            .WithCustomEditorFor(m => m.MassnahmenvorschlagTrottoir, MvcHtmlString.Create(Html.Kendo().DropDownListFor(m => m.MassnahmenvorschlagTrottoir)
+                .Name(Html.ClientIdFor(m => m.MassnahmenvorschlagTrottoir).ToString())
+                .BindTo((IEnumerable<DropDownListItem>)ViewBag.MassnahmenvorschlagTrottoirKatalogen)
+                .HtmlAttributes(new { style = "width: 200px;" }).ToHtmlString()))
+
+            .WithLookupEditorFor(m => m.Belastungskategorie, (IEnumerable<DropDownListItem>)ViewBag.Belastungskategorien)
+            .WithEnumEditorFor(m => m.Strasseneigentuemer, () => Model.Strasseneigentuemer)
+            .WithSeparator()
+            .WithTextAreaFor(m => m.Beschreibung, false)
+            .WithDecimalEditorFor(m => m.KostenFahrbahn, 0, requiredField: false)
+            .WithDecimalEditorFor(m => m.KostenTrottoirLinks, 0,  requiredField: false)
+            .WithDecimalEditorFor(m => m.KostenTrottoirRechts, 0 , requiredField: false)
+            )
+        @Html.UnobtrusiveOkCancelApplyPopupFormButtons("Apply" + actionName, "realisierteMassnahmeFormDiv")
+
+    </fieldset>
+    @Html.RequiredFieldLegend()
+}
+<div class="helpButton">@Html.HelpButtonFor("EditRealisierteMassnahme")</div>

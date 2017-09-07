@@ -1,0 +1,65 @@
+﻿@using ASTRA.EMSG.Business.Models.Katalogs
+@using ASTRA.EMSG.Web.Infrastructure
+@using ASTRA.EMSG.Web.Infrastructure.HtmlHelperExtensions
+@using ASTRA.EMSG.Web.Infrastructure.TelerikExtensions
+@using Resources
+@using Kendo.Mvc.UI
+
+@section JavaScript
+{
+    <script type="text/javascript" src="@(Url.Content("~/Scripts/Areas/Administration/Massnahmenvorschlag/Massnahmenvorschlag.js"))"></script>
+}
+
+@{ bool isForApplicationLevel = (ViewBag.IsForApplicationLevel ?? false); }
+
+<h2>@TitleLocalization.MassnahmenvorschlagKatalogPageTitle</h2>
+<div class="scrollable-grid-border">
+    <div class="scrollable-grid">
+        @(Html.Kendo().Grid<MassnahmenvorschlagKatalogOverviewModel>()
+              .Name("MassnahmenvorschlagGrid")
+              .ApplyEmsgSettings()
+              .DataSource(dataBinding => dataBinding
+                  .Ajax()
+                  .Read(c => c.Action("GetAll", "Massnahmenvorschlag"))
+                  .Destroy(c => c.Action("Delete", "Massnahmenvorschlag"))
+                  .Model(keys => keys.Id(m => m.Typ))
+                  .PageSize(ConstantSettings.GridPageSize))
+              .ToolBar(commands =>
+              {
+                  commands.Template(
+                      new EmsgToolbarBuilder()
+                          .AddButton("index.openCreateMassnahmenvorschlagKatalogWindow()",
+                              isForApplicationLevel ? ButtonLocalization.AddNewMassnahmenvorschalg : ButtonLocalization.OverrideMassnahmenvorschalg)
+                          .ToTemplate());
+              })
+              .HtmlAttributes(new
+              {
+                  data_edit_url = Url.Action("EditMassnahmenvorschlag"),
+                  data_create_url = Url.Action("CreateMassnahmenvorschlag"),
+                  data_load_default_url = Url.Action("LoadDefaultMassnahmenvorschlag"),
+                  data_edit_window_title = isForApplicationLevel ? TitleLocalization.MassnahmenvorschlagKatalogEditPopupTitle : TitleLocalization.OverrideMassnahmenvorschlagKatalogEditPopupTitle,
+                  data_create_window_title = isForApplicationLevel ? TitleLocalization.MassnahmenvorschlagKatalogCreatePopupTitle : TitleLocalization.OverrideMassnahmenvorschlagKatalogCreatePopupTitle,
+                  data_is_used_message = NotificationLocalization.LookupIsUsedCanNotDelete
+              })
+              .Columns(columns =>
+              {
+                  columns.Bound(m => m.Typ).GridCommands(Html.EditButton("index.openMassnahmenvorschlagKatalogWindow('#= Typ #')").ToHtmlString(),
+                      Html.GridDeleteButton().ToHtmlString()).Width(85);
+
+                  columns.Bound(m => m.KatalogTypBezeichnung).Title(GridHeaderFooterLocalization.MassnahmenvorschlagKatalogTyp);
+                  columns.Bound(m => m.TypBezeichnung).Title(GridHeaderFooterLocalization.MassnahmenvorschlagTyp);
+
+                  var belastungskategorien = (List<BelastungskategorieModel>)ViewBag.Belastungskategorien;
+                  for (int i = 0; i < belastungskategorien.Count; i++)
+                  {
+                      int index = i;
+                      columns.Bound(m => m.KonstenModels[index].DefaultKosten).Title(LookupLocalization.ResourceManager.GetString(belastungskategorien[index].Typ)).AlignRight().Filterable(false);
+                  }
+              })
+              .Events(events => events.DataBound("index.onRowDataBound"))
+              )
+    </div>
+</div>
+
+@(Html.TelerikWindow(TitleLocalization.WiederbeschaffungswertAndAlterungsbeiwertEditPopupTitle, "MassnahmenvorschlagWindow", "massnahmenvorschlagWindowDiv")
+      .Events(events => events.Close("edit.onClose")))

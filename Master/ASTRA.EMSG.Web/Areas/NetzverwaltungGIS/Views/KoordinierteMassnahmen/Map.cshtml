@@ -1,0 +1,15 @@
+﻿@using Resources
+@using ASTRA.EMSG.Web.Infrastructure.HtmlHelperExtensions
+<style type="text/css">
+ .legend .layer.Name_MV_ACHSENSEGMENT 
+,.legend .layer.Name_KoordinierteMassnahmeGIS
+{
+  display: inline;
+}
+</style>
+
+<script type="text/javascript">
+    globalMapAdjustCorrector = -35;
+    emsg.config.set("TEXT.TITLE.SELECT_FEATURES", "@Html.Raw(MapLocalization.MassnahmeSelectTitle.EscapeJavaScriptString())");
+    emsg.map = new Emsg.Map.Edit(emsg, Emsg.MapMode.Measure);
+</script>

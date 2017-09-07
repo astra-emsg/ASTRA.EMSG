@@ -1,0 +1,11 @@
+﻿@using Resources
+@model ASTRA.EMSG.Business.Reports.BenchmarkauswertungInventarkennwerten.BenchmarkauswertungInventarkennwertenParameter
+
+@section JavaScript 
+{ 
+    <script type="text/javascript" src="@(Url.Content("~/Scripts/Areas/Benchmarking/BenchmarkauswertungInventarkennwerten/BenchmarkauswertungInventarkennwerten.js"))"></script>
+}
+
+<h1>@TitleLocalization.BenchmarkauswertungInventarkennwertenReportTitle</h1>
+
+@Html.Partial("Filter", Model)

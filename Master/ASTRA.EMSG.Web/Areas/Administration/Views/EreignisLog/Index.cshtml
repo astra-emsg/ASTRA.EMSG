@@ -1,0 +1,59 @@
+﻿@using ASTRA.EMSG.Business.Entities.Common
+@using ASTRA.EMSG.Business.Models.Administration
+@using ASTRA.EMSG.Web.Areas.Common.GridCommands
+@using ASTRA.EMSG.Web.Infrastructure
+@using ASTRA.EMSG.Web.Infrastructure.TelerikExtensions
+@using Resources
+@using Kendo.Mvc.UI
+@using ASTRA.EMSG.Web.Infrastructure.HtmlHelperExtensions
+@model SerializableGridModel<EreignisLogOverviewModel>
+@section JavaScript
+{
+    <script type="text/javascript" src="@(Url.Content("~/Scripts/Areas/Administration/EreignisLog/EreignisLog.js"))"></script>
+}
+
+<h1>@TitleLocalization.EreignisLog</h1>
+
+@(Html.ToGridFilterBuilder<EreignisLogOverviewGridCommand>()
+    .WithEnumFilter<EreignisTyp?, EreignisTyp>(m => m.EreignisTyp, 270, "index.refreshGrid")
+    .WithTextFilter(m => m.Mandant,width: 268)
+    .WithTextFilter(m => m.Benutzer, width: 268)
+    .WithDateTimeFilter(m => m.ZeitVon)
+    .WithDateTimeFilter(m => m.ZeitBis)
+    .WithFilterButton(filterFunction: "index.refreshGrid", filterButtonLabel: ButtonLocalization.Search)
+)
+
+<div class="scrollable-grid-border">
+    <div class="scrollable-grid">
+        @(Html.Kendo().Grid<EreignisLogOverviewModel>()
+              .Name("EreignisLogGrid")
+              .ApplyEmsgSettings(editable: false)
+              .DataSource(dataBinding => dataBinding
+                  .Ajax()
+                  .Read(c => c.Action("GetAll", "EreignisLog").Data("index.getFilteredData"))                  
+                  .Model(keys => keys.Id(m => m.Id))
+                  .PageSize(ConstantSettings.GridPageSize))
+              .HtmlAttributes(new
+              {
+                  data_confirmation_mesage = NotificationLocalization.ClearLogConfirmation,
+                  data_clearlog_url = Url.Action("ClearLog")
+              })
+              .ToolBar(commands =>
+              {
+                  commands.Template(
+                  new EmsgToolbarBuilder()
+                      .CustomButton(ButtonLocalization.ClearLog, "javascript:index.clearLog()")
+                      .CustomButton(ButtonLocalization.DownloadApplicationLog, Url.Action("DownloadApplicationLog", "EreignisLog"))
+                      .ToTemplate());
+              })
+              .Columns(columns =>
+              {
+                  columns.Bound(m => m.Benutzer).Title(GridHeaderFooterLocalization.Benutzer);
+                  columns.Bound(m => m.MandantName).Title(GridHeaderFooterLocalization.MandantName);
+                  columns.Bound(m => m.Zeit).Title(GridHeaderFooterLocalization.Zeit);
+                  columns.Bound(m => m.EreignisTypBezeichnung).Title(GridHeaderFooterLocalization.EreignisTyp);
+                  columns.Bound(m => m.EreignisData).Title(GridHeaderFooterLocalization.EreignisData);
+
+              }))              
+    </div>
+</div>

@@ -1,0 +1,41 @@
+﻿@using ASTRA.EMSG.Common.Enums
+
+@using ASTRA.EMSG.Web.Areas.Auswertungen.ReportGridCommands
+@using ASTRA.EMSG.Web.Infrastructure
+@using ASTRA.EMSG.Web.Infrastructure.HtmlHelperExtensions
+@using Resources
+@using Kendo.Mvc.UI
+@model EineListeVonKoordiniertenMassnahmenGridCommand
+@{
+    ViewData.Model = new EineListeVonKoordiniertenMassnahmenGridCommand();
+}
+
+<style>
+    .emsg-erfassungsperiod-filter {
+        width: 148px!important
+    }
+    td {
+        padding: 0
+    }
+</style>
+
+@Html.Hidden("ErfassungsPeriod", Model.ErfassungsPeriodId)
+
+<div class="emsg-filter-expand-area-bottom">
+    <div id="filterDiv">
+        <div style="display: inline-block; width: @(ViewSizeConstants.GisReportFilterBlockWidth + 50)px">
+             @(Html.ToGridFilterBuilder<EineListeVonKoordiniertenMassnahmenGridCommand>(ViewSizeConstants.GisReportFilterFieldLabelWidth + 30, ViewSizeConstants.GisReportFilterInputFieldWidth)
+                .WithTextFilter(m => m.Projektname, triggerOn3Char: true)
+                .WithDateFilter(m => m.AusfuehrungsanfangVon, null)
+                .WithGisReportFilterButton(filterFunction: "gisReport.form.refreshGrid"))
+        </div>
+        <div style="display: inline-block">
+             @(Html.ToGridFilterBuilder<EineListeVonKoordiniertenMassnahmenGridCommand>(ViewSizeConstants.GisReportFilterFieldLabelWidth, ViewSizeConstants.GisReportFilterInputFieldWidth)
+                  .WithIntEnumFilter<StatusTyp>(m => m.Status, filterFunction: "gisReport.form.refreshGrid")     
+                  .WithDateFilter(m => m.AusfuehrungsanfangBis, null)
+                  .WithoutFilterButton())
+        </div>
+    </div>
+</div>
+
+@Html.Partial("MapGridTabs")

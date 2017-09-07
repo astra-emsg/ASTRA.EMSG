@@ -1,0 +1,134 @@
+﻿@using ASTRA.EMSG.Common.Enums
+
+@using Resources
+@using ASTRA.EMSG.Web.Infrastructure.HtmlHelperExtensions
+@model ASTRA.EMSG.Business.Models.Common.ZustandsabschnittdetailsModel
+<input type="hidden" id="CurrentZustandsErfassungsmodus" value="@(ZustandsErfassungsmodus.Grob)"/>
+<div id="zustandsabschnittFormDiv" class="k-widget k-grid emsg-radio-button-matrix">
+    <table style ="table-layout: fixed">
+        <thead class="k-grid-header">
+            <tr>
+                <th style="width: 22%;">
+                </th>
+                <th class="k-header" colspan="3" style="text-align: center;">@GridHeaderFooterLocalization.Schadenschwere
+                </th>
+                <th class="k-header" colspan="4" style="text-align: center;">@GridHeaderFooterLocalization.Schadenausmass
+                </th>
+                <th class="k-header" colspan="3">
+                </th>
+            </tr>
+            <tr>
+                <th>
+                </th>
+                <th class="k-header" style="text-align: center;">@Html.LocalizedEnum(SchadenschwereTyp.S1)
+                </th>                
+                <th class="k-header" style="text-align: center;">@Html.LocalizedEnum(SchadenschwereTyp.S2)
+                </th>               
+                <th class="k-header" style="text-align: center;">@Html.LocalizedEnum(SchadenschwereTyp.S3)
+                </th>                
+                <th class="k-header" style="text-align: center;">@Html.LocalizedEnum(SchadenausmassTyp.A0)
+                </th>                
+                <th class="k-header" style="text-align: center;">@Html.LocalizedEnum(SchadenausmassTyp.A1)
+                </th>                
+                <th class="k-header" style="text-align: center;">@Html.LocalizedEnum(SchadenausmassTyp.A2)
+                </th>                
+                <th class="k-header" style="text-align: center;">@Html.LocalizedEnum(SchadenausmassTyp.A3)
+                </th>                
+                <th class="k-header" style="text-align: center;">@GridHeaderFooterLocalization.Matrix
+                </th>                
+                <th class="k-header" style="text-align: center;">@GridHeaderFooterLocalization.Gewicht
+                </th>                
+                <th class="k-header" style="text-align: center;">@GridHeaderFooterLocalization.Bewertung
+                </th>
+            </tr>
+            <tr>
+                <th class="k-header">
+                </th>
+                <th class="k-header" style="text-align: center;">@SchadenschwereTyp.S1
+                </th>                
+                <th class="k-header" style="text-align: center;">@SchadenschwereTyp.S2
+                </th>                
+                <th class="k-header" style="text-align: center;">@SchadenschwereTyp.S3
+                </th>                
+                <th class="k-header" style="text-align: center;">@SchadenausmassTyp.A0
+                </th>                
+                <th class="k-header" style="text-align: center;">@SchadenausmassTyp.A1
+                </th>                
+                <th class="k-header" style="text-align: center;">@SchadenausmassTyp.A2
+                </th>                
+                <th class="k-header" style="text-align: center;">@SchadenausmassTyp.A3
+                </th>                
+                <th class="k-header" style="text-align: center;">
+                    M                
+                </th>                
+                <th class="k-header" style="text-align: center;">
+                    G                
+                </th>                
+                <th class="k-header" style="text-align: center;">
+                    M x G
+                </th>
+            </tr>
+        </thead>
+        <tbody>
+            @for (int i = 0; i < Model.SchadengruppeModelList.Count; i++)
+            {
+                <tr class="@(i % 2 == 0 ? "" : "emsg-zebra-row")">
+                    <td style="border-bottom-width: 1px;">
+                        @Html.HiddenFor(m => m.SchadengruppeModelList[i].SchadengruppeTyp)
+                        @Html.LocalizedEnum(Model.SchadengruppeModelList[i].SchadengruppeTyp)
+                    </td>
+                    <td style="border-bottom-width: 1px; text-align: center; border-left-color: #A5B3C5">
+                        @Html.RadioButtonFor(m => m.SchadengruppeModelList[i].SchadenschwereTyp, SchadenschwereTyp.S1)
+                    </td>
+                    <td style="border-bottom-width: 1px; text-align: center;">
+                        @Html.RadioButtonFor(m => m.SchadengruppeModelList[i].SchadenschwereTyp, SchadenschwereTyp.S2)
+                    </td>
+                    <td style="border-bottom-width: 1px; text-align: center;">
+                        @Html.RadioButtonFor(m => m.SchadengruppeModelList[i].SchadenschwereTyp, SchadenschwereTyp.S3)
+                    </td>
+                    <td style="border-bottom-width: 1px; text-align: center; border-left-color: #A5B3C5">
+                        @Html.RadioButtonFor(m => m.SchadengruppeModelList[i].SchadenausmassTyp, SchadenausmassTyp.A0)
+                    </td>
+                    <td style="border-bottom-width: 1px; text-align: center;">
+                        @Html.RadioButtonFor(m => m.SchadengruppeModelList[i].SchadenausmassTyp, SchadenausmassTyp.A1)
+                    </td>
+                    <td style="border-bottom-width: 1px; text-align: center;">
+                        @Html.RadioButtonFor(m => m.SchadengruppeModelList[i].SchadenausmassTyp, SchadenausmassTyp.A2)
+                    </td>
+                    <td style="border-bottom-width: 1px; text-align: center;">
+                        @Html.RadioButtonFor(m => m.SchadengruppeModelList[i].SchadenausmassTyp, SchadenausmassTyp.A3)
+                    </td>
+                    <td style="border-bottom-width: 1px; border-left-color: #A5B3C5; text-align: center">
+                        @Html.DisplayFor(m => m.SchadengruppeModelList[i].Matrix)
+                    </td>
+                    <td style="border-bottom-width: 1px; text-align: center">
+                        @Html.HiddenFor(m => m.SchadengruppeModelList[i].Gewicht)
+                        @Html.DisplayFor(m => m.SchadengruppeModelList[i].Gewicht)
+                    </td>
+                    <td style="border-bottom-width: 1px; text-align: center">
+                        @Html.HiddenFor(m => m.SchadengruppeModelList[i].Bewertung)
+                        @Html.DisplayFor(m => m.SchadengruppeModelList[i].Bewertung)
+                    </td>
+                </tr>
+            }
+        </tbody>
+        <tfoot>
+            <tr>
+                <td colspan="10" style="text-align: right; border-bottom-width: 1px">
+                    <b>@GridHeaderFooterLocalization.GridFooterSchadensumme</b>
+                </td>
+                <td style="border-bottom-width: 1px">
+                    <b><span>@Model.Schadensumme</span></b>
+                </td>
+            </tr>
+            <tr>
+                <td colspan="10" style="text-align: right">
+                    <b>@GridHeaderFooterLocalization.GridFooterZustandsindex</b>
+                </td>
+                <td>
+                    <b><span>@Model.ZustandsindexCalculated</span></b>
+                </td>
+            </tr>
+        </tfoot>
+    </table>
+</div>

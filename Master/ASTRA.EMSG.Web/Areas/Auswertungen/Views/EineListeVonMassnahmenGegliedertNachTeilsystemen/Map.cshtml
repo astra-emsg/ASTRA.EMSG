@@ -1,0 +1,20 @@
+﻿@using Resources
+@using ASTRA.EMSG.Web.Infrastructure.HtmlHelperExtensions
+<style type="text/css">
+.legend .Name_MassnahmenvorschlagTeilsystemeGIS_Auswertung
+{
+  display : inline;
+}
+</style>
+
+<script type="text/javascript">
+    globalMapAdjustCorrector = -20;
+
+  emsg.config.set("WMS.ARCGIS.LAYERS.VORSCHLAG", "MassnahmenvorschlagTeilsystemeGIS_Report");
+  emsg.config.set("TEXT.LAYER.VORSCHLAG", "@Html.Raw(MapLocalization.LayerMassnahmenVorschlagTeilsysteme.EscapeJavaScriptString())");
+  emsg.config.set("WMS.ARCGIS.LAYERID", "MassnahmenvorschlagTeilsystemeGIS_Report");
+
+  emsg.map = new Emsg.Map.Analysis(emsg);
+  emsg.map.layer_property = 'teilsysteme';
+</script>
+

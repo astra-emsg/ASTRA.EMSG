@@ -1,0 +1,852 @@
+<html>
+
+<head>
+  <meta http-equiv=Content-Type content="text/html; charset=windows-1252">
+  <title> Lokalisierung verwalten</title>
+  <meta name="GENERATOR" content="Macrobject Word-2-CHM Pro 2009.3.1325.2515">
+  <link rel="stylesheet" href="default.css" type="text/css" />
+  <link rel="stylesheet" href="macrobject.css" type="text/css">
+  <link rel="stylesheet" href="msdn.css" type="text/css">
+  <script language="javascript" src="msdn.js"></script>
+</head>
+
+<body scroll="no">
+
+<div id="PageHeader">
+  <table width="100%" border="0" cellspacing="0" cellpadding="5" style="table-layout:fixed">
+    <tr>
+      <td width="*" valign="bottom"><i>EMSG Hilfe</i><br><b>Lokalisierung verwalten</b></td>
+      <td width="75" valign="bottom" align="right" nowrap><a href="EreignisLog.htm"><img src="images/left.png" border=0></a> <a href="AnwenderMitAdministrativenRollen.htm"><img src="images/up.png" border=0></a> <a href="HilfeVerwalten.htm"><img src="images/right.png" border=0></a></td>
+    </tr>
+  </table>
+</div>
+  
+<div id="PageBody" class="Section1">
+
+
+
+<p class=Lauftext><span style='mso-bookmark:_Ref323901904'><span
+style='mso-bookmark:A10'><span lang=DE-CH>EMSG unterstützt die Sprachen
+Deutsch, Französisch und Italienisch. Die Anpassung der Benutzeroberfläche vom
+EMSG erfolgt über sogenannte Ressource-Dateien</span></span></span><span
+style='mso-bookmark:_Ref323901904'><span style='mso-bookmark:A10'></span></span><span style='mso-bookmark:
+_Ref323901904'><span style='mso-bookmark:A10'><span lang=DE-CH><span
+style='mso-spacerun:yes'> </span>im XML-Format. Unter dem Menüpunkt <b
+style='mso-bidi-font-weight:normal'>Lokalisierung verwalten </b>(im Menü <b
+style='mso-bidi-font-weight:normal'>Administration</b>) können Sie als
+Applikationsadministrator</span></span></span><span
+style='mso-bookmark:_Ref323901904'><span style='mso-bookmark:A10'></span></span><span style='mso-bookmark:
+_Ref323901904'><span style='mso-bookmark:A10'><span lang=DE-CH><span
+style='mso-spacerun:yes'> </span>diese Ressource-Dateien</span></span></span><span
+style='mso-bookmark:_Ref323901904'><span style='mso-bookmark:A10'></span></span><span style='mso-bookmark:
+_Ref323901904'><span style='mso-bookmark:A10'><span lang=DE-CH><span
+style='mso-spacerun:yes'> </span>herunterladen bzw. veränderte Dateien wieder
+hochladen.</span></span></span></p>
+
+<p class=Lauftext><span style='mso-bookmark:_Ref323901904'><span
+style='mso-bookmark:A10'><span lang=DE-CH>Zum Anpassen der Benutzeroberfläche
+gehen Sie folgendermassen vor:</span></span></span></p>
+
+<p class=Lauftext style='margin-left:60.55pt;text-indent:-18.0pt;mso-list:l6 level1 lfo28'><span
+style='mso-bookmark:_Ref323901904'><span style='mso-bookmark:A10'><span
+lang=DE-CH style='mso-fareast-font-family:Arial;mso-bidi-font-family:Arial'><span
+style='mso-list:Ignore'>1.<span style='font:7.0pt "Times New Roman"'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+</span></span></span><span lang=DE-CH>Klicken Sie auf die
+Schaltfläche <b style='mso-bidi-font-weight:normal'>Aktuelle
+Lokalisierungsdateien herunterladen</b>, um die Ressource-Dateien</span></span></span><span
+style='mso-bookmark:_Ref323901904'><span style='mso-bookmark:A10'></span></span><span style='mso-bookmark:
+_Ref323901904'><span style='mso-bookmark:A10'><span lang=DE-CH><span
+style='mso-spacerun:yes'> </span>vom Server als ZIP-Datei herunterzuladen.</span></span></span></p>
+
+<p class=Lauftext style='margin-left:60.55pt;text-indent:-18.0pt;mso-list:l6 level1 lfo28'><span
+style='mso-bookmark:_Ref323901904'><span style='mso-bookmark:A10'><span
+lang=DE-CH style='mso-fareast-font-family:Arial;mso-bidi-font-family:Arial'><span
+style='mso-list:Ignore'>2.<span style='font:7.0pt "Times New Roman"'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+</span></span></span><span lang=DE-CH>Speichern Sie die ZIP-Datei
+lokal und entpacken Sie diese.</span></span></span></p>
+
+<p class=Lauftext style='margin-left:60.55pt;text-indent:-18.0pt;mso-list:l6 level1 lfo28'><span
+style='mso-bookmark:_Ref323901904'><span style='mso-bookmark:A10'><span
+lang=DE-CH style='mso-fareast-font-family:Arial;mso-bidi-font-family:Arial'><span
+style='mso-list:Ignore'>3.<span style='font:7.0pt "Times New Roman"'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+</span></span></span><span lang=DE-CH>Identifizieren Sie die
+benötigte Datei. Die Dateinamen sind folgendermassen aufgebaut: <i
+style='mso-bidi-font-style:normal'>&lt;Inhalt&gt;</i><b style='mso-bidi-font-weight:
+normal'>Localization.</b><i style='mso-bidi-font-style:normal'>&lt;Sprache&gt;</i><b
+style='mso-bidi-font-weight:normal'>.resx</b>, wobei <i style='mso-bidi-font-style:
+normal'>&lt;Inhalt&gt;</i> angibt, welche Art von Texten die Datei enthält
+(z.B. „Menu“ für alle Menü-Einträge) und &lt;<i style='mso-bidi-font-style:
+normal'>Sprache&gt; </i>das Kürzel der Sprache (<i style='mso-bidi-font-style:
+normal'>de</i>, <i style='mso-bidi-font-style:normal'>fr</i>, <i
+style='mso-bidi-font-style:normal'>it</i>) ist. Welche Ressource-Dateien</span></span></span><span
+style='mso-bookmark:_Ref323901904'><span style='mso-bookmark:A10'></span></span><span style='mso-bookmark:
+_Ref323901904'><span style='mso-bookmark:A10'><span lang=DE-CH><span
+style='mso-spacerun:yes'> </span>es genau gibt, sehen Sie in </span></span></span><a href="LokalisierungVerwalten.htm#_Ref345671571"><span
+style='mso-bookmark:_Ref323901904'><span style='mso-bookmark:A10'><span
+lang=DE-CH><br>
+Tabelle <span style='mso-no-proof:yes'>10</span></span></span></span></a><span style='mso-bookmark:
+_Ref323901904'><span style='mso-bookmark:A10'><span lang=DE-CH>.</span></span></span></p>
+
+<p class=Lauftext style='margin-left:60.55pt;text-indent:-18.0pt;mso-list:l6 level1 lfo28'><span
+style='mso-bookmark:_Ref323901904'><span style='mso-bookmark:A10'><span
+lang=DE-CH style='mso-fareast-font-family:Arial;mso-bidi-font-family:Arial'><span
+style='mso-list:Ignore'>4.<span style='font:7.0pt "Times New Roman"'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+</span></span></span><span lang=DE-CH>Öffnen Sie die Ressource-Datei
+mit einem Editor.</span></span></span></p>
+
+<p class=Tip style='margin-bottom:0cm;margin-bottom:.0001pt'><span style='mso-ignore:vglayout;position:
+relative;z-index:251658297'><span style='left:0px;position:absolute;left:25px;
+top:-61819px;width:117px;height:1px'><img width=117 height=1 src="doc_files/image044.jpg" alt="meldung_tip" v:shapes="Picture_x0020_1072"></span></span><span
+style='mso-bookmark:_Ref323901904'><span style='mso-bookmark:A10'></span></span><span
+style='mso-bookmark:_Ref323901904'><span style='mso-bookmark:A10'><b><span
+lang=DE-CH style='color:windowtext;mso-ansi-language:DE-CH'>Tipp:</span></b></span></span><span
+style='mso-bookmark:_Ref323901904'><span style='mso-bookmark:A10'><span
+lang=DE-CH style='mso-ansi-language:DE-CH'> Für kleinere Änderungen (z.B.
+Korrektur eines Rechtschreibfehlers) reicht ein einfacher Editor (z.B.
+Notepad). Für umfangreichere Änderungen empfehlen wir entweder Microsoft Visual
+Studio oder ein spezielles Werkzeug für Ressource-Dateien</span></span></span><span
+style='mso-bookmark:_Ref323901904'><span style='mso-bookmark:A10'></span></span><span style='mso-bookmark:
+_Ref323901904'><span style='mso-bookmark:A10'><span lang=DE-CH
+style='mso-ansi-language:DE-CH'><span style='mso-spacerun:yes'> </span>(z.B. ResX
+Localization Studio).<o:p></o:p></span></span></span></p>
+
+<p class=MsoNormal><span style='mso-bookmark:_Ref323901904'><span
+style='mso-bookmark:A10'><span lang=DE-CH><o:p>&nbsp;</o:p></span></span></span></p>
+
+<p class=Lauftext style='margin-left:60.55pt;text-indent:-18.0pt;mso-list:l6 level1 lfo28'><span
+style='mso-bookmark:_Ref323901904'><span style='mso-bookmark:A10'><span
+lang=DE-CH style='mso-fareast-font-family:Arial;mso-bidi-font-family:Arial'><span
+style='mso-list:Ignore'>5.<span style='font:7.0pt "Times New Roman"'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+</span></span></span><span lang=DE-CH>Suchen Sie die entsprechende
+Stelle in der Datei, indem sie mit der Suchfunktion des Editors nach der
+Zeichenkette suchen, die Sie ändern wollen.</span></span></span></p>
+
+<p class=Lauftext style='margin-left:60.55pt;text-indent:-18.0pt;mso-list:l6 level1 lfo28'><span
+style='mso-bookmark:_Ref323901904'><span style='mso-bookmark:A10'><span
+lang=DE-CH style='mso-fareast-font-family:Arial;mso-bidi-font-family:Arial'><span
+style='mso-list:Ignore'>6.<span style='font:7.0pt "Times New Roman"'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+</span></span></span><span lang=DE-CH>Nehmen Sie alle gewünschten
+Änderungen vor und speichern Sie die Datei.</span></span></span></p>
+
+<p class=Lauftext style='margin-left:60.55pt;text-indent:-18.0pt;mso-list:l6 level1 lfo28'><span
+style='mso-bookmark:_Ref323901904'><span style='mso-bookmark:A10'><span
+lang=DE-CH style='mso-fareast-font-family:Arial;mso-bidi-font-family:Arial'><span
+style='mso-list:Ignore'>7.<span style='font:7.0pt "Times New Roman"'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+</span></span></span><span lang=DE-CH>Klicken Sie auf die
+Schaltfläche <b style='mso-bidi-font-weight:normal'>Auswählen…</b> und laden
+Sie die geänderte Ressource-Datei hoch. Es kann immer nur eine Ressource-Datei
+auf einmal hochgeladen werden.</span></span></span></p>
+
+<div align=center>
+
+<table class=MsoTableGrid border=1 cellspacing=0 cellpadding=0 width=1459
+ style='border-collapse:collapse;mso-table-layout-alt:fixed;border:none;
+ mso-border-alt:solid windowtext .5pt;mso-yfti-tbllook:1184;mso-padding-alt:
+ 0cm 5.4pt 0cm 5.4pt'>
+ <thead>
+  <tr style='mso-yfti-irow:0;mso-yfti-firstrow:yes;page-break-inside:avoid'>
+   <td width=562 valign=top style='width:168.45pt;border:solid windowtext 1.0pt;
+   mso-border-alt:solid windowtext .5pt;padding:0cm 5.4pt 0cm 5.4pt'>
+   <p class=MsoNormal align=center style='text-align:center;line-height:13.0pt;
+   mso-layout-grid-align:auto;mso-vertical-align-alt:auto'><span
+   style='mso-bookmark:_Ref323901904'><span style='mso-bookmark:A10'><b
+   style='mso-bidi-font-weight:normal'><span lang=DE-CH style='mso-bidi-font-size:
+   11.0pt;mso-fareast-font-family:Calibri;mso-fareast-language:EN-US'>Ressource-Datei<o:p></o:p></span></b></span></span></p>
+   </td>
+   <span style='mso-bookmark:_Ref323901904'><span style='mso-bookmark:A10'></span></span>
+   <td width=449 valign=top style='width:134.65pt;border:solid windowtext 1.0pt;
+   border-left:none;mso-border-left-alt:solid windowtext .5pt;mso-border-alt:
+   solid windowtext .5pt;padding:0cm 5.4pt 0cm 5.4pt'>
+   <p class=MsoNormal align=center style='text-align:center;line-height:13.0pt;
+   page-break-after:avoid;mso-layout-grid-align:auto;mso-vertical-align-alt:
+   auto'><span style='mso-bookmark:_Ref323901904'><span style='mso-bookmark:
+   A10'><b style='mso-bidi-font-weight:normal'><span lang=DE-CH
+   style='mso-bidi-font-size:11.0pt;mso-fareast-font-family:Calibri;mso-fareast-language:
+   EN-US'>Inhalt<o:p></o:p></span></b></span></span></p>
+   </td>
+   <span style='mso-bookmark:_Ref323901904'><span style='mso-bookmark:A10'></span></span>
+   <td width=449 valign=top style='width:134.65pt;border:solid windowtext 1.0pt;
+   border-left:none;mso-border-left-alt:solid windowtext .5pt;mso-border-alt:
+   solid windowtext .5pt;padding:0cm 5.4pt 0cm 5.4pt'>
+   <p class=MsoNormal align=center style='text-align:center;line-height:13.0pt;
+   page-break-after:avoid;mso-layout-grid-align:auto;mso-vertical-align-alt:
+   auto'><span style='mso-bookmark:_Ref323901904'><span style='mso-bookmark:
+   A10'><b style='mso-bidi-font-weight:normal'><span lang=DE-CH
+   style='mso-bidi-font-size:11.0pt;mso-fareast-font-family:Calibri;mso-fareast-language:
+   EN-US'>Beispieltexte (Deutsch)<o:p></o:p></span></b></span></span></p>
+   </td>
+   <span style='mso-bookmark:_Ref323901904'><span style='mso-bookmark:A10'></span></span>
+  </tr>
+ </thead>
+ <tr style='mso-yfti-irow:1;page-break-inside:avoid'>
+  <td width=562 valign=top style='width:168.45pt;border:solid windowtext 1.0pt;
+  border-top:none;mso-border-top-alt:solid windowtext .5pt;mso-border-alt:solid windowtext .5pt;
+  padding:0cm 5.4pt 0cm 5.4pt'>
+  <p class=MsoNormal align=center style='text-align:center;line-height:13.0pt;
+  mso-layout-grid-align:auto;mso-vertical-align-alt:auto'><span
+  style='mso-bookmark:_Ref323901904'><span style='mso-bookmark:A10'><span
+  lang=DE-CH style='mso-bidi-font-size:11.0pt;mso-fareast-font-family:Calibri;
+  mso-fareast-language:EN-US'>EditorLocalization.resx<o:p></o:p></span></span></span></p>
+  </td>
+  <span style='mso-bookmark:_Ref323901904'><span style='mso-bookmark:A10'></span></span>
+  <td width=449 valign=top style='width:134.65pt;border-top:none;border-left:
+  none;border-bottom:solid windowtext 1.0pt;border-right:solid windowtext 1.0pt;
+  mso-border-top-alt:solid windowtext .5pt;mso-border-left-alt:solid windowtext .5pt;
+  mso-border-alt:solid windowtext .5pt;padding:0cm 5.4pt 0cm 5.4pt'>
+  <p class=MsoNormal align=center style='text-align:center;line-height:13.0pt;
+  page-break-after:avoid;mso-layout-grid-align:auto;mso-vertical-align-alt:
+  auto'><span style='mso-bookmark:_Ref323901904'><span style='mso-bookmark:
+  A10'><span lang=DE-CH style='mso-bidi-font-size:11.0pt;mso-fareast-font-family:
+  Calibri;mso-fareast-language:EN-US'>Allgemeine Text für <br>
+  Detailformulare<o:p></o:p></span></span></span></p>
+  </td>
+  <span style='mso-bookmark:_Ref323901904'><span style='mso-bookmark:A10'></span></span>
+  <td width=449 valign=top style='width:134.65pt;border-top:none;border-left:
+  none;border-bottom:solid windowtext 1.0pt;border-right:solid windowtext 1.0pt;
+  mso-border-top-alt:solid windowtext .5pt;mso-border-left-alt:solid windowtext .5pt;
+  mso-border-alt:solid windowtext .5pt;padding:0cm 5.4pt 0cm 5.4pt'><span
+  style='mso-bookmark:_Ref323901904'><span style='mso-bookmark:A10'></span></span>
+  <p class=MsoNormal align=center style='text-align:center;line-height:13.0pt;
+  page-break-after:avoid;mso-layout-grid-align:auto;mso-vertical-align-alt:
+  auto'><span style='mso-bookmark:_Ref323901904'><span style='mso-bookmark:
+  A10'><span lang=DE-CH style='mso-bidi-font-size:11.0pt;mso-fareast-font-family:
+  Calibri;mso-fareast-language:EN-US'><o:p>&nbsp;</o:p></span></span></span></p>
+  </td>
+  <span style='mso-bookmark:_Ref323901904'><span style='mso-bookmark:A10'></span></span>
+ </tr>
+ <tr style='mso-yfti-irow:2;page-break-inside:avoid'>
+  <td width=562 valign=top style='width:168.45pt;border:solid windowtext 1.0pt;
+  border-top:none;mso-border-top-alt:solid windowtext .5pt;mso-border-alt:solid windowtext .5pt;
+  padding:0cm 5.4pt 0cm 5.4pt'>
+  <p class=MsoNormal align=center style='text-align:center;line-height:13.0pt;
+  mso-layout-grid-align:auto;mso-vertical-align-alt:auto'><span
+  style='mso-bookmark:_Ref323901904'><span style='mso-bookmark:A10'><span
+  lang=DE-CH style='mso-bidi-font-size:11.0pt;mso-fareast-font-family:Calibri;
+  mso-fareast-language:EN-US'>GridLocalization.resx<o:p></o:p></span></span></span></p>
+  </td>
+  <span style='mso-bookmark:_Ref323901904'><span style='mso-bookmark:A10'></span></span>
+  <td width=449 valign=top style='width:134.65pt;border-top:none;border-left:
+  none;border-bottom:solid windowtext 1.0pt;border-right:solid windowtext 1.0pt;
+  mso-border-top-alt:solid windowtext .5pt;mso-border-left-alt:solid windowtext .5pt;
+  mso-border-alt:solid windowtext .5pt;padding:0cm 5.4pt 0cm 5.4pt'>
+  <p class=MsoNormal align=center style='text-align:center;line-height:13.0pt;
+  page-break-after:avoid;mso-layout-grid-align:auto;mso-vertical-align-alt:
+  auto'><span style='mso-bookmark:_Ref323901904'><span style='mso-bookmark:
+  A10'><span lang=DE-CH style='mso-bidi-font-size:11.0pt;mso-fareast-font-family:
+  Calibri;mso-fareast-language:EN-US'>Allgemeine Texte für <br>
+  Tabellen <o:p></o:p></span></span></span></p>
+  </td>
+  <span style='mso-bookmark:_Ref323901904'><span style='mso-bookmark:A10'></span></span>
+  <td width=449 valign=top style='width:134.65pt;border-top:none;border-left:
+  none;border-bottom:solid windowtext 1.0pt;border-right:solid windowtext 1.0pt;
+  mso-border-top-alt:solid windowtext .5pt;mso-border-left-alt:solid windowtext .5pt;
+  mso-border-alt:solid windowtext .5pt;padding:0cm 5.4pt 0cm 5.4pt'>
+  <p class=MsoNormal align=center style='text-align:center;line-height:13.0pt;
+  page-break-after:avoid;mso-layout-grid-align:auto;mso-vertical-align-alt:
+  auto'><span style='mso-bookmark:_Ref323901904'><span style='mso-bookmark:
+  A10'><span lang=DE-CH style='mso-bidi-font-size:11.0pt;mso-fareast-font-family:
+  Calibri;mso-fareast-language:EN-US'>„Aufsteigend sortiert“<br>
+  „Keine Daten“<o:p></o:p></span></span></span></p>
+  </td>
+  <span style='mso-bookmark:_Ref323901904'><span style='mso-bookmark:A10'></span></span>
+ </tr>
+ <tr style='mso-yfti-irow:3;page-break-inside:avoid'>
+  <td width=562 valign=top style='width:168.45pt;border:solid windowtext 1.0pt;
+  border-top:none;mso-border-top-alt:solid windowtext .5pt;mso-border-alt:solid windowtext .5pt;
+  padding:0cm 5.4pt 0cm 5.4pt'>
+  <p class=MsoNormal align=center style='text-align:center;line-height:13.0pt;
+  mso-layout-grid-align:auto;mso-vertical-align-alt:auto'><span
+  style='mso-bookmark:_Ref323901904'><span style='mso-bookmark:A10'><span
+  lang=DE-CH style='mso-bidi-font-size:11.0pt;mso-fareast-font-family:Calibri;
+  mso-fareast-language:EN-US'>UploadLocalization.resx<o:p></o:p></span></span></span></p>
+  </td>
+  <span style='mso-bookmark:_Ref323901904'><span style='mso-bookmark:A10'></span></span>
+  <td width=449 valign=top style='width:134.65pt;border-top:none;border-left:
+  none;border-bottom:solid windowtext 1.0pt;border-right:solid windowtext 1.0pt;
+  mso-border-top-alt:solid windowtext .5pt;mso-border-left-alt:solid windowtext .5pt;
+  mso-border-alt:solid windowtext .5pt;padding:0cm 5.4pt 0cm 5.4pt'>
+  <p class=MsoNormal align=center style='text-align:center;line-height:13.0pt;
+  page-break-after:avoid;mso-layout-grid-align:auto;mso-vertical-align-alt:
+  auto'><span style='mso-bookmark:_Ref323901904'><span style='mso-bookmark:
+  A10'><span lang=DE-CH style='mso-bidi-font-size:11.0pt;mso-fareast-font-family:
+  Calibri;mso-fareast-language:EN-US'>Allgemeine Texte fürs Hochladen von
+  Dateien <o:p></o:p></span></span></span></p>
+  </td>
+  <span style='mso-bookmark:_Ref323901904'><span style='mso-bookmark:A10'></span></span>
+  <td width=449 valign=top style='width:134.65pt;border-top:none;border-left:
+  none;border-bottom:solid windowtext 1.0pt;border-right:solid windowtext 1.0pt;
+  mso-border-top-alt:solid windowtext .5pt;mso-border-left-alt:solid windowtext .5pt;
+  mso-border-alt:solid windowtext .5pt;padding:0cm 5.4pt 0cm 5.4pt'>
+  <p class=MsoNormal align=center style='text-align:center;line-height:13.0pt;
+  page-break-after:avoid;mso-layout-grid-align:auto;mso-vertical-align-alt:
+  auto'><span style='mso-bookmark:_Ref323901904'><span style='mso-bookmark:
+  A10'><span lang=DE-CH style='mso-bidi-font-size:11.0pt;mso-fareast-font-family:
+  Calibri;mso-fareast-language:EN-US'>„Datei hochladen“<o:p></o:p></span></span></span></p>
+  </td>
+  <span style='mso-bookmark:_Ref323901904'><span style='mso-bookmark:A10'></span></span>
+ </tr>
+ <tr style='mso-yfti-irow:4;page-break-inside:avoid'>
+  <td width=562 valign=top style='width:168.45pt;border:solid windowtext 1.0pt;
+  border-top:none;mso-border-top-alt:solid windowtext .5pt;mso-border-alt:solid windowtext .5pt;
+  padding:0cm 5.4pt 0cm 5.4pt'>
+  <p class=MsoNormal align=center style='text-align:center;line-height:13.0pt;
+  mso-layout-grid-align:auto;mso-vertical-align-alt:auto'><span
+  style='mso-bookmark:_Ref323901904'><span style='mso-bookmark:A10'><span
+  lang=DE-CH style='mso-bidi-font-size:11.0pt;mso-fareast-font-family:Calibri;
+  mso-fareast-language:EN-US'>ButtonLocalization.resx<o:p></o:p></span></span></span></p>
+  </td>
+  <span style='mso-bookmark:_Ref323901904'><span style='mso-bookmark:A10'></span></span>
+  <td width=449 valign=top style='width:134.65pt;border-top:none;border-left:
+  none;border-bottom:solid windowtext 1.0pt;border-right:solid windowtext 1.0pt;
+  mso-border-top-alt:solid windowtext .5pt;mso-border-left-alt:solid windowtext .5pt;
+  mso-border-alt:solid windowtext .5pt;padding:0cm 5.4pt 0cm 5.4pt'>
+  <p class=MsoNormal align=center style='text-align:center;line-height:13.0pt;
+  page-break-after:avoid;mso-layout-grid-align:auto;mso-vertical-align-alt:
+  auto'><span style='mso-bookmark:_Ref323901904'><span style='mso-bookmark:
+  A10'><span lang=DE-CH style='mso-bidi-font-size:11.0pt;mso-fareast-font-family:
+  Calibri;mso-fareast-language:EN-US'>Texte von Schaltflächen<o:p></o:p></span></span></span></p>
+  </td>
+  <span style='mso-bookmark:_Ref323901904'><span style='mso-bookmark:A10'></span></span>
+  <td width=449 valign=top style='width:134.65pt;border-top:none;border-left:
+  none;border-bottom:solid windowtext 1.0pt;border-right:solid windowtext 1.0pt;
+  mso-border-top-alt:solid windowtext .5pt;mso-border-left-alt:solid windowtext .5pt;
+  mso-border-alt:solid windowtext .5pt;padding:0cm 5.4pt 0cm 5.4pt'>
+  <p class=MsoNormal align=center style='text-align:center;line-height:13.0pt;
+  page-break-after:avoid;mso-layout-grid-align:auto;mso-vertical-align-alt:
+  auto'><span style='mso-bookmark:_Ref323901904'><span style='mso-bookmark:
+  A10'><span lang=DE-CH style='mso-bidi-font-size:11.0pt;mso-fareast-font-family:
+  Calibri;mso-fareast-language:EN-US'>„Check-Out</span></span></span><span style='mso-bookmark:
+  _Ref323901904'><span style='mso-bookmark:A10'></span></span><span style='mso-bookmark:
+  _Ref323901904'><span style='mso-bookmark:A10'><span lang=DE-CH
+  style='mso-bidi-font-size:11.0pt;mso-fareast-font-family:Calibri;mso-fareast-language:
+  EN-US'><span style='mso-spacerun:yes'> </span>rückgängig machen“<o:p></o:p></span></span></span></p>
+  </td>
+  <span style='mso-bookmark:_Ref323901904'><span style='mso-bookmark:A10'></span></span>
+ </tr>
+ <tr style='mso-yfti-irow:5;page-break-inside:avoid'>
+  <td width=562 valign=top style='width:168.45pt;border:solid windowtext 1.0pt;
+  border-top:none;mso-border-top-alt:solid windowtext .5pt;mso-border-alt:solid windowtext .5pt;
+  padding:0cm 5.4pt 0cm 5.4pt'>
+  <p class=MsoNormal align=center style='text-align:center;line-height:13.0pt;
+  mso-layout-grid-align:auto;mso-vertical-align-alt:auto'><span
+  style='mso-bookmark:_Ref323901904'><span style='mso-bookmark:A10'><span
+  lang=DE-CH style='mso-bidi-font-size:11.0pt;mso-fareast-font-family:Calibri;
+  mso-fareast-language:EN-US'>EnumLocalization.resx<o:p></o:p></span></span></span></p>
+  </td>
+  <span style='mso-bookmark:_Ref323901904'><span style='mso-bookmark:A10'></span></span>
+  <td width=449 valign=top style='width:134.65pt;border-top:none;border-left:
+  none;border-bottom:solid windowtext 1.0pt;border-right:solid windowtext 1.0pt;
+  mso-border-top-alt:solid windowtext .5pt;mso-border-left-alt:solid windowtext .5pt;
+  mso-border-alt:solid windowtext .5pt;padding:0cm 5.4pt 0cm 5.4pt'>
+  <p class=MsoNormal align=center style='text-align:center;line-height:13.0pt;
+  page-break-after:avoid;mso-layout-grid-align:auto;mso-vertical-align-alt:
+  auto'><span style='mso-bookmark:_Ref323901904'><span style='mso-bookmark:
+  A10'><span lang=DE-CH style='mso-bidi-font-size:11.0pt;mso-fareast-font-family:
+  Calibri;mso-fareast-language:EN-US'>Texte von statischen <br>
+  Wertevorräten (Katalog)<o:p></o:p></span></span></span></p>
+  </td>
+  <span style='mso-bookmark:_Ref323901904'><span style='mso-bookmark:A10'></span></span>
+  <td width=449 valign=top style='width:134.65pt;border-top:none;border-left:
+  none;border-bottom:solid windowtext 1.0pt;border-right:solid windowtext 1.0pt;
+  mso-border-top-alt:solid windowtext .5pt;mso-border-left-alt:solid windowtext .5pt;
+  mso-border-alt:solid windowtext .5pt;padding:0cm 5.4pt 0cm 5.4pt'>
+  <p class=MsoNormal align=center style='text-align:center;line-height:13.0pt;
+  page-break-after:avoid;mso-layout-grid-align:auto;mso-vertical-align-alt:
+  auto'><span style='mso-bookmark:_Ref323901904'><span style='mso-bookmark:
+  A10'><span lang=DE-CH style='mso-bidi-font-size:11.0pt;mso-fareast-font-family:
+  Calibri;mso-fareast-language:EN-US'>„Asphalt“ (Belagstyp)<o:p></o:p></span></span></span></p>
+  </td>
+  <span style='mso-bookmark:_Ref323901904'><span style='mso-bookmark:A10'></span></span>
+ </tr>
+ <tr style='mso-yfti-irow:6;page-break-inside:avoid'>
+  <td width=562 valign=top style='width:168.45pt;border:solid windowtext 1.0pt;
+  border-top:none;mso-border-top-alt:solid windowtext .5pt;mso-border-alt:solid windowtext .5pt;
+  padding:0cm 5.4pt 0cm 5.4pt'>
+  <p class=MsoNormal align=center style='text-align:center;line-height:13.0pt;
+  mso-layout-grid-align:auto;mso-vertical-align-alt:auto'><span
+  style='mso-bookmark:_Ref323901904'><span style='mso-bookmark:A10'><span
+  lang=DE-CH style='mso-bidi-font-size:11.0pt;mso-fareast-font-family:Calibri;
+  mso-fareast-language:EN-US'>GridHeaderFooterLocalization.resx<o:p></o:p></span></span></span></p>
+  </td>
+  <span style='mso-bookmark:_Ref323901904'><span style='mso-bookmark:A10'></span></span>
+  <td width=449 valign=top style='width:134.65pt;border-top:none;border-left:
+  none;border-bottom:solid windowtext 1.0pt;border-right:solid windowtext 1.0pt;
+  mso-border-top-alt:solid windowtext .5pt;mso-border-left-alt:solid windowtext .5pt;
+  mso-border-alt:solid windowtext .5pt;padding:0cm 5.4pt 0cm 5.4pt'>
+  <p class=MsoNormal align=center style='text-align:center;line-height:13.0pt;
+  page-break-after:avoid;mso-layout-grid-align:auto;mso-vertical-align-alt:
+  auto'><span style='mso-bookmark:_Ref323901904'><span style='mso-bookmark:
+  A10'><span lang=DE-CH style='mso-bidi-font-size:11.0pt;mso-fareast-font-family:
+  Calibri;mso-fareast-language:EN-US'>Überschriften von Tabellen<o:p></o:p></span></span></span></p>
+  </td>
+  <span style='mso-bookmark:_Ref323901904'><span style='mso-bookmark:A10'></span></span>
+  <td width=449 valign=top style='width:134.65pt;border-top:none;border-left:
+  none;border-bottom:solid windowtext 1.0pt;border-right:solid windowtext 1.0pt;
+  mso-border-top-alt:solid windowtext .5pt;mso-border-left-alt:solid windowtext .5pt;
+  mso-border-alt:solid windowtext .5pt;padding:0cm 5.4pt 0cm 5.4pt'>
+  <p class=MsoNormal align=center style='text-align:center;line-height:13.0pt;
+  page-break-after:avoid;mso-layout-grid-align:auto;mso-vertical-align-alt:
+  auto'><span style='mso-bookmark:_Ref323901904'><span style='mso-bookmark:
+  A10'><span lang=DE-CH style='mso-bidi-font-size:11.0pt;mso-fareast-font-family:
+  Calibri;mso-fareast-language:EN-US'>„Dringlichkeit“<o:p></o:p></span></span></span></p>
+  </td>
+  <span style='mso-bookmark:_Ref323901904'><span style='mso-bookmark:A10'></span></span>
+ </tr>
+ <tr style='mso-yfti-irow:7;page-break-inside:avoid'>
+  <td width=562 valign=top style='width:168.45pt;border:solid windowtext 1.0pt;
+  border-top:none;mso-border-top-alt:solid windowtext .5pt;mso-border-alt:solid windowtext .5pt;
+  padding:0cm 5.4pt 0cm 5.4pt'>
+  <p class=MsoNormal align=center style='text-align:center;line-height:13.0pt;
+  mso-layout-grid-align:auto;mso-vertical-align-alt:auto'><span
+  style='mso-bookmark:_Ref323901904'><span style='mso-bookmark:A10'><span
+  lang=DE-CH style='mso-bidi-font-size:11.0pt;mso-fareast-font-family:Calibri;
+  mso-fareast-language:EN-US'>LookupsLocalization.resx<o:p></o:p></span></span></span></p>
+  </td>
+  <span style='mso-bookmark:_Ref323901904'><span style='mso-bookmark:A10'></span></span>
+  <td width=449 valign=top style='width:134.65pt;border-top:none;border-left:
+  none;border-bottom:solid windowtext 1.0pt;border-right:solid windowtext 1.0pt;
+  mso-border-top-alt:solid windowtext .5pt;mso-border-left-alt:solid windowtext .5pt;
+  mso-border-alt:solid windowtext .5pt;padding:0cm 5.4pt 0cm 5.4pt'>
+  <p class=MsoNormal align=center style='text-align:center;line-height:13.0pt;
+  page-break-after:avoid;mso-layout-grid-align:auto;mso-vertical-align-alt:
+  auto'><span style='mso-bookmark:_Ref323901904'><span style='mso-bookmark:
+  A10'><span lang=DE-CH style='mso-bidi-font-size:11.0pt;mso-fareast-font-family:
+  Calibri;mso-fareast-language:EN-US'>Texte von dynamischen Wertevorräten
+  (Katalog)<o:p></o:p></span></span></span></p>
+  </td>
+  <span style='mso-bookmark:_Ref323901904'><span style='mso-bookmark:A10'></span></span>
+  <td width=449 valign=top style='width:134.65pt;border-top:none;border-left:
+  none;border-bottom:solid windowtext 1.0pt;border-right:solid windowtext 1.0pt;
+  mso-border-top-alt:solid windowtext .5pt;mso-border-left-alt:solid windowtext .5pt;
+  mso-border-alt:solid windowtext .5pt;padding:0cm 5.4pt 0cm 5.4pt'>
+  <p class=MsoNormal align=center style='text-align:center;line-height:13.0pt;
+  page-break-after:avoid;mso-layout-grid-align:auto;mso-vertical-align-alt:
+  auto'><span style='mso-bookmark:_Ref323901904'><span style='mso-bookmark:
+  A10'><span lang=DE-CH style='mso-bidi-font-size:11.0pt;mso-fareast-font-family:
+  Calibri;mso-fareast-language:EN-US'>„IA“ (Belastungskategorie)<o:p></o:p></span></span></span></p>
+  </td>
+  <span style='mso-bookmark:_Ref323901904'><span style='mso-bookmark:A10'></span></span>
+ </tr>
+ <tr style='mso-yfti-irow:8;page-break-inside:avoid'>
+  <td width=562 valign=top style='width:168.45pt;border:solid windowtext 1.0pt;
+  border-top:none;mso-border-top-alt:solid windowtext .5pt;mso-border-alt:solid windowtext .5pt;
+  padding:0cm 5.4pt 0cm 5.4pt'>
+  <p class=MsoNormal align=center style='text-align:center;line-height:13.0pt;
+  mso-layout-grid-align:auto;mso-vertical-align-alt:auto'><span
+  style='mso-bookmark:_Ref323901904'><span style='mso-bookmark:A10'><span
+  lang=DE-CH style='mso-bidi-font-size:11.0pt;mso-fareast-font-family:Calibri;
+  mso-fareast-language:EN-US'>MapLocalization.resx<o:p></o:p></span></span></span></p>
+  </td>
+  <span style='mso-bookmark:_Ref323901904'><span style='mso-bookmark:A10'></span></span>
+  <td width=449 valign=top style='width:134.65pt;border-top:none;border-left:
+  none;border-bottom:solid windowtext 1.0pt;border-right:solid windowtext 1.0pt;
+  mso-border-top-alt:solid windowtext .5pt;mso-border-left-alt:solid windowtext .5pt;
+  mso-border-alt:solid windowtext .5pt;padding:0cm 5.4pt 0cm 5.4pt'>
+  <p class=MsoNormal align=center style='text-align:center;line-height:13.0pt;
+  page-break-after:avoid;mso-layout-grid-align:auto;mso-vertical-align-alt:
+  auto'><span style='mso-bookmark:_Ref323901904'><span style='mso-bookmark:
+  A10'><span lang=DE-CH style='mso-bidi-font-size:11.0pt;mso-fareast-font-family:
+  Calibri;mso-fareast-language:EN-US'>Texte die auf der Karte</span></span></span><span style='mso-bookmark:
+  _Ref323901904'><span style='mso-bookmark:A10'></span></span><span style='mso-bookmark:
+  _Ref323901904'><span style='mso-bookmark:A10'><span lang=DE-CH
+  style='mso-bidi-font-size:11.0pt;mso-fareast-font-family:Calibri;mso-fareast-language:
+  EN-US'><span style='mso-spacerun:yes'> </span>angezeigt werden<o:p></o:p></span></span></span></p>
+  </td>
+  <span style='mso-bookmark:_Ref323901904'><span style='mso-bookmark:A10'></span></span>
+  <td width=449 valign=top style='width:134.65pt;border-top:none;border-left:
+  none;border-bottom:solid windowtext 1.0pt;border-right:solid windowtext 1.0pt;
+  mso-border-top-alt:solid windowtext .5pt;mso-border-left-alt:solid windowtext .5pt;
+  mso-border-alt:solid windowtext .5pt;padding:0cm 5.4pt 0cm 5.4pt'>
+  <p class=MsoNormal align=center style='text-align:center;line-height:13.0pt;
+  page-break-after:avoid;mso-layout-grid-align:auto;mso-vertical-align-alt:
+  auto'><span style='mso-bookmark:_Ref323901904'><span style='mso-bookmark:
+  A10'><span lang=DE-CH style='mso-bidi-font-size:11.0pt;mso-fareast-font-family:
+  Calibri;mso-fareast-language:EN-US'>„Gebäude“<o:p></o:p></span></span></span></p>
+  <span style='mso-bookmark:_Ref323901904'><span style='mso-bookmark:A10'></span></span>
+  <p class=MsoNormal align=center style='text-align:center;line-height:13.0pt;
+  page-break-after:avoid;mso-layout-grid-align:auto;mso-vertical-align-alt:
+  auto'><span style='mso-bookmark:_Ref323901904'><span style='mso-bookmark:
+  A10'><span lang=DE-CH style='mso-bidi-font-size:11.0pt;mso-fareast-font-family:
+  Calibri;mso-fareast-language:EN-US'><o:p>&nbsp;</o:p></span></span></span></p>
+  </td>
+  <span style='mso-bookmark:_Ref323901904'><span style='mso-bookmark:A10'></span></span>
+ </tr>
+ <tr style='mso-yfti-irow:9;page-break-inside:avoid'>
+  <td width=562 valign=top style='width:168.45pt;border:solid windowtext 1.0pt;
+  border-top:none;mso-border-top-alt:solid windowtext .5pt;mso-border-alt:solid windowtext .5pt;
+  padding:0cm 5.4pt 0cm 5.4pt'>
+  <p class=MsoNormal align=center style='text-align:center;line-height:13.0pt;
+  mso-layout-grid-align:auto;mso-vertical-align-alt:auto'><span
+  style='mso-bookmark:_Ref323901904'><span style='mso-bookmark:A10'><span
+  lang=DE-CH style='mso-bidi-font-size:11.0pt;mso-fareast-font-family:Calibri;
+  mso-fareast-language:EN-US'>MenuLocalization.resx<o:p></o:p></span></span></span></p>
+  </td>
+  <span style='mso-bookmark:_Ref323901904'><span style='mso-bookmark:A10'></span></span>
+  <td width=449 valign=top style='width:134.65pt;border-top:none;border-left:
+  none;border-bottom:solid windowtext 1.0pt;border-right:solid windowtext 1.0pt;
+  mso-border-top-alt:solid windowtext .5pt;mso-border-left-alt:solid windowtext .5pt;
+  mso-border-alt:solid windowtext .5pt;padding:0cm 5.4pt 0cm 5.4pt'>
+  <p class=MsoNormal align=center style='text-align:center;line-height:13.0pt;
+  page-break-after:avoid;mso-layout-grid-align:auto;mso-vertical-align-alt:
+  auto'><span style='mso-bookmark:_Ref323901904'><span style='mso-bookmark:
+  A10'><span lang=DE-CH style='mso-bidi-font-size:11.0pt;mso-fareast-font-family:
+  Calibri;mso-fareast-language:EN-US'>Texte für Menüeinträge<o:p></o:p></span></span></span></p>
+  </td>
+  <span style='mso-bookmark:_Ref323901904'><span style='mso-bookmark:A10'></span></span>
+  <td width=449 valign=top style='width:134.65pt;border-top:none;border-left:
+  none;border-bottom:solid windowtext 1.0pt;border-right:solid windowtext 1.0pt;
+  mso-border-top-alt:solid windowtext .5pt;mso-border-left-alt:solid windowtext .5pt;
+  mso-border-alt:solid windowtext .5pt;padding:0cm 5.4pt 0cm 5.4pt'>
+  <p class=MsoNormal align=center style='text-align:center;line-height:13.0pt;
+  page-break-after:avoid;mso-layout-grid-align:auto;mso-vertical-align-alt:
+  auto'><span style='mso-bookmark:_Ref323901904'><span style='mso-bookmark:
+  A10'><span lang=DE-CH style='mso-bidi-font-size:11.0pt;mso-fareast-font-family:
+  Calibri;mso-fareast-language:EN-US'>„Menge pro Belastungskategorie“<o:p></o:p></span></span></span></p>
+  </td>
+  <span style='mso-bookmark:_Ref323901904'><span style='mso-bookmark:A10'></span></span>
+ </tr>
+ <tr style='mso-yfti-irow:10;page-break-inside:avoid'>
+  <td width=562 valign=top style='width:168.45pt;border:solid windowtext 1.0pt;
+  border-top:none;mso-border-top-alt:solid windowtext .5pt;mso-border-alt:solid windowtext .5pt;
+  padding:0cm 5.4pt 0cm 5.4pt'>
+  <p class=MsoNormal align=center style='text-align:center;line-height:13.0pt;
+  mso-layout-grid-align:auto;mso-vertical-align-alt:auto'><span
+  style='mso-bookmark:_Ref323901904'><span style='mso-bookmark:A10'><span
+  lang=DE-CH style='mso-bidi-font-size:11.0pt;mso-fareast-font-family:Calibri;
+  mso-fareast-language:EN-US'>ModelLocalization.resx<o:p></o:p></span></span></span></p>
+  </td>
+  <span style='mso-bookmark:_Ref323901904'><span style='mso-bookmark:A10'></span></span>
+  <td width=449 valign=top style='width:134.65pt;border-top:none;border-left:
+  none;border-bottom:solid windowtext 1.0pt;border-right:solid windowtext 1.0pt;
+  mso-border-top-alt:solid windowtext .5pt;mso-border-left-alt:solid windowtext .5pt;
+  mso-border-alt:solid windowtext .5pt;padding:0cm 5.4pt 0cm 5.4pt'>
+  <p class=MsoNormal align=center style='text-align:center;line-height:13.0pt;
+  page-break-after:avoid;mso-layout-grid-align:auto;mso-vertical-align-alt:
+  auto'><span style='mso-bookmark:_Ref323901904'><span style='mso-bookmark:
+  A10'><span lang=DE-CH style='mso-bidi-font-size:11.0pt;mso-fareast-font-family:
+  Calibri;mso-fareast-language:EN-US'>Labels von den Eingabeformularen (Masken)<o:p></o:p></span></span></span></p>
+  </td>
+  <span style='mso-bookmark:_Ref323901904'><span style='mso-bookmark:A10'></span></span>
+  <td width=449 valign=top style='width:134.65pt;border-top:none;border-left:
+  none;border-bottom:solid windowtext 1.0pt;border-right:solid windowtext 1.0pt;
+  mso-border-top-alt:solid windowtext .5pt;mso-border-left-alt:solid windowtext .5pt;
+  mso-border-alt:solid windowtext .5pt;padding:0cm 5.4pt 0cm 5.4pt'>
+  <p class=MsoNormal align=center style='text-align:center;line-height:13.0pt;
+  page-break-after:avoid;mso-layout-grid-align:auto;mso-vertical-align-alt:
+  auto'><span style='mso-bookmark:_Ref323901904'><span style='mso-bookmark:
+  A10'><span lang=DE-CH style='mso-bidi-font-size:11.0pt;mso-fareast-font-family:
+  Calibri;mso-fareast-language:EN-US'>„Strassenname“ <br>
+  (Strassenabschnitt</span></span></span><span style='mso-bookmark:
+  _Ref323901904'><span style='mso-bookmark:A10'></span></span><span style='mso-bookmark:
+  _Ref323901904'><span style='mso-bookmark:A10'><span lang=DE-CH
+  style='mso-bidi-font-size:11.0pt;mso-fareast-font-family:Calibri;mso-fareast-language:
+  EN-US'>)<o:p></o:p></span></span></span></p>
+  </td>
+  <span style='mso-bookmark:_Ref323901904'><span style='mso-bookmark:A10'></span></span>
+ </tr>
+ <tr style='mso-yfti-irow:11;page-break-inside:avoid'>
+  <td width=562 valign=top style='width:168.45pt;border:solid windowtext 1.0pt;
+  border-top:none;mso-border-top-alt:solid windowtext .5pt;mso-border-alt:solid windowtext .5pt;
+  padding:0cm 5.4pt 0cm 5.4pt'>
+  <p class=MsoNormal align=center style='text-align:center;line-height:13.0pt;
+  mso-layout-grid-align:auto;mso-vertical-align-alt:auto'><span
+  style='mso-bookmark:_Ref323901904'><span style='mso-bookmark:A10'><span
+  lang=DE-CH style='mso-bidi-font-size:11.0pt;mso-fareast-font-family:Calibri;
+  mso-fareast-language:EN-US'>NotificationLocalization.resx<o:p></o:p></span></span></span></p>
+  </td>
+  <span style='mso-bookmark:_Ref323901904'><span style='mso-bookmark:A10'></span></span>
+  <td width=449 valign=top style='width:134.65pt;border-top:none;border-left:
+  none;border-bottom:solid windowtext 1.0pt;border-right:solid windowtext 1.0pt;
+  mso-border-top-alt:solid windowtext .5pt;mso-border-left-alt:solid windowtext .5pt;
+  mso-border-alt:solid windowtext .5pt;padding:0cm 5.4pt 0cm 5.4pt'>
+  <p class=MsoNormal align=center style='text-align:center;line-height:13.0pt;
+  page-break-after:avoid;mso-layout-grid-align:auto;mso-vertical-align-alt:
+  auto'><span style='mso-bookmark:_Ref323901904'><span style='mso-bookmark:
+  A10'><span lang=DE-CH style='mso-bidi-font-size:11.0pt;mso-fareast-font-family:
+  Calibri;mso-fareast-language:EN-US'>Erfolgsmeldungen, Fehlermeldungen,
+  Bestätigungsmeldungen von Popups<o:p></o:p></span></span></span></p>
+  </td>
+  <span style='mso-bookmark:_Ref323901904'><span style='mso-bookmark:A10'></span></span>
+  <td width=449 valign=top style='width:134.65pt;border-top:none;border-left:
+  none;border-bottom:solid windowtext 1.0pt;border-right:solid windowtext 1.0pt;
+  mso-border-top-alt:solid windowtext .5pt;mso-border-left-alt:solid windowtext .5pt;
+  mso-border-alt:solid windowtext .5pt;padding:0cm 5.4pt 0cm 5.4pt'>
+  <p class=MsoNormal align=center style='text-align:center;line-height:13.0pt;
+  page-break-after:avoid;mso-layout-grid-align:auto;mso-vertical-align-alt:
+  auto'><span style='mso-bookmark:_Ref323901904'><span style='mso-bookmark:
+  A10'><span lang=DE-CH style='mso-bidi-font-size:11.0pt;mso-fareast-font-family:
+  Calibri;mso-fareast-language:EN-US'>„Das Achsenupdate</span></span></span><span style='mso-bookmark:
+  _Ref323901904'><span style='mso-bookmark:A10'></span></span><span style='mso-bookmark:
+  _Ref323901904'><span style='mso-bookmark:A10'><span lang=DE-CH
+  style='mso-bidi-font-size:11.0pt;mso-fareast-font-family:Calibri;mso-fareast-language:
+  EN-US'><span style='mso-spacerun:yes'> </span>wurde erfolgreich durchgeführt“<o:p></o:p></span></span></span></p>
+  <p class=MsoNormal align=center style='text-align:center;line-height:13.0pt;
+  page-break-after:avoid;mso-layout-grid-align:auto;mso-vertical-align-alt:
+  auto'><span style='mso-bookmark:_Ref323901904'><span style='mso-bookmark:
+  A10'><span lang=DE-CH style='mso-bidi-font-size:11.0pt;mso-fareast-font-family:
+  Calibri;mso-fareast-language:EN-US'>„Wollen Sie den Zustandsabschnitt</span></span></span><span style='mso-bookmark:
+  _Ref323901904'><span style='mso-bookmark:A10'></span></span><span style='mso-bookmark:
+  _Ref323901904'><span style='mso-bookmark:A10'><span lang=DE-CH
+  style='mso-bidi-font-size:11.0pt;mso-fareast-font-family:Calibri;mso-fareast-language:
+  EN-US'><span style='mso-spacerun:yes'> </span>wirklich löschen?“<o:p></o:p></span></span></span></p>
+  </td>
+  <span style='mso-bookmark:_Ref323901904'><span style='mso-bookmark:A10'></span></span>
+ </tr>
+ <tr style='mso-yfti-irow:12;page-break-inside:avoid'>
+  <td width=562 valign=top style='width:168.45pt;border:solid windowtext 1.0pt;
+  border-top:none;mso-border-top-alt:solid windowtext .5pt;mso-border-alt:solid windowtext .5pt;
+  padding:0cm 5.4pt 0cm 5.4pt'>
+  <p class=MsoNormal align=center style='text-align:center;line-height:13.0pt;
+  mso-layout-grid-align:auto;mso-vertical-align-alt:auto'><span
+  style='mso-bookmark:_Ref323901904'><span style='mso-bookmark:A10'><span
+  lang=DE-CH style='mso-bidi-font-size:11.0pt;mso-fareast-font-family:Calibri;
+  mso-fareast-language:EN-US'>ReportLocalization.resx<o:p></o:p></span></span></span></p>
+  </td>
+  <span style='mso-bookmark:_Ref323901904'><span style='mso-bookmark:A10'></span></span>
+  <td width=449 valign=top style='width:134.65pt;border-top:none;border-left:
+  none;border-bottom:solid windowtext 1.0pt;border-right:solid windowtext 1.0pt;
+  mso-border-top-alt:solid windowtext .5pt;mso-border-left-alt:solid windowtext .5pt;
+  mso-border-alt:solid windowtext .5pt;padding:0cm 5.4pt 0cm 5.4pt'>
+  <p class=MsoNormal align=center style='text-align:center;line-height:13.0pt;
+  page-break-after:avoid;mso-layout-grid-align:auto;mso-vertical-align-alt:
+  auto'><span style='mso-bookmark:_Ref323901904'><span style='mso-bookmark:
+  A10'><span lang=DE-CH style='mso-bidi-font-size:11.0pt;mso-fareast-font-family:
+  Calibri;mso-fareast-language:EN-US'>Texte für Auswertungen von Microsoft
+  Report Assemblies<o:p></o:p></span></span></span></p>
+  </td>
+  <span style='mso-bookmark:_Ref323901904'><span style='mso-bookmark:A10'></span></span>
+  <td width=449 valign=top style='width:134.65pt;border-top:none;border-left:
+  none;border-bottom:solid windowtext 1.0pt;border-right:solid windowtext 1.0pt;
+  mso-border-top-alt:solid windowtext .5pt;mso-border-left-alt:solid windowtext .5pt;
+  mso-border-alt:solid windowtext .5pt;padding:0cm 5.4pt 0cm 5.4pt'>
+  <p class=MsoNormal align=center style='text-align:center;line-height:13.0pt;
+  page-break-after:avoid;mso-layout-grid-align:auto;mso-vertical-align-alt:
+  auto'><span style='mso-bookmark:_Ref323901904'><span style='mso-bookmark:
+  A10'><span lang=IT style='mso-bidi-font-size:11.0pt;mso-fareast-font-family:
+  Calibri;mso-ansi-language:IT;mso-fareast-language:EN-US'>„WBW [Mio. CHF]” <br>
+  “WV [kCHF]“<o:p></o:p></span></span></span></p>
+  </td>
+  <span style='mso-bookmark:_Ref323901904'><span style='mso-bookmark:A10'></span></span>
+ </tr>
+ <tr style='mso-yfti-irow:13;page-break-inside:avoid'>
+  <td width=562 valign=top style='width:168.45pt;border:solid windowtext 1.0pt;
+  border-top:none;mso-border-top-alt:solid windowtext .5pt;mso-border-alt:solid windowtext .5pt;
+  padding:0cm 5.4pt 0cm 5.4pt'>
+  <p class=MsoNormal align=center style='text-align:center;line-height:13.0pt;
+  mso-layout-grid-align:auto;mso-vertical-align-alt:auto'><span
+  style='mso-bookmark:_Ref323901904'><span style='mso-bookmark:A10'><span
+  lang=DE-CH style='mso-bidi-font-size:11.0pt;mso-fareast-font-family:Calibri;
+  mso-fareast-language:EN-US'>TextLocalization.resx<o:p></o:p></span></span></span></p>
+  </td>
+  <span style='mso-bookmark:_Ref323901904'><span style='mso-bookmark:A10'></span></span>
+  <td width=449 valign=top style='width:134.65pt;border-top:none;border-left:
+  none;border-bottom:solid windowtext 1.0pt;border-right:solid windowtext 1.0pt;
+  mso-border-top-alt:solid windowtext .5pt;mso-border-left-alt:solid windowtext .5pt;
+  mso-border-alt:solid windowtext .5pt;padding:0cm 5.4pt 0cm 5.4pt'>
+  <p class=MsoNormal align=center style='text-align:center;line-height:13.0pt;
+  page-break-after:avoid;mso-layout-grid-align:auto;mso-vertical-align-alt:
+  auto'><span style='mso-bookmark:_Ref323901904'><span style='mso-bookmark:
+  A10'><span lang=DE-CH style='mso-bidi-font-size:11.0pt;mso-fareast-font-family:
+  Calibri;mso-fareast-language:EN-US'>Allgemeine Texte<o:p></o:p></span></span></span></p>
+  </td>
+  <span style='mso-bookmark:_Ref323901904'><span style='mso-bookmark:A10'></span></span>
+  <td width=449 valign=top style='width:134.65pt;border-top:none;border-left:
+  none;border-bottom:solid windowtext 1.0pt;border-right:solid windowtext 1.0pt;
+  mso-border-top-alt:solid windowtext .5pt;mso-border-left-alt:solid windowtext .5pt;
+  mso-border-alt:solid windowtext .5pt;padding:0cm 5.4pt 0cm 5.4pt'>
+  <p class=MsoNormal align=center style='text-align:center;line-height:13.0pt;
+  page-break-after:avoid;mso-layout-grid-align:auto;mso-vertical-align-alt:
+  auto'><span style='mso-bookmark:_Ref323901904'><span style='mso-bookmark:
+  A10'><span lang=DE-CH style='mso-bidi-font-size:11.0pt;mso-fareast-font-family:
+  Calibri;mso-fareast-language:EN-US'>„Aktueller Mandant</span></span></span><span style='mso-bookmark:
+  _Ref323901904'><span style='mso-bookmark:A10'></span></span><span style='mso-bookmark:
+  _Ref323901904'><span style='mso-bookmark:A10'><span lang=DE-CH
+  style='mso-bidi-font-size:11.0pt;mso-fareast-font-family:Calibri;mso-fareast-language:
+  EN-US'>“<o:p></o:p></span></span></span></p>
+  </td>
+  <span style='mso-bookmark:_Ref323901904'><span style='mso-bookmark:A10'></span></span>
+ </tr>
+ <tr style='mso-yfti-irow:14;page-break-inside:avoid'>
+  <td width=562 valign=top style='width:168.45pt;border:solid windowtext 1.0pt;
+  border-top:none;mso-border-top-alt:solid windowtext .5pt;mso-border-alt:solid windowtext .5pt;
+  padding:0cm 5.4pt 0cm 5.4pt'>
+  <p class=MsoNormal align=center style='text-align:center;line-height:13.0pt;
+  mso-layout-grid-align:auto;mso-vertical-align-alt:auto'><span
+  style='mso-bookmark:_Ref323901904'><span style='mso-bookmark:A10'><span
+  lang=DE-CH style='mso-bidi-font-size:11.0pt;mso-fareast-font-family:Calibri;
+  mso-fareast-language:EN-US'>TitleLocalization.resx<o:p></o:p></span></span></span></p>
+  </td>
+  <span style='mso-bookmark:_Ref323901904'><span style='mso-bookmark:A10'></span></span>
+  <td width=449 valign=top style='width:134.65pt;border-top:none;border-left:
+  none;border-bottom:solid windowtext 1.0pt;border-right:solid windowtext 1.0pt;
+  mso-border-top-alt:solid windowtext .5pt;mso-border-left-alt:solid windowtext .5pt;
+  mso-border-alt:solid windowtext .5pt;padding:0cm 5.4pt 0cm 5.4pt'>
+  <p class=MsoNormal align=center style='text-align:center;line-height:13.0pt;
+  page-break-after:avoid;mso-layout-grid-align:auto;mso-vertical-align-alt:
+  auto'><span style='mso-bookmark:_Ref323901904'><span style='mso-bookmark:
+  A10'><span lang=DE-CH style='mso-bidi-font-size:11.0pt;mso-fareast-font-family:
+  Calibri;mso-fareast-language:EN-US'>Titel der einzelnen Seiten<o:p></o:p></span></span></span></p>
+  </td>
+  <span style='mso-bookmark:_Ref323901904'><span style='mso-bookmark:A10'></span></span>
+  <td width=449 valign=top style='width:134.65pt;border-top:none;border-left:
+  none;border-bottom:solid windowtext 1.0pt;border-right:solid windowtext 1.0pt;
+  mso-border-top-alt:solid windowtext .5pt;mso-border-left-alt:solid windowtext .5pt;
+  mso-border-alt:solid windowtext .5pt;padding:0cm 5.4pt 0cm 5.4pt'>
+  <p class=MsoNormal align=center style='text-align:center;line-height:13.0pt;
+  page-break-after:avoid;mso-layout-grid-align:auto;mso-vertical-align-alt:
+  auto'><span style='mso-bookmark:_Ref323901904'><span style='mso-bookmark:
+  A10'><span lang=DE-CH style='mso-bidi-font-size:11.0pt;mso-fareast-font-family:
+  Calibri;mso-fareast-language:EN-US'>„Zustände und Massnahmenvorschläge</span></span></span><span style='mso-bookmark:
+  _Ref323901904'><span style='mso-bookmark:A10'></span></span><span style='mso-bookmark:
+  _Ref323901904'><span style='mso-bookmark:A10'><span lang=DE-CH
+  style='mso-bidi-font-size:11.0pt;mso-fareast-font-family:Calibri;mso-fareast-language:
+  EN-US'>“<o:p></o:p></span></span></span></p>
+  </td>
+  <span style='mso-bookmark:_Ref323901904'><span style='mso-bookmark:A10'></span></span>
+ </tr>
+ <tr style='mso-yfti-irow:15;page-break-inside:avoid'>
+  <td width=562 valign=top style='width:168.45pt;border:solid windowtext 1.0pt;
+  border-top:none;mso-border-top-alt:solid windowtext .5pt;mso-border-alt:solid windowtext .5pt;
+  padding:0cm 5.4pt 0cm 5.4pt'>
+  <p class=MsoNormal align=center style='text-align:center;line-height:13.0pt;
+  mso-layout-grid-align:auto;mso-vertical-align-alt:auto'><span
+  style='mso-bookmark:_Ref323901904'><span style='mso-bookmark:A10'><span
+  lang=DE-CH style='mso-bidi-font-size:11.0pt;mso-fareast-font-family:Calibri;
+  mso-fareast-language:EN-US'>ValidationErrorLocalization.resx<o:p></o:p></span></span></span></p>
+  </td>
+  <span style='mso-bookmark:_Ref323901904'><span style='mso-bookmark:A10'></span></span>
+  <td width=449 valign=top style='width:134.65pt;border-top:none;border-left:
+  none;border-bottom:solid windowtext 1.0pt;border-right:solid windowtext 1.0pt;
+  mso-border-top-alt:solid windowtext .5pt;mso-border-left-alt:solid windowtext .5pt;
+  mso-border-alt:solid windowtext .5pt;padding:0cm 5.4pt 0cm 5.4pt'>
+  <p class=MsoNormal align=center style='text-align:center;line-height:13.0pt;
+  page-break-after:avoid;mso-layout-grid-align:auto;mso-vertical-align-alt:
+  auto'><span style='mso-bookmark:_Ref323901904'><span style='mso-bookmark:
+  A10'><span lang=DE-CH style='mso-bidi-font-size:11.0pt;mso-fareast-font-family:
+  Calibri;mso-fareast-language:EN-US'>Fehlertexte von <br>
+  strukturellen Validierungen<o:p></o:p></span></span></span></p>
+  </td>
+  <span style='mso-bookmark:_Ref323901904'><span style='mso-bookmark:A10'></span></span>
+  <td width=449 valign=top style='width:134.65pt;border-top:none;border-left:
+  none;border-bottom:solid windowtext 1.0pt;border-right:solid windowtext 1.0pt;
+  mso-border-top-alt:solid windowtext .5pt;mso-border-left-alt:solid windowtext .5pt;
+  mso-border-alt:solid windowtext .5pt;padding:0cm 5.4pt 0cm 5.4pt'>
+  <p class=MsoNormal align=center style='text-align:center;line-height:13.0pt;
+  page-break-after:avoid;mso-layout-grid-align:auto;mso-vertical-align-alt:
+  auto'><span style='mso-bookmark:_Ref323901904'><span style='mso-bookmark:
+  A10'><span lang=DE-CH style='mso-bidi-font-size:11.0pt;mso-fareast-font-family:
+  Calibri;mso-fareast-language:EN-US'>„Fehler beim Import“<o:p></o:p></span></span></span></p>
+  </td>
+  <span style='mso-bookmark:_Ref323901904'><span style='mso-bookmark:A10'></span></span>
+ </tr>
+ <tr style='mso-yfti-irow:16;mso-yfti-lastrow:yes;page-break-inside:avoid'>
+  <td width=562 valign=top style='width:168.45pt;border:solid windowtext 1.0pt;
+  border-top:none;mso-border-top-alt:solid windowtext .5pt;mso-border-alt:solid windowtext .5pt;
+  padding:0cm 5.4pt 0cm 5.4pt'>
+  <p class=MsoNormal align=center style='text-align:center;line-height:13.0pt;
+  mso-layout-grid-align:auto;mso-vertical-align-alt:auto'><span
+  style='mso-bookmark:_Ref323901904'><span style='mso-bookmark:A10'><span
+  lang=DE-CH style='mso-bidi-font-size:11.0pt;mso-fareast-font-family:Calibri;
+  mso-fareast-language:EN-US'>MobileLocalization.resx<o:p></o:p></span></span></span></p>
+  </td>
+  <span style='mso-bookmark:_Ref323901904'><span style='mso-bookmark:A10'></span></span>
+  <td width=449 valign=top style='width:134.65pt;border-top:none;border-left:
+  none;border-bottom:solid windowtext 1.0pt;border-right:solid windowtext 1.0pt;
+  mso-border-top-alt:solid windowtext .5pt;mso-border-left-alt:solid windowtext .5pt;
+  mso-border-alt:solid windowtext .5pt;padding:0cm 5.4pt 0cm 5.4pt'>
+  <p class=MsoNormal align=center style='text-align:center;line-height:13.0pt;
+  page-break-after:avoid;mso-layout-grid-align:auto;mso-vertical-align-alt:
+  auto'><span style='mso-bookmark:_Ref323901904'><span style='mso-bookmark:
+  A10'><span lang=DE-CH style='mso-bidi-font-size:11.0pt;mso-fareast-font-family:
+  Calibri;mso-fareast-language:EN-US'>Alle Texte für EMSG-Mobile</span></span></span><span style='mso-bookmark:
+  _Ref323901904'><span style='mso-bookmark:A10'></span></span><span style='mso-bookmark:
+  _Ref323901904'><span style='mso-bookmark:A10'><span lang=DE-CH
+  style='mso-bidi-font-size:11.0pt;mso-fareast-font-family:Calibri;mso-fareast-language:
+  EN-US'><o:p></o:p></span></span></span></p>
+  </td>
+  <span style='mso-bookmark:_Ref323901904'><span style='mso-bookmark:A10'></span></span>
+  <td width=449 valign=top style='width:134.65pt;border-top:none;border-left:
+  none;border-bottom:solid windowtext 1.0pt;border-right:solid windowtext 1.0pt;
+  mso-border-top-alt:solid windowtext .5pt;mso-border-left-alt:solid windowtext .5pt;
+  mso-border-alt:solid windowtext .5pt;padding:0cm 5.4pt 0cm 5.4pt'><span
+  style='mso-bookmark:_Ref323901904'><span style='mso-bookmark:A10'></span></span>
+  <p class=MsoNormal align=center style='text-align:center;line-height:13.0pt;
+  page-break-after:avoid;mso-layout-grid-align:auto;mso-vertical-align-alt:
+  auto'><span style='mso-bookmark:_Ref323901904'><span style='mso-bookmark:
+  A10'><span lang=DE-CH style='mso-bidi-font-size:11.0pt;mso-fareast-font-family:
+  Calibri;mso-fareast-language:EN-US'><o:p>&nbsp;</o:p></span></span></span></p>
+  </td>
+  <span style='mso-bookmark:_Ref323901904'><span style='mso-bookmark:A10'></span></span>
+ </tr>
+</table>
+
+</div>
+
+<p class=MsoCaption><span style='mso-bookmark:_Ref323901904'><span
+style='mso-bookmark:A10'><a name="_Ref345671571"><span lang=DE-CH><br>
+</span></a><a name="_Toc443332267"><span style='mso-bookmark:_Ref345671571'><span
+lang=DE-CH>Tabelle </span></span></a></span></span><span
+style='mso-bookmark:_Ref323901904'><span style='mso-bookmark:A10'><span
+style='mso-bookmark:_Toc443332267'><span style='mso-bookmark:_Ref345671571'><span
+lang=DE-CH><span style='mso-no-proof:yes'>10</span></span></span></span></span></span><span style='mso-bookmark:
+_Ref323901904'><span style='mso-bookmark:A10'><span style='mso-bookmark:_Toc443332267'><span
+style='mso-bookmark:_Ref345671571'></span><span lang=DE-CH>: Ressource-Dateien</span></span></span></span><span
+style='mso-bookmark:_Ref323901904'><span style='mso-bookmark:A10'></span></span><span style='mso-bookmark:
+_Ref323901904'><span style='mso-bookmark:A10'></span></span></p>
+
+<p class=Warnung><span style='mso-ignore:vglayout;position:
+relative;z-index:251658298'><span style='left:0px;position:absolute;left:25px;
+top:-62932px;width:105px;height:1px'><img width=105 height=1 src="doc_files/image026.jpg" alt="meldung_warnung" v:shapes="Picture_x0020_1073"></span></span><span
+style='mso-bookmark:_Ref323901904'><span style='mso-bookmark:A10'></span></span><span
+style='mso-bookmark:_Ref323901904'><span style='mso-bookmark:A10'><b><span
+lang=DE-CH style='color:windowtext;mso-ansi-language:DE-CH'>Warnung:</span></b></span></span><span
+style='mso-bookmark:_Ref323901904'><span style='mso-bookmark:A10'><span
+lang=DE-CH style='mso-ansi-language:DE-CH'> Nehmen Sie Änderungen an
+Ressource-Dateien</span></span></span><span
+style='mso-bookmark:_Ref323901904'><span style='mso-bookmark:A10'></span></span><span style='mso-bookmark:
+_Ref323901904'><span style='mso-bookmark:A10'><span lang=DE-CH
+style='mso-ansi-language:DE-CH'><span style='mso-spacerun:yes'> </span>nur
+während angekündigter Wartungsfenster vor, da bei Hochladen einer
+Ressource-Datei derzeit mit der Anwendung arbeitende Benutzer eventuell ihre
+Eingaben verlieren.<o:p></o:p></span></span></span></p>
+
+<p class=MsoNormal><span style='mso-bookmark:_Ref323901904'><span
+style='mso-bookmark:A10'><span lang=DE-CH><o:p>&nbsp;</o:p></span></span></span></p>
+
+<p class=Hinweis style='mso-pagination:lines-together'><span style='mso-ignore:vglayout;position:
+relative;z-index:251658299'><span style='left:0px;position:absolute;left:25px;
+top:-63080px;width:105px;height:1px'><img width=105 height=1 src="doc_files/image057.jpg" alt="meldung_hinweis" v:shapes="Picture_x0020_1075"></span></span><span
+style='mso-bookmark:_Ref323901904'><span style='mso-bookmark:A10'></span></span><span
+style='mso-bookmark:_Ref323901904'><span style='mso-bookmark:A10'><b><span
+lang=DE-CH style='color:windowtext;mso-ansi-language:DE-CH'>Hinweis:</span></b></span></span><span
+style='mso-bookmark:_Ref323901904'><span style='mso-bookmark:A10'><span
+lang=DE-CH style='mso-ansi-language:DE-CH'> Beachten Sie, dass Änderungen an
+der Benutzeroberfläche auch entsprechend in der Dokumentation nachgezogen
+werden müssen, vor allem in diesem Anwendungshandbuch (bzw. dem
+Anwendungshandbuch für EMSG-Mobile</span></span></span><span
+style='mso-bookmark:_Ref323901904'><span style='mso-bookmark:A10'></span></span><span style='mso-bookmark:
+_Ref323901904'><span style='mso-bookmark:A10'><span lang=DE-CH
+style='mso-ansi-language:DE-CH'><span style='mso-spacerun:yes'> </span>[3]) und
+in der Online-Hilfe (siehe Abschnitt </span></span></span><a href="HilfeVerwalten.htm#_Ref333422759"><span
+style='mso-bookmark:_Ref323901904'><span style='mso-bookmark:A10'><span
+lang=DE-CH style='mso-ansi-language:DE-CH'>7.11</span></span></span></a><span style='mso-bookmark:
+_Ref323901904'><span style='mso-bookmark:A10'><span lang=DE-CH
+style='mso-ansi-language:DE-CH'>).<o:p></o:p></span></span></span></p>
+
+
+
+
+</div>
+
+<div id="PageFooter">
+  <table width="100%" border="0" cellspacing="0" cellpadding="5" style="table-layout:fixed">
+    <tr>
+      <td width="*"><i></i></td>
+      <td width="75" align="right" nowrap><a href="EreignisLog.htm"><img src="images/left.png" border=0></a> <a href="AnwenderMitAdministrativenRollen.htm"><img src="images/up.png" border=0></a> <a href="HilfeVerwalten.htm"><img src="images/right.png" border=0></a></td>
+    </tr>
+  </table>
+</div>
+
+</body>
+
+</html>

@@ -1,0 +1,44 @@
+﻿@using ASTRA.EMSG.Web.Infrastructure.HtmlHelperExtensions
+@model ASTRA.EMSG.Business.Models.Common.KenngroessenFruehererJahreModel
+@{
+    bool isNew = ViewBag.IsNew ?? false;
+    string actionName = (isNew ? "Insert" : "Update");
+}
+
+@using (Ajax.BeginForm(actionName,
+                        new AjaxOptions
+                        {
+                            HttpMethod = "POST",
+                            UpdateTargetId = "kenngroessenFruehererJahreFormDiv",
+                            InsertionMode = InsertionMode.Replace,
+                        }))
+{
+    <fieldset class="popupFormFieldset">
+        @Html.HiddenFor(m => m.Id)
+         @{
+             var editorTable = Html.EditorTable();
+
+             editorTable.WithIntegerEditorFor(m => m.Jahr, 4, isYear: true);
+             editorTable.WithSeparator();
+             for (int i = 0; i < Model.KenngroesseFruehereJahrDetailModels.Count; i++)
+             {
+                 int index = i;
+                 editorTable.WithHiddenFor(m => m.KenngroesseFruehereJahrDetailModels[index].Id);
+                 editorTable.WithCustomEditorFor(m => m.KenngroesseFruehereJahrDetailModels[index].Belastungskategorie,
+                     MvcHtmlString.Create(Html.DisplayFor(m => m.KenngroesseFruehereJahrDetailModels[index].BelastungskategorieBezeichnung).ToHtmlString() + Html.HiddenFor(m => m.KenngroesseFruehereJahrDetailModels[index].Belastungskategorie)), requiredField: false);
+                 editorTable.WithHiddenFor(m => m.KenngroesseFruehereJahrDetailModels[index].BelastungskategorieBezeichnung);
+                 editorTable.WithDecimalEditorFor(m => m.KenngroesseFruehereJahrDetailModels[index].MittlererZustand, requiredField: false, decimalPlaces: 1);
+                 editorTable.WithIntegerEditorFor(m => m.KenngroesseFruehereJahrDetailModels[index].Fahrbahnflaeche);
+                 editorTable.WithDecimalEditorFor(m => m.KenngroesseFruehereJahrDetailModels[index].Fahrbahnlaenge, 1);
+                 editorTable.WithSeparator();
+             }
+             editorTable.WithDecimalEditorFor(m => m.KostenFuerWerterhaltung, decimalPlaces: 0);
+         }
+        @editorTable
+        
+        @Html.UnobtrusiveOkCancelPopupFormButtons()
+
+    </fieldset>
+    @Html.RequiredFieldLegend()
+}
+<div class="helpButton">@Html.HelpButtonFor("EditKenngroessenFruehererJahre")</div>

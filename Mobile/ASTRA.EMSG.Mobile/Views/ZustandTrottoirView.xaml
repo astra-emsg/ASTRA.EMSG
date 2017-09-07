@@ -1,0 +1,121 @@
+﻿<UserControl x:Class="ASTRA.EMSG.Mobile.Views.ZustandTrottoirView"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+             xmlns:ViewModels="clr-namespace:ASTRA.EMSG.Mobile.ViewModels"
+             mc:Ignorable="d" 
+             d:DesignHeight="300" d:DesignWidth="300"
+             d:DataContext="{d:DesignInstance ViewModels:ZustandTrottoirViewModel, IsDesignTimeCreatable=False}"
+             >
+    <StackPanel Orientation="Vertical" HorizontalAlignment="Stretch">
+        <Grid>
+            <Grid.RowDefinitions>
+                <RowDefinition Height="auto"/>
+                <RowDefinition Height="auto"/>
+                <RowDefinition Height="auto"/>
+                <RowDefinition Height="auto"/>
+                <RowDefinition Height="auto"/>
+            </Grid.RowDefinitions>
+
+            <Grid Grid.Row="0" Visibility="{Binding HasTrottoirLinks, Converter={StaticResource BooleanToVisibilityConverter}}">
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="150"/>
+                    <ColumnDefinition Width="*"/>
+                </Grid.ColumnDefinitions>
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="auto"/>
+                    <RowDefinition Height="auto"/>
+                    <RowDefinition Height="25"/>
+                    <RowDefinition Height="auto"/>
+                    <RowDefinition Height="25"/>
+                    <RowDefinition Height="25"/>
+                    <RowDefinition Height="25"/>
+                </Grid.RowDefinitions>
+
+                <TextBlock Grid.Column="0" Grid.ColumnSpan="2" Grid.Row="0" Text="{Binding Source={StaticResource Resx}, Path=MobileLocalization.ZustandTrottoirLinksFormTitle}" FontSize="18" FontWeight="Bold" />
+
+                <TextBlock Grid.Column="0" Grid.Row="1" Style="{StaticResource FieldLabel}" Text="{Binding Source={StaticResource Resx}, Path=MobileLocalization.Zustandsindex}" />
+                <ComboBox Grid.Column="1" Grid.Row="1" 
+                          ItemsSource="{Binding ZustandsindexTrottoirList}"
+                          DisplayMemberPath="Name"
+                          SelectedValue="{Binding ZustandsindexTrottoirLinks}"
+                          SelectedValuePath="Value"/>
+
+                <TextBlock Grid.Column="0" Grid.ColumnSpan="2" Grid.Row="2" Text="{Binding Source={StaticResource Resx}, Path=MobileLocalization.MassnahmenTrottoirLinksFormTitle}" FontSize="18" FontWeight="Bold" />
+
+                <TextBlock Grid.Column="0" Grid.Row="3" Style="{StaticResource FieldLabel}" Text="{Binding Source={StaticResource Resx}, Path=MobileLocalization.Massnahmenvorschlag}" />
+                <ComboBox Grid.Column="1" Grid.Row="3" 
+                          ItemsSource="{Binding MassnahmenvorschlagList}"
+                          DisplayMemberPath="Name"
+                          SelectedValue="{Binding MassnahmenvorschlagTrottoirLinks}"
+                          SelectedValuePath="Value"/>
+
+                <TextBlock Grid.Column="0" Grid.Row="4" Style="{StaticResource FieldLabel}" Text="{Binding Source={StaticResource Resx}, Path=MobileLocalization.Kosten}" />
+                <TextBlock Grid.Column="1" Grid.Row="4" Text="{Binding KostenTrottoirLinks, StringFormat='#,#.##'}"/>
+
+                <TextBlock Grid.Column="0" Grid.Row="5" Style="{StaticResource FieldLabel}" Text="{Binding Source={StaticResource Resx}, Path=MobileLocalization.Dringlichkeit}" />
+                <ComboBox Grid.Column="1" Grid.Row="5" 
+                          ItemsSource="{Binding DringlichkeitList}"
+                          DisplayMemberPath="Name"
+                          SelectedValue="{Binding DringlichkeitTrottoirLinks}"
+                          SelectedValuePath="Value"/>
+
+                <TextBlock Grid.Column="0" Grid.Row="6" Style="{StaticResource FieldLabel}" Text="{Binding Source={StaticResource Resx}, Path=MobileLocalization.Gesamtkosten}" />
+                <TextBlock Grid.Column="1" Grid.Row="6" Text="{Binding GesamtkostenTrottoirLinks, StringFormat='#,#.##'}"/>
+
+            </Grid>
+
+            <Grid Grid.Row="1"  Visibility="{Binding HasTrottoirBeideSeiten, Converter={StaticResource BooleanToVisibilityConverter}}">
+                <Border BorderThickness="2" Height="1" HorizontalAlignment="Stretch" BorderBrush="Black" Margin="5"/>
+            </Grid>
+
+            <Grid Grid.Row="2" Visibility="{Binding HasTrottoirRechts, Converter={StaticResource BooleanToVisibilityConverter}}">
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="150"/>
+                    <ColumnDefinition Width="*"/>
+                </Grid.ColumnDefinitions>
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="auto"/>
+                    <RowDefinition Height="auto"/>
+                    <RowDefinition Height="25"/>
+                    <RowDefinition Height="auto"/>
+                    <RowDefinition Height="25"/>
+                    <RowDefinition Height="25"/>
+                    <RowDefinition Height="25"/>
+                </Grid.RowDefinitions>
+
+                <TextBlock Grid.Column="0" Grid.ColumnSpan="2" Grid.Row="0" Text="{Binding Source={StaticResource Resx}, Path=MobileLocalization.ZustandTrottoirRechtsFormTitle}" FontSize="18" FontWeight="Bold" />
+
+                <TextBlock Grid.Column="0" Grid.Row="1" Style="{StaticResource FieldLabel}" Text="{Binding Source={StaticResource Resx}, Path=MobileLocalization.Zustandsindex}" />
+                <ComboBox Grid.Column="1" Grid.Row="1" 
+                          ItemsSource="{Binding ZustandsindexTrottoirList}"
+                          DisplayMemberPath="Name"
+                          SelectedValue="{Binding ZustandsindexTrottoirRechts}"
+                          SelectedValuePath="Value"/>
+
+                <TextBlock Grid.Column="0" Grid.ColumnSpan="2" Grid.Row="2" Text="{Binding Source={StaticResource Resx}, Path=MobileLocalization.MassnahmenTrottoirRechtsFormTitle}" FontSize="18" FontWeight="Bold" />
+
+                <TextBlock Grid.Column="0" Grid.Row="3" Style="{StaticResource FieldLabel}" Text="{Binding Source={StaticResource Resx}, Path=MobileLocalization.Massnahmenvorschlag}" />
+                <ComboBox Grid.Column="1" Grid.Row="3" 
+                          ItemsSource="{Binding MassnahmenvorschlagList}"
+                          DisplayMemberPath="Name"
+                          SelectedValue="{Binding MassnahmenvorschlagTrottoirRechts}"
+                          SelectedValuePath="Value"/>
+
+                <TextBlock Grid.Column="0" Grid.Row="4" Style="{StaticResource FieldLabel}" Text="{Binding Source={StaticResource Resx}, Path=MobileLocalization.Kosten}" />
+                <TextBlock Grid.Column="1" Grid.Row="4" Text="{Binding KostenTrottoirRechts, StringFormat='#,#.##'}"/>
+
+                <TextBlock Grid.Column="0" Grid.Row="5" Style="{StaticResource FieldLabel}" Text="{Binding Source={StaticResource Resx}, Path=MobileLocalization.Dringlichkeit}" />
+                <ComboBox Grid.Column="1" Grid.Row="5" 
+                          ItemsSource="{Binding DringlichkeitList}"
+                          DisplayMemberPath="Name"
+                          SelectedValue="{Binding DringlichkeitTrottoirRechts}"
+                          SelectedValuePath="Value"/>
+
+                <TextBlock Grid.Column="0" Grid.Row="6" Style="{StaticResource FieldLabel}" Text="{Binding Source={StaticResource Resx}, Path=MobileLocalization.Gesamtkosten}" />
+                <TextBlock Grid.Column="1" Grid.Row="6" Text="{Binding GesamtkostenTrottoirRechts, StringFormat='#,#.##'}"/>
+            </Grid>
+        </Grid>
+    </StackPanel>
+</UserControl>

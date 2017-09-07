@@ -1,0 +1,20 @@
+﻿@using Resources
+
+<style type="text/css">
+     
+.legend .Name_ZUSTANDSABSCHNITTGIS_MASSNAHMETYP_AUSWERTUNG
+{
+  display : inline;
+}
+ </style>
+
+<script type="text/javascript">
+    globalMapAdjustCorrector = 20;
+
+  emsg.config.set("WMS.ARCGIS.LAYERID", "ZustandabschnittLayer_MassnahmeTyp");
+
+  emsg.map = new Emsg.Map.Analysis(emsg);
+  emsg.map.layer_property = 'vorschlaege';
+  emsg.map.sublayer_properties = ['vorschlaegetrot'];
+</script>
+

@@ -1,0 +1,803 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<root>
+  <!-- 
+    Microsoft ResX Schema 
+    
+    Version 2.0
+    
+    The primary goals of this format is to allow a simple XML format 
+    that is mostly human readable. The generation and parsing of the 
+    various data types are done through the TypeConverter classes 
+    associated with the data types.
+    
+    Example:
+    
+    ... ado.net/XML headers & schema ...
+    <resheader name="resmimetype">text/microsoft-resx</resheader>
+    <resheader name="version">2.0</resheader>
+    <resheader name="reader">System.Resources.ResXResourceReader, System.Windows.Forms, ...</resheader>
+    <resheader name="writer">System.Resources.ResXResourceWriter, System.Windows.Forms, ...</resheader>
+    <data name="Name1"><value>this is my long string</value><comment>this is a comment</comment></data>
+    <data name="Color1" type="System.Drawing.Color, System.Drawing">Blue</data>
+    <data name="Bitmap1" mimetype="application/x-microsoft.net.object.binary.base64">
+        <value>[base64 mime encoded serialized .NET Framework object]</value>
+    </data>
+    <data name="Icon1" type="System.Drawing.Icon, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
+        <value>[base64 mime encoded string representing a byte array form of the .NET Framework object]</value>
+        <comment>This is a comment</comment>
+    </data>
+                
+    There are any number of "resheader" rows that contain simple 
+    name/value pairs.
+    
+    Each data row contains a name, and value. The row also contains a 
+    type or mimetype. Type corresponds to a .NET class that support 
+    text/value conversion through the TypeConverter architecture. 
+    Classes that don't support this are serialized and stored with the 
+    mimetype set.
+    
+    The mimetype is used for serialized objects, and tells the 
+    ResXResourceReader how to depersist the object. This is currently not 
+    extensible. For a given mimetype the value must be set accordingly:
+    
+    Note - application/x-microsoft.net.object.binary.base64 is the format 
+    that the ResXResourceWriter will generate, however the reader can 
+    read any of the formats listed below.
+    
+    mimetype: application/x-microsoft.net.object.binary.base64
+    value   : The object must be serialized with 
+            : System.Runtime.Serialization.Formatters.Binary.BinaryFormatter
+            : and then encoded with base64 encoding.
+    
+    mimetype: application/x-microsoft.net.object.soap.base64
+    value   : The object must be serialized with 
+            : System.Runtime.Serialization.Formatters.Soap.SoapFormatter
+            : and then encoded with base64 encoding.
+
+    mimetype: application/x-microsoft.net.object.bytearray.base64
+    value   : The object must be serialized into a byte array 
+            : using a System.ComponentModel.TypeConverter
+            : and then encoded with base64 encoding.
+    -->
+  <xsd:schema id="root" xmlns="" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:msdata="urn:schemas-microsoft-com:xml-msdata">
+    <xsd:import namespace="http://www.w3.org/XML/1998/namespace" />
+    <xsd:element name="root" msdata:IsDataSet="true">
+      <xsd:complexType>
+        <xsd:choice maxOccurs="unbounded">
+          <xsd:element name="metadata">
+            <xsd:complexType>
+              <xsd:sequence>
+                <xsd:element name="value" type="xsd:string" minOccurs="0" />
+              </xsd:sequence>
+              <xsd:attribute name="name" use="required" type="xsd:string" />
+              <xsd:attribute name="type" type="xsd:string" />
+              <xsd:attribute name="mimetype" type="xsd:string" />
+              <xsd:attribute ref="xml:space" />
+            </xsd:complexType>
+          </xsd:element>
+          <xsd:element name="assembly">
+            <xsd:complexType>
+              <xsd:attribute name="alias" type="xsd:string" />
+              <xsd:attribute name="name" type="xsd:string" />
+            </xsd:complexType>
+          </xsd:element>
+          <xsd:element name="data">
+            <xsd:complexType>
+              <xsd:sequence>
+                <xsd:element name="value" type="xsd:string" minOccurs="0" msdata:Ordinal="1" />
+                <xsd:element name="comment" type="xsd:string" minOccurs="0" msdata:Ordinal="2" />
+              </xsd:sequence>
+              <xsd:attribute name="name" type="xsd:string" use="required" msdata:Ordinal="1" />
+              <xsd:attribute name="type" type="xsd:string" msdata:Ordinal="3" />
+              <xsd:attribute name="mimetype" type="xsd:string" msdata:Ordinal="4" />
+              <xsd:attribute ref="xml:space" />
+            </xsd:complexType>
+          </xsd:element>
+          <xsd:element name="resheader">
+            <xsd:complexType>
+              <xsd:sequence>
+                <xsd:element name="value" type="xsd:string" minOccurs="0" msdata:Ordinal="1" />
+              </xsd:sequence>
+              <xsd:attribute name="name" type="xsd:string" use="required" />
+            </xsd:complexType>
+          </xsd:element>
+        </xsd:choice>
+      </xsd:complexType>
+    </xsd:element>
+  </xsd:schema>
+  <resheader name="resmimetype">
+    <value>text/microsoft-resx</value>
+  </resheader>
+  <resheader name="version">
+    <value>2.0</value>
+  </resheader>
+  <resheader name="reader">
+    <value>System.Resources.ResXResourceReader, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </resheader>
+  <resheader name="writer">
+    <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </resheader>
+  <data name="MainWindowTitle" xml:space="preserve">
+    <value>EMSG Mobile</value>
+  </data>
+  <data name="HelpWindowTitle" xml:space="preserve">
+    <value>Aide EMSG</value>
+  </data>
+  <data name="ZustandFahrbahnWindowTitle" xml:space="preserve">
+    <value>Chaussée {0} {1} - {2}</value>
+  </data>
+  <data name="ZustandFahrbahnShortWindowTitle" xml:space="preserve">
+    <value>Chaussée {0}</value>
+  </data>
+  <data name="ZustandTrottoirtWindowTitle" xml:space="preserve">
+    <value>Trottoir {0} {1} - {2}</value>
+  </data>
+  <data name="ZustandTrottoirShortWindowTitle" xml:space="preserve">
+    <value>Trottoir {0}</value>
+  </data>
+  <data name="ZustandTrottoirLinksFormTitle" xml:space="preserve">
+    <value>Etat trottoir gauche</value>
+  </data>
+  <data name="ZustandTrottoirRechtsFormTitle" xml:space="preserve">
+    <value>Etat trottoir droite</value>
+  </data>
+  <data name="MassnahmenTrottoirLinksFormTitle" xml:space="preserve">
+    <value>Interventions trottoir gauche</value>
+  </data>
+  <data name="MassnahmenTrottoirRechtsFormTitle" xml:space="preserve">
+    <value>Interventions trottoir droite</value>
+  </data>
+  <data name="Schadenschwere" xml:space="preserve">
+    <value>Gravité des dégradations</value>
+  </data>
+  <data name="Schadenausmass" xml:space="preserve">
+    <value>Etendue des dégradations</value>
+  </data>
+  <data name="SchadensummeGridFooter" xml:space="preserve">
+    <value>Somme des dégradations : </value>
+  </data>
+  <data name="ZustandsindexGridFooter" xml:space="preserve">
+    <value>Indice d’état : </value>
+  </data>
+  <data name="Matrix" xml:space="preserve">
+    <value>Matrice</value>
+  </data>
+  <data name="Gewicht" xml:space="preserve">
+    <value>Poids</value>
+  </data>
+  <data name="Bewertung" xml:space="preserve">
+    <value>Evaluation</value>
+  </data>
+  <data name="InspektionsRoutenLabel" xml:space="preserve">
+    <value>Itinéraire d'inspection : </value>
+  </data>
+  <data name="LayerLabel" xml:space="preserve">
+    <value>Couche</value>
+  </data>
+  <data name="Legend" xml:space="preserve">
+    <value>Légende</value>
+  </data>
+  <data name="Edit" xml:space="preserve">
+    <value>Modifier</value>
+  </data>
+  <data name="Create" xml:space="preserve">
+    <value>Saisir</value>
+  </data>
+  <data name="Save" xml:space="preserve">
+    <value>Enregistrer et fermer</value>
+  </data>
+  <data name="Apply" xml:space="preserve">
+    <value>Enregistrer</value>
+  </data>
+  <data name="Update" xml:space="preserve">
+    <value>Actualiser</value>
+  </data>
+  <data name="Cancel" xml:space="preserve">
+    <value>Annuler</value>
+  </data>
+  <data name="Delete" xml:space="preserve">
+    <value>Supprimer</value>
+  </data>
+  <data name="MapHelp" xml:space="preserve">
+    <value>Aide pour la carte</value>
+  </data>
+  <data name="FormHelp" xml:space="preserve">
+    <value>Aide pour le formulaire</value>
+  </data>
+  <data name="Help" xml:space="preserve">
+    <value>Aide</value>
+  </data>
+  <data name="ZustandFahrbahn" xml:space="preserve">
+    <value>État chaussée</value>
+  </data>
+  <data name="ZustandTrottoir" xml:space="preserve">
+    <value>État trottoir</value>
+  </data>
+  <data name="selectZustandsabschnitt" xml:space="preserve">
+    <value>Sélectionner tronçon d'état</value>
+  </data>
+  <data name="EditZustandsabschnitt" xml:space="preserve">
+    <value>Modifier tronçon d'état</value>
+  </data>
+  <data name="CreateZustandsabschnitt" xml:space="preserve">
+    <value>Nouveau tronçon d'état</value>
+  </data>
+  <data name="ZoomIn" xml:space="preserve">
+    <value>Zoom In</value>
+  </data>
+  <data name="ZoomOut" xml:space="preserve">
+    <value>Zoom Out</value>
+  </data>
+  <data name="FullExtent" xml:space="preserve">
+    <value>Zoom sur l'ensemble des itinéraires d'inspection</value>
+  </data>
+  <data name="Pan" xml:space="preserve">
+    <value>Déplacer</value>
+  </data>
+  <data name="SuccessfullImport" xml:space="preserve">
+    <value>Import effectué avec succès !</value>
+  </data>
+  <data name="SuccessfullExport" xml:space="preserve">
+    <value>Export effectué avec succès !</value>
+  </data>
+  <data name="ImportError" xml:space="preserve">
+    <value>Erreur pendant l'import !</value>
+  </data>
+  <data name="ExportError" xml:space="preserve">
+    <value>Erreur au moment de l'export !</value>
+  </data>
+  <data name="NoPackageImportedError" xml:space="preserve">
+    <value>Aucune donnée n'avait été importée !</value>
+  </data>
+  <data name="HelpNotExistsWarning" xml:space="preserve">
+    <value>L'aide n'est pas disponible !</value>
+  </data>
+  <data name="ErfassungsmodusChangedConfirmation" xml:space="preserve">
+    <value>Toutes les saisies non enregistrées précédemment seront perdues en cas de modification du mode de saisie de l'état. Etes-vous sûr de vouloir modifier le mode de saisie de l'état ?</value>
+  </data>
+  <data name="PleaseWait" xml:space="preserve">
+    <value>Merci de patienter… Lancement de EMSG-Mobile</value>
+  </data>
+  <data name="RequiredValidationError" xml:space="preserve">
+    <value>Champ obligatoire !</value>
+  </data>
+  <data name="LengthValidationError" xml:space="preserve">
+    <value>La valeur ne doit pas dépasser {0}!</value>
+  </data>
+  <data name="RangeValidationError" xml:space="preserve">
+    <value>La valeur doit se situer entre {0} et {1} !</value>
+  </data>
+  <data name="GeometryShouldBeNotNull" xml:space="preserve">
+    <value>Vous devez sélectionner une géométrie !</value>
+  </data>
+  <data name="InvalidNumberValidationError" xml:space="preserve">
+    <value>Format de nombre non autorisé !</value>
+  </data>
+  <data name="InvalidDecimalPlacesValidationError" xml:space="preserve">
+    <value>Nombre de chiffres après la virgule non autorisé ! Autorisé : {0}</value>
+  </data>
+  <data name="WetterTypKeinRegen" xml:space="preserve">
+    <value>Sec</value>
+  </data>
+  <data name="WetterTypRegen" xml:space="preserve">
+    <value>Mouillé</value>
+  </data>
+  <data name="ZustandsindexTrottoirTypUnbekannt" xml:space="preserve">
+    <value>inconnu</value>
+  </data>
+  <data name="ZustandsindexTrottoirTypGut" xml:space="preserve">
+    <value>0.0-0.9 - bon</value>
+  </data>
+  <data name="ZustandsindexTrottoirTypMittel" xml:space="preserve">
+    <value>1.0-1.9 - moyen</value>
+  </data>
+  <data name="ZustandsindexTrottoirTypAusreichend" xml:space="preserve">
+    <value>2.0-2.9 - suffisant</value>
+  </data>
+  <data name="ZustandsindexTrottoirTypKritisch" xml:space="preserve">
+    <value>3.0-3.9 - critique</value>
+  </data>
+  <data name="ZustandsindexTrottoirTypSchlecht" xml:space="preserve">
+    <value>4.0-5.0 - mauvais</value>
+  </data>
+  <data name="DringlichkeitTypDringlich" xml:space="preserve">
+    <value>A court terme</value>
+  </data>
+  <data name="DringlichkeitTypMittelfristig" xml:space="preserve">
+    <value>A moyen terme</value>
+  </data>
+  <data name="DringlichkeitTypLangfristig" xml:space="preserve">
+    <value>A long terme</value>
+  </data>
+  <data name="ZustandsErfassungsmodusManuel" xml:space="preserve">
+    <value>Indice d’état</value>
+  </data>
+  <data name="ZustandsErfassungsmodusGrob" xml:space="preserve">
+    <value>Grossier</value>
+  </data>
+  <data name="ZustandsErfassungsmodusDetail" xml:space="preserve">
+    <value>Détail</value>
+  </data>
+  <data name="SchadenschwereTypS1" xml:space="preserve">
+    <value>léger</value>
+  </data>
+  <data name="SchadenschwereTypS2" xml:space="preserve">
+    <value>moyen</value>
+  </data>
+  <data name="SchadenschwereTypS3" xml:space="preserve">
+    <value>grave</value>
+  </data>
+  <data name="SchadenausmassTypA1" xml:space="preserve">
+    <value>&lt; 10 %</value>
+  </data>
+  <data name="SchadenausmassTypA2" xml:space="preserve">
+    <value>10 - 50 %</value>
+  </data>
+  <data name="SchadenausmassTypA3" xml:space="preserve">
+    <value>&gt; 50 %</value>
+  </data>
+  <data name="SchadendetailTypAbblaetterung" xml:space="preserve">
+    <value>Pelades</value>
+  </data>
+  <data name="SchadendetailTypAbgedrueckteRaeder" xml:space="preserve">
+    <value>Affaissements des bords</value>
+  </data>
+  <data name="SchadendetailTypAbloesungen" xml:space="preserve">
+    <value>Pelades</value>
+  </data>
+  <data name="SchadendetailTypAbplatzungen" xml:space="preserve">
+    <value>Ecaillages</value>
+  </data>
+  <data name="SchadendetailTypAbrieb" xml:space="preserve">
+    <value>Usure</value>
+  </data>
+  <data name="SchadendetailTypAnrisseVonSetzungen" xml:space="preserve">
+    <value>Fissures d’affaissement</value>
+  </data>
+  <data name="SchadendetailTypAufwoelbungen" xml:space="preserve">
+    <value>Bourrelets</value>
+  </data>
+  <data name="SchadendetailTypAusmagerungAbsanden" xml:space="preserve">
+    <value>Désenrobage, sablage</value>
+  </data>
+  <data name="SchadendetailTypBelagsrandrisse" xml:space="preserve">
+    <value>Fissures d’épaulement</value>
+  </data>
+  <data name="SchadendetailTypBlowUp" xml:space="preserve">
+    <value>Blow-up</value>
+  </data>
+  <data name="SchadendetailTypFehlenderOderSproederFugenverguss" xml:space="preserve">
+    <value>Jointoyage absent ou friable</value>
+  </data>
+  <data name="SchadendetailTypFlicke" xml:space="preserve">
+    <value>Réparations</value>
+  </data>
+  <data name="SchadendetailTypFrosthebungen" xml:space="preserve">
+    <value>Soulèvements dus au gel</value>
+  </data>
+  <data name="SchadendetailTypKantenschaedenAbsplitterung" xml:space="preserve">
+    <value>Dégradations des bords, épaufrure</value>
+  </data>
+  <data name="SchadendetailTypKornausbrueche" xml:space="preserve">
+    <value>Perte de gravillons</value>
+  </data>
+  <data name="SchadendetailTypLaengsrisse" xml:space="preserve">
+    <value>Fissures longitudinales</value>
+  </data>
+  <data name="SchadendetailTypNetzrisse" xml:space="preserve">
+    <value>Faïençage</value>
+  </data>
+  <data name="SchadendetailTypOffeneNaehte" xml:space="preserve">
+    <value>Fissures de joint</value>
+  </data>
+  <data name="SchadendetailTypPolieren" xml:space="preserve">
+    <value>Polissage</value>
+  </data>
+  <data name="SchadendetailTypPumpen" xml:space="preserve">
+    <value>Pompage</value>
+  </data>
+  <data name="SchadendetailTypQuerrisse" xml:space="preserve">
+    <value>Fissures transversales</value>
+  </data>
+  <data name="SchadendetailTypRisse" xml:space="preserve">
+    <value>Fissures</value>
+  </data>
+  <data name="SchadendetailTypSchlagloecher" xml:space="preserve">
+    <value>Nids de poule</value>
+  </data>
+  <data name="SchadendetailTypSchubverformungen" xml:space="preserve">
+    <value>Déformations de poussée</value>
+  </data>
+  <data name="SchadendetailTypSchwitzen" xml:space="preserve">
+    <value>Ressuage</value>
+  </data>
+  <data name="SchadendetailTypSetzungenEinsenkungen" xml:space="preserve">
+    <value>Affaissements, flaches</value>
+  </data>
+  <data name="SchadendetailTypSetzungenFrosthebungen" xml:space="preserve">
+    <value>Affaissements, soulèvements dus au gel</value>
+  </data>
+  <data name="SchadendetailTypSpurrinnen" xml:space="preserve">
+    <value>Ornières</value>
+  </data>
+  <data name="SchadendetailTypStufenbildung" xml:space="preserve">
+    <value>Formation de marches</value>
+  </data>
+  <data name="SchadendetailTypWellblechverformungen" xml:space="preserve">
+    <value>Tôles ondulées</value>
+  </data>
+  <data name="SchadendetailTypWildeRisse" xml:space="preserve">
+    <value>Fissures diverses</value>
+  </data>
+  <data name="SchadendetailTypZerstoertePlatten" xml:space="preserve">
+    <value>Dalles cassées</value>
+  </data>
+  <data name="SchadengruppeTypBelagschaeden" xml:space="preserve">
+    <value>Dégradations</value>
+  </data>
+  <data name="SchadengruppeTypBelagsverformungen" xml:space="preserve">
+    <value>Déformations du revêtement</value>
+  </data>
+  <data name="SchadengruppeTypFlicke" xml:space="preserve">
+    <value>Réparations</value>
+  </data>
+  <data name="SchadengruppeTypFugenUndKantenschaeden" xml:space="preserve">
+    <value>Joints et dégradations des bords</value>
+  </data>
+  <data name="SchadengruppeTypMaterialverluste" xml:space="preserve">
+    <value>Perte de matériaux</value>
+  </data>
+  <data name="SchadengruppeTypOberflaechenglaette" xml:space="preserve">
+    <value>Surface glissante</value>
+  </data>
+  <data name="SchadengruppeTypRisseBrueche" xml:space="preserve">
+    <value>Fissures, cassures</value>
+  </data>
+  <data name="SchadengruppeTypStrukturelleSchaeden" xml:space="preserve">
+    <value>Dégradations structurelles</value>
+  </data>
+  <data name="SchadengruppeTypVertikalverschiebung" xml:space="preserve">
+    <value>Décalage vertical</value>
+  </data>
+  <data name="Belastungskategorie" xml:space="preserve">
+    <value>Catégorie de charges</value>
+  </data>
+  <data name="Strassenname" xml:space="preserve">
+    <value>Nom de la route</value>
+  </data>
+  <data name="BezeichnungVon" xml:space="preserve">
+    <value>Désignation de</value>
+  </data>
+  <data name="BezeichnungBis" xml:space="preserve">
+    <value>Désignation jusqu'à</value>
+  </data>
+  <data name="Laenge" xml:space="preserve">
+    <value>Longueur [m]</value>
+  </data>
+  <data name="Aufnahmedatum" xml:space="preserve">
+    <value>Date de relevé</value>
+  </data>
+  <data name="Aufnahmeteam" xml:space="preserve">
+    <value>Equipe effectuant le relevé</value>
+  </data>
+  <data name="Wetter" xml:space="preserve">
+    <value>Temps</value>
+  </data>
+  <data name="Bemerkung" xml:space="preserve">
+    <value>Remarque</value>
+  </data>
+  <data name="FlaecheFahrbahn" xml:space="preserve">
+    <value>Surf. chaussée [m²]</value>
+  </data>
+  <data name="FlaecheTrottoirLinks" xml:space="preserve">
+    <value>Surface trottoir gauche [m²]</value>
+  </data>
+  <data name="FlaecheTrottoirRechts" xml:space="preserve">
+    <value>Surface trottoir de droite [m²]</value>
+  </data>
+  <data name="Pflichtfeld" xml:space="preserve">
+    <value>Champ obligatoire</value>
+  </data>
+  <data name="Massnahmenvorschlag" xml:space="preserve">
+    <value>Intervention proposée</value>
+  </data>
+  <data name="Kosten" xml:space="preserve">
+    <value>Coûts [CHF/m²]</value>
+  </data>
+  <data name="Dringlichkeit" xml:space="preserve">
+    <value>Urgence</value>
+  </data>
+  <data name="Gesamtkosten" xml:space="preserve">
+    <value>Coûts totaux [CHF]</value>
+  </data>
+  <data name="Zustandsindex" xml:space="preserve">
+    <value>Indice d’état</value>
+  </data>
+  <data name="Zustandserfassung" xml:space="preserve">
+    <value>Saisie de l'état</value>
+  </data>
+  <data name="Inspektionsroute" xml:space="preserve">
+    <value>Itinéraire d'inspection</value>
+  </data>
+  <data name="File" xml:space="preserve">
+    <value>Fichier</value>
+  </data>
+  <data name="Import" xml:space="preserve">
+    <value>Importer</value>
+  </data>
+  <data name="Export" xml:space="preserve">
+    <value>Exporter l'itinéraire d'inspection sélectionné</value>
+  </data>
+  <data name="ExportAll" xml:space="preserve">
+    <value>Exporter tous les itinéraires d'inspection</value>
+  </data>
+  <data name="SaveExportPackage" xml:space="preserve">
+    <value>Sauvegarde intermédiaire</value>
+  </data>
+  <data name="ExportLog" xml:space="preserve">
+    <value>Exporter le log</value>
+  </data>
+  <data name="Exit" xml:space="preserve">
+    <value>Fermer</value>
+  </data>
+  <data name="EsriLicenseNotLicensed" xml:space="preserve">
+    <value>Vous ne disposez d'aucune licence pour utiliser ce produit.</value>
+  </data>
+  <data name="EsriLicenseUnavailable" xml:space="preserve">
+    <value>Les licences nécessaires sont actuellement en cours d'utilisation.</value>
+  </data>
+  <data name="EsriLicenseFailure" xml:space="preserve">
+    <value>Echec inattendu de l'enregistrement des licences.</value>
+  </data>
+  <data name="EsriLicenseAlreadyInitialized" xml:space="preserve">
+    <value>Déjà initialisé (l'initialisation ne peut se faire qu'une fois).</value>
+  </data>
+  <data name="EsriLicenseFailureDefault" xml:space="preserve">
+    <value>Statut de la licence non supporté</value>
+  </data>
+  <data name="NoZustandsabschnittSelected" xml:space="preserve">
+    <value>Aucun tronçon d'état sélectionné !</value>
+  </data>
+  <data name="EmptyGeometry" xml:space="preserve">
+    <value>Impossible d'enregistrer une géométrie vide</value>
+  </data>
+  <data name="ReselectZustandsabschnitt" xml:space="preserve">
+    <value>Vous devez à nouveau sélectionner un tronçon d'état !</value>
+  </data>
+  <data name="ReselectStrassenabschnitt" xml:space="preserve">
+    <value>Vous devez à nouveau sélectionner un tronçon de route !</value>
+  </data>
+  <data name="GeometriesMustNotOverlap" xml:space="preserve">
+    <value>Les géométries ne doivent pas se chevaucher !</value>
+  </data>
+  <data name="UnableToCreateZustandsabschnitt" xml:space="preserve">
+    <value>Il est impossible de créer un tronçon d'état !</value>
+  </data>
+  <data name="DiscardChanges" xml:space="preserve">
+    <value>Certaines modifications effectuées vont être rejetées, souhaitez-vous poursuivre ?</value>
+  </data>
+  <data name="ImportWarning" xml:space="preserve">
+    <value>Certaines modifications effectuées n'ont pas encore été exportées. Si vous exécutez un nouvel import, toutes les modifications seront perdues. Etes-vous sûrs de vouloir exécuter un nouvel import ?</value>
+  </data>
+  <data name="DisplayLayerName_gg25_fill" xml:space="preserve">
+    <value>Surfaces administratives</value>
+  </data>
+  <data name="DisplayLayerName_Pixelmap_color" xml:space="preserve">
+    <value>Carte couleur</value>
+  </data>
+  <data name="DisplayLayerName_Pixelmap_gray" xml:space="preserve">
+    <value>Carte NB</value>
+  </data>
+  <data name="DisplayLayerName_rimini_relief" xml:space="preserve">
+    <value>Relief</value>
+  </data>
+  <data name="DisplayLayerName_swissimage" xml:space="preserve">
+    <value>Orthophoto</value>
+  </data>
+  <data name="DisplayLayerName_v25_geb" xml:space="preserve">
+    <value>Bâtiments</value>
+  </data>
+  <data name="DisplayLayerName_v25_str" xml:space="preserve">
+    <value>Routes</value>
+  </data>
+  <data name="DisplayLayerName_v25_pri" xml:space="preserve">
+    <value>Standard</value>
+  </data>
+  <data name="DisplayLayerName_MV_ACHSENSEGMENT" xml:space="preserve">
+    <value>Axes</value>
+  </data>
+  <data name="DisplayLayerName_STRASSENABSCHNITTGIS" xml:space="preserve">
+    <value>Tronçons de route</value>
+  </data>
+  <data name="DisplayLayerName_ZUSTANDSABSCHNITTGIS" xml:space="preserve">
+    <value>Tronçons d'état</value>
+  </data>
+  <data name="DisplayLayerName_ZUSTANDSABSCHNITTGIS_IndexIsNull" xml:space="preserve">
+    <value>Tronçons d'état sans index</value>
+  </data>
+  <data name="IncompletePackageExceptionMessage" xml:space="preserve">
+    <value>Le package est incomplet</value>
+  </data>
+  <data name="InvalidPackageExceptionMessage" xml:space="preserve">
+    <value>Le package est invalide</value>
+  </data>
+  <data name="InvalidPackageVersionExceptionMessage" xml:space="preserve">
+    <value>La version du package n'est pas supportée</value>
+  </data>
+  <data name="NoDataImportedPackageExceptionMessage" xml:space="preserve">
+    <value>Aucune donnée n'est importée</value>
+  </data>
+  <data name="LabelBaseLayer" xml:space="preserve">
+    <value>Carte de fond</value>
+  </data>
+  <data name="LabelOverlays" xml:space="preserve">
+    <value>Informations superposables</value>
+  </data>
+  <data name="Label_ZeroToOne" xml:space="preserve">
+    <value>0 - 0,99</value>
+  </data>
+  <data name="Label_OneToTwo" xml:space="preserve">
+    <value>1 - 1,99</value>
+  </data>
+  <data name="Label_TwoToThree" xml:space="preserve">
+    <value>2 - 2,99</value>
+  </data>
+  <data name="Label_ThreeToFour" xml:space="preserve">
+    <value>3 - 3,99</value>
+  </data>
+  <data name="Label_FourToFive" xml:space="preserve">
+    <value>4 - 5</value>
+  </data>
+  <data name="Label_UnknownIndex" xml:space="preserve">
+    <value>pas d'index</value>
+  </data>
+  <data name="MassnahmenvorschlagKatalog_Oberflaechenverbesserung" xml:space="preserve">
+    <value>Amélioration de la surf. / du revêtem.</value>
+  </data>
+  <data name="MassnahmenvorschlagKatalog_Deckbelagserneuerung" xml:space="preserve">
+    <value>Rénovation du revêtement</value>
+  </data>
+  <data name="MassnahmenvorschlagKatalog_Belagserneuerung" xml:space="preserve">
+    <value>Rénovation du revêtement</value>
+  </data>
+  <data name="MassnahmenvorschlagKatalog_ErneuerungOberbau" xml:space="preserve">
+    <value>Rénovation de la superstructure</value>
+  </data>
+  <data name="MassnahmenvorschlagKatalog_KeineErneuerung" xml:space="preserve">
+    <value>Pas de rénovation</value>
+  </data>
+  <data name="MassnahmenvorschlagKatalog_Erneuerung" xml:space="preserve">
+    <value>Rénovation</value>
+  </data>
+  <data name="LabelAdditionalInformation" xml:space="preserve">
+    <value>Info complémentaire</value>
+  </data>
+  <data name="AbschnittTabTitle" xml:space="preserve">
+    <value>Tronçon</value>
+  </data>
+  <data name="FahrbahnTabTitle" xml:space="preserve">
+    <value>Chaussée</value>
+  </data>
+  <data name="TrottoirTabTitle" xml:space="preserve">
+    <value>Trottoir</value>
+  </data>
+  <data name="Ok" xml:space="preserve">
+    <value>OK</value>
+  </data>
+  <data name="ShowLegend" xml:space="preserve">
+    <value>Légende</value>
+  </data>
+  <data name="PreviousExtent" xml:space="preserve">
+    <value>Extent précédent</value>
+  </data>
+  <data name="NextExtent" xml:space="preserve">
+    <value>Prochain extent</value>
+  </data>
+  <data name="ZoomToActiveElement" xml:space="preserve">
+    <value>Zoom sur l'élément actif</value>
+  </data>
+  <data name="DringlichkeitTypUnbekannt" xml:space="preserve">
+    <value>Sans indication</value>
+  </data>
+  <data name="DisplayLayerName_grundwasservorkommen" xml:space="preserve">
+    <value>Nappe phréatique</value>
+  </data>
+  <data name="DisplayLayerName_grundwasservulnerabilitaet" xml:space="preserve">
+    <value>Vulnérabilité phréatique</value>
+  </data>
+  <data name="DisplayLayerName_katasterBelasteterBtandorteOEv" xml:space="preserve">
+    <value>Cadastre sites pollués</value>
+  </data>
+  <data name="DisplayLayerName_gebaeudeWohnungsRegisterLabel" xml:space="preserve">
+    <value>N° maison</value>
+  </data>
+  <data name="DisplayLayerName_bahnlaermNacht" xml:space="preserve">
+    <value>Bruit ferr. nocturne</value>
+  </data>
+  <data name="DisplayLayerName_bahnlaermTag" xml:space="preserve">
+    <value>Bruit ferr. diurne</value>
+  </data>
+  <data name="DisplayLayerName_strassenlaermNacht" xml:space="preserve">
+    <value>Bruit routier nocturne</value>
+  </data>
+  <data name="DisplayLayerName_strassenlaermTag" xml:space="preserve">
+    <value>Bruit routier diurne</value>
+  </data>
+  <data name="DisplayLayerName_compositeav" xml:space="preserve">
+    <value>Données MO</value>
+  </data>
+  <data name="InvalidOrIncompatiblePackageExceptionMessage" xml:space="preserve">
+    <value>Le package est incompatible ou non valide</value>
+  </data>
+  <data name="InvalidPackageVersionNewExceptionMessage" xml:space="preserve">
+    <value>Le package n'est pas compatible! Vous devez actualiser votre instance de EMSG-Mobile</value>
+  </data>
+  <data name="InvalidPackageVersionOldExceptionMessage" xml:space="preserve">
+    <value>Le package n'est pas compatible! Package obsolète.</value>
+  </data>
+  <data name="From" xml:space="preserve">
+    <value>de</value>
+  </data>
+  <data name="To" xml:space="preserve">
+    <value>à</value>
+  </data>
+  <data name="SchadenausmassTypA0" xml:space="preserve">
+    <value>0 %</value>
+  </data>
+  <data name="StrassenabschnittZustandsabschnittLaengeError" xml:space="preserve">
+    <value>La somme des longueurs des tronçons d'état ne doit pas dépasser la longueur du tronçon de la route ({0} m).</value>
+    <comment>{0}:Strassenabschnitt Länge</comment>
+  </data>
+  <data name="DetailFormIsNotinitialized" xml:space="preserve">
+    <value>Aucune dégradation encore saisie !</value>
+  </data>
+  <data name="GrobFormIsNotinitialized" xml:space="preserve">
+    <value>Aucune dégradation encore saisie !</value>
+  </data>
+  <data name="DeleteConfirmation" xml:space="preserve">
+    <value>Etes-vous sûr de vouloir supprimer ce jeu de données ?</value>
+  </data>
+  <data name="ForeignStrassenabschnitt" xml:space="preserve">
+    <value>Vous ne pouvez pas saisir de tronçon d'état sur un autre tronçon de route.</value>
+  </data>
+  <data name="Label_Achsen" xml:space="preserve">
+    <value>Axes</value>
+  </data>
+  <data name="Label_Strassenabschnitte" xml:space="preserve">
+    <value>Tronçons de route</value>
+  </data>
+  <data name="SplashScreenPath" xml:space="preserve">
+    <value>/ASTRA.EMSG.Mobile;component/Images/EMSG_Mobile_Splashscreen_fr.png</value>
+    <comment>do not translate</comment>
+  </data>
+  <data name="MeasureAreaToolText" xml:space="preserve">
+    <value>Mesurer surface</value>
+  </data>
+  <data name="MeasureLineToolText" xml:space="preserve">
+    <value>Mesurer éloignement</value>
+  </data>
+  <data name="MousePos_Format" xml:space="preserve">
+    <value>X : ${lon}, Y : ${lat}</value>
+  </data>
+  <data name="ZoomToolText" xml:space="preserve">
+    <value>Zoom</value>
+  </data>
+  <data name="CreateMapCache" xml:space="preserve">
+    <value>Erstelle Karten-Cache</value>
+  </data>
+  <data name="StartImport" xml:space="preserve">
+    <value>Starte Import</value>
+  </data>
+  <data name="UnzipPackage" xml:space="preserve">
+    <value>Entpacke Paket</value>
+  </data>
+  <data name="DeleteLocalData" xml:space="preserve">
+    <value>Sollen von der Anwendung lokal gespeicherte Daten gelöscht werden?</value>
+  </data>
+  <data name="Abschnittsnummer" xml:space="preserve">
+    <value>N° tronçon</value>
+  </data>
+  <data name="DisplayLayerName_ZUSTANDTROTTOIRLEFT" xml:space="preserve">
+    <value>Zustandsabschnitte Trottoir</value>
+  </data>
+</root>

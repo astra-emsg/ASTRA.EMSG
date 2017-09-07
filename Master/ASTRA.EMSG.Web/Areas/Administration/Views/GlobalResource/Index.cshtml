@@ -1,0 +1,42 @@
+﻿@using ASTRA.EMSG.Web.Infrastructure.HtmlHelperExtensions
+@using Resources
+@using Kendo.Mvc.UI
+@model string
+
+@section JavaScript
+{
+    <script type="text/javascript" src="@(Url.Content("~/Scripts/Areas/Administration/GlobalResource/GlobalResource.js"))"></script>
+}
+
+<h2>@TitleLocalization.GlobalResourcePageTitle</h2>
+
+<fieldset class="popupFormFieldset k-edit-form-container">
+    @Html.ActionLinkButton(ButtonLocalization.GetGlobalResources, "GetGlobalResources")
+    <hr style="margin-bottom: 20px" />
+    @{
+        Html.Kendo().Upload()
+            .Name("uploadFiles")
+            .Async(async => async.Save("Upload", "GlobalResource"))
+            .Events(events =>
+                              {
+                                  events.Success("index.onSuccess");
+                                  events.Error("index.onError");
+                                  events.Select("index.onSelect");
+                                  events.Upload("index.onUpload");
+                              })
+            .Render();
+    }
+
+    @(Html.Hidden("parameters", null, new Dictionary<string, object>
+                                           {
+                                               {"id", "parameters"},
+                                               {"data-uploadResultUrl", Url.Action("GetLastUploadResult")},
+                                               {"data-progressText", NotificationLocalization.UploadGlobalResourceProgressText},
+                                               {"data-errorMessage", NotificationLocalization.UploadFileLimitExceeded},
+                                               {"data-fileExtensionErrorMessage", NotificationLocalization.UploadGlobalResourceFileExtensionErrorText},
+                                           }))
+    <br />
+    <div id="result">
+    </div>
+    <hr />
+</fieldset>

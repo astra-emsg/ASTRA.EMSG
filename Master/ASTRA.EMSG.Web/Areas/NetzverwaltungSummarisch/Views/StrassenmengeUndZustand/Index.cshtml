@@ -1,0 +1,53 @@
+﻿@using ASTRA.EMSG.Business.Models.Summarisch
+@using ASTRA.EMSG.Web.Infrastructure.HtmlHelperExtensions
+@using Resources
+@using ASTRA.EMSG.Web.Infrastructure.TelerikExtensions
+@using Kendo.Mvc.UI
+@model NetzSummarischModel
+@section JavaScript
+{
+    <script type="text/javascript" src="@(Url.Content("~/Scripts/Areas/NetzverwaltungSummarisch/StrassenmengeUndZustand/StrassenmengeUndZustand.js"))"></script>
+}
+
+<h2>@TitleLocalization.StrassenmengeUndZustandPageTitle</h2>
+<br />
+<div class="scrollable-grid-border">
+    <div class="scrollable-grid">
+        @(Html.Kendo().Grid<NetzSummarischDetailModel>()
+              .Name("NetzSummarischGrid")
+              .ApplyEmsgSettings(pageable: false, sortable: false, editable: false)
+              .DataSource(dataBinding => dataBinding
+                  .Ajax()
+                  .Read(c => c.Action("GetAll", "StrassenmengeUndZustand"))
+                  .Update(c => c.Action("Update", "StrassenmengeUndZustand"))
+                  .Model(keys => keys.Id(m => m.Id))
+                  )
+              .HtmlAttributes(new
+              {
+                  data_editnetzsummarischdetailmodel_url = Url.Action("EditNetzSummarischDetailModel"),
+                  data_editmittlereserhebungsjahr_url = Url.Action("EditMittleresErhebungsjahr"),
+                  data_getmittlereserhebungsjahr_url = Url.Action("GetMittleresErhebungsjahr"),
+              })
+              .Columns(columns =>
+              {
+                  columns.Bound(m => m.Id).GridCommands(Html.EditButton("index.openStrassenmengeUndZustandEditWindow('#= Id #')").ToHtmlString()).Width(41);
+                  columns.Bound(m => m.BelastungskategorieTyp).Title(GridHeaderFooterLocalization.Belastungskategorie);
+                  columns.Bound(m => m.MittlererZustand).Title(GridHeaderFooterLocalization.MittlererZustand).AlignRight();
+                  columns.Bound(m => m.Fahrbahnflaeche).Title(GridHeaderFooterLocalization.Strassenflaeche).AlignRight();
+                  columns.Bound(m => m.Fahrbahnlaenge).Title(GridHeaderFooterLocalization.Strassenlaenge).AlignRight();
+              }))
+    </div>
+</div>
+
+<br />
+<span>@TextLocalization.MittleresErhebungsjahrDesZustandes</span>
+
+<span id="MittleresErhebungsjahr">@(Model.MittleresErhebungsJahr.HasValue ? Model.MittleresErhebungsJahr.Value.ToShortDateString() : string.Empty)</span>
+
+@Html.UnobstrusiveEditButton(Model.Id)
+
+@(Html.TelerikWindow(TitleLocalization.StrassenmengeUndZustandPopupTitle, "StrassenmengeUndZustandEditWindow", "strassenmengeUndZustandFormDiv")
+    .Events(events => events.Close("editNetzSummarischDetailModel.onStrassenmengeUndZustandFormClose")))
+
+@(Html.TelerikWindow(TitleLocalization.MittleresErhebungsjahrEditPopupTitle, "MittleresErhebungsjahrEditEditWindow", "mittleresErhebungsjahrFormDiv")
+    .Events(events => events.Close("editMittleresErhebungsjahr.onMittleresErhebungsjahrFormClose")))

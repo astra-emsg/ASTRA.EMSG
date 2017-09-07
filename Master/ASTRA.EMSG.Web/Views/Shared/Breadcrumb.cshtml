@@ -1,0 +1,23 @@
+﻿@using Resources
+
+@model IEnumerable<ASTRA.EMSG.Business.Models.Common.MenuItemModel>
+        
+<table>
+    <tr>
+        <td>@Html.ActionLink(TextLocalization.Emsg, "Index", "Home", null, new { @class = "emsg-passive-bredcrumb-link-item" })</td>
+
+        @foreach (var mi in Model)
+        {
+            <td><span class="emsg-passive-bredcrumb-text-item">@Html.Raw(" > ")</span></td>
+            if(mi.IsPlaceHolder)
+            {
+                <td><span class="emsg-passive-bredcrumb-text-item">@Html.Raw(mi.Text)</span></td>
+            }
+            else
+            {
+                var htmlAttributes = new { @class = mi == Model.Last() ? "emsg-active-bredcrumb-link-item" : "emsg-passive-bredcrumb-link-item" };
+                <td>@Html.ActionLink(mi.Text, mi.Action, mi.Controller, new { area = mi.Area, id = mi.Id }, htmlAttributes)</td>
+            }
+        }
+    </tr>
+</table>

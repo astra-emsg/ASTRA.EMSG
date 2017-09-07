@@ -1,0 +1,15 @@
+﻿@using ASTRA.EMSG.Web.Infrastructure.HtmlHelperExtensions
+@using Resources
+<div id="acheEditFormDiv" style="min-width: 400px"
+     data-create-action="@Url.Action("Create", "Achsen")"
+     data-edit-action="@Url.Action("Edit", "Achsen")"
+     data-search-action="@Url.Action("SearchModifiedAchen", "Achsen")"
+     data-button-cancel="@Html.Raw(ButtonLocalization.Cancel)"
+     data-button-delete="@Html.Raw(ButtonLocalization.Delete)"
+     data-button-change="@Html.Raw(ButtonLocalization.Change)"
+     data-modify-warning="@Html.Raw(NotificationLocalization.AchenModificationWarning)"
+     data-cancel-confirmation="@Html.Raw(NotificationLocalization.CancelConfirmation)">
+</div>
+
+
+@(Html.TelerikWindow(TitleLocalization.AchsenEditFormTitle, "WarningWindow", "modificationWarning").Events(events => events.Close("overview.onImportWindowClose")).Width(500))

@@ -1,0 +1,327 @@
+﻿@using ASTRA.EMSG.Business.Infrastructure.Reporting
+@using ASTRA.EMSG.Common.Enums
+@using ASTRA.EMSG.Web.Infrastructure
+@using JetBrains.Annotations
+@using Resources
+@using Kendo.Mvc.UI
+@using ASTRA.EMSG.Web.Infrastructure.HtmlHelperExtensions
+@using System.Web.Mvc.Html
+@using System.Linq
+@using System.Web.Mvc
+
+@helper TabellarischReportButtons(System.Web.Mvc.HtmlHelper htmlHelper, [AspMvcController] string controllerName, string previewGridName, string canGenerateReportMethodName = null)
+{
+    <div id="ReportButtons" style="margin-top: 10px; margin-bottom: 10px">
+        @htmlHelper.ExcelReportButton(string.Format("GetExcelReport({0})", canGenerateReportMethodName))
+        @htmlHelper.PdfReportButton(string.Format("GetPdfReport({0})", canGenerateReportMethodName))
+    </div>
+
+    <script type="text/javascript">
+        function GetExcelReport(canGenerateReport) { GetReport('@(OutputFormat.Excel)', canGenerateReport); };
+        function GetPdfReport(canGenerateReport) { GetReport('@(OutputFormat.Pdf)', canGenerateReport); };
+
+        function GetReport(outputFormat, canGenerateReport) {
+            if (canGenerateReport != null && !canGenerateReport())
+                return;
+
+            var reportParameter = BuildParameter();
+            reportParameter.outputFormat = outputFormat;
+
+            var grid = $('#@(previewGridName)').data('kendoGrid');
+
+            if (grid) {
+                reportParameter.filter = grid.filterBy;
+                reportParameter.orderBy = grid.orderBy;
+            }
+
+            var getLastGeneratedReportUrl = '@(htmlHelper.ToUrlHelper().Action("GetLastGeneratedReport"))';
+            var generateReportUrl = '@(htmlHelper.ToUrlHelper().Action("GenerateReport"))';
+
+            var checkReportAvailable = function () {
+                setTimeout(function() {
+                    $.post(getLastGeneratedReportUrl + 'Ready', {}, function(data) {
+                        if (data.ready) {
+                            $.download(getLastGeneratedReportUrl, reportParameter);
+                            unblockScreen();
+                            $(document).ajaxStart(blockScreen).ajaxStop(unblockScreen);
+                        } else {
+                            checkReportAvailable();
+                        }
+                    });
+                }, 5000);
+            }
+
+            $(document).unbind('ajaxStart');
+            $(document).unbind('ajaxStop');
+
+            blockScreen();
+            $.post(generateReportUrl, reportParameter, function(data) {
+                checkReportAvailable();
+            });
+        };
+
+        function BuildParameter() {
+            var reportParameter = GetReportParameter();
+            reportParameter.erfassungsPeriodId = $("#ErfassungsPeriod").val();
+            return reportParameter;
+        }
+
+        function OnDataBound(e) {
+            var grid = $("#@(previewGridName)").data("kendoGrid");
+            $("#ReportButtons").toggle(grid.dataSource.total() != undefined && grid.dataSource.total() != 0);
+            OnDataBoundInternal();
+        }
+
+        function OnDataBoundInternal() { }
+
+    </script>
+}
+
+@helper CurrentErfassungsperiodNotification(Guid currentErfassungsPeriodId)
+{
+    <input type="hidden" id="CurrentErfassungsPeriodId" value="@currentErfassungsPeriodId"/>
+
+    <div id="currentErfassungsperiodNotification">
+        <hr />
+        <span>
+            @NotificationLocalization.UncompletDataInCurrentErfassungsperiodNotification
+        </span>
+        <hr />
+    </div>
+}
+
+@helper ErfassungsPeriodFilter(System.Web.Mvc.HtmlHelper htmlHelper, IEnumerable<DropDownListItem> dropDownItems)
+{
+    <table>
+        <tr>
+            <td class="field-label">@TextLocalization.ErfassungsPeriodAbschlussFilter
+            </td>
+            <td class="field-input">
+                @(htmlHelper.Kendo()
+                            .DropDownList()
+                            .Name("ErfassungsPeriod")
+                            .BindTo(dropDownItems)
+                            .Events(events => events.Change("OnErfassungsPeriodChange"))
+                            .HtmlAttributes(new { style = "z-index:99; width: 250px" }))
+            </td>
+        </tr>
+        <tr>
+            <td colspan="2">
+                <div id="currentErfassungsperiodNotification">
+                    <hr />
+                    <span>
+                        @NotificationLocalization.UncompletDataInCurrentErfassungsperiodNotification
+                    </span>
+                </div>
+            </td>
+        </tr>
+        <tr>
+            <td colspan="2">
+                <hr />
+            </td>
+        </tr>
+    </table>
+    
+    <div id="Preview">
+        @htmlHelper.Partial("Preview")
+    </div>
+    
+    <script type="text/javascript">
+        var supportedIds = @(htmlHelper.Raw(Json.Encode(htmlHelper.ViewData["SupportedYears"])));
+        function OnErfassungsPeriodChange(e) {
+            if (($("#ErfassungsPeriod").val() != '@(dropDownItems.Single(ddi => ddi.Text == TextLocalization.Current).Value)') && !(jQuery.inArray($("#ErfassungsPeriod").val(), supportedIds) > -1)) {
+                alert('@(htmlHelper.Raw(NotificationLocalization.ReportModeIncompatiblityNoticitationTest.EscapeJavaScriptString()))');
+            }
+                $.ajax({
+                    url: '@(htmlHelper.ToUrlHelper().Action("GetPreview"))',
+                    type: 'POST',
+                    data: { erfassungsPeriodId: $("#ErfassungsPeriod").val() },
+                    success: function(data) {
+
+                        $('#Preview').empty().append(data);
+                        if (window["onErfassungsPeriodChanged"] != undefined)
+                            onErfassungsPeriodChanged();
+
+                        toggleCurrentErfassungsperiodNotification();
+                    }
+                });
+             
+        }
+        function toggleCurrentErfassungsperiodNotification() {
+            if ($("#ErfassungsPeriod").data('kendoDropDownList') != undefined)
+                $("#currentErfassungsperiodNotification").toggle($("#ErfassungsPeriod").data('kendoDropDownList').value() == '@(dropDownItems.Single(ddi => ddi.Text == TextLocalization.Current).Value)');
+        }
+
+        toggleCurrentErfassungsperiodNotification();
+
+    </script>
+}
+
+@helper ErfassungsPeriodFilterForGisReport(System.Web.Mvc.HtmlHelper htmlHelper, IEnumerable<DropDownListItem> dropDownItems)
+{
+    <div class="emsg-filter-expand-area-middle">
+        <table id="erfassungsPeriodFilterTable">
+            <tr>
+                <td class="emsg-erfassungsperiod-filter" style="width: @(ViewSizeConstants.GisReportFilterFieldLabelWidth)px;">
+                    <span class="field-label">@TextLocalization.ErfassungsPeriodAbschlussFilter</span>
+                </td>
+                <td><span class="field-input">
+                        @(htmlHelper.Kendo()
+                              .DropDownList()
+                              .Name("ErfassungsPeriod")
+                              .BindTo(dropDownItems)
+                              .Events(events => events.Change("OnErfassungsPeriodChange"))
+                              .HtmlAttributes(new { style = string.Format("z-index:99; width: {0}px", 200) }))
+                    </span>
+                </td>
+                <td>
+                    <span class="field-label" style="margin-left: 18px" id="currentErfassungsperiodNotification">
+                        @NotificationLocalization.UncompletDataInCurrentErfassungsperiodNotification
+                    </span>
+                </td>
+            </tr>
+        </table>
+    </div>
+    
+    <script type="text/javascript">
+        var supportedIds = @(htmlHelper.Raw(Json.Encode(htmlHelper.ViewData["SupportedYears"])));
+        function OnErfassungsPeriodChange(e) {
+            if (($("#ErfassungsPeriod").val() != '@(dropDownItems.Single(ddi => ddi.Text == TextLocalization.Current).Value)') && !(jQuery.inArray($("#ErfassungsPeriod").val(), supportedIds) > -1)) {
+                alert('@(htmlHelper.Raw(NotificationLocalization.ReportModeIncompatiblityNoticitationTest.EscapeJavaScriptString()))');
+            }
+            
+            $.ajax({
+                url: '@(htmlHelper.ToUrlHelper().Action("GetPreview"))',
+                type: 'POST',
+                data: { erfassungsPeriodId: $("#ErfassungsPeriod").val() },
+                success: function (data) {
+                    $('#Preview').empty().append(data);
+                    if (window["onErfassungsPeriodChanged"] != undefined)
+                        onErfassungsPeriodChanged();
+
+                    toggleCurrentErfassungsperiodNotification();
+                }
+            });
+        }
+
+        function toggleCurrentErfassungsperiodNotification() {
+            if ($("#ErfassungsPeriod").data('kendoDropDownList') != undefined)
+                $("#currentErfassungsperiodNotification").toggle($("#ErfassungsPeriod").data('kendoDropDownList').value() == '@(dropDownItems.Single(ddi => ddi.Text == TextLocalization.Current).Value)');
+        }
+
+        toggleCurrentErfassungsperiodNotification();
+
+    </script>
+}
+
+@helper ReportIndexContent(System.Web.Mvc.HtmlHelper htmlHelper, IEnumerable<DropDownListItem> dropDownItems)
+{
+    if (!dropDownItems.Any())
+    {
+    @NotificationLocalization.CanNotDoAuswertung
+    }
+    else
+    {
+    @ErfassungsPeriodFilter(htmlHelper, dropDownItems)
+    }
+}
+
+@helper GisReportIndexContent(System.Web.Mvc.HtmlHelper htmlHelper, IEnumerable<DropDownListItem> dropDownItems)
+{
+    if (!dropDownItems.Any())
+    {
+    @NotificationLocalization.CanNotDoAuswertung
+    }
+    else
+    {
+        @Expander(htmlHelper.ToUrlHelper())
+    
+        @ErfassungsPeriodFilterForGisReport(htmlHelper, dropDownItems)
+    
+        <div id="Preview">
+            @htmlHelper.Partial("Preview")
+        </div>
+    }
+}
+
+@helper Expander(System.Web.Mvc.UrlHelper urlHelper)
+{
+    <div class="emsg-filter-expand-area-top">
+        <a class="emsg-filter-expander-button">
+            <div>
+                <img class="emsg-expand-image" src="@(urlHelper.Content("~/Content/images/expander_open.png"))" style="display: none"/>
+                <img class="emsg-collapse-image" src="@(urlHelper.Content("~/Content/images/expander_collapsed.png"))"/>
+                <div><b>@(ButtonLocalization.ExpandFilters)</b></div>
+            </div>
+        </a>
+    </div>
+    
+    //ToDo: Extract to unobstrusive JS
+    <script type="text/javascript">
+        
+        function initFilterButton(isCollapsed) {
+            if (isCollapsed) {
+                $(".emsg-expand-image").toggle(true);
+                $(".emsg-collapse-image").toggle(false);
+            } else {
+                $(".emsg-expand-image").toggle(false);
+                $(".emsg-collapse-image").toggle(true);
+            }
+
+            $(".emsg-filter-expander-button").click(function () {
+                $("#erfassungsPeriodFilterTable").toggle();
+                $("#filterDiv").toggle();
+                $(".emsg-expand-image").toggle();
+                $(".emsg-collapse-image").toggle();
+                // adjust the map height after toggeling the filter
+                adjustMapHeight();
+            });
+        }
+        
+        $(initFilterButton);
+
+    </script>
+}
+
+@helper GisReportButtons(System.Web.Mvc.HtmlHelper htmlHelper, NetzErfassungsmodus erfassungsmodus)
+{
+    <div style="display: inline-block; margin-bottom: 5px">
+        <div id="ReportButtons">
+
+            @htmlHelper.UnobstrusiveGisExcelReportButton("emsg-just-table-report")
+            @htmlHelper.UnobstrusiveGisPdfReportButton("emsg-just-table-report")
+            @*@htmlHelper.UnobstrusiveGisPdfPreviewButton("emsg-just-table-report")*@
+
+            <input id="gisReportGenerationParameters" type="hidden"
+                   data-output-format="@(OutputFormat.Pdf)"
+                   data-generate-report-action="@(htmlHelper.ToUrlHelper().Action("GenerateMapReport"))"
+                   data-preview-report-action="@(htmlHelper.ToUrlHelper().Action("GenerateMapPreview"))"
+                   data-get-last-generated-report-action="@(htmlHelper.ToUrlHelper().Action("GetLastGeneratedMapReport"))"/>
+
+            @*<a href="javascript:emsg.form.generateGisMapPdfReport()"><b>TestMapReport</b></a>*@
+        </div>
+    </div>
+    
+    @(htmlHelper.Kendo().Window().Name("map-report-preview").Title(TitleLocalization.PreviewReport).Width(1210).Height(750)
+    .Content(
+        @<text>
+            <img style="height: 700px; width: 1200px" id="map-report-preview-image" scr=""/>
+            <div style="float: right; margin-right: 6px; margin-top: 15px; ">
+                @htmlHelper.UnobstrusiveGisMapPdfReportButton("emsg-just-table-report")
+                @htmlHelper.ClosePopupButton()
+            </div>
+         </text>)
+                    
+    .Modal(true).Visible(false).Events(c => c.Close("gisReport.form.onPreviewClose")))
+}
+
+@helper UndockButton(System.Web.Mvc.HtmlHelper htmlHelper, NetzErfassungsmodus erfassungsmodus, bool isInPopup)
+{
+    <div style="float: right">
+        @if (erfassungsmodus == NetzErfassungsmodus.Gis && !isInPopup)
+        {
+            @htmlHelper.UnobtrusiveImageButton(htmlHelper.ToUrlHelper().Content("~/Content/images/application_double.png"), ButtonLocalization.Undock, true, customizeButtonAnchor: t => t.AddAttribute("id", "Undock"))
+        }
+    </div>
+    <div style="clear: both"></div>
+}

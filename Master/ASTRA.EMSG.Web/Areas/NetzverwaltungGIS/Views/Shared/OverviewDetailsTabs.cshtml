@@ -1,0 +1,11 @@
+﻿@using Resources
+@using Kendo.Mvc.UI
+
+@(Html.Kendo().TabStrip()
+    .Name("TabStrip")
+    .Items(tabstrip =>
+    {
+        tabstrip.Add().Text(TitleLocalization.DetailsTabTitle).Content(@<text>@Html.Partial("Details")</text>);
+        tabstrip.Add().Text(TitleLocalization.OverviewTabTitle).Content(@<text>@Html.Partial("Overview")</text>);
+    })
+    .SelectedIndex(0).Events(c => c.Select("index.onTabSelected")))

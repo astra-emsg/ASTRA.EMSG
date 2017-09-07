@@ -1,0 +1,31 @@
+﻿@using ASTRA.EMSG.Business.Models
+
+@using ASTRA.EMSG.Web.Infrastructure.HtmlHelperExtensions
+@using Resources
+@model ASTRA.EMSG.Business.Models.Strassennamen.StrassenabschnittModel
+@{
+    bool isNew = ViewBag.IsNew ?? false;
+    string actionName = (isNew ? "Insert" : "Update");
+}
+
+@using (Ajax.BeginForm(actionName, "NetzdefinitionUndStrassenabschnitt",
+                        new AjaxOptions
+                        {
+                            HttpMethod = "POST",
+                            UpdateTargetId = "strassenabschnittWindowDiv",
+                            InsertionMode = InsertionMode.Replace,
+                        }))
+{
+    <fieldset class="popupFormFieldset">
+        @Html.EditorFor(m => m)
+        @Html.UnobtrusiveOkCancelApplyPopupFormButtons("Apply" + actionName, "strassenabschnittWindowDiv", NotificationLocalization.BelagChangeConfirmation)
+        <div id="notificationMessages" style="display: none" 
+             data-belag-change-confirmation="@(NotificationLocalization.BelagChangeConfirmation)"
+             data-belag-belastungskategorie-mismatch-confirmation="@(NotificationLocalization.BelagBelastungskategorieMismatchConfirmation)"></div>
+    </fieldset>
+    @Html.RequiredFieldLegend()
+}
+
+<div class="helpButton">@Html.HelpButtonFor("EditStrassenabschnitt")</div>
+
+<div id="tortoirDefaults" style="display: none"/>

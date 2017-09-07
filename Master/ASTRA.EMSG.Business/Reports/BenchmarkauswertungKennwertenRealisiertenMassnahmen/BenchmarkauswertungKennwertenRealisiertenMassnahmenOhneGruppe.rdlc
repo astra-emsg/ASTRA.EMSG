@@ -1,0 +1,1433 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Report xmlns="http://schemas.microsoft.com/sqlserver/reporting/2008/01/reportdefinition" xmlns:rd="http://schemas.microsoft.com/SQLServer/reporting/reportdesigner">
+  <Body>
+    <ReportItems>
+      <Tablix Name="Tablix1">
+        <TablixBody>
+          <TablixColumns>
+            <TablixColumn>
+              <Width>1.41074in</Width>
+            </TablixColumn>
+            <TablixColumn>
+              <Width>6.02548in</Width>
+            </TablixColumn>
+          </TablixColumns>
+          <TablixRows>
+            <TablixRow>
+              <Height>1.24553in</Height>
+              <TablixCells>
+                <TablixCell>
+                  <CellContents>
+                    <Textbox Name="Textbox15">
+                      <CanGrow>true</CanGrow>
+                      <KeepTogether>true</KeepTogether>
+                      <Paragraphs>
+                        <Paragraph>
+                          <TextRuns>
+                            <TextRun>
+                              <Value rd:LocID="ReportLocalization.Beschreibung">Beschreibung</Value>
+                              <Style>
+                                <FontWeight>Bold</FontWeight>
+                              </Style>
+                            </TextRun>
+                          </TextRuns>
+                          <Style />
+                        </Paragraph>
+                      </Paragraphs>
+                      <rd:DefaultName>Textbox15</rd:DefaultName>
+                      <Style>
+                        <Border>
+                          <Color>=Parameters!TableVerticalBorderColor.Value</Color>
+                          <Style>Solid</Style>
+                        </Border>
+                        <TopBorder>
+                          <Color>=Parameters!TableHorizontalBorderColor.Value</Color>
+                          <Style>Solid</Style>
+                          <Width>1pt</Width>
+                        </TopBorder>
+                        <BottomBorder>
+                          <Color>=Parameters!TableHorizontalBorderColor.Value</Color>
+                          <Style>Solid</Style>
+                          <Width>1pt</Width>
+                        </BottomBorder>
+                        <LeftBorder>
+                          <Style>Solid</Style>
+                          <Width>1pt</Width>
+                        </LeftBorder>
+                        <RightBorder>
+                          <Style>None</Style>
+                          <Width>1pt</Width>
+                        </RightBorder>
+                        <BackgroundColor>=Parameters!TableHeaderBackgroundColor.Value</BackgroundColor>
+                        <VerticalAlign>Middle</VerticalAlign>
+                        <PaddingLeft>2pt</PaddingLeft>
+                        <PaddingRight>2pt</PaddingRight>
+                        <PaddingTop>2pt</PaddingTop>
+                        <PaddingBottom>2pt</PaddingBottom>
+                      </Style>
+                    </Textbox>
+                  </CellContents>
+                </TablixCell>
+                <TablixCell>
+                  <CellContents>
+                    <Tablix Name="Tablix2">
+                      <TablixBody>
+                        <TablixColumns>
+                          <TablixColumn>
+                            <Width>0.48264in</Width>
+                          </TablixColumn>
+                          <TablixColumn>
+                            <Width>1.03243in</Width>
+                          </TablixColumn>
+                          <TablixColumn>
+                            <Width>0.52931in</Width>
+                          </TablixColumn>
+                          <TablixColumn>
+                            <Width>1.1811in</Width>
+                          </TablixColumn>
+                          <TablixColumn>
+                            <Width>2.8in</Width>
+                          </TablixColumn>
+                        </TablixColumns>
+                        <TablixRows>
+                          <TablixRow>
+                            <Height>1.24553in</Height>
+                            <TablixCells>
+                              <TablixCell>
+                                <CellContents>
+                                  <Textbox Name="Textbox62">
+                                    <CanGrow>true</CanGrow>
+                                    <KeepTogether>true</KeepTogether>
+                                    <Paragraphs>
+                                      <Paragraph>
+                                        <TextRuns>
+                                          <TextRun>
+                                            <Value />
+                                            <Style>
+                                              <FontWeight>Bold</FontWeight>
+                                            </Style>
+                                          </TextRun>
+                                        </TextRuns>
+                                        <Style />
+                                      </Paragraph>
+                                    </Paragraphs>
+                                    <rd:DefaultName>Textbox62</rd:DefaultName>
+                                    <Style>
+                                      <Border>
+                                        <Color>=Parameters!TableVerticalBorderColor.Value</Color>
+                                        <Style>Solid</Style>
+                                      </Border>
+                                      <TopBorder>
+                                        <Color>=Parameters!TableHorizontalBorderColor.Value</Color>
+                                        <Style>Solid</Style>
+                                        <Width>1pt</Width>
+                                      </TopBorder>
+                                      <BottomBorder>
+                                        <Color>=Parameters!TableHorizontalBorderColor.Value</Color>
+                                        <Style>Solid</Style>
+                                        <Width>1pt</Width>
+                                      </BottomBorder>
+                                      <LeftBorder>
+                                        <Style>None</Style>
+                                        <Width>1pt</Width>
+                                      </LeftBorder>
+                                      <RightBorder>
+                                        <Style>Solid</Style>
+                                        <Width>1pt</Width>
+                                      </RightBorder>
+                                      <BackgroundColor>=Parameters!TableHeaderBackgroundColor.Value</BackgroundColor>
+                                      <VerticalAlign>Middle</VerticalAlign>
+                                      <PaddingLeft>2pt</PaddingLeft>
+                                      <PaddingRight>2pt</PaddingRight>
+                                      <PaddingTop>2pt</PaddingTop>
+                                      <PaddingBottom>2pt</PaddingBottom>
+                                    </Style>
+                                  </Textbox>
+                                </CellContents>
+                              </TablixCell>
+                              <TablixCell>
+                                <CellContents>
+                                  <Textbox Name="Textbox20">
+                                    <CanGrow>true</CanGrow>
+                                    <KeepTogether>true</KeepTogether>
+                                    <Paragraphs>
+                                      <Paragraph>
+                                        <TextRuns>
+                                          <TextRun>
+                                            <Value rd:LocID="ReportLocalization.Bezugsgrösse">Bezugsgrösse</Value>
+                                            <Style>
+                                              <FontWeight>Bold</FontWeight>
+                                            </Style>
+                                          </TextRun>
+                                        </TextRuns>
+                                        <Style />
+                                      </Paragraph>
+                                    </Paragraphs>
+                                    <rd:DefaultName>Textbox20</rd:DefaultName>
+                                    <Style>
+                                      <Border>
+                                        <Color>=Parameters!TableVerticalBorderColor.Value</Color>
+                                        <Style>Solid</Style>
+                                      </Border>
+                                      <TopBorder>
+                                        <Color>=Parameters!TableHorizontalBorderColor.Value</Color>
+                                        <Style>Solid</Style>
+                                        <Width>1pt</Width>
+                                      </TopBorder>
+                                      <BottomBorder>
+                                        <Color>=Parameters!TableHorizontalBorderColor.Value</Color>
+                                        <Style>Solid</Style>
+                                        <Width>1pt</Width>
+                                      </BottomBorder>
+                                      <LeftBorder>
+                                        <Style>Solid</Style>
+                                        <Width>1pt</Width>
+                                      </LeftBorder>
+                                      <RightBorder>
+                                        <Style>Solid</Style>
+                                        <Width>1pt</Width>
+                                      </RightBorder>
+                                      <BackgroundColor>=Parameters!TableHeaderBackgroundColor.Value</BackgroundColor>
+                                      <VerticalAlign>Middle</VerticalAlign>
+                                      <PaddingLeft>2pt</PaddingLeft>
+                                      <PaddingRight>2pt</PaddingRight>
+                                      <PaddingTop>2pt</PaddingTop>
+                                      <PaddingBottom>2pt</PaddingBottom>
+                                    </Style>
+                                  </Textbox>
+                                </CellContents>
+                              </TablixCell>
+                              <TablixCell>
+                                <CellContents>
+                                  <Textbox Name="Textbox1">
+                                    <CanGrow>true</CanGrow>
+                                    <KeepTogether>true</KeepTogether>
+                                    <Paragraphs>
+                                      <Paragraph>
+                                        <TextRuns>
+                                          <TextRun>
+                                            <Value rd:LocID="ReportLocalization.Einheit">Einheit</Value>
+                                            <Style>
+                                              <FontWeight>Bold</FontWeight>
+                                            </Style>
+                                          </TextRun>
+                                        </TextRuns>
+                                        <Style>
+                                          <TextAlign>Center</TextAlign>
+                                        </Style>
+                                      </Paragraph>
+                                    </Paragraphs>
+                                    <rd:DefaultName>Textbox1</rd:DefaultName>
+                                    <Style>
+                                      <Border>
+                                        <Color>=Parameters!TableVerticalBorderColor.Value</Color>
+                                        <Style>Solid</Style>
+                                      </Border>
+                                      <TopBorder>
+                                        <Color>=Parameters!TableHorizontalBorderColor.Value</Color>
+                                      </TopBorder>
+                                      <BottomBorder>
+                                        <Color>=Parameters!TableHorizontalBorderColor.Value</Color>
+                                      </BottomBorder>
+                                      <RightBorder>
+                                        <Style>Solid</Style>
+                                        <Width>1pt</Width>
+                                      </RightBorder>
+                                      <BackgroundColor>=Parameters!TableHeaderBackgroundColor.Value</BackgroundColor>
+                                      <VerticalAlign>Middle</VerticalAlign>
+                                      <PaddingLeft>2pt</PaddingLeft>
+                                      <PaddingRight>2pt</PaddingRight>
+                                      <PaddingTop>2pt</PaddingTop>
+                                      <PaddingBottom>2pt</PaddingBottom>
+                                      <WritingMode>Vertical</WritingMode>
+                                    </Style>
+                                  </Textbox>
+                                </CellContents>
+                              </TablixCell>
+                              <TablixCell>
+                                <CellContents>
+                                  <Tablix Name="Tablix5">
+                                    <TablixBody>
+                                      <TablixColumns>
+                                        <TablixColumn>
+                                          <Width>0.59055in</Width>
+                                        </TablixColumn>
+                                        <TablixColumn>
+                                          <Width>0.59055in</Width>
+                                        </TablixColumn>
+                                      </TablixColumns>
+                                      <TablixRows>
+                                        <TablixRow>
+                                          <Height>0.21651in</Height>
+                                          <TablixCells>
+                                            <TablixCell>
+                                              <CellContents>
+                                                <Textbox Name="Textbox4">
+                                                  <CanGrow>true</CanGrow>
+                                                  <KeepTogether>true</KeepTogether>
+                                                  <Paragraphs>
+                                                    <Paragraph>
+                                                      <TextRuns>
+                                                        <TextRun>
+                                                          <Value rd:LocID="ReportLocalization.Organisation">Organisation</Value>
+                                                          <Style>
+                                                            <FontWeight>Bold</FontWeight>
+                                                          </Style>
+                                                        </TextRun>
+                                                      </TextRuns>
+                                                      <Style>
+                                                        <TextAlign>Center</TextAlign>
+                                                      </Style>
+                                                    </Paragraph>
+                                                  </Paragraphs>
+                                                  <rd:DefaultName>Textbox4</rd:DefaultName>
+                                                  <Style>
+                                                    <Border>
+                                                      <Color>=Parameters!TableVerticalBorderColor.Value</Color>
+                                                      <Style>Solid</Style>
+                                                    </Border>
+                                                    <TopBorder>
+                                                      <Color>=Parameters!TableHorizontalBorderColor.Value</Color>
+                                                      <Style>Solid</Style>
+                                                      <Width>1pt</Width>
+                                                    </TopBorder>
+                                                    <BottomBorder>
+                                                      <Color>=Parameters!TableHorizontalBorderColor.Value</Color>
+                                                      <Style>None</Style>
+                                                      <Width>1pt</Width>
+                                                    </BottomBorder>
+                                                    <LeftBorder>
+                                                      <Style>Solid</Style>
+                                                      <Width>1pt</Width>
+                                                    </LeftBorder>
+                                                    <RightBorder>
+                                                      <Style>Solid</Style>
+                                                      <Width>1pt</Width>
+                                                    </RightBorder>
+                                                    <BackgroundColor>=Parameters!TableHeaderBackgroundColor.Value</BackgroundColor>
+                                                    <VerticalAlign>Middle</VerticalAlign>
+                                                    <PaddingLeft>2pt</PaddingLeft>
+                                                    <PaddingRight>2pt</PaddingRight>
+                                                    <PaddingTop>2pt</PaddingTop>
+                                                    <PaddingBottom>2pt</PaddingBottom>
+                                                  </Style>
+                                                </Textbox>
+                                                <ColSpan>2</ColSpan>
+                                              </CellContents>
+                                            </TablixCell>
+                                            <TablixCell />
+                                          </TablixCells>
+                                        </TablixRow>
+                                        <TablixRow>
+                                          <Height>1.02902in</Height>
+                                          <TablixCells>
+                                            <TablixCell>
+                                              <CellContents>
+                                                <Textbox Name="Textbox14">
+                                                  <CanGrow>true</CanGrow>
+                                                  <KeepTogether>true</KeepTogether>
+                                                  <Paragraphs>
+                                                    <Paragraph>
+                                                      <TextRuns>
+                                                        <TextRun>
+                                                          <Value rd:LocID="ReportLocalization.MittleresBezugsjahr">Mittelwert
+Bezugsjahr</Value>
+                                                          <Style>
+                                                            <FontSize>8pt</FontSize>
+                                                            <FontWeight>Bold</FontWeight>
+                                                          </Style>
+                                                        </TextRun>
+                                                      </TextRuns>
+                                                      <Style>
+                                                        <TextAlign>Right</TextAlign>
+                                                      </Style>
+                                                    </Paragraph>
+                                                  </Paragraphs>
+                                                  <rd:DefaultName>Textbox14</rd:DefaultName>
+                                                  <Style>
+                                                    <Border>
+                                                      <Color>=Parameters!TableVerticalBorderColor.Value</Color>
+                                                      <Style>Solid</Style>
+                                                    </Border>
+                                                    <TopBorder>
+                                                      <Color>=Parameters!TableHorizontalBorderColor.Value</Color>
+                                                      <Style>None</Style>
+                                                      <Width>1pt</Width>
+                                                    </TopBorder>
+                                                    <BottomBorder>
+                                                      <Color>=Parameters!TableHorizontalBorderColor.Value</Color>
+                                                      <Style>Solid</Style>
+                                                      <Width>1pt</Width>
+                                                    </BottomBorder>
+                                                    <LeftBorder>
+                                                      <Style>Solid</Style>
+                                                      <Width>1pt</Width>
+                                                    </LeftBorder>
+                                                    <RightBorder>
+                                                      <Style>Solid</Style>
+                                                      <Width>1pt</Width>
+                                                    </RightBorder>
+                                                    <BackgroundColor>=Parameters!TableHeaderBackgroundColor.Value</BackgroundColor>
+                                                    <VerticalAlign>Middle</VerticalAlign>
+                                                    <PaddingLeft>2pt</PaddingLeft>
+                                                    <PaddingRight>2pt</PaddingRight>
+                                                    <PaddingTop>2pt</PaddingTop>
+                                                    <PaddingBottom>2pt</PaddingBottom>
+                                                    <WritingMode>Vertical</WritingMode>
+                                                  </Style>
+                                                </Textbox>
+                                              </CellContents>
+                                            </TablixCell>
+                                            <TablixCell>
+                                              <CellContents>
+                                                <Textbox Name="Textbox17">
+                                                  <CanGrow>true</CanGrow>
+                                                  <KeepTogether>true</KeepTogether>
+                                                  <Paragraphs>
+                                                    <Paragraph>
+                                                      <TextRuns>
+                                                        <TextRun>
+                                                          <Value rd:LocID="ReportLocalization.GleitendesMittelDerLetztenFuenfJahr">gleitendes Mittel
+der letzten 5 Jahre</Value>
+                                                          <Style>
+                                                            <FontSize>8pt</FontSize>
+                                                            <FontWeight>Bold</FontWeight>
+                                                          </Style>
+                                                        </TextRun>
+                                                      </TextRuns>
+                                                      <Style>
+                                                        <TextAlign>Right</TextAlign>
+                                                      </Style>
+                                                    </Paragraph>
+                                                  </Paragraphs>
+                                                  <rd:DefaultName>Textbox14</rd:DefaultName>
+                                                  <Style>
+                                                    <Border>
+                                                      <Color>=Parameters!TableVerticalBorderColor.Value</Color>
+                                                      <Style>Solid</Style>
+                                                    </Border>
+                                                    <TopBorder>
+                                                      <Color>=Parameters!TableHorizontalBorderColor.Value</Color>
+                                                      <Style>None</Style>
+                                                      <Width>1pt</Width>
+                                                    </TopBorder>
+                                                    <BottomBorder>
+                                                      <Color>=Parameters!TableHorizontalBorderColor.Value</Color>
+                                                      <Style>Solid</Style>
+                                                      <Width>1pt</Width>
+                                                    </BottomBorder>
+                                                    <LeftBorder>
+                                                      <Style>Solid</Style>
+                                                      <Width>1pt</Width>
+                                                    </LeftBorder>
+                                                    <RightBorder>
+                                                      <Style>Solid</Style>
+                                                      <Width>1pt</Width>
+                                                    </RightBorder>
+                                                    <BackgroundColor>=Parameters!TableHeaderBackgroundColor.Value</BackgroundColor>
+                                                    <VerticalAlign>Middle</VerticalAlign>
+                                                    <PaddingLeft>2pt</PaddingLeft>
+                                                    <PaddingRight>2pt</PaddingRight>
+                                                    <PaddingTop>2pt</PaddingTop>
+                                                    <PaddingBottom>2pt</PaddingBottom>
+                                                    <WritingMode>Vertical</WritingMode>
+                                                  </Style>
+                                                </Textbox>
+                                              </CellContents>
+                                            </TablixCell>
+                                          </TablixCells>
+                                        </TablixRow>
+                                      </TablixRows>
+                                    </TablixBody>
+                                    <TablixColumnHierarchy>
+                                      <TablixMembers>
+                                        <TablixMember />
+                                        <TablixMember />
+                                      </TablixMembers>
+                                    </TablixColumnHierarchy>
+                                    <TablixRowHierarchy>
+                                      <TablixMembers>
+                                        <TablixMember />
+                                        <TablixMember />
+                                      </TablixMembers>
+                                    </TablixRowHierarchy>
+                                    <Style>
+                                      <Border>
+                                        <Style>None</Style>
+                                      </Border>
+                                    </Style>
+                                  </Tablix>
+                                </CellContents>
+                              </TablixCell>
+                              <TablixCell>
+                                <CellContents>
+                                  <Tablix Name="Tablix4">
+                                    <TablixBody>
+                                      <TablixColumns>
+                                        <TablixColumn>
+                                          <Width>0.7in</Width>
+                                        </TablixColumn>
+                                        <TablixColumn>
+                                          <Width>0.7in</Width>
+                                        </TablixColumn>
+                                        <TablixColumn>
+                                          <Width>0.7in</Width>
+                                        </TablixColumn>
+                                        <TablixColumn>
+                                          <Width>0.7in</Width>
+                                        </TablixColumn>
+                                      </TablixColumns>
+                                      <TablixRows>
+                                        <TablixRow>
+                                          <Height>0.21651in</Height>
+                                          <TablixCells>
+                                            <TablixCell>
+                                              <CellContents>
+                                                <Textbox Name="Textbox46">
+                                                  <CanGrow>true</CanGrow>
+                                                  <KeepTogether>true</KeepTogether>
+                                                  <Paragraphs>
+                                                    <Paragraph>
+                                                      <TextRuns>
+                                                        <TextRun>
+                                                          <Value rd:LocID="ReportLocalization.EigenschaftenAllerGeimeinde">Eigenschaften aller Gemeinden</Value>
+                                                          <Style>
+                                                            <FontWeight>Bold</FontWeight>
+                                                          </Style>
+                                                        </TextRun>
+                                                      </TextRuns>
+                                                      <Style>
+                                                        <TextAlign>Center</TextAlign>
+                                                      </Style>
+                                                    </Paragraph>
+                                                  </Paragraphs>
+                                                  <rd:DefaultName>Textbox46</rd:DefaultName>
+                                                  <Style>
+                                                    <Border>
+                                                      <Color>=Parameters!TableVerticalBorderColor.Value</Color>
+                                                      <Style>Solid</Style>
+                                                    </Border>
+                                                    <TopBorder>
+                                                      <Color>=Parameters!TableHorizontalBorderColor.Value</Color>
+                                                      <Style>Solid</Style>
+                                                      <Width>1pt</Width>
+                                                    </TopBorder>
+                                                    <BottomBorder>
+                                                      <Color>=Parameters!TableHorizontalBorderColor.Value</Color>
+                                                      <Style>None</Style>
+                                                      <Width>1pt</Width>
+                                                    </BottomBorder>
+                                                    <LeftBorder>
+                                                      <Style>Solid</Style>
+                                                      <Width>1pt</Width>
+                                                    </LeftBorder>
+                                                    <RightBorder>
+                                                      <Style>Solid</Style>
+                                                      <Width>1pt</Width>
+                                                    </RightBorder>
+                                                    <BackgroundColor>=Parameters!TableHeaderBackgroundColor.Value</BackgroundColor>
+                                                    <VerticalAlign>Middle</VerticalAlign>
+                                                    <PaddingLeft>2pt</PaddingLeft>
+                                                    <PaddingRight>2pt</PaddingRight>
+                                                    <PaddingTop>2pt</PaddingTop>
+                                                    <PaddingBottom>2pt</PaddingBottom>
+                                                  </Style>
+                                                </Textbox>
+                                                <ColSpan>4</ColSpan>
+                                              </CellContents>
+                                            </TablixCell>
+                                            <TablixCell />
+                                            <TablixCell />
+                                            <TablixCell />
+                                          </TablixCells>
+                                        </TablixRow>
+                                        <TablixRow>
+                                          <Height>1.02902in</Height>
+                                          <TablixCells>
+                                            <TablixCell>
+                                              <CellContents>
+                                                <Textbox Name="Textbox29">
+                                                  <CanGrow>true</CanGrow>
+                                                  <KeepTogether>true</KeepTogether>
+                                                  <Paragraphs>
+                                                    <Paragraph>
+                                                      <TextRuns>
+                                                        <TextRun>
+                                                          <Value rd:LocID="ReportLocalization.AnzahlGemeinden">Anzahl
+Gemeinden</Value>
+                                                          <Style>
+                                                            <FontSize>8pt</FontSize>
+                                                            <FontWeight>Bold</FontWeight>
+                                                          </Style>
+                                                        </TextRun>
+                                                      </TextRuns>
+                                                      <Style>
+                                                        <TextAlign>Right</TextAlign>
+                                                      </Style>
+                                                    </Paragraph>
+                                                  </Paragraphs>
+                                                  <rd:DefaultName>Textbox28</rd:DefaultName>
+                                                  <Style>
+                                                    <Border>
+                                                      <Color>=Parameters!TableVerticalBorderColor.Value</Color>
+                                                      <Style>Solid</Style>
+                                                    </Border>
+                                                    <TopBorder>
+                                                      <Color>=Parameters!TableHorizontalBorderColor.Value</Color>
+                                                      <Style>None</Style>
+                                                      <Width>1pt</Width>
+                                                    </TopBorder>
+                                                    <BottomBorder>
+                                                      <Color>=Parameters!TableHorizontalBorderColor.Value</Color>
+                                                      <Style>Solid</Style>
+                                                      <Width>1pt</Width>
+                                                    </BottomBorder>
+                                                    <LeftBorder>
+                                                      <Style>Solid</Style>
+                                                      <Width>1pt</Width>
+                                                    </LeftBorder>
+                                                    <RightBorder>
+                                                      <Style>Solid</Style>
+                                                      <Width>1pt</Width>
+                                                    </RightBorder>
+                                                    <BackgroundColor>=Parameters!TableHeaderBackgroundColor.Value</BackgroundColor>
+                                                    <VerticalAlign>Middle</VerticalAlign>
+                                                    <PaddingLeft>2pt</PaddingLeft>
+                                                    <PaddingRight>2pt</PaddingRight>
+                                                    <PaddingTop>2pt</PaddingTop>
+                                                    <PaddingBottom>2pt</PaddingBottom>
+                                                    <WritingMode>Vertical</WritingMode>
+                                                  </Style>
+                                                </Textbox>
+                                              </CellContents>
+                                            </TablixCell>
+                                            <TablixCell>
+                                              <CellContents>
+                                                <Textbox Name="Textbox37">
+                                                  <CanGrow>true</CanGrow>
+                                                  <KeepTogether>true</KeepTogether>
+                                                  <Paragraphs>
+                                                    <Paragraph>
+                                                      <TextRuns>
+                                                        <TextRun>
+                                                          <Value rd:LocID="ReportLocalization.Mittelwert">Mittelwert</Value>
+                                                          <Style>
+                                                            <FontSize>9pt</FontSize>
+                                                            <FontWeight>Bold</FontWeight>
+                                                          </Style>
+                                                        </TextRun>
+                                                      </TextRuns>
+                                                      <Style>
+                                                        <TextAlign>Right</TextAlign>
+                                                      </Style>
+                                                    </Paragraph>
+                                                  </Paragraphs>
+                                                  <rd:DefaultName>Textbox28</rd:DefaultName>
+                                                  <Style>
+                                                    <Border>
+                                                      <Color>=Parameters!TableVerticalBorderColor.Value</Color>
+                                                      <Style>Solid</Style>
+                                                    </Border>
+                                                    <TopBorder>
+                                                      <Color>=Parameters!TableHorizontalBorderColor.Value</Color>
+                                                      <Style>None</Style>
+                                                      <Width>1pt</Width>
+                                                    </TopBorder>
+                                                    <BottomBorder>
+                                                      <Color>=Parameters!TableHorizontalBorderColor.Value</Color>
+                                                      <Style>Solid</Style>
+                                                      <Width>1pt</Width>
+                                                    </BottomBorder>
+                                                    <LeftBorder>
+                                                      <Style>Solid</Style>
+                                                      <Width>1pt</Width>
+                                                    </LeftBorder>
+                                                    <RightBorder>
+                                                      <Style>Solid</Style>
+                                                      <Width>1pt</Width>
+                                                    </RightBorder>
+                                                    <BackgroundColor>=Parameters!TableHeaderBackgroundColor.Value</BackgroundColor>
+                                                    <VerticalAlign>Middle</VerticalAlign>
+                                                    <PaddingLeft>2pt</PaddingLeft>
+                                                    <PaddingRight>2pt</PaddingRight>
+                                                    <PaddingTop>2pt</PaddingTop>
+                                                    <PaddingBottom>2pt</PaddingBottom>
+                                                    <WritingMode>Vertical</WritingMode>
+                                                  </Style>
+                                                </Textbox>
+                                              </CellContents>
+                                            </TablixCell>
+                                            <TablixCell>
+                                              <CellContents>
+                                                <Textbox Name="Textbox38">
+                                                  <CanGrow>true</CanGrow>
+                                                  <KeepTogether>true</KeepTogether>
+                                                  <Paragraphs>
+                                                    <Paragraph>
+                                                      <TextRuns>
+                                                        <TextRun>
+                                                          <Value rd:LocID="ReportLocalization.Minimalwert">Minimal-
+wert</Value>
+                                                          <Style>
+                                                            <FontSize>8pt</FontSize>
+                                                            <FontWeight>Bold</FontWeight>
+                                                          </Style>
+                                                        </TextRun>
+                                                      </TextRuns>
+                                                      <Style>
+                                                        <TextAlign>Right</TextAlign>
+                                                      </Style>
+                                                    </Paragraph>
+                                                  </Paragraphs>
+                                                  <rd:DefaultName>Textbox28</rd:DefaultName>
+                                                  <Style>
+                                                    <Border>
+                                                      <Color>=Parameters!TableVerticalBorderColor.Value</Color>
+                                                      <Style>Solid</Style>
+                                                    </Border>
+                                                    <TopBorder>
+                                                      <Color>=Parameters!TableHorizontalBorderColor.Value</Color>
+                                                      <Style>None</Style>
+                                                      <Width>1pt</Width>
+                                                    </TopBorder>
+                                                    <BottomBorder>
+                                                      <Color>=Parameters!TableHorizontalBorderColor.Value</Color>
+                                                      <Style>Solid</Style>
+                                                      <Width>1pt</Width>
+                                                    </BottomBorder>
+                                                    <LeftBorder>
+                                                      <Style>Solid</Style>
+                                                      <Width>1pt</Width>
+                                                    </LeftBorder>
+                                                    <RightBorder>
+                                                      <Style>Solid</Style>
+                                                      <Width>1pt</Width>
+                                                    </RightBorder>
+                                                    <BackgroundColor>=Parameters!TableHeaderBackgroundColor.Value</BackgroundColor>
+                                                    <VerticalAlign>Middle</VerticalAlign>
+                                                    <PaddingLeft>2pt</PaddingLeft>
+                                                    <PaddingRight>2pt</PaddingRight>
+                                                    <PaddingTop>2pt</PaddingTop>
+                                                    <PaddingBottom>2pt</PaddingBottom>
+                                                    <WritingMode>Vertical</WritingMode>
+                                                  </Style>
+                                                </Textbox>
+                                              </CellContents>
+                                            </TablixCell>
+                                            <TablixCell>
+                                              <CellContents>
+                                                <Textbox Name="Textbox39">
+                                                  <CanGrow>true</CanGrow>
+                                                  <KeepTogether>true</KeepTogether>
+                                                  <Paragraphs>
+                                                    <Paragraph>
+                                                      <TextRuns>
+                                                        <TextRun>
+                                                          <Value rd:LocID="ReportLocalization.Maximalwert">Maximal-
+wert</Value>
+                                                          <Style>
+                                                            <FontSize>8pt</FontSize>
+                                                            <FontWeight>Bold</FontWeight>
+                                                          </Style>
+                                                        </TextRun>
+                                                      </TextRuns>
+                                                      <Style>
+                                                        <TextAlign>Right</TextAlign>
+                                                      </Style>
+                                                    </Paragraph>
+                                                  </Paragraphs>
+                                                  <rd:DefaultName>Textbox28</rd:DefaultName>
+                                                  <Style>
+                                                    <Border>
+                                                      <Color>=Parameters!TableVerticalBorderColor.Value</Color>
+                                                      <Style>Solid</Style>
+                                                    </Border>
+                                                    <TopBorder>
+                                                      <Color>=Parameters!TableHorizontalBorderColor.Value</Color>
+                                                      <Style>None</Style>
+                                                      <Width>1pt</Width>
+                                                    </TopBorder>
+                                                    <BottomBorder>
+                                                      <Color>=Parameters!TableHorizontalBorderColor.Value</Color>
+                                                      <Style>Solid</Style>
+                                                      <Width>1pt</Width>
+                                                    </BottomBorder>
+                                                    <LeftBorder>
+                                                      <Style>Solid</Style>
+                                                      <Width>1pt</Width>
+                                                    </LeftBorder>
+                                                    <RightBorder>
+                                                      <Style>Solid</Style>
+                                                      <Width>1pt</Width>
+                                                    </RightBorder>
+                                                    <BackgroundColor>=Parameters!TableHeaderBackgroundColor.Value</BackgroundColor>
+                                                    <VerticalAlign>Middle</VerticalAlign>
+                                                    <PaddingLeft>2pt</PaddingLeft>
+                                                    <PaddingRight>2pt</PaddingRight>
+                                                    <PaddingTop>2pt</PaddingTop>
+                                                    <PaddingBottom>2pt</PaddingBottom>
+                                                    <WritingMode>Vertical</WritingMode>
+                                                  </Style>
+                                                </Textbox>
+                                              </CellContents>
+                                            </TablixCell>
+                                          </TablixCells>
+                                        </TablixRow>
+                                      </TablixRows>
+                                    </TablixBody>
+                                    <TablixColumnHierarchy>
+                                      <TablixMembers>
+                                        <TablixMember />
+                                        <TablixMember />
+                                        <TablixMember />
+                                        <TablixMember />
+                                      </TablixMembers>
+                                    </TablixColumnHierarchy>
+                                    <TablixRowHierarchy>
+                                      <TablixMembers>
+                                        <TablixMember />
+                                        <TablixMember />
+                                      </TablixMembers>
+                                    </TablixRowHierarchy>
+                                    <DataSetName>AllerGemeindeHeader</DataSetName>
+                                    <Style>
+                                      <Border>
+                                        <Style>None</Style>
+                                      </Border>
+                                    </Style>
+                                  </Tablix>
+                                </CellContents>
+                              </TablixCell>
+                            </TablixCells>
+                          </TablixRow>
+                        </TablixRows>
+                      </TablixBody>
+                      <TablixColumnHierarchy>
+                        <TablixMembers>
+                          <TablixMember />
+                          <TablixMember />
+                          <TablixMember />
+                          <TablixMember />
+                          <TablixMember />
+                        </TablixMembers>
+                      </TablixColumnHierarchy>
+                      <TablixRowHierarchy>
+                        <TablixMembers>
+                          <TablixMember />
+                        </TablixMembers>
+                      </TablixRowHierarchy>
+                      <DataSetName>HeaderTable</DataSetName>
+                      <Style>
+                        <Border>
+                          <Style>None</Style>
+                        </Border>
+                      </Style>
+                    </Tablix>
+                  </CellContents>
+                </TablixCell>
+              </TablixCells>
+            </TablixRow>
+            <TablixRow>
+              <Height>0.33929in</Height>
+              <TablixCells>
+                <TablixCell>
+                  <CellContents>
+                    <Textbox Name="Textbox13">
+                      <KeepTogether>true</KeepTogether>
+                      <Paragraphs>
+                        <Paragraph>
+                          <TextRuns>
+                            <TextRun>
+                              <Value rd:LocID="ReportLocalization.RealisierteMassnahmen">Realisierte Massnahmen</Value>
+                              <Style>
+                                <FontSize>8pt</FontSize>
+                              </Style>
+                            </TextRun>
+                          </TextRuns>
+                          <Style />
+                        </Paragraph>
+                      </Paragraphs>
+                      <rd:DefaultName>Textbox13</rd:DefaultName>
+                      <Style>
+                        <Border>
+                          <Color>=Parameters!TableVerticalBorderColor.Value</Color>
+                          <Style>Solid</Style>
+                        </Border>
+                        <TopBorder>
+                          <Color>=Parameters!TableHorizontalBorderColor.Value</Color>
+                          <Style>Solid</Style>
+                          <Width>1pt</Width>
+                        </TopBorder>
+                        <BottomBorder>
+                          <Color>=Parameters!TableHorizontalBorderColor.Value</Color>
+                          <Style>Solid</Style>
+                          <Width>1pt</Width>
+                        </BottomBorder>
+                        <LeftBorder>
+                          <Style>Solid</Style>
+                          <Width>1pt</Width>
+                        </LeftBorder>
+                        <RightBorder>
+                          <Style>None</Style>
+                          <Width>1pt</Width>
+                        </RightBorder>
+                        <BackgroundColor>=Parameters!TableAlternatingRowBackgroungColor.Value</BackgroundColor>
+                        <VerticalAlign>Middle</VerticalAlign>
+                        <PaddingLeft>5pt</PaddingLeft>
+                        <PaddingRight>2pt</PaddingRight>
+                        <PaddingTop>2pt</PaddingTop>
+                        <PaddingBottom>2pt</PaddingBottom>
+                      </Style>
+                    </Textbox>
+                  </CellContents>
+                </TablixCell>
+                <TablixCell>
+                  <CellContents>
+                    <Subreport Name="BenchmarkauswertungRealisierteMassnahmenSubReport">
+                      <ReportName>BenchmarkauswertungRealisierteMassnahmenSubReport</ReportName>
+                      <Parameters>
+                        <Parameter Name="ShowBottomBorder">
+                          <Value>true</Value>
+                        </Parameter>
+                        <Parameter Name="HideGruppeColumn">
+                          <Value>=Parameters!HideGruppeColumn.Value</Value>
+                        </Parameter>
+                        <Parameter Name="CultureCode">
+                          <Value>=Parameters!CultureCode.Value</Value>
+                        </Parameter>
+                        <Parameter Name="TableHorizontalBorderColor">
+                          <Value>=Parameters!TableHorizontalBorderColor.Value</Value>
+                        </Parameter>
+                        <Parameter Name="TableVerticalBorderColor">
+                          <Value>=Parameters!TableVerticalBorderColor.Value</Value>
+                        </Parameter>
+                        <Parameter Name="TableAlternatingRowBackgroungColor">
+                          <Value>=Parameters!TableAlternatingRowBackgroungColor.Value</Value>
+                        </Parameter>
+                        <Parameter Name="FirstRowHasAlternatingBackroundColor">
+                          <Value>0</Value>
+                        </Parameter>
+                      </Parameters>
+                      <Style>
+                        <Border>
+                          <Color>=Parameters!TableVerticalBorderColor.Value</Color>
+                          <Style>None</Style>
+                        </Border>
+                        <TopBorder>
+                          <Color>=Parameters!TableHorizontalBorderColor.Value</Color>
+                          <Style>Solid</Style>
+                        </TopBorder>
+                        <BottomBorder>
+                          <Color>=Parameters!TableHorizontalBorderColor.Value</Color>
+                          <Style>Solid</Style>
+                        </BottomBorder>
+                      </Style>
+                    </Subreport>
+                    <rd:Selected>true</rd:Selected>
+                  </CellContents>
+                </TablixCell>
+              </TablixCells>
+            </TablixRow>
+            <TablixRow>
+              <Height>0.33929in</Height>
+              <TablixCells>
+                <TablixCell>
+                  <CellContents>
+                    <Textbox Name="Textbox11">
+                      <KeepTogether>true</KeepTogether>
+                      <Paragraphs>
+                        <Paragraph>
+                          <TextRuns>
+                            <TextRun>
+                              <Value rd:LocID="ReportLocalization.RealisierteMassnahmenPerWertverlustNetz">Realisierte Massnahmen / Wertverlust Netz</Value>
+                              <Style>
+                                <FontSize>8pt</FontSize>
+                              </Style>
+                            </TextRun>
+                          </TextRuns>
+                          <Style />
+                        </Paragraph>
+                      </Paragraphs>
+                      <rd:DefaultName>Textbox11</rd:DefaultName>
+                      <Style>
+                        <Border>
+                          <Color>=Parameters!TableVerticalBorderColor.Value</Color>
+                          <Style>Solid</Style>
+                        </Border>
+                        <TopBorder>
+                          <Color>=Parameters!TableHorizontalBorderColor.Value</Color>
+                          <Style>Solid</Style>
+                          <Width>1pt</Width>
+                        </TopBorder>
+                        <BottomBorder>
+                          <Color>=Parameters!TableHorizontalBorderColor.Value</Color>
+                          <Style>Solid</Style>
+                          <Width>1pt</Width>
+                        </BottomBorder>
+                        <LeftBorder>
+                          <Style>Solid</Style>
+                          <Width>1pt</Width>
+                        </LeftBorder>
+                        <RightBorder>
+                          <Style>None</Style>
+                          <Width>1pt</Width>
+                        </RightBorder>
+                        <BackgroundColor>=Parameters!TableAlternatingRowBackgroungColor.Value</BackgroundColor>
+                        <VerticalAlign>Middle</VerticalAlign>
+                        <PaddingLeft>5pt</PaddingLeft>
+                        <PaddingRight>2pt</PaddingRight>
+                        <PaddingTop>2pt</PaddingTop>
+                        <PaddingBottom>2pt</PaddingBottom>
+                      </Style>
+                    </Textbox>
+                  </CellContents>
+                </TablixCell>
+                <TablixCell>
+                  <CellContents>
+                    <Subreport Name="BenchmarkauswertungRealisierteMassnahmenProWertverlustSubReport">
+                      <ReportName>BenchmarkauswertungRealisierteMassnahmenProWertverlustSubReport</ReportName>
+                      <Parameters>
+                        <Parameter Name="ShowBottomBorder">
+                          <Value>false</Value>
+                        </Parameter>
+                        <Parameter Name="HideGruppeColumn">
+                          <Value>=Parameters!HideGruppeColumn.Value</Value>
+                        </Parameter>
+                        <Parameter Name="CultureCode">
+                          <Value>=Parameters!CultureCode.Value</Value>
+                        </Parameter>
+                        <Parameter Name="TableHorizontalBorderColor">
+                          <Value>=Parameters!TableHorizontalBorderColor.Value</Value>
+                        </Parameter>
+                        <Parameter Name="TableVerticalBorderColor">
+                          <Value>=Parameters!TableVerticalBorderColor.Value</Value>
+                        </Parameter>
+                        <Parameter Name="TableAlternatingRowBackgroungColor">
+                          <Value>=Parameters!TableAlternatingRowBackgroungColor.Value</Value>
+                        </Parameter>
+                        <Parameter Name="FirstRowHasAlternatingBackroundColor">
+                          <Value>0</Value>
+                        </Parameter>
+                      </Parameters>
+                      <Style>
+                        <Border>
+                          <Color>=Parameters!TableVerticalBorderColor.Value</Color>
+                          <Style>None</Style>
+                        </Border>
+                        <TopBorder>
+                          <Color>=Parameters!TableHorizontalBorderColor.Value</Color>
+                          <Style>Solid</Style>
+                        </TopBorder>
+                        <BottomBorder>
+                          <Color>=Parameters!TableHorizontalBorderColor.Value</Color>
+                          <Style>Solid</Style>
+                        </BottomBorder>
+                      </Style>
+                    </Subreport>
+                  </CellContents>
+                </TablixCell>
+              </TablixCells>
+            </TablixRow>
+            <TablixRow>
+              <Height>0.33929in</Height>
+              <TablixCells>
+                <TablixCell>
+                  <CellContents>
+                    <Textbox Name="Textbox9">
+                      <KeepTogether>true</KeepTogether>
+                      <Paragraphs>
+                        <Paragraph>
+                          <TextRuns>
+                            <TextRun>
+                              <Value rd:LocID="ReportLocalization.RealisierteMassnahmenPerWBW">Realisierte Massnahmen / WBW</Value>
+                              <Style>
+                                <FontSize>8pt</FontSize>
+                              </Style>
+                            </TextRun>
+                          </TextRuns>
+                          <Style />
+                        </Paragraph>
+                      </Paragraphs>
+                      <rd:DefaultName>Textbox9</rd:DefaultName>
+                      <Style>
+                        <Border>
+                          <Color>=Parameters!TableVerticalBorderColor.Value</Color>
+                          <Style>Solid</Style>
+                        </Border>
+                        <TopBorder>
+                          <Color>=Parameters!TableHorizontalBorderColor.Value</Color>
+                          <Style>Solid</Style>
+                          <Width>1pt</Width>
+                        </TopBorder>
+                        <BottomBorder>
+                          <Color>=Parameters!TableHorizontalBorderColor.Value</Color>
+                          <Style>Solid</Style>
+                          <Width>1pt</Width>
+                        </BottomBorder>
+                        <LeftBorder>
+                          <Style>Solid</Style>
+                          <Width>1pt</Width>
+                        </LeftBorder>
+                        <RightBorder>
+                          <Style>None</Style>
+                          <Width>1pt</Width>
+                        </RightBorder>
+                        <BackgroundColor>=Parameters!TableAlternatingRowBackgroungColor.Value</BackgroundColor>
+                        <VerticalAlign>Middle</VerticalAlign>
+                        <PaddingLeft>5pt</PaddingLeft>
+                        <PaddingRight>2pt</PaddingRight>
+                        <PaddingTop>2pt</PaddingTop>
+                        <PaddingBottom>2pt</PaddingBottom>
+                      </Style>
+                    </Textbox>
+                  </CellContents>
+                </TablixCell>
+                <TablixCell>
+                  <CellContents>
+                    <Subreport Name="BenchmarkauswertungRealisierteMassnahmenProWBWSubReport">
+                      <ReportName>BenchmarkauswertungRealisierteMassnahmenProWBWSubReport</ReportName>
+                      <Parameters>
+                        <Parameter Name="ShowBottomBorder">
+                          <Value>false</Value>
+                        </Parameter>
+                        <Parameter Name="HideGruppeColumn">
+                          <Value>=Parameters!HideGruppeColumn.Value</Value>
+                        </Parameter>
+                        <Parameter Name="CultureCode">
+                          <Value>=Parameters!CultureCode.Value</Value>
+                        </Parameter>
+                        <Parameter Name="TableHorizontalBorderColor">
+                          <Value>=Parameters!TableHorizontalBorderColor.Value</Value>
+                        </Parameter>
+                        <Parameter Name="TableVerticalBorderColor">
+                          <Value>=Parameters!TableVerticalBorderColor.Value</Value>
+                        </Parameter>
+                        <Parameter Name="TableAlternatingRowBackgroungColor">
+                          <Value>=Parameters!TableAlternatingRowBackgroungColor.Value</Value>
+                        </Parameter>
+                        <Parameter Name="FirstRowHasAlternatingBackroundColor">
+                          <Value>1</Value>
+                        </Parameter>
+                      </Parameters>
+                      <Style>
+                        <Border>
+                          <Color>=Parameters!TableVerticalBorderColor.Value</Color>
+                          <Style>None</Style>
+                        </Border>
+                        <TopBorder>
+                          <Color>=Parameters!TableHorizontalBorderColor.Value</Color>
+                          <Style>Solid</Style>
+                        </TopBorder>
+                        <BottomBorder>
+                          <Color>=Parameters!TableHorizontalBorderColor.Value</Color>
+                          <Style>Solid</Style>
+                        </BottomBorder>
+                      </Style>
+                    </Subreport>
+                  </CellContents>
+                </TablixCell>
+              </TablixCells>
+            </TablixRow>
+            <TablixRow>
+              <Height>0.62053in</Height>
+              <TablixCells>
+                <TablixCell>
+                  <CellContents>
+                    <Textbox Name="Textbox7">
+                      <CanGrow>true</CanGrow>
+                      <KeepTogether>true</KeepTogether>
+                      <Paragraphs>
+                        <Paragraph>
+                          <TextRuns>
+                            <TextRun>
+                              <Value rd:LocID="ReportLocalization.RealisierteMassnahmenPerWBWJeBelastungskategorie">Ralisierte Massnahmen / WBW je Belastungskategorie</Value>
+                              <Style>
+                                <FontSize>8pt</FontSize>
+                              </Style>
+                            </TextRun>
+                          </TextRuns>
+                          <Style>
+                            <TextAlign>Center</TextAlign>
+                          </Style>
+                        </Paragraph>
+                      </Paragraphs>
+                      <rd:DefaultName>Textbox7</rd:DefaultName>
+                      <Style>
+                        <Border>
+                          <Color>=Parameters!TableVerticalBorderColor.Value</Color>
+                          <Style>Solid</Style>
+                        </Border>
+                        <TopBorder>
+                          <Color>=Parameters!TableHorizontalBorderColor.Value</Color>
+                          <Style>Solid</Style>
+                          <Width>1pt</Width>
+                        </TopBorder>
+                        <BottomBorder>
+                          <Color>=Parameters!TableHorizontalBorderColor.Value</Color>
+                          <Style>Solid</Style>
+                          <Width>1pt</Width>
+                        </BottomBorder>
+                        <LeftBorder>
+                          <Style>Solid</Style>
+                          <Width>1pt</Width>
+                        </LeftBorder>
+                        <RightBorder>
+                          <Style>None</Style>
+                          <Width>1pt</Width>
+                        </RightBorder>
+                        <BackgroundColor>=Parameters!TableAlternatingRowBackgroungColor.Value</BackgroundColor>
+                        <VerticalAlign>Middle</VerticalAlign>
+                        <PaddingLeft>2pt</PaddingLeft>
+                        <PaddingRight>2pt</PaddingRight>
+                        <PaddingTop>2pt</PaddingTop>
+                        <PaddingBottom>2pt</PaddingBottom>
+                        <WritingMode>Vertical</WritingMode>
+                      </Style>
+                    </Textbox>
+                  </CellContents>
+                </TablixCell>
+                <TablixCell>
+                  <CellContents>
+                    <Subreport Name="BenchmarkauswertungRealisierteMassnahmenProBelastungskategorieSubReport">
+                      <ReportName>BenchmarkauswertungRealisierteMassnahmenProBelastungskategorieSubReport</ReportName>
+                      <Parameters>
+                        <Parameter Name="ShowBottomBorder">
+                          <Value>true</Value>
+                        </Parameter>
+                        <Parameter Name="HideGruppeColumn">
+                          <Value>=Parameters!HideGruppeColumn.Value</Value>
+                        </Parameter>
+                        <Parameter Name="CultureCode">
+                          <Value>=Parameters!CultureCode.Value</Value>
+                        </Parameter>
+                        <Parameter Name="TableHorizontalBorderColor">
+                          <Value>=Parameters!TableHorizontalBorderColor.Value</Value>
+                        </Parameter>
+                        <Parameter Name="TableVerticalBorderColor">
+                          <Value>=Parameters!TableVerticalBorderColor.Value</Value>
+                        </Parameter>
+                        <Parameter Name="TableAlternatingRowBackgroungColor">
+                          <Value>=Parameters!TableAlternatingRowBackgroungColor.Value</Value>
+                        </Parameter>
+                        <Parameter Name="FirstRowHasAlternatingBackroundColor">
+                          <Value>0</Value>
+                        </Parameter>
+                      </Parameters>
+                      <Style>
+                        <Border>
+                          <Color>=Parameters!TableVerticalBorderColor.Value</Color>
+                          <Style>None</Style>
+                        </Border>
+                        <TopBorder>
+                          <Color>=Parameters!TableHorizontalBorderColor.Value</Color>
+                          <Style>Solid</Style>
+                        </TopBorder>
+                        <BottomBorder>
+                          <Color>=Parameters!TableHorizontalBorderColor.Value</Color>
+                          <Style>Solid</Style>
+                        </BottomBorder>
+                      </Style>
+                    </Subreport>
+                  </CellContents>
+                </TablixCell>
+              </TablixCells>
+            </TablixRow>
+          </TablixRows>
+        </TablixBody>
+        <TablixColumnHierarchy>
+          <TablixMembers>
+            <TablixMember />
+            <TablixMember />
+          </TablixMembers>
+        </TablixColumnHierarchy>
+        <TablixRowHierarchy>
+          <TablixMembers>
+            <TablixMember />
+            <TablixMember />
+            <TablixMember />
+            <TablixMember />
+            <TablixMember />
+          </TablixMembers>
+        </TablixRowHierarchy>
+        <DataSetName>BenchmarkauswertungKennwertenRealisiertenMassnahmen</DataSetName>
+        <Height>2.88393in</Height>
+        <Width>7.43622in</Width>
+        <Style>
+          <Border>
+            <Style>None</Style>
+          </Border>
+        </Style>
+      </Tablix>
+      <Subreport Name="FilterListSubReport">
+        <ReportName>FilterListSubReport</ReportName>
+        <Parameters>
+          <Parameter Name="CultureCode">
+            <Value>=Parameters!CultureCode.Value</Value>
+          </Parameter>
+        </Parameters>
+        <Top>7.32519cm</Top>
+        <Height>4.29271cm</Height>
+        <Width>7.44708cm</Width>
+        <ZIndex>1</ZIndex>
+        <Visibility>
+          <Hidden>=Parameters!IsPreview.Value</Hidden>
+        </Visibility>
+        <Style>
+          <Border>
+            <Style>None</Style>
+          </Border>
+        </Style>
+      </Subreport>
+    </ReportItems>
+    <Height>11.6179cm</Height>
+    <Style />
+  </Body>
+  <Width>26cm</Width>
+  <Page>
+    <PageHeight>21cm</PageHeight>
+    <PageWidth>29.7cm</PageWidth>
+    <LeftMargin>1cm</LeftMargin>
+    <RightMargin>1cm</RightMargin>
+    <TopMargin>1cm</TopMargin>
+    <BottomMargin>1cm</BottomMargin>
+    <ColumnSpacing>1.27cm</ColumnSpacing>
+    <Style />
+  </Page>
+  <AutoRefresh>0</AutoRefresh>
+  <DataSources>
+    <DataSource Name="ASTRAEMSGBusinessReportsBenchmarkauswertungKennwertenRealisiertenMassnahmen">
+      <ConnectionProperties>
+        <DataProvider>System.Data.DataSet</DataProvider>
+        <ConnectString>/* Local Connection */</ConnectString>
+      </ConnectionProperties>
+      <rd:DataSourceID>befca5f7-6ec4-4c3a-95ee-a16e3a0777e3</rd:DataSourceID>
+    </DataSource>
+  </DataSources>
+  <DataSets>
+    <DataSet Name="BenchmarkauswertungKennwertenRealisiertenMassnahmen">
+      <Query>
+        <DataSourceName>ASTRAEMSGBusinessReportsBenchmarkauswertungKennwertenRealisiertenMassnahmen</DataSourceName>
+        <CommandText>/* Local Query */</CommandText>
+      </Query>
+      <Fields>
+        <Field Name="AnzahlGemeindenInAllerGemeinde">
+          <DataField>AnzahlGemeindenInAllerGemeinde</DataField>
+          <rd:TypeName>System.Nullable`1[[System.Decimal, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089]]</rd:TypeName>
+        </Field>
+        <Field Name="AnzahlGemeindenInDerGruppe">
+          <DataField>AnzahlGemeindenInDerGruppe</DataField>
+          <rd:TypeName>System.Nullable`1[[System.Decimal, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089]]</rd:TypeName>
+        </Field>
+        <Field Name="BeschreibungDetails">
+          <DataField>BeschreibungDetails</DataField>
+          <rd:TypeName>System.String</rd:TypeName>
+        </Field>
+        <Field Name="Bezugsgroesse">
+          <DataField>Bezugsgroesse</DataField>
+          <rd:TypeName>System.String</rd:TypeName>
+        </Field>
+        <Field Name="Einheit">
+          <DataField>Einheit</DataField>
+          <rd:TypeName>System.String</rd:TypeName>
+        </Field>
+        <Field Name="MaximalwertInAllerGemeinde">
+          <DataField>MaximalwertInAllerGemeinde</DataField>
+          <rd:TypeName>System.Nullable`1[[System.Decimal, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089]]</rd:TypeName>
+        </Field>
+        <Field Name="MaximalwertInDerGruppe">
+          <DataField>MaximalwertInDerGruppe</DataField>
+          <rd:TypeName>System.Nullable`1[[System.Decimal, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089]]</rd:TypeName>
+        </Field>
+        <Field Name="MinimalwertInAllerGemeinde">
+          <DataField>MinimalwertInAllerGemeinde</DataField>
+          <rd:TypeName>System.Nullable`1[[System.Decimal, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089]]</rd:TypeName>
+        </Field>
+        <Field Name="MinimalwertInDerGruppe">
+          <DataField>MinimalwertInDerGruppe</DataField>
+          <rd:TypeName>System.Nullable`1[[System.Decimal, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089]]</rd:TypeName>
+        </Field>
+        <Field Name="MittelwertInAllerGemeinde">
+          <DataField>MittelwertInAllerGemeinde</DataField>
+          <rd:TypeName>System.Nullable`1[[System.Decimal, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089]]</rd:TypeName>
+        </Field>
+        <Field Name="MittelwertInDerGruppe">
+          <DataField>MittelwertInDerGruppe</DataField>
+          <rd:TypeName>System.Nullable`1[[System.Decimal, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089]]</rd:TypeName>
+        </Field>
+        <Field Name="Organisation">
+          <DataField>Organisation</DataField>
+          <rd:TypeName>System.Nullable`1[[System.Decimal, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089]]</rd:TypeName>
+        </Field>
+        <Field Name="GleitendesMittel">
+          <DataField>GleitendesMittel</DataField>
+          <rd:TypeName>System.Nullable`1[[System.Decimal, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089]]</rd:TypeName>
+        </Field>
+        <Field Name="SortOrder">
+          <DataField>SortOrder</DataField>
+          <rd:TypeName>System.Int32</rd:TypeName>
+        </Field>
+      </Fields>
+      <rd:DataSetInfo>
+        <rd:DataSetName>ASTRA.EMSG.Business.Reports.BenchmarkauswertungKennwertenRealisiertenMassnahmen</rd:DataSetName>
+        <rd:TableName>BenchmarkauswertungKennwertenRealisiertenMassnahmenPo</rd:TableName>
+        <rd:ObjectDataSourceType>ASTRA.EMSG.Business.Reports.BenchmarkauswertungKennwertenRealisiertenMassnahmen.BenchmarkauswertungKennwertenRealisiertenMassnahmenPo, ASTRA.EMSG.Business, Version=1.0.4561.26262, Culture=neutral, PublicKeyToken=null</rd:ObjectDataSourceType>
+      </rd:DataSetInfo>
+    </DataSet>
+  </DataSets>
+  <ReportParameters>
+    <ReportParameter Name="MandantImage">
+      <DataType>String</DataType>
+      <Prompt>ReportParameter1</Prompt>
+    </ReportParameter>
+    <ReportParameter Name="CultureCode">
+      <DataType>String</DataType>
+      <Prompt>ReportParameter1</Prompt>
+    </ReportParameter>
+    <ReportParameter Name="IsPreview">
+      <DataType>Boolean</DataType>
+      <Prompt>ReportParameter1</Prompt>
+    </ReportParameter>
+    <ReportParameter Name="ReportNoDecimalFormat">
+      <DataType>String</DataType>
+      <Prompt>ReportParameter1</Prompt>
+    </ReportParameter>
+    <ReportParameter Name="ReportShortDecimalFormat">
+      <DataType>String</DataType>
+      <Prompt>ReportParameter1</Prompt>
+    </ReportParameter>
+    <ReportParameter Name="ReportLongDecimalFormat">
+      <DataType>String</DataType>
+      <Prompt>ReportParameter1</Prompt>
+    </ReportParameter>
+    <ReportParameter Name="IsForClosedErfassungsPeriod">
+      <DataType>Boolean</DataType>
+      <Prompt>ReportParameter1</Prompt>
+    </ReportParameter>
+    <ReportParameter Name="HideGruppeColumn">
+      <DataType>Boolean</DataType>
+      <Prompt>ReportParameter1</Prompt>
+    </ReportParameter>
+    <ReportParameter Name="TableHeaderBackgroundColor">
+      <DataType>String</DataType>
+      <Prompt>ReportParameter1</Prompt>
+    </ReportParameter>
+    <ReportParameter Name="TableHorizontalBorderColor">
+      <DataType>String</DataType>
+      <Prompt>ReportParameter1</Prompt>
+    </ReportParameter>
+    <ReportParameter Name="TableVerticalBorderColor">
+      <DataType>String</DataType>
+      <Prompt>ReportParameter1</Prompt>
+    </ReportParameter>
+    <ReportParameter Name="TableAlternatingRowBackgroungColor">
+      <DataType>String</DataType>
+      <Prompt>ReportParameter1</Prompt>
+    </ReportParameter>
+  </ReportParameters>
+  <Language>=Parameters!CultureCode.Value</Language>
+  <CodeModules>
+    <CodeModule>System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</CodeModule>
+  </CodeModules>
+  <rd:ReportUnitType>Cm</rd:ReportUnitType>
+  <rd:ReportID>79512752-de39-465d-8301-b1bdef991ce4</rd:ReportID>
+</Report>

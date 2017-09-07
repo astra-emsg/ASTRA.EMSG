@@ -1,0 +1,24 @@
+﻿@using ASTRA.EMSG.Web.Infrastructure.HtmlHelperExtensions
+
+@model ASTRA.EMSG.Business.Models.Strassennamen.ZustandsabschnittModel
+
+<div class="popupFormFieldset">
+    @Html.HiddenFor(m => m.Id)
+    @Html.HiddenFor(m => m.Strassenabschnitt)
+    @Html.HiddenFor(m => m.Erfassungsmodus)
+    @Html.HiddenFor(m => m.Zustandsindex)
+    @Html.HiddenFor(m => m.HasTrottoir)
+    @(Html.EditorTable(createErrorDialogs: false)
+            .WithDecimalEditorFor(m => m.Laenge)
+            .WithDateTimeEditorFor(m => m.Aufnahmedatum)
+            .WithIntegerEditorFor(m => m.Abschnittsnummer, 9, false)
+            .WithTextBoxFor(m => m.Aufnahmeteam, false)
+            .WithEnumEditorFor(m => m.Wetter, () => Model.Wetter, requiredField: false)
+            .WithTextAreaFor(m => m.Bemerkung, false)
+            .WithDisplayFor(m => m.FlaecheFahrbahn, false)
+            .WithDisplayFor(m => m.FlaceheTrottoirLinks, false)
+            .WithDisplayFor(m => m.FlaceheTrottoirRechts, false))
+
+
+</div>
+

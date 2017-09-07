@@ -1,0 +1,13 @@
+﻿@using ASTRA.EMSG.Web.Infrastructure.HtmlHelperExtensions
+@using Resources
+@model dynamic
+
+@section JavaScript
+{
+    <script type="text/javascript" src="@(Url.Content("~/Scripts/Areas/NetzverwaltungGIS/Common.js"))"></script>     
+    <script type="text/javascript" src="@(Url.Content("~/Scripts/Areas/NetzverwaltungGIS/NetzdefinitionUndStrassenabschnittGIS/NetzdefinitionUndStrassenabschnittGIS.js"))"></script>     
+}
+
+@Html.Partial("OverviewDetailsTabs")
+
+@Html.TelerikWindow(TitleLocalization.SplitStrassenabschnittPopupTitle, "SplitStrassenabschnittGISWindow", "splitStrassenabschnittGISFormDiv").Events(events => events.Close("split.onClose"))
