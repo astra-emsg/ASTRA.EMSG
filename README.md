@@ -1,6 +1,6 @@
 # EMSG 
 
-The application abbreviation EMSG stands for "Erhaltungsmanagement im Siedlungsgebiet", which means "Asset Management of urban Road Systems". It is a GIS system consisting of "EMSG-Master" - the main web application (C# .Net 4.5 with SQL-Server as DB and GeoServer for the GIS part), and "EMSG-Mobile" - a simple rich client (WPF .Net 4.0 C#) which allows editing the GIS and technical data in an offline mode. EMSG was originally developed by the Swiss government to support the maintenance of roads in small local municipalities. The application development was stopped in fall 2017 after EMSG was declared open source. For further technical and user documentation please refer to the "documentation" folder of this repository.
+The application abbreviation EMSG stands for "Erhaltungsmanagement im Siedlungsgebiet", which means "Asset Management of urban Road Systems". It is a GIS system consisting of "EMSG-Master" - the main web application (C# .Net 4.5 with SQL-Server as DB and GeoServer for the GIS part), and "EMSG-Mobile" - a simple rich client (WPF .Net 4.0 C#) which allows editing the GIS and technical data in an offline mode. EMSG was originally developed by the Swiss government to support the maintenance of roads in small local municipalities. The application development was stopped in fall 2017 after EMSG was declared open source. For further technical and user documentation please check the "[documentation](/documentation)" folder of this repository.
  
 ## Install:
 ```
